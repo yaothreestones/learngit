@@ -11,10 +11,11 @@ html,body{
     color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 h2 {
-    margin: 0;
+    position: relative;
+    left: 45%;
+    margin: 0  0 0 -50px;
 }
 .center{
     height:9rem;
@@ -123,4 +124,15 @@ p{
     position: absolute;
     right:5%;
     bottom:20%;
+}
+.return{
+    position: relative;
+    left:5%;
+    width:1rem;
+}
+.p2{
+    padding-left: 0.5rem;
+    border-left: 2px;
+    border-left-style: inset;
+    border-color: #5fc0cd;
 }

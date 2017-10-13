@@ -1,3 +1,6 @@
+html{
+    overflow-x: hidden;
+}
 html,body{
     margin:0;
     width:100%;
@@ -135,4 +138,8 @@ p{
     border-left: 2px;
     border-left-style: inset;
     border-color: #5fc0cd;
+}
+.blank{
+    height:3.8rem;
+    width:100%;
 }

@@ -1,4 +1,4 @@
-html,body{
+html,body {
     margin:0;
     width:100%;
     height:100%;
@@ -17,10 +17,11 @@ html,body{
 }
 h2 {
     position: relative;
-    left: 45%;
-    margin: 0  0 0 -50px;
+    width:100%;
+    margin: 0  0 0 -5%;
+    text-align: center;
 }
-.center{
+.center {
     height:9rem;
     color:white;
     display: flex;
@@ -31,36 +32,34 @@ h2 {
     margin-top: -1px;
     align-items: center;
 }
-.img1{
+.img1 {
     height:50%;
     position: relative;
     left: 1em;
 }
-h3{
+h3 {
     margin: 0;
 }
-.p1{
+.p1 {
     margin:0;
     font-size: 0.5rem;
     line-height:1rem;
 }
-.img2{
+.img2 {
     height: 0.9rem;
     margin-bottom: -0.3rem;
 }
-.div1{
+.div1 {
     position: relative;
     left:2rem;
     width: 50%;
 }
-.bottom{
+.bottom {
     top: 9rem;
     width:100%;
-    height:18rem;
     margin-top:-1px;
 }
-.div2{
-    height: 3rem;
+.div2 {
     width:90%;
     right:0;
     display: flex;
@@ -69,11 +68,11 @@ h3{
     border-bottom: 2px;
     border-bottom-style: inset;
 }
-pre{
+pre {
     margin:0;
     font-size:1.2rem;
 }
-.div3{
+.div3 {
     padding-left: 2rem;
     display: flex;
     align-items: center;
@@ -81,25 +80,25 @@ pre{
     border-bottom:2px;
     border-bottom-style:inset;
 }
-.div4{
+.div4 {
     padding:0 0.5rem 0 0;
     margin-left: 0.5rem;
     border-right:2px;
     border-right-style: inset;
 }
-.div5{
+.div5 {
     padding:0 0 0 0.5rem;
 }
-.img3{
+.img3 {
     width: 1rem;
 }
-.div6{
+.div6 {
     padding:0 0.5rem 0 0;
     margin-left: 0.5rem;
     border-right:2px;
     border-right-style: inset;
 }
-.div7{
+.div7 {
     padding-left: 2rem;
     display: flex;
     align-items: center;
@@ -107,37 +106,37 @@ pre{
     border-bottom-style:inset;
     min-height:3rem;
 }
-.down{
+.down {
     width:100%;
     position: fixed;
     bottom: 0;
     height: 3rem;
     background: white;
 }
-.img4{
+.img4 {
     width:8rem;
     position: absolute;
     left:5%;
     bottom:20%;
 }
-.img5{
+.img5 {
     width:8rem;
     position: absolute;
     right:5%;
     bottom:20%;
 }
-.return{
+.return {
     position: relative;
     left:5%;
     width:1rem;
 }
-.p2{
+.p2 {
     padding-left: 0.5rem;
     border-left: 2px;
     border-left-style: inset;
     border-color: #5fc0cd;
 }
-.blank{
+.blank {
     height:3.8rem;
     width:100%;
 }

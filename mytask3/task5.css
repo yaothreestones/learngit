@@ -114,16 +114,26 @@ pre {
     background: white;
 }
 .img4 {
-    width:8rem;
+    width:30%;
     position: absolute;
     left:5%;
     bottom:20%;
+    border-radius: 10px;
+    height: 3rem;
+    background-color: #ffffff;
+    border-color: #5fc0cd;
+    color: #5fc0cd;
+    mso-border-shadow:no;
+    border:0;
 }
 .img5 {
-    width:8rem;
+    width:30%;
     position: absolute;
     right:5%;
     bottom:20%;
+    border-radius:10px;
+    background:#5fc0cd;
+    height: 3rem
 }
 .return {
     position: relative;

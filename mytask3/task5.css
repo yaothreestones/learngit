@@ -122,8 +122,10 @@ pre {
     height: 3rem;
     background-color: #ffffff;
     color: #5fc0cd;
-    border:0;
+    border: none;
     box-shadow: inset 0 0 0 2px #5fc0cd;
+    outline:none;
+    cursor: pointer;
 }
 .img5 {
     width: 40%;
@@ -133,8 +135,10 @@ pre {
     border-radius:10px;
     background:#5fc0cd;
     height: 3rem;
-    border: 0;
+    border: none;
     color: #fff;
+    outline:none;
+    cursor: pointer;
 }
 .return {
     position: relative;

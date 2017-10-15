@@ -142,8 +142,6 @@ span {
 p {
     margin:0 !important;
     padding-left: 10% !important;
-    text-overflow:ellipsis !important;
-    overflow :hidden;
 }
 a {
     padding:0 !important;
@@ -170,7 +168,7 @@ a {
 }
 .div7 {
     width: 20px;
-    height: 20px;
+    height: 19px;
     background-image: url(雪碧.png);
     background-position: 0 -20px;
     margin-left:1rem;
@@ -201,4 +199,7 @@ button {
 }
 label:active{
     color :#FFFFFF !important;
+}
+ul {
+    width:100% !important;
 }

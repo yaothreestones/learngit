@@ -143,6 +143,7 @@ p {
     margin:0 !important;
     padding-left: 10% !important;
     overflow: hidden;
+    text-overflow:ellipsis;
 }
 a {
     padding:0 !important;

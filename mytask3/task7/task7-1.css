@@ -265,12 +265,12 @@ h2 {
     font-size: 1.5rem;
     color: #fff;
 }
-body div div {
+/*body div div {
     text-align: left;
     font-size: 1.5rem;
     color: #fff;
     z-index: 666;
-}
+}*/
 .ul1 {
     list-style: none;
     padding:0;

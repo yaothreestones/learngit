@@ -1,6 +1,5 @@
 html,body {
     margin:0;
-    background: #29bde0;
 }
 header {
     position: fixed !important;
@@ -88,6 +87,7 @@ main {
     overflow-y: auto;
     width :100%;
     bottom :6rem;
+    background: #29BDE0;
 }
 .div7 {
     height: 3rem;
@@ -100,6 +100,7 @@ main {
 .button2 {
     width: 100%;
     padding: 0;
+    border: .25rem solid #fff;
 }
 .div8 {
     width: 100%;
@@ -131,6 +132,7 @@ footer {
     padding: 0;
     float: left;
     margin: 4%;
+    margin-top:0;
 }
 .role:hover .child {
     visibility: visible;
@@ -138,7 +140,8 @@ footer {
 .child {
     visibility: hidden;
     width:100%;
-    padding-bottom: 20%;
+    padding: 20% 0;
+
 }
 .hover1 {
     background-image: url(hover.png);
@@ -209,6 +212,7 @@ footer a button {
     width: 100%;
     height: 4rem;
     z-index: 666;
+    border-bottom: 1px solid #fff;
 }
 .a2 {
     float: left;
@@ -257,7 +261,10 @@ h2 {
     max-width: 72.5rem;
     margin: 0 auto;
     color: #ffc865;
-    font-size:2rem;
+    font-size:1.8rem;
+    line-height: 1.5rem;
+    font-family: "微软雅黑";
+    padding-bottom:2rem;
 }
 .header-div3 {
     max-width: 72.5rem;
@@ -297,8 +304,6 @@ h2 {
     border-left:0;
     border-right:0;
     list-style: none;
-    padding:0;
-    text-align: center;
 }
 .footer-div0 {
     position: fixed;
@@ -317,6 +322,10 @@ h2 {
     margin: 0.5rem;
     opacity:1;
     bottom:0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
 }
 .footer-button2 {
     position: fixed;
@@ -328,4 +337,11 @@ h2 {
     opacity:1;
     bottom:0;
     right:0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+}
+ul div {
+    text-align: left;
 }

@@ -25,9 +25,10 @@ html,body {
     cursor: pointer;
     outline: none;
     margin-right: 1rem;
+    padding:0;
 }
 .button2 {
-    background: url("顶部雪碧图.png") -38px 0 no-repeat;
+    background: url("顶部雪碧图.png") 50% 0 no-repeat;
     background-size: cover;
     width: 2rem;
     height: 2rem;
@@ -35,15 +36,17 @@ html,body {
     cursor: pointer;
     outline: none;
     margin-right: 1rem;
+    padding:0;
 }
 .button3 {
-    background: url("顶部雪碧图.png") -75px 0 no-repeat;
+    background: url("顶部雪碧图.png") 100% 0 no-repeat;
     background-size: cover;
     width: 2rem;
     height: 2rem;
     border: 0;
     cursor: pointer;
     outline: none;
+    padding:0;
 }
 .row2-div {
     text-align: center;

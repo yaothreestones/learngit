@@ -1,18 +1,18 @@
 html,body {
     margin: 0;
     background: #fafafa !important;
+    font-family: 微软雅黑 !important;
 }
 .top1 {
     color: #29b078;
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: .5rem 0;
 }
 .topright {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     padding: .33rem 0;
 }
 
@@ -182,14 +182,16 @@ html,body {
     padding-bottom:1rem;;
 }
 .circle1 {
-    width: 4rem;
     border-radius: 50%;
     border: 1px solid #999;
     line-height: 0;
-    text-align: center;
-    padding: 2rem 0;
+    padding: 2rem;
     color: #29b078;
     background: #fff;
+    width: 0;
+    height: 0;
+    display: flex;
+    justify-content: center;
 }
 .row7-mid {
     padding:0 1rem;
@@ -330,15 +332,14 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 5rem;
 }
 .img-logo {
     height:3rem;
 }
 .page2-button {
-    width: 70%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
 }
 .row3-2 {
     padding:0 !important;
@@ -367,15 +368,17 @@ a {
     margin-top: 1rem;
 }
 .list-top {
-    text-align: center;
+    font-size: 14px;
+    width: 80px;
+    margin: 0 auto;
     font-family: 微软雅黑;
     border-bottom: 1px solid #ededed;
-    padding:.5rem 0;
+    padding: .5rem 0;
 }
 .list {
-    padding-top:1rem;
-    width: 70%;
-    margin:0 auto;
+    padding-top: 1rem;
+    width: 90px;
+    margin: 0 auto;
     font-family: 微软雅黑;
 }
 .tudouwang {
@@ -440,4 +443,85 @@ p {
     align-items: center;
     padding:2rem 0;
     border-bottom:1px solid #d0d6d9;
+}
+table {
+    width: 100%;
+}
+.table-head {
+    display: flex;
+    align-items: center;
+}
+.web-img {
+    background: url("职业头像.png") no-repeat center;
+    background-size: cover;
+    padding: 20%;
+    margin:5% 3%;
+    height:0;
+    width: 0;
+}
+.table-p {
+    text-indent: 0;
+}
+.danteng {
+    display: flex;
+    align-items: center;
+}
+.star-left {
+}
+.star {
+    background: url("红五角.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 2rem;
+    width: 2rem;
+    margin-left:1rem;
+}
+.table-size {
+    background: #ffffff;
+}
+td {
+    border: #eeeded solid thin;
+    padding:3% !important;
+    font-size: 12px;
+}
+red {
+    color: #f01400;
+}
+.pay {
+    float: right;
+}
+.size {
+    margin:3rem 0;
+}
+.col-sm-3 {
+    font-size:12px;
+}
+.divhover {
+    animation: myfirst 4s alternate;
+    visibility: hidden;
+    position: absolute !important;
+    background: #3d3d3d;
+    color: #FFFFFF;
+    line-height: 22px;
+    margin-right:15px;
+    height: 100%;
+    padding:30% 15%;
+    opacity: .76;
+    animation-iteration-count:infinite;
+}
+@keyframes myfirst {
+    0% {opacity: 0;}
+    25% {opacity: .18;}
+    50% {opacity: .36;}
+    75% {opacity: .54;}
+    100% {opacity: .76;}
+}
+.div1:hover .divhover {
+    visibility: visible;
+}
+.div1 {
+}
+.ios {
+    text-align: center;
+    padding-bottom: 10%;
 }

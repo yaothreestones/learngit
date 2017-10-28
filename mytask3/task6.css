@@ -179,10 +179,10 @@ a {
 .div8 {
     width: 20px;
     height: 20px;
-    background-image: url(雪碧.png);
-    background-position: 0 -40px;
+    background: url(雪碧.png) 0 -40px;
     margin-right:1rem;
     float:right;
+    background-repeat: no-repeat;
 }
 .div9 {
     float:right;

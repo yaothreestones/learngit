@@ -525,3 +525,28 @@ red {
     text-align: center;
     padding-bottom: 10%;
 }
+/*@media*/
+@media screen and (max-width: 768px) {
+    .page2-button {
+        float: right;
+        background: url("下拉菜单.png") no-repeat 0 0;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        margin:20px;
+        background-size: cover;
+    }
+    .page2-button:hover .newbutton {
+        visibility: visible;
+    }
+    .newbutton {
+        position: absolute;
+        top:100%;
+        right:1%;
+        z-index: 1;
+        visibility: hidden;
+    }
+    .logo {
+        float: left;
+    }
+}

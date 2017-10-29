@@ -540,7 +540,7 @@ red {
         position: static;
         display: block;
         }
-    .newbutton:active {
+    .newbutton:hover {
         position: static;
         display: block;
     }

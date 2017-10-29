@@ -540,6 +540,10 @@ red {
         position: static;
         display: block;
         }
+    .newbutton:active {
+        position: static;
+        display: block;
+    }
     .newbutton {
         z-index: 1;
         display: none;

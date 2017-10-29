@@ -526,7 +526,7 @@ red {
     padding-bottom: 10%;
 }
 /*@media*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .page2-button {
         float: right;
         background: url("下拉菜单.png") no-repeat 0 0;
@@ -536,20 +536,30 @@ red {
         margin:20px;
         background-size: cover;
     }
-    .page2-button:hover .newbutton {
-        visibility: visible;
-    }
+    div .page2-button:hover + .newbutton {
+        position: static;
+        display: block;
+        }
     .newbutton {
-        position: absolute;
-        top:100%;
-        right:1%;
         z-index: 1;
-        visibility: hidden;
+        display: none;
     }
     .logo {
         float: left;
     }
     .top1 {
         float: left;
+    }
+    .row2-button1 {
+        width:100%;
+    }
+    .row2-button2 {
+        width:100%;
+    }
+    .row2-button3 {
+        width:100%;
+    }
+    .row2-button4 {
+        width:100%;
     }
 }

@@ -340,7 +340,7 @@ a {
 .row11:hover {
     box-shadow: 10px 10px 10px #999999;
 }
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .row4-1 {
         width: 120px;
         margin:0 auto 1rem;

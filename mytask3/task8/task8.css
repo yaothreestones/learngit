@@ -423,8 +423,8 @@ a {
         font-size: 18px;
         padding-left: 5rem;
     }
-    .row7-img {
-
+    .row7-mid {
+        width: 170px !important;
     }
     .how-to-learn {
         font-size: 14px;

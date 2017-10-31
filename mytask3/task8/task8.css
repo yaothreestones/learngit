@@ -122,6 +122,10 @@ html,body {
     background-size: contain;
     padding-bottom: 10%;
 }
+.four-shapes {
+    text-align: center;
+    margin-top: 24px;
+}
 .row3-button1 {
     padding: 0;
     border: 0;
@@ -337,10 +341,25 @@ a {
     background: #29b078;
     color: #FFFFFF !important;
 }
-.row11:hover {
-    box-shadow: 10px 10px 10px #999999;
+.row11-button1:hover {
+    box-shadow: 2px 2px 20px #d6d6d6;
+}
+.row11-button2:hover {
+    box-shadow: 2px 2px 20px #d6d6d6;
+}
+.row11-button3:hover {
+    box-shadow: 2px 2px 20px #d6d6d6;
+}
+.row11-button4:hover {
+    box-shadow: 2px 2px 20px #d6d6d6;
+}
+.row11-button5:hover {
+    box-shadow: 2px 2px 20px #d6d6d6;
 }
 @media screen and (max-width: 767px) {
+    main {
+        margin-top: 85px;
+    }
     .row4-1 {
         width: 120px;
         margin:0 auto 1rem;
@@ -372,6 +391,15 @@ a {
     }
 }
 @media screen and (min-width:768px) and (max-width: 1440px) {
+    main {
+        padding-top: 170px;
+    }
+    .newbutton {
+        margin-right: -35px;
+    }
+    .logo {
+        height:100px !important;
+    }
     .row4-1 {
         width: 160px;
         margin:0 auto 1rem;
@@ -393,6 +421,12 @@ a {
     }
 }
 @media screen and (min-width: 1441px){
+    main {
+        padding-top: 170px;
+    }
+    .logo {
+        height: 100px !important;
+    }
     .newbutton {
         margin-right: -35px;
     }

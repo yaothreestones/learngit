@@ -454,8 +454,7 @@ div.select-list1 div {
         width:80%;
     }
     .button-left {
-        float: none;
-        padding:0;
+        padding:0 5% 0 0;
     }
     .footer-img {
         padding: 0;

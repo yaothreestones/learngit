@@ -63,8 +63,7 @@ h2 {
 .div5 {
     height:3rem;
     width:3rem;
-    background-image: url("播放.png");
-    background-repeat: no-repeat;
+    background: url("播放.png") no-repeat;;
     background-size: contain;
     position: absolute;
     margin: 0.25rem 0;
@@ -95,7 +94,7 @@ main {
     align-items: center;
     padding-left:2.5rem;
     color: #f8fbfd;
-    font-family: "Microsoft JhengHei";
+    font-family: "微软雅黑";
 }
 .button2 {
     width: 100%;
@@ -131,10 +130,9 @@ footer {
     width: 25%;
     padding: 0;
     float: left;
-    margin: 4%;
-    margin-top:0;
+    margin: 4% 0 0 0;
 }
-.role:hover .child {
+.role:hover.child {
     visibility: visible;
 }
 .child {
@@ -144,10 +142,9 @@ footer {
 
 }
 .hover1 {
-    background-image: url(hover.png);
+    background: url(hover.png) 2%;
     width: 24%;
     padding: 0 0 24% 0;
-    background-position: 2%;
     float: left;
     background-size: cover;
     border: 0;
@@ -156,10 +153,9 @@ footer {
     outline: none !important;
 }
 .hover2 {
-    background-image: url(hover.png);
+    background: url(hover.png) 34%;
     width: 24%;
     padding: 0 0 24% 0;
-    background-position: 34%;
     float: left;
     background-size: cover;
     border: 0;
@@ -168,10 +164,9 @@ footer {
     outline: none !important;
 }
 .hover3 {
-    background-image: url(hover.png);
+    background: url(hover.png) 67%;
     width: 24%;
     padding: 0 0 24% 0;
-    background-position: 67%;
     float: left;
     background-size: cover;
     border: 0;
@@ -180,10 +175,9 @@ footer {
     outline: none !important;
 }
 .hover4 {
-    background-image: url(hover.png);
+    background: url(hover.png) 99%;
     width: 24%;
     padding: 0 0 24% 0;
-    background-position: 99%;
     float: left;
     background-size: cover;
     border: 0;
@@ -217,8 +211,7 @@ footer a button {
 .a2 {
     float: left;
     margin: 1rem;
-    background-image: url("回到首页.png");
-    background-repeat: no-repeat;
+    background: url("回到首页.png") no-repeat;
     background-size: contain;
     height: 2.5rem;
     width: 2.5rem;
@@ -226,8 +219,7 @@ footer a button {
 .a3 {
     float: right;
     margin: 1rem;
-    background-image: url("提示.png");
-    background-repeat: no-repeat;
+    background: url("提示.png") no-repeat;
     background-size: contain;
     height: 2rem;
     width: 2rem;
@@ -250,9 +242,7 @@ h2 {
 }
 
 .header-div1{
-    background-image: url("卧底胜利.png");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: url("卧底胜利.png") no-repeat;
     width: 15rem;
     height: 10rem;
     margin: 0 auto;
@@ -298,8 +288,7 @@ h2 {
 }
 .ul2 {
     color: #a6a6a6;
-    border-bottom:0.1rem;
-    border-style: solid;
+    border-bottom:0.1rem solid;
     border-top:0;
     border-left:0;
     border-right:0;

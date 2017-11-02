@@ -130,9 +130,9 @@ footer {
     width: 25%;
     padding: 0;
     float: left;
-    margin: 4% 0 0 0;
+    margin: 4%;
 }
-.role:hover.child {
+.role:hover .child {
     visibility: visible;
 }
 .child {
@@ -238,7 +238,7 @@ h2 {
     background-color: #29bde0;
 }
 .header-part2 {
-    padding:5% 10%;
+    padding:8% 10%;
 }
 
 .header-div1{
@@ -246,6 +246,7 @@ h2 {
     width: 15rem;
     height: 10rem;
     margin: 0 auto;
+    background-size: contain;
 }
 .header-div2 {
     max-width: 72.5rem;

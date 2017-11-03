@@ -2,7 +2,7 @@
 @base2: #f0f0f0;
 @base3: #ffffff;
 @base4: #69D1E9;
-.a(@color:#ffffff;@pad:0 0 0 0;@bg){
+.a(@color:#fff;@pad:0 0 0 0;@bg){
   text-decoration: none;
   color:@color;
   display: flex;
@@ -12,7 +12,7 @@
   align-items: center;
   background: @bg;
 }
-.div-box(@col:#ffffff;@bg:#29bde;@wid:100%;@mar:0 0 0 0;@pad:0 0 0 0;) {
+.div-box(@col:#fff;@bg:#29bde;@wid:100%;@mar:0;@pad:0;) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,13 +22,13 @@
   margin:@mar;
   padding:@pad;
 }
-.header(@wid;@hei;@col;@bg){
+.header(@wid;@hei;@col;@bg) {
   width:@wid;
   height: @hei;
   color:@col;
   background: @bg;
 }
-.main(@bg;@top){
+.main(@bg;@top) {
   background: @bg;
   position: relative;
   top: @top;
@@ -139,39 +139,6 @@ body {
 }
 
 
-//task13-1
-/*
-@base1: #29bde0;
-@base2: #f0f0f0;
-@base3: #ffffff;
-@base4: #69D1E9;
-.a(@color:#ffffff;@pad:0 0 0 0;@bg){
-  text-decoration: none;
-  color:@color;
-  display: flex;
-  width:100%;
-  padding:@pad;
-  justify-content: center;
-  align-items: center;
-  background: @bg;
-}
-.div-box(@col:#ffffff;@bg:#29bde;@wid:100%;@mar:0 0 0 0;@pad:0 0 0 0;) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: @col;
-  background:@bg;
-  width:@wid;
-  margin:@mar;
-  padding:@pad;
-}
-.header(@wid;@hei;@col;@bg){
-  width:@wid;
-  height: @hei;
-  color:@col;
-  background: @bg;
-}
- */
 .header2 {
   .header(100%; 160px; @base3; @base1);
   position: fixed;
@@ -226,7 +193,7 @@ body {
   width: 100%;
   padding-bottom: 160px;
   .click {
-    .div-box(@base3;@base1;100%;0;20px 0 20px 45px);
+    .div-box(@base3;@base1;auto;0;20px 0 20px 45px);
     display: block!important;
   }
 }

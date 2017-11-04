@@ -68,7 +68,7 @@ body {
       margin: 0;
       width: 30%;
       left: 20px;
-      top: 55px;
+      top: 40px;
       z-index: 1;
       background: @base2;
       &:hover {
@@ -82,7 +82,7 @@ body {
         justify-content: center;
         border: 1px solid @base1;
         a{
-          .a(#000000;30px 0;@base2);
+          .a(#000000;10px 0;@base2);
         }
       }
     }
@@ -98,7 +98,7 @@ body {
     border-bottom: 15px solid transparent;
     position: fixed;
     right: 8%;
-    top: 460px;
+    top: 50%;
   }
   div.last-game {
     .div-box(#9a9a9a; @base3; 100%; 0; 0);
@@ -176,8 +176,9 @@ body {
     position: fixed;
     width: 100%;
     img {
-      padding-right:11px;
+      padding: 15px;
       float: right;
+      width:30px;
     }
     .suggest {
       line-height: 0;
@@ -294,7 +295,7 @@ body {
   width: @wid;
 }
 .footer2 {
-  .footer(160px;@base1;100%;);
+  .footer(100px;@base1;100%;);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -340,9 +341,10 @@ body {
       width: 2rem;
     }
   }
+}
   .header3-2 {
     .header(100%;auto;@base3;@base1);
-    position: fixed;
+    position: absolute;
     top: 81px;
     .header-part2 {
       padding: 50px 10%;
@@ -380,16 +382,6 @@ body {
       z-index: 666;
     }
   }
-}
-.main-div0 {
-  position: absolute;
-  top: 34rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-  width:100%;
-  background-color: #fff;
-  color:#a6a6a6
-}
 .ul2 {
   color: #a6a6a6;
   border-bottom:0.1rem solid;

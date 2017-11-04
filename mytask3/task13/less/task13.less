@@ -38,7 +38,7 @@ body {
   font-family: 微软雅黑;
 }
 .header1,.header2-1 {
-  .header(100%;80px;@base3;@base1;);
+  .header(100%;auto;@base3;@base1;);
   position: fixed;
   top:0;
   z-index: 1;
@@ -50,7 +50,14 @@ body {
       border: 0;
       cursor: pointer;
       outline: none;
-      &:focus + ul {
+      img {
+        height: 20px;
+        width: 20px;
+      }
+      &:hover + ul {
+        display: block;
+      }
+      &:focus +ul {
         display: block;
       }
     }
@@ -82,7 +89,7 @@ body {
   }
 }
 .main1 {
-  .main(@base2;80px);
+  .main(@base2;63px);
   padding: 30px 5%;
   .triangle {
     border-left: 20px solid #FBB435;
@@ -105,16 +112,16 @@ body {
     top: 50px;
   }
   div.game {
-    .div-box(#FBB435;@base3;100%;30px 0 0 0;24px 0 24px 0);
+    .div-box(#FBB435;@base3;100%;20px 0 0 0;24px 0 24px 0);
     border-bottom:1px solid #FBB435;
   }
   div.inside {
-    .div-box(@base3;@base3;100%;0 0 0 0;30px 0);
+    .div-box(@base3;@base3;100%;0 0 0 0;20px 0);
     display: block !important;
     div.version {
       .div-box(@base3;@base1;80%;0 auto 20px;0;);
       a {
-        .a(@base3;30px 0;@base4)
+        .a(@base3;20px 0;@base4)
       }
     }
     div.player {
@@ -139,7 +146,7 @@ body {
 
 
 .header2 {
-  .header(100%; 160px; @base3; @base1);
+  .header(100%; 124px; @base3; @base1);
   position: fixed;
   top: 0;
   z-index: 1;
@@ -149,28 +156,32 @@ body {
     }
   .vote {
     text-align: center;
-    padding: 40px;
+    padding: 30px;
     line-height: 0;
-    font-size: 30px;
+    font-size: 20px;
   }
   .close {
     float: right;
     padding: 20px;
+    img {
+      height: 20px;
+      width: 20px;
+    }
     }
   }
   .header2-2 {
     background:#b9e9f5;
-    height: 80px;
-    top: 80px;
+    height: 60px;
+    top: 64px;
     position: fixed;
     width: 100%;
     img {
-      padding:11px;
+      padding-right:11px;
       float: right;
     }
     .suggest {
       line-height: 0;
-      padding: 40px 0 40px 50px;
+      padding: 30px 0 30px 50px;
       font-size: 15px;
       color:#000000;
     }
@@ -180,14 +191,14 @@ body {
     border-bottom: 0;
     border-left: 5px solid transparent;
     position: fixed;
-    top: 160px;
+    top: 124px;
     left: 3rem;
     z-index: 666;
     }
   }
 }
 .main2 {
-  .main(@base1;160px);
+  .main(@base1;124px);
   position: absolute;
   width: 100%;
   padding-bottom: 160px;
@@ -287,7 +298,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   a{
     background-color: #fbb435;
     width: 80%;
@@ -298,7 +308,9 @@ body {
     text-decoration: none !important;
   }
 }
-
+.footer1 {
+  .footer(100px;transparent;100%;)
+}
 
 .header3 {
   .header(100%; auto; @base3; @base1);

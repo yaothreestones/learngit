@@ -1,4 +1,48 @@
 @import "framework.less";
+@base1: #29bde0;
+@base2: #f0f0f0;
+@base3: #ffffff;
+@base4: #69D1E9;
+.a(@color:#fff;@pad:0 0 0 0;@bg) {
+  text-decoration: none;
+  color:@color;
+  display: flex;
+  width:100%;
+  padding:@pad;
+  justify-content: center;
+  align-items: center;
+  background: @bg;
+}
+.div-box(@col:#fff;@bg:#29bde;@wid:100%;@mar:0;@pad:0;) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: @col;
+  background:@bg;
+  width:@wid;
+  margin:@mar;
+  padding:@pad;
+}
+.header(@wid;@hei;@col;@bg) {
+  width:@wid;
+  height: @hei;
+  color:@col;
+  background: @bg;
+}
+.main(@bg;@top) {
+  background: @bg;
+  position: relative;
+  top: @top;
+}
+html {
+  height: 100%;
+  width :100%;
+}
+.body(@bg-col) {
+  background: @bg-col;
+  height: 100%;
+  width: 100%;
+}
 body {
   .body(#f0f0f0;);
 }

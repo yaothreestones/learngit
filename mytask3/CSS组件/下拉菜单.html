@@ -27,13 +27,19 @@
             display: inline-block;
             width: 100px;
             height: 40px;
+            border: 0;
         }
         .btn:focus + ul {
             display: block;
         }
+        .btn:hover {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
     </style>
 </head>
 <body>
+<!--下拉菜单-->
 <div>
     <button type="button" class="btn">12345</button>
     <ul>
@@ -41,6 +47,14 @@
         <li><a href="#">杀人游戏</a></li>
         <li><a href="#">杀人游戏</a></li>
     </ul>
+</div>
+
+<!--按钮组-->
+<div>
+    <button type="button" class="btn"><a href="#"></a></button>
+    <button type="button" class="btn"><a href="#"></a></button>
+    <button type="button" class="btn"><a href="#"></a></button>
+    <button type="button" class="btn"><a href="#"></a></button>
 </div>
 </body>
 </html>

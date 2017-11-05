@@ -34,6 +34,14 @@
   position: relative;
   top: @top;
 }
+.footer(@hei;@bg;@wid) {
+  position: fixed;
+  bottom: 0;
+  height: @hei;
+  background: @bg;
+  z-index:1;
+  width: @wid;
+}
 html {
   height: 100%;
   width :100%;
@@ -63,9 +71,9 @@ body {
         height: 20px;
         width: 20px;
       }
-      &:focus +ul {
+      /*&:focus +ul {
         display: block;
-      }
+      }*/
     }
     ul {
       position: absolute;
@@ -77,9 +85,9 @@ body {
       top: 40px;
       z-index: 1;
       background: @base2;
-      &:hover {
+      /*&:hover {
         display: block;
-      }
+      }*/
       li {
         list-style: none;
         padding: 0;
@@ -98,24 +106,25 @@ body {
   .main(@base2;63px);
   padding: 30px 5%;
   .triangle {
-    border-left: 20px solid #FBB435;
+    border-left: 15px solid #FBB435;
     border-right: 1px transparent;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    position: fixed;
-    right: 8%;
-    top: 50%;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    position: absolute;
+    right: -10%;
+    top: 10px;
   }
   div.last-game {
     .div-box(#9a9a9a; @base3; 100%; 0; 0);
+    position: relative;
     a {
       .a(#9a9a9a;20px 0;@base3)
     }
   }
   .arrow {
     position: absolute;
-    right: 10%;
-    top: 50px;
+    right: 10px;
+    top: 13px;
   }
   div.game {
     .div-box(#FBB435;@base3;100%;20px 0 0 0;24px 0 24px 0);
@@ -125,7 +134,8 @@ body {
     .div-box(@base3;@base3;100%;0 0 0 0;20px 0);
     display: block !important;
     div.version {
-      .div-box(@base3;@base1;80%;0 auto 20px;0;);
+      position: relative;
+      .div-box(@base3;@base4;80%;0 auto 20px;0;);
       a {
         .a(@base3;20px 0;@base4)
       }
@@ -293,14 +303,6 @@ body {
   padding: 0;
   border: .25rem solid #fff;
 }
-.footer(@hei;@bg;@wid) {
-  position: fixed;
-  bottom: 0;
-  height: @hei;
-  background: @bg;
-  z-index:1;
-  width: @wid;
-}
 .footer2 {
   .footer(100px;@base1;100%;);
   display: flex;
@@ -326,7 +328,7 @@ body {
   top: 0;
   z-index: 1;
   .header3-1 {
-    .header(100%;80px;@base3;@base1);
+    .header(100%;60px;@base3;@base1);
     position: fixed;
     top: 0;
     text-align: center;
@@ -357,9 +359,10 @@ body {
   .header3-2 {
     .header(100%;auto;@base3;@base1);
     position: absolute;
-    top: 81px;
+    top: 61px;
+    margin-bottom: 65px;
     .header-part2 {
-      padding: 50px 10%;
+      padding: 10px 10%;
     }
 
     .header-div1{
@@ -373,15 +376,15 @@ body {
       max-width: 72.5rem;
       margin: 0 auto;
       color: #ffc865;
-      font-size:1.5rem;
-      line-height: 1.5rem;
+      font-size:1.2rem;
+      line-height: 1.4;
       font-family: "微软雅黑";
-      padding-bottom:2rem;
+      padding-bottom: 1rem;
     }
     .header-div3 {
       max-width: 72.5rem;
       margin: 0 auto;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #fff;
     }
     .ul1 {
@@ -392,6 +395,9 @@ body {
       font-size: 1.2rem;
       color: #fff;
       z-index: 666;
+      li {
+        line-height: 1.2;
+      }
     }
   }
 .ul2 {
@@ -401,15 +407,20 @@ body {
   border-left:0;
   border-right:0;
   list-style: none;
-  padding-left: 10%;
+  padding: 0 10%;
   margin: 0;
   background: #fff;
   li:first-child {
     font-size: 20px;
+    small {
+      font-size: 12px;
+      float: right;
+    }
   }
   li {
     padding: 5px 0;
     font-family: sans-serif;
+    font-size: 15px;
   }
 }
 .footer-div0 {

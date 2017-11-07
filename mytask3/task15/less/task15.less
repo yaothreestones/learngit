@@ -602,6 +602,9 @@ td {
   .how-to-learn {
     height: 128px;
   }
+  .page2-button {
+    display: none;
+  }
   .divhover {
     font-size: 14px;
   }
@@ -667,7 +670,7 @@ td {
       width: 20%;
     }
     .col-lg-3 {
-      width: 25%;
+      width: 25% !important;
     }
     .col-lg-4 {
       width: 33.33%;
@@ -760,7 +763,7 @@ td {
     width: 20%;
   }
   .col-lg-3 {
-    width: 25%;
+    width: 25% !important;
   }
   .col-lg-4 {
     width: 33.33%;
@@ -844,6 +847,9 @@ td {
 @media screen and (min-width: 768px) and (max-width: 1399px){
   .divhover {
     font-size: 12px;
+  }
+  .page2-button {
+    display: none;
   }
   .header-1 {
     width: 90% !important;
@@ -932,15 +938,18 @@ td {
 
     .page2-button {
       float: right;
-      background: url("../img/下拉菜单.png") no-repeat 0 0;
+      background: url("../img/下拉菜单.png") no-repeat 0 0 transparent;
       width: 20px;
       height: 20px;
       position: relative;
       margin: 20px;
       background-size: cover;
+      cursor: pointer;
+      outline: none;
+      border: 0;
     }
 
-    div .page2-button:hover + .newbutton {
+    div .page2-button:focus + .newbutton {
       position: static;
       display: block;
     }
@@ -950,10 +959,6 @@ td {
       display: none;
     }
 
-    .row2 .newbutton:hover {
-      position: static;
-      display: block;
-    }
 
     .logo {
       float: left;

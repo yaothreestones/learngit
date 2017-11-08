@@ -9,11 +9,38 @@
 background:orange;width:30%;float:left;
 	margin:3% 0 0 3%;padding:30% 0 0 0;border-radius:5%;
 }
+.btn{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+main {
+	width: 30%;
+	margin: 0 auto;
+}
+button{
+	width: 50%;
+	height: 4rem;
+	margin: 1rem;
+	font-size: 1.5rem ;
+	color: orange;
+	border-radius: .5rem;
+	background: white;
+	border: .1rem solid orange;
+	outline: none;
+}
+button:hover{
+	background: orange;
+	color: white;
+}
 
 </style>
 </head>
 <body>
-
+<main>
 <div class="table"></div>
 <div class="table"></div>
 <div class="table"></div>
@@ -23,6 +50,11 @@ background:orange;width:30%;float:left;
 <div class="table"></div>
 <div class="table"></div>
 <div class="table"></div>
-
+</main>
+<div class="btn">
+<button onclick="start()">开始</button>
+<button onclick="over()">结束</button>
+</div>
+<script type="text/javascript" src="task1.js"></script>
 </body>
 </html>

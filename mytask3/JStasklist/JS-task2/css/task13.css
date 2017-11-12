@@ -13,9 +13,6 @@ pre,
 a,
 abbr,
 address,
-cite,
-code,
-font,
 img,
 ol,
 ul,
@@ -23,9 +20,6 @@ li,
 form,
 label,
 table,
-caption,
-tr,
-th,
 td {
   margin: 0;
   padding: 0;
@@ -96,19 +90,14 @@ body {
   border: 0;
   cursor: pointer;
   outline: none;
+  /*&:focus +ul {
+        display: block;
+      }*/
 }
 .header1 div button img,
 .header2-1 div button img {
   height: 20px;
   width: 20px;
-}
-.header1 div button:hover + ul,
-.header2-1 div button:hover + ul {
-  display: block;
-}
-.header1 div button:focus + ul,
-.header2-1 div button:focus + ul {
-  display: block;
 }
 .header1 div ul,
 .header2-1 div ul {
@@ -121,10 +110,9 @@ body {
   top: 40px;
   z-index: 1;
   background: #f0f0f0;
-}
-.header1 div ul:hover,
-.header2-1 div ul:hover {
-  display: block;
+  /*&:hover {
+        display: block;
+      }*/
 }
 .header1 div ul li,
 .header2-1 div ul li {
@@ -153,13 +141,13 @@ body {
   padding: 30px 5%;
 }
 .main1 .triangle {
-  border-left: 20px solid #FBB435;
+  border-left: 15px solid #FBB435;
   border-right: 1px transparent;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  position: fixed;
-  right: 8%;
-  top: 50%;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  position: absolute;
+  right: -10%;
+  top: 10px;
 }
 .main1 div.last-game {
   display: flex;
@@ -170,6 +158,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 .main1 div.last-game a {
   text-decoration: none;
@@ -183,8 +172,8 @@ body {
 }
 .main1 .arrow {
   position: absolute;
-  right: 10%;
-  top: 50px;
+  right: 10px;
+  top: 13px;
 }
 .main1 div.game {
   display: flex;
@@ -209,11 +198,12 @@ body {
   display: block !important;
 }
 .main1 div.inside div.version {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  background: #29bde0;
+  background: #69d1e9;
   width: 80%;
   margin: 0 auto 20px;
   padding: 0;
@@ -449,7 +439,7 @@ body {
 }
 .header3 .header3-1 {
   width: 100%;
-  height: 80px;
+  height: 60px;
   color: #ffffff;
   background: #29bde0;
   position: fixed;
@@ -484,10 +474,11 @@ body {
   color: #ffffff;
   background: #29bde0;
   position: absolute;
-  top: 81px;
+  top: 61px;
+  margin-bottom: 65px;
 }
 .header3-2 .header-part2 {
-  padding: 50px 10%;
+  padding: 10px 10%;
 }
 .header3-2 .header-div1 {
   background: url("../img/卧底胜利.png") no-repeat;
@@ -500,15 +491,15 @@ body {
   max-width: 72.5rem;
   margin: 0 auto;
   color: #ffc865;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
   font-family: "微软雅黑";
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 .header3-2 .header-div3 {
   max-width: 72.5rem;
   margin: 0 auto;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
 }
 .header3-2 .ul1 {
@@ -520,6 +511,9 @@ body {
   color: #fff;
   z-index: 666;
 }
+.header3-2 .ul1 li {
+  line-height: 1.2;
+}
 .ul2 {
   color: #a6a6a6;
   border-bottom: 0.1rem solid;
@@ -527,16 +521,21 @@ body {
   border-left: 0;
   border-right: 0;
   list-style: none;
-  padding-left: 10%;
+  padding: 0 10%;
   margin: 0;
   background: #fff;
 }
 .ul2 li:first-child {
   font-size: 20px;
 }
+.ul2 li:first-child small {
+  font-size: 12px;
+  float: right;
+}
 .ul2 li {
   padding: 5px 0;
   font-family: sans-serif;
+  font-size: 13px;
 }
 .footer-div0 {
   position: fixed;
@@ -581,7 +580,97 @@ body {
   .header3-2 {
     text-align: center;
   }
-  .header3-2 .ul2 {
-    padding-left: 0;
-  }
+}
+.choose-main {
+  position: relative;
+  top: 63px;
+}
+.h1 {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+.choose-num {
+  display: flex;
+  justify-content: center;
+  padding: 10%;
+}
+.killer {
+  padding-right: 40%;
+  display: flex;
+}
+.people {
+  display: flex;
+}
+.foot {
+  position: absolute;
+  bottom: 5rem;
+  height: 20rem;
+  width: 100%;
+}
+.form {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.num {
+  display: inline-block;
+}
+.input1 {
+  height: 30px;
+  width: 30px;
+}
+.total {
+  display: inline-block;
+}
+.play {
+  position: absolute;
+  bottom: 5rem;
+  width: 90%;
+  height: 4rem;
+  right: 5%;
+}
+.identity-top {
+  font-size: 30px;
+  text-align: center;
+  padding: 1rem 0;
+}
+.identity-mid {
+  position: absolute;
+  top: 12%;
+  width: 100%;
+}
+.identity-mid-num {
+  position: absolute;
+  top: 3%;
+  color: #FBB435;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+.identity-mi-img {
+  width: 15rem;
+  display: block;
+  margin: auto;
+}
+.identity-bottom {
+  position: absolute;
+  width: 80%;
+  height: 5rem;
+  background: #FBB435;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 10%;
+  bottom: 1%;
+}
+#job {
+  position: absolute;
+  right: 50%;
+  display: block;
+  top: 50%;
+  margin-right: -15px;
+}
+#page2 {
+  display: none;
 }

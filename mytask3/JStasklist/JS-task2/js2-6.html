@@ -1,35 +1,51 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>法官台本</title>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet/less" href="less/task13.less">
+    <link type="text/css" rel="stylesheet" href="css/task13.css">
     <script src="js/js2-6.js" type="text/javascript" defer="defer"></script>
-    <script src="../jquery-3.2.1.js"></script>
-    <script src="../less.js-2.5.3/dist/less.min.js"  defer="defer" type="text/javascript"></script>
+    <script src="jquery-3.2.1.js"></script>
+    <script src="less.js-2.5.3/dist/less.js"  defer="defer" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 </head>
 <body>
 <header class="header1">
     <div>
-        <div class="back"><img src="img/回到首页.png" style="height: 2rem;
-    margin: 1rem 0 0 1rem;
+        <div class="back"><img src="img/back.png" style="height: 2rem;
+    margin: .5rem 0 0 1rem;
     position: absolute;"></div>
         <div class="identity-top">法官台本</div>
     </div>
 </header>
-<main style="background-color: #fff;position:absolute; top: 124px; width: 100%;">
-    <div id="before"></div>
+<main style="position:absolute; top: 3rem; width: 100%;">
     <div id="main">
-        <div id="killMan" class="selection">杀手杀人</div>
-        <div id="trueIdentity" class="selection" style="display: none;"></div>
-        <div id="deadSpeak" class="selection">亡灵发表遗言</div>
-        <div id="playerSpeak" class="selection">玩家依次发言</div>
-        <div id="vote" class="selection">全民投票</div>
-        <div style="background-image:url(img/hover.png)"></div>
+        <div class="day1">
+            <div class="sjx" style="height: 240px;margin-top: 3rem;">
+                <div class="moon"></div>
+                <div class="sun"></div>
+            </div>
+            <ul class="list">
+                <li class="selection" id="killMan">
+                    <div class=""></div>杀手杀人</li>
+                <h3 id="trueIdentity" class="" style="display: none;"></h3>
+                <li class="selection" id="deadSpeak">
+                    <div class=""></div>
+                    亡灵发表遗言</li>
+                <li class="selection" id="playerSpeak">
+                    <div class=""></div>玩家依次发言</li>
+                <li class="selection" id="vote">
+                    <div class=""></div>
+                    全民投票</li>
+                <h3 class=""></h3>
+            </ul>
+        </div>
     </div>
     <div id="main1"></div>
-
 </main>
+<footer class="footer-div0">
+</footer>
+<button type="button" class="footer-button1">结束游戏</button>
+<button type="button" class="footer-button2">法官日志</button>
 </body>
 </html>

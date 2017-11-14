@@ -126,8 +126,10 @@ $('.play-game').click(function () {
                     manNum = manNum - 1;
                     sessionStorage.setItem('manNum',manNum);
                     if(manNum === 0){
-                        window.location.href = 'js2-8.html?killerWin'}
-                    else {window.location.href = 'js2-6.html?vote'}
+                        window.location.href = 'js2-8.html?killerWin'
+                    }
+                    else {window.location.href = 'js2-6.html?vote'
+                    }
                 }
             }
         }else {window.location.href = 'js2-6.html?noKill'}//没有点击页面,上传参数跳转

@@ -53,3 +53,4 @@ function myFunction() {
                alert("请输入正确的玩家数量")
            }
        }
+$('body').css('backgroundColor', '#fff');

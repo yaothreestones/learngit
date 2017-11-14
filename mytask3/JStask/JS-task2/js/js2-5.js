@@ -38,3 +38,4 @@ function gameStart() {
 }
 var box = JSON.stringify(d);
 sessionStorage.setItem("data3" ,box);
+$('body').css('background' ,'#29BDE0');

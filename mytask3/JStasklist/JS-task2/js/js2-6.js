@@ -35,13 +35,13 @@ function days(){
                 "<div class=''>"+
                 "<p class=day>第"+i+"天</p>"+
                 "<div class=process>"+
-                "<div class=sjx></div>"+
+                "<div class=sjx><div class='moon'></div><div class='sun'></div></div>"+
                 "<ul class=list>"+
                 "<li class='selection1 selection-last'>"+
-                "<div class='moon' ></div>杀手杀人</li>"+
+                "<div class='' ></div>杀手杀人</li>"+
                 "<h3 class=''>杀手未杀人。</h3>"+
-                "<li class='selection1'>"+
-                "<div class='sun'></div>亡灵发表遗言</li>"+
+                "<li class='selection1 selection-last'>"+
+                "<div class=''></div>亡灵发表遗言</li>"+
                 "<li class='selection1 selection-last'>"+
                 "<div class=''></div>玩家依次发言</li>"+
                 "<li class='selection1 selection-last'>"+

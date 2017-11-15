@@ -4,7 +4,7 @@ console.log(player);
 var url = location.search,
     str = url.substr(1);
 var killMan = document.getElementById('killMan');
-var trueIdentity = document.getElementsByClassName('selection');
+var trueIdentity = document.getElementById('trueIdentity');
 var deadSpeak = document.getElementById('deadSpeak');
 var playerSpeak = document.getElementById('playerSpeak');
 var vote = document.getElementById('vote');
@@ -14,7 +14,7 @@ var x = '<div class="day2"></div>';
 var r =document.getElementsByClassName('day2');
     $('.day1').before(x);
     r[0].innerHTML='第' +day + '天';
-    step = 0;
+var step = 0;
       //每天进行任务的下拉特效
 function days(){
     for(var i = 1; i < day; i++){
@@ -100,11 +100,11 @@ function days(){
     });
     for(var i = 0 ; i < player.length ; i ++) {
         if (str === 'vote' && player[i].deathDay === day) {
-            $('#trueIdentity')[0].style.display = 'flex';
-            $('#trueIdentity')[0].innerHTML = (player[i].num + 1)+'号被杀手杀死，真实身份是' + player[i].name;
+            trueIdentity.style.display = 'flex';
+            trueIdentity.innerHTML = (player[i].num + 1)+'号被杀手杀死，真实身份是' + player[i].name;
          }else if(str === 'noKill'){
-            $('#trueIdentity')[0].style.display = 'flex';
-            $('#trueIdentity')[0].innerHTML = '杀手信佛吃斋';
+            trueIdentity.style.display = 'flex';
+            trueIdentity.innerHTML = '杀手信佛吃斋';
          }
     }
     $('#deadSpeak').click(function () {

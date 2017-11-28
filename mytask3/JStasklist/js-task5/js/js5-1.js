@@ -93,5 +93,22 @@
 //     }
 // });
 
-
-
+// //
+// var app = angular.module("myApp",[]);
+// app.controller('myCtrl',function ($scope,$http) {
+//     $scope.user = {};
+//
+//
+//     $scope.submit1 = function () {
+//         $http({
+//             method : 'POST',
+//             url    : '/carrots-admin-ajax/a/login',
+//             data   : $.param($scope.user)
+//         }).then(function successCallback(manager) {
+//             console.log(manager.id)
+//         },function errorCallback(data) {
+//             alert(data)
+//         });
+//
+//     };
+// });

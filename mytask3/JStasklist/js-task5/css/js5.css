@@ -6,7 +6,7 @@ body {
 .picture {
     background: url(../img/登录.png) no-repeat;
     background-size: auto;
-    height:920px;
+    height:100vh;
 }
 .background {
     width: 600px;

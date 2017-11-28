@@ -10,7 +10,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state("js6-1", {
             url:"/js6-1",
-            templateUrl: "js6-1.html"
+            templateUrl: "houtai.html"
         })
         .state("js6-1.js6-2", {
             url:"/js6-2",

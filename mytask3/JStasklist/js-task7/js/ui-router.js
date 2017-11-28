@@ -22,7 +22,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             params:{
                 id:null,json:null
             },
-            url:"/js6-3?id",
+            url:"/js6-3?id&json",
             templateUrl: "js6-3.html"
         })
 });

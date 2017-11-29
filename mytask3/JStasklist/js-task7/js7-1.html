@@ -18,7 +18,7 @@
                 <div class="warm" ng-show="myForm.userpwd.$dirty && myForm.userpwd.$invalid">
                 <div ng-show="!ng-minlength &&!ng-maxlength">密码为5-16位</div>
             </div>
-                <button type="button" ng-click="submit1()" class="submit">登录</button>
+                <button type="button" ng-click="submit1()" class="submit" ng-disabled="myForm.userpwd.$pristine || myForm.userpwd.$invalid || myForm.username.$pristine || myForm.username.$invalid">登录</button>
                 <div class="warm" ng-show="myForm.username.$dirty && myForm.username.$invalid" ng-model="button"></div>
             </form>
         </div>

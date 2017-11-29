@@ -1,6 +1,7 @@
 //最后一个页面
 app.controller('AppController', function($scope, FileUploader,$http,$state,$stateParams) {
     //上传图片
+    $scope.newArticle = '新增Article';
     FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
         return true;
     };
@@ -88,11 +89,17 @@ app.controller('AppController', function($scope, FileUploader,$http,$state,$stat
     $scope.linkList = function () {
         $scope.reg = /^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+/;
         $scope.test = $scope.reg.test($scope.link);
+        if($scope.test ===false){
+            $scope.error = '请以http://样式开头，否则不通过！'
+        }else {
+            $scope.error = ''
+        }
     };
 
 //如果接受到参数则进行编辑流程
 if($stateParams.id) {
     //字符串转化成对象
+    $scope.newArticle = '编辑Article';
     var n = JSON.parse($stateParams.json);
     console.log(n);
     $scope.title = n.title;
@@ -102,6 +109,11 @@ if($stateParams.id) {
     $scope.link = n.url;
     $scope.reg = /^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+/;
     $scope.test = $scope.reg.test($scope.link);
+    if($scope.test ===false){
+        $scope.error = '请以http://样式开头，否则不通过！'
+    }else {
+        $scope.error = ''
+    }
     $scope.selected = $scope.sites2[n.industry + 1];
     $scope.submit = function (x) {
         $scope.http = $scope.editor.$txt.html();

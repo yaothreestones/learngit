@@ -143,11 +143,9 @@ app.controller('formList',function ($scope,$http,$state,$stateParams,$filter) {
         }
         if($stateParams.startAt){
         $scope.dat1 = Number($stateParams.startAt);
-        console.log($stateParams.startAt)
         }
         if($stateParams.endAt){
-        $scope.dat2 = new Date(parseInt($stateParams.endAt));
-        console.log($scope.dat2)
+        $scope.dat2 = parseInt($stateParams.endAt);
         }
     });
     //编辑

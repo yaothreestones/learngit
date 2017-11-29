@@ -1,10 +1,10 @@
-<div class="all">
-    <div class="article">新增Article</div>
-    <div class="new-list" ng-controller="AppController">
+<div class="all"  ng-controller="AppController">
+    <div class="article"  style="position:absolute;top:0">{{newArticle}}</div>
+    <div class="new-list">
         <div class="bar">
             <div class="bar-1">标题名称</div>
             <div class="box">
-                <input ng-model="title" type="text" style="position:relative;top: 0;width: 100%;">
+                <input ng-model="title" type="text">
             </div>
         </div>
         <div class="bar">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="bar">
-            <div class="bar-1" >说明</div>
+            <div class="bar-1">说明</div>
             <div class="box">
             <div id="div1"></div>
             </div>
@@ -29,6 +29,7 @@
             <div class="box">
                 <input ng-model="link" ng-change="linkList()" type="text" style="position:relative;top: 0;width: 100%;">
             </div>
+            <p style="font-size:12px; color: red;position:absolute;left: 15%;bottom:-1rem;">{{error}}</p>
         </div>
         <div class="bar">
             <div class="bar-1">配图</div>

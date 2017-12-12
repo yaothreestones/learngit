@@ -43,7 +43,8 @@ angular.module('myApp')
             resolve: {
                 loadMyFile: _lazyLoad([
                     'js/controller/pageList.controller.js',
-                    'js/directive/pagelist.js'
+                    'js/directive/pagelist.js',
+
                 ])
             }
         })
@@ -52,6 +53,14 @@ angular.module('myApp')
                 id:null,json:null
             },
             url:"/js6-3?id&json",
-            templateUrl: "js6-3.html"
+            templateUrl: "js6-3.html",
+            resolve:{
+                loadMyFile:_lazyLoad([
+                    'wangEditor-2/dist/js/wangEditor.min.js',
+                    'js/controller/img_upload.controller.js',
+                    'wangEditor-2/dist/css/wangEditor.min.css',
+
+        ])
+            }
         })
 });

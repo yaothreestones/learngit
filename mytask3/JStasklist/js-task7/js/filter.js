@@ -1,4 +1,4 @@
-app.filter('status',function () {
+angular.module('myApp').filter('status',function () {
     return function (param) {
         if(param === 1){
             return '草稿';
@@ -8,17 +8,17 @@ app.filter('status',function () {
             return '?';
         }
     }
-});
-app.filter('size',function () {
-   return function (param) {
-       if (param !== null && param !== undefined) {
-           return (Number(param) / (1024 * 1024)).toFixed(2)+'MB'
-       } else {
+})
+.filter('size',function () {
+    return function (param) {
+        if (param !== null && param !== undefined) {
+            return (Number(param) / (1024 * 1024)).toFixed(2)+'MB'
+        } else {
 
-       }
-   }
-});
-app.filter('online',function () {
+        }
+    }
+})
+.filter('online',function () {
     return function (param) {
         if (param === 1) {
             return '上线';

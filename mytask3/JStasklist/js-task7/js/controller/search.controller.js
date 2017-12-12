@@ -1,4 +1,4 @@
-app.controller('search', function ($scope,$http,$state) {
+angular.module('myApp').controller('search', function ($scope,$http,$state) {
     $scope.dat1 = new Date();
     $scope.dat2 = new Date();
     $scope.format = "";

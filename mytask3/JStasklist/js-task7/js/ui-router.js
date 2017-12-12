@@ -1,22 +1,51 @@
-app.config(function ($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.when("", "login");
+angular.module('myApp')
+    .config(function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
+        var _lazyLoad = function (loaded) {
+            return function ($ocLazyLoad) {
+                return $ocLazyLoad.load(loaded)
+            }
+        };
+        $ocLazyLoadProvider.config({
+            debug:false,
+            events:true
+        });
+    $urlRouterProvider.otherwise("/login");
 
     $stateProvider
         .state("login",{
             url:"/login",
-            templateUrl: "js7-1.html"
+            templateUrl: "js7-1.html",
+            controller:'myCtrl',
+            resolve:{
+                loadMyFile:_lazyLoad([
+                    'js/controller/login.controller.js',
+                    'css/js7-1.css'
+                ])
+            }
         })
         .state("houtai", {
             url:"/houtai",
-            templateUrl: "houtai.html"
+            templateUrl: "houtai.html",
+            resolve:{
+                loadMyFile:_lazyLoad([
+                    'js/controller/mainLeft.controller.js',
+                    'js/controller/nav.controller.js',
+                    'css/js6.css'
+                ])
+            }
         })
         .state("houtai.js6-2", {
-            params:{
-                page: null,size: null,type: null,status: null,startAt: null,endAt: null
+            params: {
+                page: null, size: null, type: null, status: null, startAt: null, endAt: null
             },
-            url:"/js6-2?size&page&type&status&startAt&endAt",
-            templateUrl: "js6-2.html"
+            url: "/js6-2?size&page&type&status&startAt&endAt",
+            templateUrl: "js6-2.html",
+            resolve: {
+                loadMyFile: _lazyLoad([
+                    'js/controller/pageList.controller.js',
+                    'js/directive/pagelist.js'
+                ])
+            }
         })
         .state("houtai.js6-2.js6-3", {
             params:{

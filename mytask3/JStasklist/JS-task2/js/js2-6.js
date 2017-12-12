@@ -12,10 +12,10 @@ var day = Number(sessionStorage.getItem('day'));
 
 var x = '<div class="day2"></div>';
 var r =document.getElementsByClassName('day2');
-    $('.day1').before(x);
-    r[0].innerHTML='第' +day + '天';
+$('.day1').before(x);
+r[0].innerHTML='第' +day + '天';
 var step = 0;
-      //每天进行任务的下拉特效
+//每天进行任务的下拉特效
 function days(){
     for(var i = 1; i < day; i++){
         var kName = "" , kNum = "" , vName = "" , vNum = "";
@@ -77,72 +77,72 @@ function days(){
     }
 }days();
 
-    $('.process').hide();
-    $(".day").click(function(){
-        $(this).next('.process').slideToggle(500);
-    });
-    $(".day2").click(function(){
-        $(this).next('.day1').slideToggle(500);
-    });
-    if(str === 'vote' || str === 'noKill'){
-        killMan.style.backgroundColor = '#8ab09a';
+$('.process').hide();
+$(".day").click(function(){
+    $(this).next('.process').slideToggle(500);
+});
+$(".day2").click(function(){
+    $(this).next('.day1').slideToggle(500);
+});
+if(str === 'vote' || str === 'noKill'){
+    killMan.style.backgroundColor = '#8ab09a';
+}
+$('#killMan').click(function () {
+    if(step === 0 && str !== 'vote' && str !== 'noKill'){
+        window.location.href = 'js2-7.html?kill';
+        step = 1;
+    }else if(step === 1 ){
+        alert("请进行下一步");
     }
-    $('#killMan').click(function () {
-        if(step === 0 && str !== 'vote' && str !== 'noKill'){
-            window.location.href = 'js2-7.html?kill';
-            step = 1;
-            }else if(step === 1 ){
-                alert("请进行下一步");
-            }
-            else {
-                 alert("请进行后续操作");
-            }
-    });
-    for(var i = 0 ; i < player.length ; i ++) {
-        if (str === 'vote' && player[i].deathDay === day) {
-            trueIdentity.style.display = 'flex';
-            trueIdentity.innerHTML = (player[i].num + 1)+'号被杀手杀死，真实身份是' + player[i].name;
-         }else if(str === 'noKill'){
-            trueIdentity.style.display = 'flex';
-            trueIdentity.innerHTML = '杀手信佛吃斋';
-         }
+    else {
+        alert("请进行后续操作");
     }
-    $('#deadSpeak').click(function () {
-        if(step === 0 && str === 'vote'){
-            deadSpeak.style.backgroundColor = '#8ab09a';
-            alert('请亡灵发言');
-            step = 2;
-        }else if(step === 0 && str === 'noKill'){
-            deadSpeak.style.backgroundColor = '#8ab09a';
-            alert('请亡灵发言');
-            step = 2;
-        }else if(step === 0){
-            alert('整天就知道杀人你妈妈知道么')
-        }else if(step > 1){
-            alert("安息吧")
-        }
-    });
-    $('#playerSpeak').click(function () {
-        if (step === 2) {
-            playerSpeak.style.backgroundColor = '#8ab09a';
-            alert('群众发言');
-            step = 3;
-        }else if(step === 2 && str === 'noKill'){
-            playerSpeak.style.backgroundColor = '#8ab09a';
-            alert('请群众发言');
-            step = 3;
-        } else {
-            alert('请按顺序进行')
-        }
-    });
-    $('#vote').click(function () {
-        if(step ===3){
-            window.location.href = 'js2-7.html?vote';
-            sessionStorage.setItem('day' ,day);
-        }else{
-            alert('请按顺序进行')
-        }
-    });
+});
+for(var i = 0 ; i < player.length ; i ++) {
+    if (str === 'vote' && player[i].deathDay === day) {
+        trueIdentity.style.display = 'flex';
+        trueIdentity.innerHTML = (player[i].num + 1)+'号被杀手杀死，真实身份是' + player[i].name;
+    }else if(str === 'noKill'){
+        trueIdentity.style.display = 'flex';
+        trueIdentity.innerHTML = '杀手信佛吃斋';
+    }
+}
+$('#deadSpeak').click(function () {
+    if(step === 0 && str === 'vote'){
+        deadSpeak.style.backgroundColor = '#8ab09a';
+        alert('请亡灵发言');
+        step = 2;
+    }else if(step === 0 && str === 'noKill'){
+        deadSpeak.style.backgroundColor = '#8ab09a';
+        alert('请亡灵发言');
+        step = 2;
+    }else if(step === 0){
+        alert('整天就知道杀人你妈妈知道么')
+    }else if(step > 1){
+        alert("安息吧")
+    }
+});
+$('#playerSpeak').click(function () {
+    if (step === 2) {
+        playerSpeak.style.backgroundColor = '#8ab09a';
+        alert('群众发言');
+        step = 3;
+    }else if(step === 2 && str === 'noKill'){
+        playerSpeak.style.backgroundColor = '#8ab09a';
+        alert('请群众发言');
+        step = 3;
+    } else {
+        alert('请按顺序进行')
+    }
+});
+$('#vote').click(function () {
+    if(step ===3){
+        window.location.href = 'js2-7.html?vote';
+        sessionStorage.setItem('day' ,day);
+    }else{
+        alert('请按顺序进行')
+    }
+});
 $('.back').click(function () {
     window.location.href = 'js2.html'
 });

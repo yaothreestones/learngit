@@ -1,4 +1,4 @@
-app.controller('myCtrl',function ($scope,$http,$state) {
+angular.module('myApp').controller('myCtrl',function ($scope,$http,$state) {
     $scope.user = {};
     $scope.submit1 = function () {
         $http({

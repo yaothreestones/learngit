@@ -7,14 +7,8 @@ app.controller('myCtrl',function ($scope) {
     $scope.yes = function () {
         alert('恭喜你答对了！')
     };
-    $scope.no = {
-        'position':'absolute',
-        'top':$scope.top+'vh',
-        'bottom':$scope.bottom+'vh',
-        'left':$scope.left+'vw',
-        'right':$scope.right+'vw'};
-    $scope.catchMe = function () {
 
+    $scope.catchMe = function () {
         $scope.a = 10 + Number(Math.floor(Math.random()*80));
         $scope.b = 10 + Number(Math.floor(Math.random()*80));
         $scope.c = Number(Math.floor(Math.random()*2));
@@ -46,6 +40,6 @@ app.controller('myCtrl',function ($scope) {
             'bottom':$scope.bottom+'vh',
             'left':$scope.left+'vw',
             'right':$scope.right+'vw'
-        }; console.log($scope.no);
+        };
     }
 });

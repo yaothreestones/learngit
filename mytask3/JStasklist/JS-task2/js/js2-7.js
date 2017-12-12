@@ -9,7 +9,7 @@ var m = '';
 //获取URL数据
 var url = location.search,
     str = url.substr(1);
-    console.log(str);
+console.log(str);
 //创建一个按钮
 var e =
     '<div class="child" >' +
@@ -25,11 +25,11 @@ var base = (function () {
         cd[i].innerHTML = Number(i + 1) + '号';
         $('body').css('backgroundColor', '#29bde0');
     }
-        $('.button2').after(e);
+    $('.button2').after(e);
 })();
-    //控制刀的显示和玩家格子的DOM
-    var child = document.getElementsByClassName('child');
-    var role = document.getElementsByClassName('role');
+//控制刀的显示和玩家格子的DOM
+var child = document.getElementsByClassName('child');
+var role = document.getElementsByClassName('role');
 //杀手杀人页头
 function killSkip(){
     var killPage = "<div class=tip><p class=top>杀手请睁眼，杀手请选择要杀的对象</p><div class=downsj></div><p class=bot>点击下方玩家头像，对被杀的玩家进行标记</p></div>";
@@ -81,7 +81,7 @@ function page() {
         for (var i = 0; i < player.length; i++) {
             //重置底色
             if (player[i].state === false) {
-               ab[i].style.backgroundColor = '#8ab09a';
+                ab[i].style.backgroundColor = '#8ab09a';
             }
             (function (i) {
                 role[i].onclick = function () {
@@ -147,14 +147,14 @@ $('.play-game').click(function () {
                 }
             }
         }else {alert('必须投票')}
-            for (var i = 0; i < player.length; i++) {
+        for (var i = 0; i < player.length; i++) {
             //先判断是否有点击并且有玩家死亡
-                if (player[i].state === false && n !== ''){
-                    //有则判定谁被点击,被点击即被杀，人数-1
-                    if(player[i].name === '平民' && player[i].click === 1) {
-                        manNum = manNum - 1;
-                        sessionStorage.setItem('manNum', manNum);
-                        //如果平民人数=0则判定杀手胜利并且跳转
+            if (player[i].state === false && n !== ''){
+                //有则判定谁被点击,被点击即被杀，人数-1
+                if(player[i].name === '平民' && player[i].click === 1) {
+                    manNum = manNum - 1;
+                    sessionStorage.setItem('manNum', manNum);
+                    //如果平民人数=0则判定杀手胜利并且跳转
                     if (manNum === 0) {
                         window.location.href = 'js2-8.html?killerWin'
                     } else {

@@ -1,0 +1,79 @@
+<div class="col-lg-12 col-md-12 col-sm-12 edging long">
+    <h5><strong> | </strong>合作机构管理</h5>
+        <table class="table table-striped gridiron edging">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>机构logo</th>
+                <th>机构名称</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>冻结</td>
+                <td>
+                    <a ui-sref="backStage.contentManage.uniteManage">查看</a>
+                    <a>编辑</a>
+                    <a class="dyestuff">冻结</a>
+                    <a class="dyestuff">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>冻结</td>
+
+                <td>
+                    <a>查看</a>
+                    <a>编辑</a>
+                    <a class="dyestuff">冻结</a>
+                    <a class="dyestuff">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>冻结</td>
+
+                <td>
+                    <a>查看</a>
+                    <a>编辑</a>
+                    <a class="dyestuff">冻结</a>
+                    <a class="dyestuff">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>冻结</td>
+
+                <td>
+                    <a>查看</a>
+                    <a>编辑</a>
+                    <a class="dyestuff">冻结</a>
+                    <a class="dyestuff">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>占位符</td>
+                <td>冻结</td>
+                <td>
+                    <a>查看</a>
+                    <a>编辑</a>
+                    <a class="dyestuff">冻结</a>
+                    <a class="dyestuff">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+</div>

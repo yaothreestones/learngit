@@ -1,0 +1,92 @@
+<div class="panel pael-default">
+    <div class="panel-body" style="border: 1px solid #f5f5f5;border-bottom: none">
+        <from class="form-horizontal">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label" >
+                            標題
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control"  disabled="none">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            发送人群
+                        </label>
+                        <div class="col-sm-9 ">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in class">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            消息类型
+                        </label>
+                        <div class="col-sm-9 ">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in state">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pd-bottom-2">
+                        <div class="col-md-4 pull-right text-right">
+                            <div params="vm.searchParams" class="ng-isolate-scope">
+                                <button type="button" class="btn btn-success" ng-click="search()">查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </from>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 消息模板</span>
+        <span class="pull-right pointer" ui-sref="backStage.serviceManage.newsManage">新增+</span>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <table class="table table-striped">
+                <thead>
+                <th>序号</th>
+                <th>標題</th>
+                <th>发送人群</th>
+                <th>消息类型</th>
+                <th>发送时间</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="self in [1,2,3,4,5,6]">
+                    <td>{{$index+1}}</td>
+                    <td>加油</td>
+                    <td>人群</td>
+                    <td>百折不挠</td>
+                    <td>1</td>
+                    <td>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <a ng-click="thaw()" style="cursor:pointer;">发布</a>
+                        </button>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <!--1草稿，2上线-->
+                            <a ui-sref="backStage.serviceManage.look">查看</a>
+                        </button>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <a ng-click="thaw()" style="cursor:pointer;">刪除</a>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+body{
+    font-size: 10px!important;
+}
+.start{
+    padding: 0;
+    position: absolute;
+    top:0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: url("../../image/app/context.png") no-repeat ;
+    background-size: 100% 100%;
+    width: 100%;
+    z-index: -999;
+}
+.center-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.picture-top{
+    margin-top: 38.4vw;
+    height: 23.9vw;
+}
+.picture-center{
+    margin-top: 7.5vw;
+    height: 6.4vw;
+    width: 25.4vw;
+}
+.picture-bottom{
+    width: 34.8vw;
+    height: 11.4vw;
+    margin-top: 4.5vw;
+}
+.entry{
+    padding: 0 2.8vw;
+}
+.entry input{
+    height: 13.75vw;
+    outline: none;
+    border: none;
+    display: block;
+    border-radius: 5px;
+    font-size: 5vw;
+    border: 0.31vw solid #a2c4fd;
+   font-weight: 500;
+}
+.ipt-top{
+    margin-top: 39.3vw;
+    color: #44bcf2;
+    background: #fff;
+}
+.ipt-bottom{
+    margin-top: 3.1vw;
+    color: #fff;
+    background: none;
+    border-color: #a1c3fd;
+
+}

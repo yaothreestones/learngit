@@ -1,0 +1,5 @@
+angular.module('app','')
+    .controller('enrollCtrl',function ($scope,$state,$interval) {
+
+    });
+

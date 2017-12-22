@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 角色管理</span>
+        <span class="pull-right pointer" ui-sref="backStage.moduleManage.roleManage">新增+</span>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <table class="table table-bordered">
+                <thead>
+                <th>ID</th>
+                <th>角色名</th>
+                <th>創建人</th>
+                <th>創建時間</th>
+                <th>更新人</th>
+                <th>更新時間</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="self in [1,2,3,4,5,6]">
+                    <td>{{$index+1}}</td>
+                    <td>超级</td>
+                    <td>admin</td>
+                    <td>2017.12.21-10：16</td>
+                    <td>admin</td>
+                    <td>2017.12.21-10：18</td>
+                    <td>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <!--1草稿，2上线-->
+                            <a ui-sref="backStage.moduleManage.roleManage">编辑</a>
+                        </button>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <a ng-click="thaw()" style="cursor:pointer;">删除</a>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

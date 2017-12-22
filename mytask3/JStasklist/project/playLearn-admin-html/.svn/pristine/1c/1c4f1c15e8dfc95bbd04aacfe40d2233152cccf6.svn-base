@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 头像背景管理（同一时间只能展示一张列表最上方的背景图，存放多张可能出错）</span>
+        <span class="pull-right pointer" ui-sref="backStage.serviceManage.imageBackground">新增+</span>
+    </div>
+        <div class="panel-body image">
+            <div class="panel panel-default">
+                <table class="table table-striped">
+                    <thead>
+                    <th>序号</th>
+                    <th>封面</th>
+                    <th>操作</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="self in [1,2,3,4,5,6]">
+                        <td style="line-height: 100px">{{$index+1}}</td>
+                        <td><img src="image/0.png" alt="" height="100" width="100"></td>
+                        <td style="line-height: 100px">
+                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                    class="btn btn-sm  btn-primary "
+                                    ng-clock>
+                                <!--1草稿，2上线-->
+                                <a ui-sref="backStage.serviceManage.imageBackground">编辑</a>
+                            </button>
+                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                    class="btn btn-sm  btn-primary "
+                                    ng-clock>
+                                <a ng-click="thaw()" style="cursor:pointer;">删除</a>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>

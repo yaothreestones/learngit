@@ -1,0 +1,140 @@
+<div class="panel pael-default">
+    <div class="panel-body" style="border: 1px solid #f5f5f5;border-bottom: none">
+        <from class="form-horizontal">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            用户名
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            ID
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            年级
+                        </label>
+                        <div class="col-sm-9 ">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in names">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6  form-group">
+                        <label class="col-sm-3 control-label">
+                            学习星数
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                        <label class="col-sm-1 control-label padding-center">
+                            ~
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            学习课时数
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                        <label class="col-sm-1 control-label padding-center">
+                            ~
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            邮箱
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 form-group">
+                        <label class="col-sm-3 control-label">
+                            状态
+                        </label>
+                        <div class="col-sm-9 ">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in state">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn" ng-click="search()">查询</button>
+                    </div>
+                </div>
+            </div>
+        </from>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">用户管理（用户总数：?人）</span>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <table class="table table-striped">
+                <thead>
+                <th>序号</th>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>年级</th>
+                <th>学习星数</th>
+                <th>学习课时数</th>
+                <th>邮箱</th>
+                <th>状态</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="self in [1,2,3,4,5,6]">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <!--1草稿，2上线-->
+                            <a ui-sref="backStage.serviceManage.see">查看</a>
+                        </button>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <a ng-click="thaw()" style="cursor:pointer;">解冻</a>
+                        </button>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="panel pael-default">
+    <div class="panel-body" style="border: 1px solid #f5f5f5;border-bottom: none">
+        <from class="form-horizontal">
+            <div class="container-fluid">
+                <div class="row pd-bottom-2">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 word-spacing-25 titel">用户昵称</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control"  >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 titel">提交时间</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control"  >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 text-center ">—</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control"  >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pd-bottom-2">
+                        <div class="col-md-4 pull-right text-right">
+                            <div params="searchParams" class="ng-isolate-scope">
+                                <button type="button" class="btn btn-success" ng-click="search()">查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </from>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 意见模板</span>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <table class="table table-striped">
+                <thead>
+                <th>序号</th>
+                <th>用户昵称</th>
+                <th>邮箱</th>
+                <th>提交时间</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="self in [1,2,3,4,5,6]">
+                    <td>{{$index+1}}</td>
+                    <td>anny</td>
+                    <td>785361174@163.com</td>
+                    <td>2017-12-20 15：36</td>
+                    <td>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <!--1草稿，2上线-->
+                            <a ui-sref="backStage.serviceManage.objectionManage">查看</a>
+                        </button>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-clock>
+                            <a ng-click="thaw()" style="cursor:pointer;">刪除</a>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

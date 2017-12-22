@@ -1,0 +1,17 @@
+<style>
+
+</style>
+<div class="top-code">
+    <img src="image/app/code.png"/>
+    <input  id="ds_name" type="text" class="push-button" placeholder="输入验证码"   required ng-model="user.testcode"/>
+    <b></b>
+    <span>
+        <input type="button" value="短信验证" class="code-input" ng-click="getTestCode()" ng-class="codeColor" ng-value="description" ng-disabled="canClick">
+    </span>
+    <span>
+        <input type="button" value="语音验证"  class="code-input"ng-click="getTestStart()" ng-class="codeColor" ng-value="speech" ng-disabled="startClick">
+    </span>
+</div>
+
+
+

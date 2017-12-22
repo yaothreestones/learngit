@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading" ng-click="changeOpen()" style="cursor: pointer">
+        <h4 class="panel-title">
+            <div>
+                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                {{heading}}
+            </div>
+        </h4>
+    </div>
+    <div class="panel-collapse" ng-class="{collapse:!isOpen}">
+        <div class="panel-body" ng-transclude>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="col-lg-12 col-md-12 col-sm-12 edging">
+    <h5><strong> | </strong>新增资料</h5>
+    <div class="inner along">
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" for="ds_name">机构logo</label>
+                    <div class="col-sm-3">
+                        <a href="javascript:;" class="file btn">上传
+                            <input type="file" name="" id="">
+                        </a>
+                        <div class="imgs"></div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="upload-top top-upload">
+            <ul>
+                <li>图片名</li>
+                <li>大小</li>
+                <li>进度</li>
+                <li>状态</li>
+                <li>操作</li>
+            </ul>
+        </div>
+        <div class="upload-buttom top-upload">
+            <ul>
+                <li>fdsafds.rar</li>
+                <li>0.12MB</li>
+                <li><progress id="Progress" ng-value="a"  max="100" value="0"></progress></li>
+                <li>正在上传</li>
+                <li class="li-btn">
+                    <button type="button" class="btn  top-btn">上传</button>
+                    <button type="button" class="btn  button-btn">删除</button>
+                </li>
+            </ul>
+        </div>
+        <form class="form-horizontal" role="form">
+        <fieldset>
+        <div class="form-group">
+        <label class="col-sm-1 control-label" for="ds_name">机构名称</label>
+        <div class="col-sm-11">
+            <input class="form-control" id="ds_name" type="text"   />
+        </div>
+        </div>
+        </fieldset>
+        </form>
+        <div class="fastener">
+            <button type="button" class="btn ascertain">确定</button>
+            <button type="button" class="btn cancel">取消</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,84 @@
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal ">
+                <div class="container-fluid">
+                    <div class="row ">
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                角色
+                            </label>
+                            <div class="col-sm-9 ">
+                                <select class="form-control" ng-init="selectedName = names[0]"
+                                        ng-model="selectedName" ng-options="x for x in role">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                用户名
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pd-bottom-2">
+                        <div class="col-md-4 pull-right text-right">
+                            <div params="searchParams" class="ng-isolate-scope">
+                                <button type="button" class="btn btn-success" ng-click="search()">重置</button>
+                                <button type="button" class="btn btn-success" ng-click="">查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="verticalBlock">用户列表</span>
+            <span class="pull-right pointer" ui-sref="backStage.moduleManage.accountManage">新增+</span>
+        </div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <!-- Table -->
+                <table class="table table-bordered">
+                    <thead>
+                    <th>ID</th>
+                    <th>登录名</th>
+                    <th>角色</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>更新人</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="x in [1,2,3,4,5,6]">
+                        <td>{{$index+1}}</td>
+                        <td>科比</td>
+                        <td>管理员</td>
+                        <td>admin</td>
+                        <td>2017.12.21-17:44</td>
+                        <td>admin</td>
+                        <td>2017.12.21-17:48</td>
+                        <td>
+                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                    class="btn btn-sm  btn-primary "
+                                    ng-clock>
+                                <!--1草稿，2上线-->
+                                <a ui-sref="backStage.moduleManage.compiler">编辑</a>
+                            </button>
+                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                    class="btn btn-sm  btn-primary "
+                                    ng-clock>
+                                <!--1草稿，2上线-->
+                                <a ui-sref="backStage.moduleManage.roleManage">删除</a>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

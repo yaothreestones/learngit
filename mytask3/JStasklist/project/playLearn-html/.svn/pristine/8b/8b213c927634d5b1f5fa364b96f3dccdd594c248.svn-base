@@ -1,0 +1,6 @@
+angular.module('app')
+    .controller('beginCtrl',function ($scope,$state) {
+        $scope.begin = function () {
+            $state.go('app');
+        }
+    });

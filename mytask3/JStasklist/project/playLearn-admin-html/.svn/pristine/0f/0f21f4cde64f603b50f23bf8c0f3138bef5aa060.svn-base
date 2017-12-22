@@ -1,0 +1,68 @@
+<div class="contentBottom">
+    <div class="panel-heading" style="background: #F9F9F9">
+        <strong>
+            I  xxxxxx用户详情
+        </strong>
+    </div>
+    <div class="panel-body tabulation table-responsive table-responsive">
+        <div>
+            <div class="col-lg-4 col-sm-6 form-group">
+                <label class="col-sm-3 control-label">
+                    用户名
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 form-group">
+                <label class="col-sm-3 control-label">
+                    頭像
+                </label>
+                <div class="col-sm-9 portrait">
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 form-group">
+                <label class="col-sm-3 control-label">
+                    年級
+                </label>
+                <div class="col-sm-9">
+                    <select class="form-control" ng-init="selectedName = names[0]"
+                            ng-model="selectedName" ng-options="x for x in grade">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped add-table-border sheet">
+            <thead>
+            <tr>
+                <th>序號</th>
+                <th>課程名稱</th>
+                <th>所屬科目</th>
+                <th>等級</th>
+                <th>纍計學習人數</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="self in [1,2,3,4,5,6]">
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>
+                    <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                            class="btn btn-sm  btn-primary "
+                            ng-clock>
+                        <!--1草稿，2上线-->
+                        查詢
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

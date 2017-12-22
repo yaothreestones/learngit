@@ -1,0 +1,171 @@
+<div class="contentBottom">
+    <div class="panel-heading" style="background: #F9F9F9">
+        <strong>
+            I xxxxxx用户详情
+        </strong>
+    </div>
+    <div class="panel-body tabulation table-responsive table-responsive">
+        <div class="tabulation">
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+                <div class="col-lg-12 col-sm-12 form-group">
+                    <label class="col-sm-3 control-label">
+                        用户名
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12 form-group">
+                    <label class="col-sm-3 control-label">
+                        郵箱
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12 form-group">
+                    <label class="col-sm-3 control-label">
+                        年級
+                    </label>
+                    <div class="col-sm-9">
+                        <select class="form-control" ng-init="selectedName = grade[0]"
+                                ng-model="selectedName" ng-options="x for x in grade">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+                <div class="col-lg-12 col-sm-12 form-group">
+                    <label class="col-sm-3 control-label">
+                        頭像
+                    </label>
+                    <div class="col-sm-9 portrait">
+
+                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12 form-group">
+                    <p style="color:#fff">我是佔位符</p>
+                    <p style="color:#fff">我是佔位符</p>
+                    <p style="color:#fff">我是佔位符</p>
+                </div>
+            </div>
+
+            <svg height="0" width="0" style="position: absolute; margin-left: -100%;">
+                <defs>
+
+                    <filter id='shadow'>
+                        <feComponentTransfer in="SourceGraphic">
+                            <feFuncR type="discrete" tableValues="0"/>
+                            <feFuncG type="discrete" tableValues="0"/>
+                            <feFuncB type="discrete" tableValues="0"/>
+                        </feComponentTransfer>
+                        <feGaussianBlur stdDeviation="1"/>
+                        <feComponentTransfer>
+                            <feFuncA type="linear" slope="0.2"/>
+                        </feComponentTransfer>
+                        <feOffset dx="5" dy="1" result="shadow"/>
+                        <feComposite in="SourceGraphic"/>
+                    </filter>
+
+                    <linearGradient id="tab-1-bg" x1="0%" y1="0%" x2="0%" y2="65%">
+                        <stop offset="0%" style="stop-color: rgba(136, 195, 229, 1.0);" />
+                        <stop offset="100%" style="stop-color: rgba(255, 255, 255,1.0);"/>
+                    </linearGradient>
+
+                    <linearGradient id="tab-2-bg" x1="0%" y1="0%" x2="0%" y2="65%">
+                        <stop offset="0%" style="stop-color: rgba(136, 195, 229, 1.0);" />
+                        <stop offset="100%" style="stop-color: rgba(255, 255, 255,1.0)"/>
+                    </linearGradient>
+
+                    <linearGradient id="tab-3-bg" x1="0%" y1="0%" x2="0%" y2="65%">
+                        <stop offset="0%" style="stop-color: rgba(136, 195, 229, 1.0);" />
+                        <stop offset="100%" style="stop-color: rgba(255, 255, 255,1.0)"/>
+                    </linearGradient>
+
+                    <linearGradient id="tab-4-bg" x1="0%" y1="0%" x2="0%" y2="65%">
+                        <stop offset="0%" style="stop-color: rgba(136, 195, 229, 1.0);" />
+                        <stop offset="100%" style="stop-color: rgba(255, 255, 255,1.0)"/>
+                    </linearGradient>
+
+                </defs>
+
+                <path id="tab-shape" class="tab-shape"
+                      d="M116.486,29.036c-23.582-8-14.821-29-42.018-29h-62.4C5.441,0.036,0,5.376,0,12.003v28.033h122v-11H116.486
+		z"/>
+            </svg>
+
+            <nav role="navigation" class="main-navigation">
+                <ul>
+                    <li class="tab-1 active" data-bg-color="rgba(242, 242, 242)">
+                        <a href="#home">
+                            <span>我的收藏(課程)</span>
+                            <svg viewBox="0 0 122 40">
+                                <use xlink:href="#tab-shape"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="tab-2" data-bg-color="rgba(242, 242, 242)">
+                        <a href="#about">
+                            <span>我的收藏(課時)</span>
+                            <svg viewBox="0 0 122 40">
+                                <use xlink:href="#tab-shape"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="tab-3" data-bg-color="rgba(242, 242, 242)">
+                        <a href="#clients">
+                            <span>我的資料</span>
+                            <svg viewBox="0 0 122 40">
+                                <use xlink:href="#tab-shape"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="tab-4" data-bg-color="rgba(242, 242, 242)">
+                        <a href="#contact">
+                            <span>課程記錄</span>
+                            <svg viewBox="0 0 122 40">
+                                <use xlink:href="#tab-shape"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-content">
+                <article class="article">
+                    <table class="table table-striped add-table-border sheet">
+                        <thead>
+                        <tr>
+                            <th>序號</th>
+                            <th>課程名稱</th>
+                            <th>所屬科目</th>
+                            <th>等級</th>
+                            <th>纍計學習人數</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="self in [1,2,3,4,5,6]">
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <button style="border: none;background: none;color: #337Ab7;outline:none; "
+                                        type="button"
+                                        class="btn btn-sm  btn-primary "
+                                        ng-clock>
+                                    <!--1草稿，2上线-->
+                                    查詢
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

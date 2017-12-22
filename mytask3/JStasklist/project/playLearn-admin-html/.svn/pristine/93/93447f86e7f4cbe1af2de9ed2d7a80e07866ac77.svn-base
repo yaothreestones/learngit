@@ -1,0 +1,47 @@
+<div class="col-lg-12 col-md-12 col-sm-12 edging while">
+    <h5><strong> | </strong>新增资料</h5>
+    <div class="inner within">
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label top-form" for="ds_name">所属年级
+                    </label>
+                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">一年级
+                    </label>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 edging">
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label top-form" for="ds_name">推荐课程</label>
+                    <div class="col-sm-11 top-form">
+                        <select class="form-control" id="ds_name">
+                            <option>语文</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-1 control-label top-form" for="ds_name"></label>
+                    <div class="col-sm-11 top-form">
+                        <select class="form-control" id="ds_name">
+                            <option>标点符号</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-1 control-label top-form" for="ds_name">推荐封面</label>
+                    <div class="col-sm-11 top-form">
+                       <div class="imgs"></div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="inner tall">
+
+            <div class="fastener">
+                <button type="button" class="btn ascertain">确定</button>
+                <button type="button" class="btn cancel">取消</button>
+            </div>
+        </div>
+
+    </div>
+</div>

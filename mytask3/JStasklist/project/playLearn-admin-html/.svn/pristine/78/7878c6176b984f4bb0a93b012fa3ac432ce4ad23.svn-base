@@ -1,0 +1,513 @@
+angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$ocLazyLoadProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $ocLazyLoadProvider) {
+        $locationProvider.hashPrefix("!");
+        var _lazyLoad = function (loaded) {
+            return function ($ocLazyLoad) {
+                return $ocLazyLoad.load(loaded, {serie: true});
+            }
+        };
+        $locationProvider.hashPrefix("");
+        $urlRouterProvider.when("", "/login");
+        $stateProvider
+        //后台登陆页
+            .state("login", {
+                url: "/login",
+                templateUrl: 'view/login/login.html',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "view/login/login.html",
+                        "script/controllers/login/login.js"
+                    ])
+                }
+            })
+            //后台首页
+            .state("backStage", {
+                url: "/backStage",
+                templateUrl: 'view/backstage/backStage.html',
+                controller: 'backStageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "view/backstage/backStage.html",
+                        "style/backstage/backstage.css",
+                        "script/controllers/backstage/backStage.js",
+                        "script/directives/Side-navigation.js",
+                        "script/services/Side-navigation-list.js"
+                    ])
+                }
+            })
+            //teachManage
+            //教学管理模块
+            .state("backStage.teachManage", {
+                url: "/teachManage",
+                abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
+                //整个模块公共文件
+                resolve: {
+                    loadMyFile: _lazyLoad([])
+                }
+            })
+            //后台科目管理页
+            .state("backStage.teachManage.subject", {
+                url: "/subject",
+                templateUrl: 'view/teachManage/subject/subject.html',
+                controller: 'subjectCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //科目管理（新增.查看.编辑）
+            .state("backStage.teachManage.subjectManage", {
+                url: "/subjectManage",
+                templateUrl: 'view/teachManage/subject/subjectManage.html',
+                controller: 'subjectManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台课程管理页
+            .state("backStage.teachManage.courses", {
+                url: "/courses",
+                templateUrl: 'view/teachManage/courses/courses.html',
+                controller: 'coursesCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //课程管理（新增.查看.编辑）
+            .state("backStage.teachManage.coursesManage", {
+                url: "/coursesManage",
+                templateUrl: 'view/teachManage/courses/coursesManage.html',
+                controller: 'coursesManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台课时管理页
+            .state("backStage.teachManage.period", {
+                url: "/period",
+                templateUrl: 'view/teachManage/period/period.html',
+                controller: 'periodCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //课时管理（新增.查看.编辑）
+            .state("backStage.teachManage.periodManage", {
+                url: "/periodsManage",
+                templateUrl: 'view/teachManage/period/periodManage.html',
+                controller: 'periodManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台任务管理页
+            .state("backStage.teachManage.mission", {
+                url: "/mission",
+                templateUrl: 'view/teachManage/mission/mission.html',
+                controller: 'missionCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //任务管理（新增.查看.编辑）
+            .state("backStage.teachManage.missionManage", {
+                url: "/missionManage",
+                templateUrl: 'view/teachManage/mission/missionManage.html',
+                controller: 'missionManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //proview
+            //同步预习管理模块
+            .state("backStage.proviewManage", {
+                url: "/proviewManage",
+                abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
+                //整个模块公共文件
+                resolve: {
+                    loadMyFile: _lazyLoad([])
+                }
+            })
+            //后台教材管理页
+            .state("backStage.proviewManage.datum", {
+                url: "/datum",
+                templateUrl: 'view/proviewManage/datum/datum.html',
+                controller: 'datumCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //教材管理（新增.查看.编辑）
+            .state("backStage.proviewManage.datumManage", {
+                url: "/datumManage",
+                templateUrl: 'view/proviewManage/datum/datumManage.html',
+                controller: 'datumManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台课时管理页
+            .state("backStage.proviewManage.period", {
+                url: "/periodInProview",
+                templateUrl: 'view/proviewManage/period/period.html',
+                controller: 'periodCtrlInProview',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //课时管理（新增.查看.编辑）
+            .state("backStage.proviewManage.periodManage", {
+                url: "/periodsManageInProview",
+                templateUrl: 'view/proviewManage/period/periodManage.html',
+                controller: 'periodManageCtrlInProview',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台任务管理页
+            .state("backStage.proviewManage.mission", {
+                url: "/missionInProview",
+                templateUrl: 'view/proviewManage/mission/mission.html',
+                controller: 'missionCtrlInProview',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //任务管理（新增.查看.编辑）
+            .state("backStage.proviewManage.missionManage", {
+                url: "/missionManage",
+                templateUrl: 'view/proviewManage/mission/missionManage.html',
+                controller: 'missionManageCtrlInProview',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //data
+            //资料管理模块
+            .state("backStage.dataManage", {
+                url: "/dataManage",
+                abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
+                //整个模块公共文件
+                resolve: {
+                    loadMyFile: _lazyLoad([])
+                }
+            })
+            //后台资料管理页
+            .state("backStage.dataManage.data", {
+                url: "/data",
+                templateUrl: 'view/dataManage/data.html',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+
+                    ])
+                }
+            })
+            //资料管理（新增.查看.编辑）
+            .state("backStage.dataManage.dataManage", {
+                url: "/dataManage",
+                templateUrl: 'view/dataManage/dataManage.html',
+                // controller: 'dataManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+
+                    ])
+                }
+            })
+            //data
+            //内容管理模块
+            .state("backStage.contentManage", {
+                url: "/contentManage",
+                abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
+                //整个模块公共文件
+                resolve: {
+                    loadMyFile: _lazyLoad([])
+                }
+            })
+            //后台合作机构管理页
+            .state("backStage.contentManage.unite", {
+                url: "/unite",
+                templateUrl: 'view/contentManage/unite/unite.html',
+                // controller: 'uniteCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+
+                    ])
+                }
+            })
+            //合作机构管理（新增.查看.编辑）
+            .state("backStage.contentManage.uniteManage", {
+                url: "/uniteManage",
+                templateUrl: 'view/contentManage/unite/uniteManage.html',
+                // controller: 'uniteManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+
+                    ])
+                }
+            })
+                //热门推荐管理       注意热门推荐的编辑  是跳到 推荐课程管理的页面
+            .state("backStage.contentManage.hot", {
+                url: "/hot",
+                templateUrl: 'view/contentManage/hot/hot.html',
+                // controller: 'hotCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //推荐课程管理
+            .state("backStage.contentManage.groom", {
+                url: "/groom",
+                templateUrl: 'view/contentManage/groom/groom.html',
+                // controller: 'groomCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //推荐课程管理（编辑）
+            .state("backStage.contentManage.groomManage", {
+                url: "/groomManage",
+                templateUrl: 'view/contentManage/groom/groomManage.html',
+                templateUrl: 'view/contentManage/groom/groomManage.html',
+                // controller: 'groomManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //客服管理模块
+            .state("backStage.serviceManage", {
+                url: "/serviceManage",
+                abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
+                //整个模块公共文件
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                    ])
+                }
+            })
+            //serviceManage
+            //用户管理页
+            .state("backStage.serviceManage.party", {
+                url: "/party",
+                templateUrl: 'view/serviceManage/party/party.html',
+                // controller: 'partyCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/serviceManage/party/partyCtrl.js",
+                        "style/serviceManage/serviceManage.css",
+                    ])
+                }
+            })
+            //用户管理管理（查看）
+            .state("backStage.serviceManage.see", {
+                url: "/see",
+                templateUrl: 'view/serviceManage/party/see.html',
+                controller: 'seeCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/serviceManage/party/seeCtrl.js"
+                    ])
+                }
+            })
+            //enroll
+            //后台注册统计
+            .state("backStage.serviceManage.enroll", {
+                url: "/enroll",
+                templateUrl: 'view/serviceManage/enroll/enroll.html',
+                controller: 'enrollCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台资讯管理
+            .state("backStage.serviceManage.information", {
+                url: "/information",
+                templateUrl: 'view/serviceManage/information/information.html',
+                controller: 'informationCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //资讯管理（新增，查看，编辑）
+            .state("backStage.serviceManage.informationManage", {
+                url: "/informationManage",
+                templateUrl: 'view/serviceManage/information/informationManage.html',
+                controller: 'informationManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台消息管理
+            .state("backStage.serviceManage.news", {
+                url: "/news",
+                templateUrl: 'view/serviceManage/news/news.html',
+                controller: 'newsCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //消息管理（新增，查看）
+            .state("backStage.serviceManage.newsManage", {
+                url: "/newsManage",
+                templateUrl: 'view/serviceManage/news/newsManage.html',
+                controller: 'newsManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台帮助管理
+            .state("backStage.serviceManage.help", {
+                url: "/help",
+                templateUrl: 'view/serviceManage/help/help.html',
+                controller: 'helpCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //帮助管理（新增，查看，编辑）
+            .state("backStage.serviceManage.helpManage", {
+                url: "/helpManage",
+                templateUrl: 'view/serviceManage/help/helpManage.html',
+                controller: 'helpManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台意见管理
+            .state("backStage.serviceManage.objection", {
+                url: "/objection",
+                templateUrl: 'view/serviceManage/objection/objection.html',
+                controller: 'objectionCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //意见管理（查看）
+            .state("backStage.serviceManage.objectionManage", {
+                url: "/objectionManage",
+                templateUrl: 'view/serviceManage/objection/objectionManage.html',
+                controller: 'objectionManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台版本管理
+            .state("backStage.serviceManage.version", {
+                url: "/version",
+                templateUrl: 'view/serviceManage/version/version.html',
+                controller: 'versionCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //版本管理（编辑）
+            .state("backStage.serviceManage.versionManage", {
+                url: "/versionManage",
+                templateUrl: 'view/serviceManage/version/versionManage.html',
+                controller: 'versionManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //后台管理
+            //模块管理
+            .state("backStage.module", {
+                url: "/module",
+                templateUrl: 'view/moduleManage/module/module.html',
+                controller: 'moduleCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //版本管理（新增，编辑）
+            .state("backStage.module.moduleManage", {
+                url: "/moduleManage",
+                templateUrl: 'view/moduleManage/module/moduleManage.html',
+                controller: 'moduleManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //角色管理
+            .state("backStage.role", {
+                url: "/role",
+                templateUrl: 'view/moduleManage/role/role.html',
+                controller: 'roleCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //角色管理（新增，编辑）
+            .state("backStage.role.roleManage", {
+                url: "/roleManage",
+                templateUrl: 'view/moduleManage/role/roleManage.html',
+                controller: 'roleManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //密码修改
+            .state("backStage.password", {
+                url: "/password",
+                templateUrl: 'view/moduleManage/password/password.html',
+                controller: 'passwordCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //账户管理
+            .state("backStage.account", {
+                url: "/account",
+                templateUrl: 'view/moduleManage/account/account.html',
+                controller: 'roleCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+            //账户管理（新增，编辑）
+            .state("backStage.account.accountManage", {
+                url: "/accountManage",
+                templateUrl: 'view/moduleManage/account/accountManage.html',
+                controller: 'accountManageCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+
+
+
+    }
+]);

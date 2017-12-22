@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 查看</span>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">标题</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">发送人群</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in send">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">消息类型</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in type">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label">发送时间</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" ng-init="selectedName = names[0]"
+                                    ng-model="selectedName" ng-options="x for x in time">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label" >正文</label>
+                        <div class="col-sm-10">
+                            <div create-editoer-instance ng-model="params.content"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label" >第三方通知</label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" style="margin-top: 10px">同步
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label"></label>
+                        <div class="col-sm-10">
+                            <label type="button" class="btn btn-success mg-top-50" ng-click="">确定</label>
+                            <label type="button" class="btn btn-defult mg-top-50 mg-left-30 border1">
+                                返回
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

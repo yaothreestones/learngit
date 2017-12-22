@@ -1,0 +1,6 @@
+angular.module('app')
+    .controller('appCtrl',function ($scope,$state) {
+        $scope.app = function () {
+            $state.go('app.enroll');
+        }
+    });

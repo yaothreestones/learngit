@@ -1,0 +1,36 @@
+/**
+ * Created by gmisl on 17-12-14.
+ */
+angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$ocLazyLoadProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider, $ocLazyLoadProvider) {
+        $locationProvider.hashPrefix("!");
+        var _lazyLoad = function (loaded) {
+            return function ($ocLazyLoad) {
+                return $ocLazyLoad.load(loaded, {serie: true});
+            }
+        };
+        $locationProvider.hashPrefix("");
+        $urlRouterProvider.when("", "/begin");
+        $stateProvider
+        //前台开始页面
+            .state("begin", {
+                url: "/begin",
+                templateUrl: 'view/begin/begin.html',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/begin/begin.js"
+                    ])
+                }
+            })
+            //前台登录页面
+            .state("app", {
+                url: "/app",
+                templateUrl: 'view/app/app.html',
+                // controller: 'appCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                    ])
+                }
+            })
+    }
+]);

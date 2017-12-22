@@ -1,0 +1,42 @@
+angular.module('app')
+    .controller('enrollCtrl',function ($scope,$state,$interval) {
+        $scope.canClick=false;
+        $scope.startClick=false;
+        $scope.description="短信验证";
+        $scope.speech="语音验证";
+        var second=60;
+        var timerHandler;
+            $scope.getTestCode=function(){timerHandler=$interval(function(){
+                $scope.startClick=true;
+                    if (second <= 0) {
+                        $interval.cancel(timerHandler);
+                        second = 60;
+                        $scope.description = "重新获取";
+                        $scope.canClick = true;
+                    } else {
+                        $scope.description = "重获" + second + "s";
+                        second--;
+                        $scope.canClick = true;
+                        $scope.codeColor="code-color";
+                    }
+                },1000);
+            };
+        $scope.getTestStart=function(){
+            timerHandler=$interval(function(){
+            $scope.canClick=true;
+            if(second<=0){
+                $interval.cancel(timerHandler);
+                second=60;
+                $scope.speech="重新获取";
+                $scope.startClick=true;
+            }else{
+                $scope.speech="重获"+second+"s";
+                second--;
+                $scope.startClick=true;
+                $scope.codeColor="code-color";
+            }
+        },1000);
+        };
+
+
+    });

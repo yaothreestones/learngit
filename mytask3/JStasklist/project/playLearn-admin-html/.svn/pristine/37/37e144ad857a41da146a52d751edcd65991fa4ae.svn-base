@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 版本管理</span>
+    </div>
+    <div class="panel-default" style="margin: 20px;border: 1px solid #ececec">
+    <div class="panel-heading">
+        <span class="user_management">Android管理</span>
+        <span class="pull-right pointer" ui-sref="backStage.serviceManage.versionManage">編輯</span>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <table class="table">
+                <thead class="panel-color">
+                <th>版本名称</th>
+                <th>版本号</th>
+                <th>URL地址</th>
+                <th>版本信息</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1.0</td>
+                    <td>01</td>
+                    <td>http://dev.study.home.ptteng.com/buy/117/3</td>
+                    <td class="text-left" >
+                        · 全新的视觉设计&emsp;</br>
+                        · 人性化的课程推荐</br>
+                        · 人性化的课程推荐</br>
+                        · 人性化的课程推荐</br>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

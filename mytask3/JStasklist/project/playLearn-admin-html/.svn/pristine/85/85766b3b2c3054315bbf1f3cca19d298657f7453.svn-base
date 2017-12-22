@@ -1,0 +1,29 @@
+<div class="pageWrap">
+    <div class="head">
+            <img src="image/logo.png"/>回家学习
+        </div>
+    <div class="row" style="margin-top: 2rem">
+        <div class="col-lg-2 col-md-3 col-sm-3" ng-controller="backStageCtrl">
+            <div>
+                <div class="panel panel-default" style="margin-bottom: 5px">
+                    <div class="panel-heading" style="cursor: pointer">
+                        <h4 class="panel-title">
+                            <div>
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                欢迎页
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+                <list>
+                    <side-navigation ng-repeat="mainlist in sideNavigationList" heading="{{mainlist.label}}">
+                        <div ng-repeat="deputylist in mainlist.lists" ui-sref="{{deputylist.url}}" style="border-bottom: 1px solid;cursor: pointer;padding-left: 16px">{{deputylist.label}}</div>
+                    </side-navigation>
+                </list>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-9">
+            <div ui-view><h1>welcome</h1></div>
+        </div>
+    </div>
+</div>

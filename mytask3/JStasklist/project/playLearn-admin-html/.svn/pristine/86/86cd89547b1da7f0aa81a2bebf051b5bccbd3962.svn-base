@@ -1,0 +1,3 @@
+angular.module('app').controller("backStageCtrl",["$scope","$state","$http","sideNavigationList", function ($scope,$state,$http,sideNavigationList) {
+    $scope.sideNavigationList = sideNavigationList;
+}]);

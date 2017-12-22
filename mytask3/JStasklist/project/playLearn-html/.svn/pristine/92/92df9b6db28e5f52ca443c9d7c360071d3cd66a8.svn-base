@@ -1,0 +1,11 @@
+<div class="container-fluid start communal-padding">
+    <div class="login">
+    <img src="image/app/logo.png"  class="picture-top center-img"/>
+        <img src="image/app/size.png" height="39" width="159" class="picture-center center-img"/>
+    <img src="image/app/teach.png" height="71" width="221" class="picture-bottom center-img"/>
+    </div>
+    <div class="entry">
+        <input class="form-control ipt-top" id="ds_name" type="button"  ui-sref="app"  value="登录"  />
+        <input class="form-control ipt-bottom" id="ds_name" type="button"  value="注册"  />
+    </div>
+</div>

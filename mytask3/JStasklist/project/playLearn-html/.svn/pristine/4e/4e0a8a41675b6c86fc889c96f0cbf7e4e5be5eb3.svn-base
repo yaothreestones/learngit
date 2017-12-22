@@ -1,0 +1,42 @@
+<div class="container-fluid communal-padding least communal-absolute">
+    <div class="login-head">
+        <a ui-sref="begin"><img src="image/app/return.png" height="30" width="30"/></a><span>登录</span>
+    </div>
+    <div class="login-center">
+        <div class="top-handset">
+            <img src="image/app/cellphone.png" height="37" width="24"/>
+            <input  id="ds_name" type="text"  placeholder="请输入手机号码"   />
+        </div>
+        <div class="bottom-password">
+            <img src="image/app/password.png" height="35" width="26"/>
+            <input  id="ds_name" type="text"  placeholder="请输入登录密码" />
+        </div>
+    </div>
+
+    <div class="press-button">
+        <button type="button" class="btn btn-default">登录</button>
+        <a class="pull-left"ui-sref="enroll">立即注册</a>
+        <a class="pull-right">忘记密码？</a>
+    </div>
+    <div class="clear"></div>
+    <div class="hint">
+        wwwwwwwwwwwwwwww
+    </div>
+    <div class="third-party ">
+        <div class="third-title"><b></b><span>第三方账号登录</span><b></b></div>
+        <div class="party-logo">
+            <span>
+                 <img src="image/app/Wechat.png" height="77" width="76"/>
+                <p>微信登陆</p>
+            </span>
+           <span>
+               <img src="image/app/microblog.png" height="77" width="76"/>
+                <p>微博登陆</p>
+           </span>
+            <span><img src="image/app/qq.png" height="77" width="76"/>
+            <p>QQ登陆</p>
+            </span>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

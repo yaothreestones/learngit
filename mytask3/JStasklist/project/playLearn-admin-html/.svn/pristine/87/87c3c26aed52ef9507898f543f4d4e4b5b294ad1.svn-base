@@ -1,0 +1,226 @@
+/*公用类*/
+.edging {
+    padding: 0 20px;
+    border: 1px solid #aaaaaa;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.edging h5{
+    padding: 15px;
+    margin: 0;
+    background: #F2F2F2;
+    color: #000000;
+    font-weight: 600;
+    border-bottom: 1px solid #aaaaaa;
+    margin: 0 -20px;
+}
+.while{
+    margin-top: 0;
+}
+.upload-buttom progress{
+    height: 20px;
+}
+.upload-buttom ul{
+    width: 90%;
+    text-align: center;
+    padding-bottom: 100px;
+}
+.upload-buttom {
+    margin-left: 130px;
+}
+.upload-buttom li{
+    float: left;
+    width: 20%;
+}
+.inner .left-side{
+    font-weight: 900;
+}
+.left-side li{
+    margin-top: 30px!important;
+}
+.inner{
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin: 20px 0;
+}
+.inner ul{
+    margin-left: 50px;
+    display: inline-block;
+}
+
+.inner li{
+    margin-top: 20px;
+    list-style: none;
+}
+.ascertain{
+    background: green;
+    color: #ffffff;
+}
+.cancel {
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
+}
+.edging table{
+    padding: 15px;
+    text-align: center;
+}
+.edging form{
+    padding: 15px;
+}
+.edging strong{
+    vertical-align: 0.5px;
+    margin-right: 5px;
+}
+.edging th{
+    text-align: center;
+}
+.edging tbody td{
+    line-height: 60px!important;
+}
+.fastener{
+    margin-left: 130px;
+    word-spacing: 50px;
+}
+.li-btn{
+    word-spacing: 20px;
+    color: #ffffff;
+}
+.li-btn button{
+    padding: 0 15px;
+    line-height: 20px;
+}
+.off-side button{
+    padding: 6px 20px;
+}
+
+/*资料管理*/
+.step{
+    padding-right: 0;
+}
+/*资料新增*/
+.off-side{
+    vertical-align: -1px;
+}
+.space li{
+    margin-top: 30px;
+}
+.file {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    padding: 4px 20px;
+    overflow: hidden;
+    color: #000000;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.upload-top{
+    margin-left: 130px;
+    border-bottom: 1px solid #aaaaaa;
+}
+.upload-top li{
+    list-style: none;
+    float: left;
+    width: 20%;
+    font-weight: 900;
+}
+
+.upload-top ul{
+    width: 90%;
+    text-align: center;
+}
+.within{
+    border: 1px solid #aaaaaa;
+}
+.ipt{
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    margin-right: 10px;
+}
+.tall{
+    padding-bottom: 200px;
+}
+/*合作机构管理*/
+.long tbody td {
+    line-height: 200px!important;
+}
+.top-btn{
+    background:#00cc00;
+}
+.button-btn{
+    background: red;
+}
+.dyestuff{
+    color: red;
+}
+
+/*合作机构新增*/
+.along{
+    padding-top: 30px;
+    padding-bottom: 500px;
+    border: 1px solid #aaaaaa;
+    padding-left: 50px;
+}
+.along label{
+    text-align: center;
+
+}
+.along input{
+    vertical-align: -5px;
+}
+.top-upload{
+    margin-left: 165px;
+}
+
+/*热门管理*/
+/*推塔课程管理*/
+.imgs{
+    width: 200px;
+    height: 200px;
+    background: red;
+    margin-top: 15px;
+}
+/*推荐课程新增*/
+.top-form{
+    text-align: center!important;
+    margin-top: 20px;
+}
+.top-form select{
+    width: 90%;
+}
+.bottom-label{
+    text-align: left!important;
+    color: #000000;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

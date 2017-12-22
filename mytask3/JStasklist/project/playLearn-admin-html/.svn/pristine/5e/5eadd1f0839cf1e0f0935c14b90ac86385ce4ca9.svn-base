@@ -1,0 +1,27 @@
+/*用户管理*/
+.row{
+    margin-right: 0!important;
+}
+.form-horizontal .control-label{
+    font-size: 12px!important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    text-align: center;
+}
+a:hover{
+    text-decoration:none;
+}
+
+/*用戶查看*/
+.contentBottom{
+    border: 1px solid #ececec;
+}
+.contentBottom .sheet{
+    border: 1px solid #ececec;
+}
+.contentBottom .portrait{
+    border: none;
+    width: 10rem;
+    height: 10rem;
+    background: #78C3F3;
+}

@@ -1,0 +1,15 @@
+angular.module('app').controller('subjectManageCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http',
+    function ($scope, $stateParams, $rootScope, $state, $http){
+        $scope.title = {};
+        $scope.data = $stateParams;
+        $scope.show = false;
+        console.log($scope.data);
+        if($scope.data.from === '1'){
+            $scope.title.name = '新增科目';
+        }else if($scope.data.from === '2'){
+            $scope.title.name = '查看科目';
+            $scope.show = true;
+        }else if($scope.data.from === '3'){
+            $scope.title.name = '编辑科目';
+        }
+    }]);

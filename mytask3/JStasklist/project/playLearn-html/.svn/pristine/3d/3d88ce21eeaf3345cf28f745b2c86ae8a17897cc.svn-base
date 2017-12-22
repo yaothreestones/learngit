@@ -1,0 +1,12 @@
+<div class="container-fluid communal-padding least communal-absolute">
+    <div class="login-head">
+        <a ui-sref="app"><img src="image/app/return.png" height="30" width="30"/></a><span>关联回家学习账号</span>
+    </div>
+    <div class="portrait">
+        <img src="image/app/portrait.png" height="231" width="231"/>
+        <p>Termianl</p>
+        <span>您的微信暂未关联回家学习</span>
+        <button type="button" class="btn btn-default associate-top" ui-sref="newAccount">关联新账号</button>
+        <button type="button" class="btn btn-default associate-bottom" ui-sref="binding">关联已有账号</button>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+<div ng-controller="loginCtrl">
+    <button type="button" class="btn-primary btn" ng-click="login()">登陆</button>
+</div>

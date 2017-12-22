@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">I 模块管理</span>
+    </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <table class="table table-bordered">
+                        <thead>
+                        <th>自增长ID</th>
+                        <th>名称</th>
+                        <th>模块对应url地址</th>
+                        <th>父模块ID</th>
+                        <th>模块类型</th>
+                        <th>数据更新时间</th>
+                        <th>更新人ID</th>
+                        <th>数据创建时间</th>
+                        <th>创建人</th>
+                        <th>ID</th>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="self in [1,2,3,4,5,6]">
+                            <td>{{$index+1}}</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>11</td>
+                            <td>
+                                <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                        class="btn btn-sm  btn-primary "
+                                        ng-clock>
+                                    <!--1草稿，2上线-->
+                                    <a ui-sref="">编辑</a>
+                                </button>
+                                <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                        class="btn btn-sm  btn-primary "
+                                        ng-clock>
+                                    <a ng-click="thaw()" style="cursor:pointer;">删除</a>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+    </div>
+</div>

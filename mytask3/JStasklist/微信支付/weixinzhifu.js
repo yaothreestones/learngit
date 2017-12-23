@@ -1,7 +1,36 @@
+angular.module('myApp',[])
+    .config(function($httpProvider){
+        $httpProvider.defaults.transformRequest = function(obj){
+            var str = [];
+            for(var p in obj){
+                str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            }
+            return str.join("&");
+        };
+        $httpProvider.defaults.headers.post = {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+    .controller('myCtrl',function ($scope,$http) {
+        $scope.prepay = function () {
+            $http({
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                method:'post',
+                url:'https://api.mch.weixin.qq.com/pay/unifiedorder',
+                params:{
+
+            }
+        }).then(function (res) {
+                console.log(res)
+            })
+    }})
+
 function onBridgeReady(){
     WeixinJSBridge.invoke(
         'getBrandWCPayRequest', {
-            "appId":"wx2421b1c4370ec43b",     //公众号名称，由商户传入
+            "appId":"wx0b31bcd6cbe880a4",     //公众号名称，由商户传入
             "timeStamp":"1395712654",         //时间戳，自1970年以来的秒数
             "nonceStr":"e61463f8efa94090b1f366cccfbbb444", //随机串
             "package":"prepay_id=u802345jgfjsdfgsdg888",

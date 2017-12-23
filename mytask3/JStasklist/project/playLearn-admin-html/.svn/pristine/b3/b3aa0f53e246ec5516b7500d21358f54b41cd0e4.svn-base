@@ -1,0 +1,11 @@
+angular.module('app').controller('coursesManageCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http',
+    function ($scope, $stateParams, $rootScope, $state, $http){
+        $scope.data = $stateParams;
+        if($scope.data.from === '1'){
+
+        }else if($scope.data.from === '2'){
+
+        }else if($scope.data.from === '3'){
+
+        }
+    }]);

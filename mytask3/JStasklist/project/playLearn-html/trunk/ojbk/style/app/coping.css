@@ -1,0 +1,17 @@
+.login-head{
+    line-height: 12.9vw;
+    padding-left: 2.63vw;
+    background: -webkit-linear-gradient(#4a90fe, #00a5e0);
+}
+.login-head img{
+    height: 4.16vw;
+    width: 4.16vw;
+    display: inline-block;
+    vertical-align: middle;
+}
+.login-head span{
+    vertical-align: middle;
+    margin-left: 8.33vw;
+    font-size: 5vw;
+    color: #ffffff;
+}

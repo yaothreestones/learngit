@@ -11,18 +11,18 @@ angular.module('myApp',[])
     //         'Content-Type': 'application/x-www-form-urlencoded'
     //     }
     // })
-    .controller('myCtrl',function ($scope,$http) {
-        $scope.prepay = function () {
-            $http({
-
-                method:'post',
-                url:'https://api.mch.weixin.qq.com/pay/unifiedorder',
-                dataType: 'jsonp'
-
-        }).then(function (res) {
-                console.log(res)
-            })
-    }})
+    // .controller('myCtrl',function ($scope,$http) {
+    //     $scope.prepay = function () {
+    //         $http({
+    //
+    //             method:'post',
+    //             url:'https://api.mch.weixin.qq.com/pay/unifiedorder',
+    //             dataType: 'jsonp'
+    //
+    //     }).then(function (res) {
+    //             console.log(res)
+    //         })
+    // }})
 
 function onBridgeReady(){
     WeixinJSBridge.invoke(

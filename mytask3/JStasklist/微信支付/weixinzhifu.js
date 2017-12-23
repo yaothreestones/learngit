@@ -32,7 +32,8 @@ function onBridgeReady(){
             "nonceStr":"e61463f8efa94090b1f366cccfbbb444", //随机串
             "package":"prepay_id=u802345jgfjsdfgsdg888",
             "signType":"MD5",         //微信签名方式：
-            "paySign":"70EA570631E4BB79628FBCA90534C63FF7FADD89" //微信签名
+            "paySign":"70EA570631E4BB79628FBCA90534C63FF7FADD89" ,//微信签名
+            'total_fee':1
         },
         function (res) {
             console.log(res.err_code + "  " + res.err_desc + "  " + res.err_msg);

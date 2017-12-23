@@ -21,7 +21,7 @@ angular.module('myApp')
                 resolve:{
                     loadMyFile:_lazyLoad([
                         'js/formdata.js',
-                        'js/controller/login.js',
+                        'js/controller/login.js'
 
                     ])
                 }

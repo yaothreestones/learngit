@@ -5,12 +5,6 @@ angular.module('myApp')
                 name:$scope.user,
                 pwd:$scope.pwd
             };
-            login1.login_in(params).then(function (res) {
-                if (res.data.code === 0) {
-                    $state.go('backStage')
-                }else {
-                    alert('failed')
-                }
-            })
+            login1.login_in(params)
         }
     }])

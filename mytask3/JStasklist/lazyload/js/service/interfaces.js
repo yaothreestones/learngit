@@ -2,7 +2,13 @@ angular.module('myApp')
     .factory('login1',function ($http,ajax) {
         return {
             login_in:function (params) {
-                return $http.post(ajax.login_url,params)
+                return $http.post(ajax.login_url,params).then(function (res) {
+                    if (res.data.code === 0) {
+                        $state.go('backStage')
+                    }else {
+                        alert('failed')
+                    }
+                })
             },
             articleList_in:function () {
                 return $http.get(ajax.articleList_url)

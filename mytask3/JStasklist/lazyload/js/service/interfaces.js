@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .factory('login1',function ($http,ajax) {
+    .factory('login1',function ($http,ajax,$state) {
         return {
             login_in:function (params) {
                 return $http.post(ajax.login_url,params).then(function (res) {

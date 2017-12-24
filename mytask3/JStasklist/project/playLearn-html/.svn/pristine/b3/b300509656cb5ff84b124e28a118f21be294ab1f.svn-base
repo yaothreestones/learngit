@@ -1,0 +1,16 @@
+    <!--注册并绑定玩转学习账号-->
+    <div class="login-center top-side">
+        <div class="top-handset">
+            <img src="image/app/cellphone.png" />
+            <input  id="ds_name" type="text" class="push-button" value="15203435003"  placeholder="请输入手机号码"   />
+        </div>
+        <proving></proving>
+        <div class="bottom-password">
+            <img src="image/app/password.png"/>
+            <input  id="ds_name" type="text"class="push-button"  placeholder="请输入登录密码" />
+        </div>
+    </div>
+    <div class="lognow">
+        <button type="button" class="btn btn-default associate-top" ui-sref="app.profile">注册并绑定</button>
+    </div>
+

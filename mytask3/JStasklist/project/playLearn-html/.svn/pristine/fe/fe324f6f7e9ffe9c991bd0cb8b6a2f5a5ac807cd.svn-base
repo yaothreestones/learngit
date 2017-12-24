@@ -1,0 +1,30 @@
+<div class="container-fluid communal-padding least communal-absolute">
+    <div class="login-head">
+        <a ui-sref="newAccount"><img src="image/app/return.png" height="30" width="30"/></a><span>填写个人资料</span>
+        <a class="pull-right the-right">跳转</a>
+    </div>
+    <div class="upload-image">
+        <img src="image/app/UploadHeadImage.png" />
+        <span>上传头像</span>
+    </div>
+    <div class="login-center login-ipt">
+        <div class="nickname">
+            <img src="image/app/nickname.png" />
+            <span>昵称：</span>
+            <input  id="ds_name" type="text" class="push-button" value=""  placeholder="设置昵称"   />
+        </div>
+        <div class="grade">
+            <img src="image/app/grade.png" />
+            <span>年级：</span>
+            <input  id="ds_name" type="text" class="push-button" value=""  placeholder="设置年级"   />
+        </div>
+        <div class="mail">
+            <img src="image/app/mail.png"/>
+            <span>邮件：</span>
+            <input  id="ds_name" type="text"class="push-button"  placeholder="设置邮件" />
+        </div>
+    </div>
+    <div class="lognow">
+        <button type="button" class="btn btn-default associate-top" ui-sref="profile">立即学习</button>
+    </div>
+</div>

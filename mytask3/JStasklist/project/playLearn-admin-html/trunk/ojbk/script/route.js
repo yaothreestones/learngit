@@ -27,7 +27,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "view/backstage/backStage.html",
-                        "style/backstage/backstage.css",
+                        "style/backstage/backStage.css",
                         "script/controllers/backstage/backStage.js",
                         "script/directives/Side-navigation.js",
                         "script/services/Side-navigation-list.js"

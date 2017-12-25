@@ -9,3 +9,9 @@ function login() {
     '#wechat_redirect';
     window.location.href = WxURL
 };
+var url = location.search;
+var str = url.substr(1)
+console.log(str)
+var a = function () {
+
+}

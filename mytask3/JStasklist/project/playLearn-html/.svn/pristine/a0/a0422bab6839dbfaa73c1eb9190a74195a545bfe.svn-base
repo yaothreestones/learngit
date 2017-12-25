@@ -1,0 +1,45 @@
+<div class="top-side">
+    <div class="gather">
+     <div class="Curriculum-search">
+         <input type="text" placeholder="请输入需要搜索的课程"/>
+         <span class="search-img">
+         <img src="image/app/search1.png" height="36" width="36"/>
+         </span>
+     </div>
+        <div class="account">
+            <span>科目</span>
+            <div class="options">
+             <div class="change">全部</div>
+                <div>数学</div>
+             <div>语文</div>
+             <div>英语</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="account">
+            <span>年级</span>
+            <div class="options">
+                <div class="change">全部</div>
+                <div>一年级</div>
+                <div>二年级</div>
+                <div>三年级</div>
+                <div>四年级</div>
+                <div>五年级</div>
+                <div>六年级</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="account account-bottom">
+            <span>范围</span>
+            <div class="options">
+                <div class="change">课程</div>
+                <div>课时</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="gather-search">
+        <button class="search-left">重置</button>
+        <button class="search-right">搜索</button>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="top-side">
+    <div class="material">
+        <div class="textbook">
+        <div>
+            <span>
+            <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+             <b>三年级（上侧)</b>
+            人民出版社
+            </span>
+        </div>
+        <div>
+            <span>
+                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧</b>
+                人民出版社
+            </span>
+        </div>
+        <div>
+            <span>
+                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+        </div>
+        </div>
+        <div class="textbook textbook-top">
+            <div>
+            <span>
+            <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+             <b>三年级（上侧)</b>
+            人民出版社
+            </span>
+            </div>
+            <div>
+            <span>
+                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+            </div>
+            <div>
+            <span>
+                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+            </div>
+        </div>
+        <div class="textbook textbook-top">
+            <div>
+            <span>
+            <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+             <b>三年级（上侧)</b>
+            人民出版社
+            </span>
+            </div>
+            <div>
+            <span>
+                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+            </div>
+            <div>
+            <span>
+                <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+            </div>
+        </div>
+        <div class="textbook textbook-top">
+            <div>
+            <span>
+            <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
+             <b>三年级（上侧)</b>
+            人民出版社
+            </span>
+            </div>
+            <div>
+            <span>
+                <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+            </div>
+            <div>
+            <span>
+                <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
+                <b>三年级（上侧)</b>
+                人民出版社
+            </span>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="top-side">
+    <div class="prize charts">
+        <div class="cover"></div>
+        <div class="desk-restrain">
+            <div class="desk-left desk-public">
+                <span>88.88</span>
+                <span class="public-size">已学课时（节）</span>
+            </div>
+            <div class="desk-right desk-public">
+                <span>88.88</span>
+                <span class="public-size">已学天数（天）</span>
+            </div>
+        </div>
+    </div>
+    <div class="sheet">
+        <table class="table">
+            <thead>
+            <tr class="sheet-tr">
+                <th>名次</th>
+                <th>用户名</th>
+                <th>已学课时</th>
+                <th>学习天数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <img src="image/app/first.png" height="44" width="27"/></td>
+                <td>李明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="image/app/second.png" height="44" width="27"/>
+                </td>
+                <td>李明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="image/app/third.png" height="43" width="27"/>
+                </td>
+                <td>李明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td class="sheet-td">
+                    4
+                </td>
+                <td>李明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td class="sheet-td">
+                    5
+                </td>
+                <td>李明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

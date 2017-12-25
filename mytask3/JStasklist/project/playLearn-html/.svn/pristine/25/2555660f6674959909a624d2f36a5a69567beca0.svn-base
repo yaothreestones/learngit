@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*咨询*/
+.row{
+    width: 96vw;
+    margin: auto;
+    position: relative;
+}
+.row p{
+    position: absolute;
+    top: 53vw;
+    font-size: 4.3vw;
+    color: #fff;
+    bottom: 3.12vw;
+    margin-left: 3.28vw;
+}
+.row img{
+    width: 96vw;
+    height: 47.18vw;
+    margin-top: 16vw;
+    margin-bottom: 2vw;
+}
+.content{
+    width: 96vw;
+    height: 29.2vw;
+    margin: auto;
+    border: 1px solid #a8a9ac;
+    border-radius: 6px;
+    box-shadow: 2px 2px #a8a9ac ;
+    margin-bottom: 3vw;
+}
+.content img{
+    width: 24.5vw;
+    height: 21.5vw;
+    float: left;
+    margin: 3.5vw 3.2vw;
+}
+.content .main{
+    margin-top: 5.3vw;
+}
+.content .main h4{
+    font-size: 4.3vw;
+    color: #999999;
+}
+.content .main h5{
+    font-size: 3.7vw;
+    color: #999999;
+}
+.content .main h6{
+    font-size: 3.1vw;
+    color: #999999;
+    margin-left: 75vw;
+}
+

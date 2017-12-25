@@ -11,7 +11,5 @@ function login() {
 };
 var url = location.search;
 var str = url.substr(1)
-console.log(str)
-var a = function () {
-
-}
+var b = str.split(&)
+console.log(b[1])

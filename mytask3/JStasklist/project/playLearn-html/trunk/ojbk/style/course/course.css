@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #666666;
+    font-family: '思源黑体';
+
+}
+.clear-fix {
+    overflow: hidden;
+    position: fixed;
+    top: 13vw;
+    z-index: 99;
+    background-color: #fff;
+}
+.drop-down {
+    float: left;
+    height: 11.11vw;
+    width: 50vw;
+    display: block;
+    text-align: center;
+    line-height: 0;
+    padding: 6vw 0;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+}
+.dropdown-list {
+    position: fixed;
+    top: 25vw;
+    background-color: #fff;
+    z-index: 49;
+    padding-top: 3.33vw;
+    height: 28.33vw;
+}
+.search-list {
+    display: inline-block;
+    width: 19.72vw;
+    height: 8.33vw;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+    line-height: 0;
+    padding: 4.16vw 0;
+    margin-top: 1.67vw;
+    margin-left: 3.78vw;
+}
+.modal-list {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 49;
+    background-color: #4b4b4b;
+    opacity: .5;
+    top:100%;
+}
+.main-content {
+    margin-top: 28vw;
+    margin-bottom: 16vw;
+}
+.content{
+    position: relative;
+    width: 96vw;
+    height: 29.2vw;
+    margin: 0 auto 3vw auto;
+    border: 1px solid #a8a9ac;
+    border-radius: 6px;
+    box-shadow: 2px 2px #a8a9ac ;
+}
+.content .main-img{
+    width: 29.2vw;
+    height: 29.2vw;
+    float: left;
+    margin: 0 3.2vw;
+}
+.content .main{
+    margin-top: 5vw;
+}
+.content .main h4{
+    color: #000;
+}
+.content .main span{
+    font-size: 3.7vw;
+    color: #999999;
+    display: inline-block;
+}
+.content .main .recommended {
+    position: absolute;
+    width: 5vw;
+    height: 6vw;
+    top: 0;
+    right: 4.11vw;
+    margin: 0;
+}
+.course_details_clear-fix {
+    position: relative;
+    width: 100vw;
+    top: 13vw;
+    z-index: 99;
+}
+.course_details_main {
+    width: 95vw;
+    height: 48.89vw;
+    margin: 1.94vw 2.5vw;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.course_details_main_top {
+    border-bottom: 1px solid #e8e8e8;
+}
+.course_details_main_img {
+    width: 17.8vw;
+    height: 17.8vw;
+    padding: 5vw 0 4.17vw 5vw;
+    box-sizing: initial;
+}

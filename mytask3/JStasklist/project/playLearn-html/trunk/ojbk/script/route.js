@@ -290,6 +290,147 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //课程
+            .state("app.course", {
+                url: "/course",
+                templateUrl: 'view/course/course.html',
+                controller: 'courseCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/course/courseCtrl.js",
+                        'view/course/course.html',
+                        'style/course/course.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '课程';
+                        $rootScope.config.headNav.prompt.isShow=true;
+                    }
+                }
+            })
+            .state("app.courseDetails", {
+                url: "/course/courseDetails",
+                templateUrl: 'view/course/courseDetails.html',
+                controller: 'courseCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/course/courseDetailsCtrl.js",
+                        'view/course/courseDetails.html',
+                        'style/course/course.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '课程';
+                        $rootScope.config.headNav.backBtn.isShow=true;
+                    }
+                }
+            })
+}
 
 ]);

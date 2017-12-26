@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('loginCtrl',function ($scope,$state,$rootScope,$state,$stateParams) {
+    .controller('loginCtrl',function ($scope,$state,$rootScope,$stateParams) {
         });
 
 

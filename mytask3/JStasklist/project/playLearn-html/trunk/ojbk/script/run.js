@@ -64,6 +64,7 @@ angular.module("app")
             $rootScope.config.headNav.prompt.isShow = false;
             $rootScope.config.headNav.screenList.isShow = false;
             $rootScope.config.headNav.promptList.isShow = false;
+            $rootScope.config.headNav.share.isShow = false;
         })
 
     }])

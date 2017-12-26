@@ -3,27 +3,114 @@
             <img src="image/logo.png"/>回家学习
         </div>
     <div  style="margin-top: 2rem">
-        <div class="col-lg-2 col-md-3 col-sm-3" ng-controller="backStageCtrl">
-            <div>
-                <div class="panel panel-default" style="margin-bottom: 5px">
-                    <div class="panel-heading" style="cursor: pointer">
-                        <h4 class="panel-title">
-                            <div>
-                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                                欢迎页
-                            </div>
-                        </h4>
-                    </div>
-                </div>
-                <list>
-                    <side-navigation ng-repeat="mainlist in sideNavigationList" heading="{{mainlist.label}}">
-                        <div ng-repeat="deputylist in mainlist.lists" ui-sref="{{deputylist.url}}" style="border-bottom: 1px solid;cursor: pointer;padding-left: 16px">{{deputylist.label}}</div>
-                    </side-navigation>
-                </list>
+        <!-- Contenedor -->
+        <div class="col-lg-2 col-md-3 col-sm-3" class="sidebar" ng-controller="backStageCtrl">
+        <ul id="accordion" class="accordion">
+            <li>
+                <div class="link" style="font-size: 20px">后台欢迎页</div>
+            </li>
+            <li>
+                <div class="link"><i class="fa fa-paint-brush"></i>教学管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a ui-sref="backStage.teachManage.subject">科目管理</a></li>
+                    <li><a ui-sref="backStage.teachManage.courses">课程管理</a></li>
+                    <li><a ui-sref="backStage.teachManage.period">课时管理</a></li>
+                    <li><a ui-sref="backStage.teachManage.mission">任务管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"><i class="fa fa-mobile"></i>同步预习管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a ui-sref="backStage.previewManage.datum">教材管理</a></li>
+                    <li><a ui-sref="backStage.previewManage.period">课时管理</a></li>
+                    <li><a ui-sref="backStage.previewManage.mission">任务管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>资料管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a ui-sref="backStage.dataManage.data">资料管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>内容管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a ui-sref="backStage.contentManage.unite">合作机构管理</a></li>
+                    <li><a ui-sref="backStage.contentManage.hot">热门推荐管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>客服管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a ui-sref="backStage.serviceManage.party">用户管理</a></li>
+                    <li><a ui-sref="backStage.serviceManage.enroll">注册统计</a></li>
+                    <li><a ui-sref="backStage.serviceManage.information">资讯管理</a></li>
+                    <li><a ui-sref="backStage.serviceManage.news">消息管理</a></li>
+                    <li><a ui-sref="backStage.serviceManage.help">帮助管理</a></li>
+                    <li><a ui-sref="backStage.serviceManage.objection">意见管理</a></li>
+                    <li><a ui-sref="backStage.serviceManage.imageManage">头像背景管理</a></li>
+                    <li><a ui-sref="backStage.serviceManage.version">版本管理</a></li>
+                    <li><a ui-sref="">注册统计</a></li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>内容管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a ui-sref="backStage.contentManage.unite">合作机构管理</a></li>
+                    <li><a ui-sref="backStage.contentManage.hot">热门推荐管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link"><i class="fa fa-globe"></i>后台管理<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                   <li><a ui-sref="backStage.moduleManage.user">模块管理</a></li>
+                   <li><a ui-sref="backStage.moduleManage.role">角色管理</a></li>
+                   <li><a ui-sref="backStage.moduleManage.password">密码修改</a></li>
+                   <li><a ui-sref="backStage.moduleManage.account">账户管理</a></li>
+                </ul>
+            </li>
+
+        </ul>
+                <!--<div class="panel panel-default" style="margin-bottom: 5px">-->
+                    <!--<div class="panel-heading" style="cursor: pointer">-->
+                        <!--<h4 class="panel-title">-->
+                            <!--<div>-->
+                                <!--<span class="glyphicon glyphicon-home" aria-hidden="true"></span>-->
+                                <!--欢迎页-->
+                            <!--</div>-->
+                        <!--</h4>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<list>-->
+                    <!--<side-navigation ng-repeat="mainlist in sideNavigationList" heading="{{mainlist.label}}">-->
+                        <!--<div ng-repeat="deputylist in mainlist.lists" ui-sref="{{deputylist.url}}" style="border-bottom: 1px solid;cursor: pointer;padding-left: 16px">{{deputylist.label}}</div>-->
+                    <!--</side-navigation>-->
+                <!--</list>-->
             </div>
-        </div>
         <div class="col-lg-10 col-md-9 col-sm-9">
             <div ui-view><h1>welcome</h1></div>
         </div>
     </div>
 </div>
+<script>
+    $(function() {
+        var Accordion = function(el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+
+            // Variables privadas
+            var links = this.el.find('.link');
+            // Evento
+            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+        }
+
+        Accordion.prototype.dropdown = function(e) {
+            var $el = e.data.el;
+            $this = $(this),
+                $next = $this.next();
+
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+
+            if (!e.data.multiple) {
+                $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+            };
+        }
+        var accordion = new Accordion($('#accordion'), false);
+    });
+</script>

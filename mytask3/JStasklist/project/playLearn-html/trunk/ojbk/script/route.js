@@ -212,7 +212,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.search", {
                 url: "/search",
                 templateUrl: 'view/homePage/search.html',
-                controller: 'searchCtrl',
+                // controller: 'searchCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/homePage/search.js",

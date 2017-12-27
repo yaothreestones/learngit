@@ -417,7 +417,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.courseDetails", {
                 url: "/course/courseDetails",
                 templateUrl: 'view/course/courseDetails.html',
-                controller: 'courseCtrl',
+                controller: 'courseDetailsCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",

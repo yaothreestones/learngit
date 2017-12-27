@@ -124,7 +124,6 @@ li{
     -o-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
-
 .active{
     background: #b63b4d;
     color: #FFFFFF!important;

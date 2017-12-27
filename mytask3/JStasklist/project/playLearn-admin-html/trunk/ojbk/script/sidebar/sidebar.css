@@ -102,7 +102,9 @@ li{
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
 }
-
+.accordion .fa-university{
+    margin-top: 0.5vw;
+}
 /**
  * Submenu
  -----------------------------*/

@@ -4,6 +4,11 @@
 //app 头尾导航
 angular.module("app")
     .run(['$rootScope',function ($rootScope) {
+        $rootScope.$on('$stateChangeSuccess',
+            function(event, unfoundState, fromState, fromParams){
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            }
+        ),
         $rootScope.config = {
             //顶部
             headNav: {

@@ -98,7 +98,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         // "script/controllers/app/newAccount.js",
                     ]),
                     configByRouter: function ($rootScope) {
-                        $rootScope.config.headNav.title = '注册并绑定回家学习账号';
+                        $rootScope.config.headNav.title = '绑定回家学习账号';
                         $rootScope.config.headNav.backBtn.isShow=true;
                         $rootScope.config.footNav.isShow = false;
                     }

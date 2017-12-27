@@ -772,18 +772,19 @@ a{
 }
 /*同步预习*/
 .material{
-    text-align: center;
     padding: 2.08vw;
 }
 .textbook{
     display: flex;
-    margin-right: -4%;
+    margin-left: 4%;
 }
 .textbook div{
     width: 30%;
     height: 37.5vw;
-    margin-right: 3%;
+    display: inline-block;
     color: #aaaaaa;
+    margin-bottom: 2vw;
+    margin-right: 3%;
 }
 .textbook b{
    display: block;
@@ -795,6 +796,7 @@ a{
 .textbook span{
     width: 27.08vw;
     display: inline-block;
+
 }
 .textbook img{
     width: 27.08vw;

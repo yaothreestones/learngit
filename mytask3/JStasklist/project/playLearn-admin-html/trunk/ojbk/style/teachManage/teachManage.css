@@ -2,7 +2,6 @@
 .edging {
     padding: 0 20px;
     border: 1px solid #aaaaaa;
-    margin-top: 15px;
     margin-bottom: 20px;
 }
 .edging-top {
@@ -16,6 +15,12 @@
     font-weight: 600;
     border-bottom: 1px solid #aaaaaa;
     margin: 0 -20px;
+}
+.gridiron{
+    padding: 0 20px;
+    border: 1px solid #aaaaaa;
+    margin-bottom: 20px;
+    margin-top: 15px;
 }
 .while{
     margin-top: 0;
@@ -203,7 +208,7 @@
 }
 /*推荐课程新增*/
 .top-form{
-    text-align: center;
+    /*text-align: center;*/
     margin-top: 20px;
 }
 .top-form-nomargin {

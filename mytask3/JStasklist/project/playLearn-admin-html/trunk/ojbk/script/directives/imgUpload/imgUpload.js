@@ -1,5 +1,5 @@
 angular.module('imgUploadDirective', [])
-    .directive('.', ['$http', '$interval', '$q', function ($http, $interval, $q) {
+    .directive('imgUpload', ['$http', '$interval', '$q', function ($http, $interval, $q) {
         //只允许上传一张图片
         return {
             templateUrl: 'script/directives/imgUpload/imgUpload.html',

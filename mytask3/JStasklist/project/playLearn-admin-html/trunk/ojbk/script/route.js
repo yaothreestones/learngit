@@ -275,7 +275,9 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
                 //整个模块公共文件
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/contentManage/dataContentManage.css"
+                    ])
                 }
             })
             //后台合作机构管理页

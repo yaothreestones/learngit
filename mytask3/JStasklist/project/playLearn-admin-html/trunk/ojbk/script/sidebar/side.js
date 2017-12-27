@@ -11,7 +11,7 @@ $(function() {
 
     Accordion.prototype.dropdown = function(e) {
         var $el = e.data.el;
-        $this = $(this),
+       var  $this = $(this),
             $next = $this.next();
 
         $next.slideToggle();

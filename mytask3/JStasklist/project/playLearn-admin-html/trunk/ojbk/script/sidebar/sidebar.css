@@ -47,7 +47,7 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    border: 0.1px solid #aaaaaa;
+    border: 1px solid #aaaaaa;
 }
 
 .accordion .link {
@@ -90,11 +90,11 @@ li{
 }
 
 .accordion li.open .link {
-    color: #b63b4d;
+    color: blue;
 }
 
 .accordion li.open i {
-    color: #b63b4d;
+    color: blue;
 }
 .accordion li.open i.fa-chevron-down {
     -webkit-transform: rotate(180deg);
@@ -108,19 +108,14 @@ li{
  -----------------------------*/
 .submenu {
     display: none;
-    background: #444359;
     font-size: 14px;
     text-align: center;
-}
-
-.submenu li {
-    border-bottom: 1px solid #4b4a5e;
 }
 
 .submenu a {
     display: block;
     text-decoration: none;
-    color: #d9d9d9;
+    color: #000;
     padding: 12px;
     padding-left: 42px;
     -webkit-transition: all 0.25s ease;
@@ -128,8 +123,8 @@ li{
     transition: all 0.25s ease;
 }
 
-.submenu a:hover {
+.active{
     background: #b63b4d;
-    color: #FFF;
+    color: #FFFFFF!important;
 }
 

@@ -46,6 +46,7 @@
 .modal-list {
     width: 100vw;
     height: 100vh;
+    left: 0;
     position: absolute;
     z-index: 49;
     background-color: #4b4b4b;

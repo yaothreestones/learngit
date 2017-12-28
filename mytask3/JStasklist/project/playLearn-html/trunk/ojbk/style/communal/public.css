@@ -16,10 +16,7 @@ body,h1,h2,h3,h4,h5,h6,p,ul,ol,dd,form,span,samp,p,a{
 
 html,body{
   background: white;
-  min-height: 100%;
 }
-
-
 ul,ol{
     padding-left:0; 
     list-style-type:none;

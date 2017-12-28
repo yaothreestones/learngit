@@ -24,15 +24,14 @@ a{
 .clear{
     clear: both;
 }
-.hint{
-    width: 65.27vw;
+.prompt{
+    width: 100%;
     height: 8.33vw;
     line-height: 8.33vw;
     text-align: center;
-    margin-left: auto ;
-    margin-right: auto;
-    background: #E3E3E3;
     margin-top: 8vw;
+    font-size: 4vw;
+    color: red;
 }
 /*开始页begin*/
 .start{
@@ -219,13 +218,12 @@ a{
     font-size: 3.33vw;
 }
 .third-party{
-    bottom: 33.75vw;
-    text-align: center;
-    position: absolute;
-    margin: auto;
+    position: fixed;
     left: 0;
-    right: 0;
+    bottom: 0;
     width: 100%;
+    height: 50vw;
+    text-align: center;
 }
 .third-title{
     width: 65.27vw;
@@ -796,6 +794,7 @@ a{
 .textbook span{
     width: 27.08vw;
     display: inline-block;
+    text-align: center;
 
 }
 .textbook img{

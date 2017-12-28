@@ -13,6 +13,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 url: "/app",
                 templateUrl: 'view/app/app.html',
                 controller: 'appCtrl',
+                abstract: true, // true 表明此状态不能被显性激活，只能被子状态隐性激活
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/app/app.css",
@@ -26,9 +27,9 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.begin", {
                 url: "/begin",
                 templateUrl: 'view/app/begin.html',
-                // controller: 'beginCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([ "style/app/app.css",
+                    loadMyFile: _lazyLoad([
+                        "style/app/app.css",
                         // "script/controllers/app/begin.js"
                     ]),
                     configByRouter: function ($rootScope) {
@@ -133,6 +134,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         $rootScope.config.headNav.title = '找回密码';
                         $rootScope.config.headNav.backBtn.isShow=true;
                         $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.isSteep = false;
                     }
                 }
             })
@@ -428,6 +430,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';
                         $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.footNav.isShow = false;
                     }
                 }
             })

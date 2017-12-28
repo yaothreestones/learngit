@@ -1,27 +1,40 @@
     <!--找回密码-->
     <div class="top-side">
+        <form name="myForm" novalidate >
 <div class="login-center top-edge">
         <div class="top-handset">
             <img src="image/app/cellphone.png" />
-            <input  id="ds_name" type="text" class="push-button" value="15203435003"  placeholder="请输入手机号码"   />
+            <input  id="ds_name" type="text" name="name"
+                     ng-model="name"   ng-maxlength=11 required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   />
         </div>
         <proving></proving>
         <div class="bottom-password">
             <img src="image/app/password.png"/>
-            <input  id="ds_name" type="text"class="push-button"  placeholder="设置新密码" />
+            <input  id="ds_name" name="pwd"
+                    ng-pattern="/^[0-9a-zA-Z]+$/" required="required" ng-model="pwd" ng-value="" ng-minlength=6 ng-maxlength=16 required type="password"class="push-button"  placeholder="设置新密码" />
         </div>
         <div class="bottom-password">
             <img src="image/app/password.png"/>
-            <input  id="ds_name" type="text"class="push-button"  placeholder="确定新密码" />
+            <input  id="ds_name" name="pwds" required="required"  ng-pattern="/^[0-9a-zA-Z]+$/" ng-model="pwds" ng-minlength=6 ng-maxlength=16 required type="password"class="push-button"  placeholder="确定新密码" />
         </div>
     </div>
     <div class="press-button">
         <button type="button" class="btn btn-default">确定</button>
     </div>
     <div class="clear"></div>
-    <div class="hint">
-        wwwwwwwwwwwwwwww
-    </div>
+            <div class="prompt" id="point">
+                <span ng-show="myForm.name.$error.maxlength">手机号长度至多为11位。</span>
+                <span ng-show="{{code != 0}}">{{message}}</span>
+                <span ng-show="myForm.pwd.$error.minlength">密码长度至少为6。</span>
+                <span ng-show="myForm.pwd.$error.maxlength">密码长度至多为10。</span>
+                <span ng-show="myForm.pwd.$error.pattern">密码格式错误</span>
+                    <span ng-show="myForm.pwds.$error.minlength">密码长度至少为6。</span>
+                    <span ng-show="myForm.pwds.$error.maxlength">密码长度至多为10。</span>
+                    <span ng-show="myForm.pwds.$error.pattern">密码格式错误</span>
+                 <span ng-show="myForm.password.$dirty && (newMember.password !== newMember.repassword)">两次输入密码不相同</span>
+                <span ng-show="pwd!=pwds">两次输入密码不相同</span>
+            </div>
+        </form>
     </div>
 
 

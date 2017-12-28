@@ -12,8 +12,8 @@
         </div>
         <div class="grade lognow-bottom">
             <img src="image/app/grade.png" />
-            <span>年级：</span>
-            <input id="trigger1" type="text" class="push-button" value=""  placeholder="设置年级"  />
+            <span >年级：</span>
+            <input mobile-select1 id="trigger1" type="text" class="push-button" value=""  placeholder="设置年级"  />
         </div>
         <div class="mail lognow-bottom">
             <img src="image/app/mail.png"/>
@@ -25,13 +25,3 @@
         <button type="button" class="btn btn-default associate-top" ui-sref="app.page">立即学习</button>
     </div>
 </div>
-<script>
-    var weekdayArr=['一年级','二年级','三年级','四年级','五年级','六年级'];
-        var mobileSelect1 = new MobileSelect({
-        trigger: '#trigger1',
-        title: '设置年级',
-        wheels: [
-            {data: weekdayArr}
-        ],
-    });
-</script>

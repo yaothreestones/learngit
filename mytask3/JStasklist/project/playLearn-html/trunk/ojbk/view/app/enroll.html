@@ -1,14 +1,17 @@
    <!--注册-->
    <div class="top-side">
+       <form name="myForm" novalidate >
     <div class="login-center top-edge">
         <div class="top-handset">
             <img src="image/app/cellphone.png" />
-            <input  id="ds_name" type="text" class="push-button" value="15203435003"  placeholder="请输入手机号码"   />
+            <input  id="ds_name" type="number" name="name"
+                     ng-model="name"   ng-maxlength=11 required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   />
         </div>
         <proving></proving>
         <div class="bottom-password">
             <img src="image/app/password.png"/>
-            <input  id="ds_name" type="text"class="push-button"  placeholder="请输入登录密码" />
+            <input  id="ds_name" type="password"class="push-button" name="pwd"
+                    ng-pattern="/^[0-9a-zA-Z]+$/" ng-model="pwd" ng-minlength=6 ng-maxlength=16 required  placeholder="请输入登录密码" />
         </div>
     </div>
     <div class="press-button">
@@ -16,7 +19,12 @@
         <a class="pull-right" ui-sref="app.login">已有账号？去登录</a>
     </div>
     <div class="clear"></div>
-    <div class="hint">
-        wwwwwwwwwwwwwwww
-    </div>
+       <div class="prompt" id="point">
+           <span ng-show="myForm.name.$error.maxlength">手机号长度至多为11位。</span>
+           <span ng-show="{{code != 0}}">{{message}}</span>
+           <span ng-show="myForm.pwd.$error.minlength">密码长度至少为6。</span>
+           <span ng-show="myForm.pwd.$error.maxlength">密码长度至多为10。</span>
+           <span ng-show="myForm.pwd.$error.pattern">密码格式错误</span>
+       </div>
+       </form>
    </div>

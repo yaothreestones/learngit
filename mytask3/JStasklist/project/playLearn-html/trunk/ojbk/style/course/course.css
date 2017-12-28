@@ -1,16 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
     font-size: 12px;
     color: #666666;
     font-family: '思源黑体';
-
 }
 .clear-fix {
     overflow: hidden;
     position: fixed;
     top: 13vw;
-    z-index: 99;
+    z-index: 49;
     background-color: #fff;
 }
 .drop-down {
@@ -26,7 +23,7 @@
 }
 .dropdown-list {
     position: fixed;
-    top: 25vw;
+    top: 25.2vw;
     background-color: #fff;
     z-index: 49;
     padding-top: 3.33vw;
@@ -94,7 +91,7 @@
 .course_details_clear-fix {
     position: relative;
     width: 100vw;
-    top: 13vw;
+    top: 14vw;
     z-index: 49;
     margin-bottom: 16vw;
 }
@@ -162,7 +159,6 @@
 .course_details_float {
     width: 6.7vw;
     float: right;
-    background-color: #03a9f4;
     text-align: center;
     padding: 0 1.9vw 0 1.9vw;
     height: 20.8vw;
@@ -174,6 +170,7 @@
 .course_details_status {
     color: #fff;
     font-size: 2.77vw;
+    margin-bottom: 0;
 }
 .course_details_float div {
     position: relative;
@@ -190,4 +187,52 @@
     font-size: 2.77vw;
     padding-left: 5vw;
     color: #999;
+}
+.mission_finish {
+    background-color: #03a9f4;
+}
+.mission_studying {
+    background-color: #8ec351;
+}
+.mission_unbegun {
+    background-color: #efefef;
+}
+.course_details_status_unbegun {
+    color:#999;
+    font-size: 2.77vw;
+    margin-bottom: 0;
+}
+.course_details_modal {
+    position: fixed;
+    right: 50%;
+    top: 20%;
+    transform: translate(50%,50%);
+    width: 44.5vw;
+    height: 37.5vw;
+    border: 1px solid #e8e7e8;
+    z-index: 100;
+    border-radius: 2vw;
+    background-color: #fff;
+}
+.course_details_modal img {
+    width: 15vw;
+    padding-bottom: 2vw;
+    margin: 0 auto;
+    display: block;
+}
+.course_details_modal_collection {
+    position: absolute;
+    right: 50%;
+    transform: translate(50%,30%);
+}
+.course_details_modal div {
+    font-size: 2.77vw;
+}
+.shady {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
 }

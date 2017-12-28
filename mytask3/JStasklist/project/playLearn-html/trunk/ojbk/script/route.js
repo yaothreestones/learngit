@@ -433,6 +433,25 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
+
+            })
+            .state("app.data", {
+                url: "/data/data",
+                templateUrl: 'view/data/data.html',
+                controller: 'dataCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/data/data.js",
+                        'view/data/data.html',
+                        'style/data/data.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '购买试卷';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
             })
 }
 

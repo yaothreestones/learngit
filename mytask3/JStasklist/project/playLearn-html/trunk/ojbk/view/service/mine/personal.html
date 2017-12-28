@@ -1,0 +1,34 @@
+<div ui-view="">
+    <div class=" has-header ionic-pseudo">
+        <div class="list-xr">
+            <div class="pd-left-20 ">
+                <a class="item item-icon-left item-icon-right basicdata">
+                    <span>头像</span>
+                    <img ng-src="{{vm.data.img}}" class="person-img"></img>
+                    <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
+                </a>
+            </div>
+            <div class="pd-left-20 ">
+                <a class="item item-icon-left item-icon-right basicdata">
+                    <span>昵称</span>
+                    <span class="person-right">{{vm.data.nike}}</span>
+                    <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
+                </a>
+            </div>
+            <div class="pd-left-20 " ontouchstart ng-click="vm.picker()">
+                <a class="item item-icon-left item-icon-right basicdata">
+                    <span>年级</span>
+                    <span class="person-right">{{vm.data.grade}}</span>
+                    <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
+                </a>
+            </div>
+            <div class="pd-left-20 ">
+                <a class="item item-icon-left item-icon-right basicdata">
+                    <span>邮箱</span>
+                    <span class="person-right">{{vm.data.mail}}</span>
+                    <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

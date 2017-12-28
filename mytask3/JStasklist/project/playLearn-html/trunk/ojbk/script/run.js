@@ -3,7 +3,7 @@
  */
 //app 头尾导航
 angular.module("app")
-    .run(['$rootScope',function ($rootScope) {
+    .run(['$rootScope', function ($rootScope) {
 
         $rootScope.config = {
             //顶部
@@ -12,52 +12,56 @@ angular.module("app")
                 isSteep: false,//默认背景颜色
                 //标题
                 title: '',//字体大小总是一样
-                subject:'',
+                subject: '',
+                cancel: '',
                 //返回
                 backBtn: {
                     //返回按钮 使用原生操作
                     isShow: false,
                 },
                 //跳转
-                Skip:{
+                Skip: {
                     isShow: false,
                 },
                 //搜索
-                search:{
+                search: {
                     isShow: false,
                 },
                 //提示框
-                prompt:{
+                prompt: {
                     isShow: false,
                 },
                 //提示框列表
-                promptList:{
+                promptList: {
                     isShow: false,
                 },
                 //筛选
-                screen :{
-                    isShow:false,
+                screen: {
+                    isShow: false,
                 },
                 //筛选列表
-                screenList:{
-                    isShow:false,
+                screenList: {
+                    isShow: false,
                 },
                 //分享
-                share:{
-                    isShow:false,
+                share: {
+                    isShow: false,
+                },
+                //加号
+                augment: {
+                    isShow: false,
                 }
             },
             //底部
-            footNav:{
-              isShow: true,
-           }
+            footNav: {
+                isShow: true,
+            }
         }
-        $rootScope.$on('$stateChangeStart',function(){
-            $rootScope.config.headNav.subject='';
+        $rootScope.$on('$stateChangeStart', function () {
+            $rootScope.config.headNav.subject = '';
             $rootScope.config.headNav.isShow = true;
             $rootScope.config.headNav.isSteep = false;
             $rootScope.config.footNav.isShow = true;
-            $rootScope.config.headNav.backBtn.isShow = false;
             $rootScope.config.headNav.backBtn.isShow = false;
             $rootScope.config.headNav.Skip.isShow = false;
             $rootScope.config.headNav.search.isShow = false;
@@ -66,6 +70,7 @@ angular.module("app")
             $rootScope.config.headNav.screenList.isShow = false;
             $rootScope.config.headNav.promptList.isShow = false;
             $rootScope.config.headNav.share.isShow = false;
+            $rootScope.config.headNav.augment.isShow = false;
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         })
 

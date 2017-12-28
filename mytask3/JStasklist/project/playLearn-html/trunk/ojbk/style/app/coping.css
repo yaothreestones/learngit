@@ -14,14 +14,29 @@
     width: 4.16vw;
     display: inline-block;
     vertical-align: -0.5vw;
+    margin-top: -1.5vw;
 }
 .login-head span{
     margin-left: 8.33vw;
-    font-size: 5vw;
+    font-size: 4.3vw;
     color: #ffffff;
 }
 /*搜索按钮*/
 .login-head .search{
     width: 5vw;
     height: 5vw;
+}
+/*加号按钮*/
+.login-head .augment{
+    width: 5vw;
+    height: 5vw;
+    margin-right: 4vw;
+    margin-top: -1.5vw;
+}
+/*取消按钮*/
+.cancel{
+    font-size: 4.3vw;
+    position: absolute;
+    right: 13vw;
+    margin-top: 0.2vw;
 }

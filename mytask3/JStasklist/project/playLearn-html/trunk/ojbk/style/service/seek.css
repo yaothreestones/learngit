@@ -22,7 +22,7 @@
     margin-top: 16vw;
     margin-bottom: 2vw;
 }
-.content{
+.information{
     width: 96vw;
     height: 29.2vw;
     margin: auto;
@@ -31,28 +31,262 @@
     box-shadow: 2px 2px #a8a9ac ;
     margin-bottom: 3vw;
 }
-.content img{
+
+.information img{
     width: 24.5vw;
     height: 21.5vw;
     float: left;
     margin: 3.5vw 3.2vw;
 }
-.content .main{
+.information .main{
     margin-top: 5.3vw;
 }
-.content .main h4{
+.information .main h4{
     font-size: 4.3vw;
     color: #999999;
 }
-.content .main h5{
+.information .main h5{
     font-size: 3.7vw;
     color: #999999;
 }
-.content .main h6{
+.information .main h6{
     font-size: 3.1vw;
     color: #999999;
     margin-left: 75vw;
 }
 /*资讯详情*/
+.seek{
+    width: 96vw;
+    margin: auto;
+    margin-top: 16vw;
+    margin-left: 5.6vw;
+}
+.seek h4{
+    margin-top: 20vw;
+    font-weight: 800;
+}
+.seek img{
+    width: 87.9vw;
+    height: 46.8vw;
+    margin-top: 2vw;
+}
+.seek span{
+    font-size: 3.1vw;
+    color: #999999;
+}
+.seek .time{
+    margin-right: 7vw;
+}
+.seek .characters{
+    vertical-align: middle;
+    width: 87.9vw;
+    font-size: 3.5vw;
+    color: #666666;
+    letter-spacing: 3px;
+    line-height: 7vw;
+    margin-top: 3vw;
+}
 
+/*我的*/
+.has-header {
+    margin-top: 3.2vw;
+}
+.has-header a{
+    vertical-align: top;
+}
+.has-header a:hover{
+    text-decoration: none;
+}
+.pd-left-20 {
+    padding-left: 20px;
+    background: #ffffff;
+}
+.item {
+    height: 15vw;
+    border: none;
+    font-size: 4vw;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+    color: #000;
+}
+.item .logo {
+    width: 7vw;
+    height: 7vw;
+    margin-right: 10px;
+}
+.item-icon-left {
+    padding-left: 0;
+}
+.item-icon-right .icon {
+    font-size: 20px;
+    color: #ddd;
+}
+.head {
+    height: 28vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10vw;
+    color: #ffffff;
+    background: url("../../image/mine/mine-background.png");
+    background-size: 100%;
+}
+.head .head-content {
+    display: flex;
+    align-items: center;
+    font-size: 4.3vw;
+}
+.head .head-content img {
+    width: 2.1vw;
+    height: 4.3vw;
+    position: absolute;
+    right: 5vw;
+}
+.head .head-content .year{
+    margin-top: 1.5vw;
+}
+.head img {
+    width: 23.5vw;
+    margin-right: 1vw;
+}
+.head p {
+    font-size: 3.1vw;
+    margin: 0;
+}
+.sign {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5vh;
+    right: 6.25vw;
+}
+.sign img {
+    width: 5vw;
+    height: 4.5vw;
+}
+/*个人资料*/
+.person-right {
+    position: absolute;
+    right: 25px;
+    color: #999;
+    font-size: 12px;
+}
+.item-icon-right .icon {
+    right: 0;
+}
+.basicdata {
+    height: 18vw;
+    color: #000;
+    line-height: 18vw;
+}
+.revise {
+    width: 100%;
+    border: none;
+    resize: none;
+}
+.limit {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: #999;
+}
+.list-xr{
+    margin-top: 13.2vw;
+}
 
+.item .img{
+    width: 2.1vw;
+    height: 4.3vw;
+    position: absolute;
+    right: 2vw;
+}
+.person-img {
+    width: 15.6vw!important;
+    height: 15.6vw!important;
+    position: absolute;
+    right: 4vw;
+}
+/*课程记录*/
+.wear{
+    margin-top: 18vw;
+    position: relative;
+    padding-bottom: 20vw;
+}
+.wear .overcoat img{
+    width: 25vw;
+    height: 23vw;
+    float: left;
+    border-radius: 2vw;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.wear .overcoat .image{
+    width: 6vw;
+    height: 6.4vw;
+    border-radius: 0;
+    position: absolute;
+    right: 12vw;
+}
+.wear .overcoat{
+    height: 25vw;
+    margin-top: -2vw;
+}
+.wear .overcoat .main{
+    width: 90vw;
+    height: 23vw;
+    background: #fff;
+    border-radius: 2vw;
+    margin: auto;
+}
+.wear .overcoat .main .number{
+    color: #03a9f4;
+}
+.wear .main h4{
+    padding-top: 2.9vw;
+    padding-left: 30.8vw;
+}
+.wear .main h5{
+    padding-left: 30.8vw;
+    letter-spacing: 1.5px;
+}
+.wear .main .statement{
+    display: inline;
+    padding-left: 12vw;
+
+    font-size: 3.1vw;
+    color: #999999;
+}
+.footer{
+    width: 100%;
+    height: 15vw;
+    background: #fff;
+    position: fixed;
+    bottom: -2px;
+}
+.wear .footer span{
+    display: inline-block;
+    height: 11vw;
+    width: 2px;
+    background: #ececec;
+    padding-top: 2vw;
+}
+.wear .footer .fastener{
+    border: none;
+    background: #fff;
+    height: 15vw;
+    line-height: 15vw;
+    font-size: 5vw;
+}
+.wear .footer .check_all{
+    width: 49.8vw;
+    border-right: 1px solid #ececec;
+}
+.wear .footer .delet{
+    width: 49.5vw;
+    color: red;
+}
+.progress{
+    height: 1.5vw;
+    width: 37vw;
+    margin-left: 30.5vw;
+}

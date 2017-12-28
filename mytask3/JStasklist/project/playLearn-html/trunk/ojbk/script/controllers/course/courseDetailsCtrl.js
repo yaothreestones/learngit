@@ -5,21 +5,21 @@ angular.module('app')
             $scope.vm.img = 'image/app/collection.png';
             $scope.vm.show = false;
             $scope.collection = function() {
-                if ($scope.vm.img === 'image/app/collection.png') {
-                    $scope.vm.img = 'image/app/isCollection.png';
-                    $scope.vm.show = true;
-                    $scope.vm.collection = '收藏成功';
-                    $timeout(function(){
-                        $scope.vm.show = false;
-                    },2500)
-                } else {
-                    $scope.vm.img = 'image/app/collection.png';
-                    $scope.vm.show = true;
-                    $scope.vm.collection = '取消收藏成功';
-                    $timeout(function(){
-                        $scope.vm.show = false;
-                    },2500)
-                }
+                    if ($scope.vm.img === 'image/app/collection.png') {
+                        $scope.vm.img = 'image/app/isCollection.png';
+                        $scope.vm.show = true;
+                        $scope.vm.collection = '收藏成功';
+                        $timeout(function(){
+                            $scope.vm.show = false;
+                        },2500)
+                    } else {
+                        $scope.vm.img = 'image/app/collection.png';
+                        $scope.vm.show = true;
+                        $scope.vm.collection = '取消收藏成功';
+                        $timeout(function(){
+                            $scope.vm.show = false;
+                        },2500)
+                    }
             };
             $scope.data = function(x){
                 if(x===1){
@@ -36,4 +36,5 @@ angular.module('app')
             }
         }
     })
+
 

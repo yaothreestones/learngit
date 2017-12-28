@@ -2,6 +2,8 @@
     font-size: 12px;
     color: #666666;
     font-family: '思源黑体';
+    margin: 0;
+    padding: 0;
 }
 .data_clear-fix {
     position: relative;
@@ -11,7 +13,41 @@
     margin-bottom: 16vw;
 }
 .data_clear-fix h3 {
+    margin: 5vw 0 2.2vw 2.2vw;
     font-size: 3.3vw;
-    padding: 0;
+    color: #333;
+}
+.data_content{
+    position: relative;
+    width: 96vw;
+    height: 29.2vw;
+    margin: 0 auto 3vw auto;
+    border: 1px solid #a8a9ac;
+    border-radius: 6px;
+    box-shadow: 2px 2px #a8a9ac ;
+}
+.data_main_img{
+    width: 29.2vw;
+    height: 29.2vw;
+    float: left;
+    margin: 0 3.2vw;
+}
+.data_main{
+    margin-top: 5vw;
+}
+.data_recommended {
+    position: absolute;
+    width: 5vw;
+    height: 6vw;
+    top: 0;
+    right: 4.11vw;
     margin: 0;
+}
+.data_main h4{
+    color: #000;
+}
+.data_main span{
+    font-size: 3.7vw;
+    color: #999999;
+    display: inline-block;
 }

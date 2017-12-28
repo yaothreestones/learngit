@@ -33,7 +33,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         // "script/controllers/app/begin.js"
                     ]),
                     configByRouter: function ($rootScope) {
-                        $rootScope.config.headNav.isShow=false;
+                        $rootScope.config.headNav.isShow = false;
                         $rootScope.config.footNav.isShow = false;
 
                     }
@@ -42,22 +42,22 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //登录
             .state("app.login", {
-                        url: "/login",
-                        templateUrl: 'view/app/login.html',
-                        controller: 'loginCtrl',
-                        resolve: {
-                            loadMyFile: _lazyLoad([
-                                "script/controllers/app/login.js"
-                            ]),
-                            configByRouter: function ($rootScope) {
-                                $rootScope.config.headNav.title = '登录';
-                                $rootScope.config.headNav.backBtn.isShow=true;
-                                $rootScope.config.footNav.isShow = false;
-                            }
-                        },
+                url: "/login",
+                templateUrl: 'view/app/login.html',
+                controller: 'loginCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/app/login.js"
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '登录';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                },
 
-                    })
-             //微信授权
+            })
+            //微信授权
             .state("app.wechat", {
                 url: "/wechat",
                 templateUrl: 'view/app/wechat.html',
@@ -68,7 +68,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '微信授权';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
@@ -84,12 +84,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '关联回家学习账号';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
             })
-           // 注册并绑定回家学习账号
+            // 注册并绑定回家学习账号
             .state("app.newAccount", {
                 url: "/newAccount",
                 templateUrl: 'view/app/newAccount.html',
@@ -100,7 +100,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '绑定回家学习账号';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
@@ -116,12 +116,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '注册';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
             })
-        //找回密码
+            //找回密码
             .state("app.retrieve", {
                 url: "/retrieve",
                 templateUrl: 'view/app/retrieve.html',
@@ -132,13 +132,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '找回密码';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                         $rootScope.config.headNav.isSteep = false;
                     }
                 }
             })
-        //个人资料
+            //个人资料
             .state("app.profile", {
                 url: "/profile",
                 templateUrl: 'view/app/profile.html',
@@ -152,8 +152,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '个人资料';
-                        $rootScope.config.headNav.Skip.isShow=true;
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.Skip.isShow = true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
@@ -169,13 +169,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '玩转学习';
-                        $rootScope.config.headNav.search.isShow=true;
-                        $rootScope.config.footNav.isShow =true;
+                        $rootScope.config.headNav.search.isShow = true;
+                        $rootScope.config.footNav.isShow = true;
                     }
                 }
             })
 
-        //排行榜
+            //排行榜
             .state("app.ranking", {
                 url: "/ranking",
                 templateUrl: 'view/homePage/ranking.html',
@@ -186,15 +186,15 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '排行榜';
-                        $rootScope.config.headNav.prompt.isShow=true;
-                        $rootScope.config.headNav.backBtn.isShow=true;
-                        $rootScope.config.headNav.isSteep=true;
-                        $rootScope.config.footNav.isShow =false;
+                        $rootScope.config.headNav.prompt.isShow = true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.headNav.isSteep = true;
+                        $rootScope.config.footNav.isShow = false;
                         $rootScope.config.headNav.promptList.isShow = false;
                     }
                 }
             })
-        //搜索
+            //搜索
             .state("app.rakeThrough", {
                 url: "/rakeThrough",
                 templateUrl: 'view/homePage/rakeThrough.html',
@@ -205,8 +205,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '搜索';
-                        $rootScope.config.headNav.backBtn.isShow=true;
-                        $rootScope.config.footNav.isShow =false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
                     }
                 }
             })
@@ -221,8 +221,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '教材';
-                        $rootScope.config.headNav.backBtn.isShow=true;
-                        $rootScope.config.footNav.isShow =false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
                         $rootScope.config.headNav.screen.isShow = true;
                     }
                 }
@@ -238,8 +238,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '教材';
-                        $rootScope.config.headNav.backBtn.isShow=true;
-                        $rootScope.config.footNav.isShow =false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
                     }
                 }
             })
@@ -255,8 +255,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '第一课';
                         $rootScope.config.headNav.subject = '龟兔赛跑';
-                        $rootScope.config.headNav.backBtn.isShow=true;
-                        $rootScope.config.footNav.isShow =false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
                     }
                 }
             })
@@ -272,7 +272,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '资讯';
-                        $rootScope.config.headNav.search.isShow=true;
+                        $rootScope.config.headNav.search.isShow = true;
                     }
                 }
             })
@@ -286,9 +286,66 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '资讯';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.headNav.share.isShow = true;
                         $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            //我的
+            .state("app.mine", {
+                url: "/mine",
+                templateUrl: 'view/service/mine/mine.html',
+                controller: 'mineCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                        "script/controllers/service/mine/mineCtrl.js",
+                        "script/controllers/service/mine/mine.js",
+                        "script/controllers/service/mine/showAlertCtrl.js",
+                        "script/directives/showAlert/showAlert.js",
+                        "style/service/register.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.isShow = false;
+                        $rootScope.config.footNav.isShow = true;
+                    }
+                }
+            })
+            //我的-----個人資料
+            .state("app.personal", {
+                url: "/personal",
+                templateUrl: 'view/service/mine/personal.html',
+                controller: 'personalCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                        "script/controllers/service/mine/personalCtrl.js"
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '个人资料';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+            //课程记录
+            .state("app.record", {
+                url: "/record",
+                templateUrl: 'view/service/mine/record.html',
+                // controller: 'personalCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '课程记录';
+                        $rootScope.config.headNav.cancel = '取消';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.augment.isShow = true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                     }
                 }
             })
@@ -395,10 +452,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
 
 
 
-
-
-
-        //课程
+            //课程
             .state("app.course", {
                 url: "/course",
                 templateUrl: 'view/course/course.html',
@@ -412,7 +466,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';
-                        $rootScope.config.headNav.prompt.isShow=true;
+                        $rootScope.config.headNav.prompt.isShow = true;
                     }
                 }
             })
@@ -429,7 +483,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';
-                        $rootScope.config.headNav.backBtn.isShow=true;
+                        $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
                 }
@@ -453,6 +507,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
-}
+    }
 
 ]);

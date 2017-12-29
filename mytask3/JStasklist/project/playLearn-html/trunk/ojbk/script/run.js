@@ -50,7 +50,12 @@ angular.module("app")
                 //加号
                 augment: {
                     isShow: false,
+                },
+                //完成
+                finish: {
+                    isShow:false,
                 }
+
             },
             //底部
             footNav: {
@@ -71,6 +76,8 @@ angular.module("app")
             $rootScope.config.headNav.promptList.isShow = false;
             $rootScope.config.headNav.share.isShow = false;
             $rootScope.config.headNav.augment.isShow = false;
+            $rootScope.config.headNav.finish.isShow = false;
+
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         })
 

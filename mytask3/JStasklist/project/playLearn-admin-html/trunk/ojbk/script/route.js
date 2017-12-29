@@ -295,9 +295,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.contentManage.uniteManage", {
                 url: "/uniteManage?from",
                 templateUrl: 'view/contentManage/unite/uniteManage.html',
-                // controller: 'uniteManageCtrl',
+                controller: 'uniteManageCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/content/unite/uniteManage.js"
+                    ])
                 }
             })
             //热门推荐管理       注意热门推荐的编辑  是跳到 推荐课程管理的页面
@@ -320,11 +322,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //推荐课程管理（编辑）
             .state("backStage.contentManage.groomManage", {
-                url: "/groomManage",
+                url: "/groomManage?from",
                 templateUrl: 'view/contentManage/groom/groomManage.html',
-                // controller: 'groomManageCtrl',
+                controller: 'groomManageCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/content/groom/groomManage.js"
+                    ])
                 }
             })
             //客服管理模块

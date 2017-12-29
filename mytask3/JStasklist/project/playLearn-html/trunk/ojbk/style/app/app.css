@@ -374,7 +374,7 @@ a{
     margin-left: 6.66vw;
 }
 .login-ipt input{
-    padding-left: 16.42vw;
+    padding-left: 20vw;
     font-size: 3.12vw;
     color: #999999;
 }
@@ -931,8 +931,14 @@ a{
     justify-content: space-around;
 }
 .singl-data{
-    width: 4.72vw!important;
+    width: 4.44vw!important;
+    height: 4.9vw!important;
 }
+.singl-width img{
+     width: 4.44vw;
+     height: 4.9vw;
+ }
+
 .singl-shares{
     width: 4.44vw!important;
 }

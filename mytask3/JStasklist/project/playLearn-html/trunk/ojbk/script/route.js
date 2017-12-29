@@ -162,10 +162,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.page", {
                 url: "/page",
                 templateUrl: 'view/homePage/page.html',
-                // controller: 'pageCtrl',
+                controller: 'pageCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/homePage/page.js",
+                        "script/controllers/homePage/page.js",
+                        'style/course/course.css',
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '玩转学习';
@@ -231,10 +232,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.teaching", {
                 url: "/teaching",
                 templateUrl: 'view/homePage/teaching.html',
-                // controller: 'teachingCtrl',
+                controller: 'teachingCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/homePage/teaching.js",
+                        "script/controllers/homePage/teaching.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '教材';
@@ -338,6 +339,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                        "script/directives/delete/delete.js"
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程记录';
@@ -520,6 +522,24 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '确认邮件地址';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            .state("app.changeEmail", {
+                url: "/data/changeEmail",
+                templateUrl: 'view/dataPay/changeEmail.html',
+                controller: 'changeEmailCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/dataPay/changeEmailCtrl.js",
+                        'view/dataPay/changeEmail.html',
+                        'style/data/data.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '修改默认邮箱';
                         $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }

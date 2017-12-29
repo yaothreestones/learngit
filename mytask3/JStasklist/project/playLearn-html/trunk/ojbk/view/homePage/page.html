@@ -1,4 +1,13 @@
 <div class="top-side">
+    <div ng-show="vm.show">
+        <div class="course_details_modal">
+            <div class="course_details_modal_collection">
+                <img src="image/app/success.png" alt="成功">
+                <div style="text-align: center;width: 25vw;">{{vm.collection}}</div>
+            </div>
+        </div>
+        <div class="shady"></div>
+    </div>
     <div class="bit top-edge bit-height">
         <div class="bit-left bit-border">
         <span class="text-right">
@@ -17,14 +26,14 @@
     </div>
     <div class="curricula">
         <span>我的课程</span>
-        <div class="catalog list">
+        <div class="catalog list" ui-sref="app.courseDetails">
             <div class="heat">
                 <img src="image/app/heat.png" height="41" width="39"/>
             </div>
             <h3>植树问题</h3>
             <h4>第10/20节</h4>
             <h5>1056人已学<c>年级</c>
-                <a class="pull-right"><img src="image/app/house.png"/>收藏</a>
+                <a class="pull-right singl-width"><img  ng-src="{{vm.img}}" height="32" width="34" ng-click="collection()" />收藏</a>
             </h5>
         </div>
     </div>
@@ -32,7 +41,7 @@
         <img src="image/app/plus.png" height="25" width="25"/>
         添加课程
     </div>
-    <div class="prepare">
+    <div class="prepare" ui-sref="app.record">
         <span>查看更多我的课程</span>
         <a><img  src="image/app/rigit.png"/></a>
     </div>
@@ -132,9 +141,10 @@
                 <img src="image/app/year.png" class="year-right"><i>一年级</i>
             </div>
         </div>
+
     </div>
     <div class="clear"></div>
 </div>
-<div class="clear"></div>
+
 <div class="base-bottom">
 </div>

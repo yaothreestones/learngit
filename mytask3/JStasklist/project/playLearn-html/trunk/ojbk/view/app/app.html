@@ -6,7 +6,7 @@
          ng-show="$root.config.headNav.isShow" style="position: fixed; top:0px; left: 0px; width: 100%;z-index: 99; padding-left: 0; height: 12.9vw"  >
         <div class="pull-left">
             <!--登录页-->
-        <a ng-show="$root.config.headNav.backBtn.isShow" style="white-space:pre;margin-left: 2.63vw;" ng-click="cancel()"><img class="return" src="image/app/return.png" height="30" width="30" /></a>
+            <a ng-show="$root.config.headNav.backBtn.isShow" style="white-space:pre;margin-left: 2.63vw;" ng-click="cancel()"><img class="return" src="image/app/return.png" height="30" width="30" /></a>
             <span>{{$root.config.headNav.title}}</span>
             <span style="margin-left: 5vw;display: inline-block">{{$root.config.headNav.subject}}</span>
             <!--首页-->
@@ -19,9 +19,9 @@
 
                 <img ng-show="$root.config.headNav.screen.isShow" ng-click="$root.config.headNav.screenList.isShow=true" class="search" src="image/app/screen.png" height="5vw" width="5vw"/>
                 <img ng-show="$root.config.headNav.share.isShow" class="search" src="image/app/share.png" height="5vw" width="5vw"/></a>
-                <img ng-show="$root.config.headNav.augment.isShow" class="augment" src="image/mine/augment.png" height="5vw" width="5vw"/></div>
-                <span ng-show="$root.config.headNav.augment.isShow" class="cancel" ui-sref="app.mine">取消</span>
-            <!--首页搜索-->
+            <img ng-show="$root.config.headNav.augment.isShow" class="augment" src="image/mine/augment.png" height="5vw" width="5vw"/></div>
+        <span ng-show="$root.config.headNav.augment.isShow" class="cancel" ui-sref="app.mine">取消</span>
+        <!--首页搜索-->
 
     </div>
     <div class="ranking" ng-show="$root.config.headNav.promptList.isShow" style="position: absolute;top: 12.9vw;right: 0;z-index: 999;"><img ng-click="$root.config.headNav.promptList.isShow = false" src="image/app/ranking.png" height="228" width="291"/></div>
@@ -34,16 +34,16 @@
             首页
         </span>
         <span ui-sref="app.course">
-             <img src="image/app/course.png" />
-             课程
+            <img src="image/app/course.png" />
+            课程
         </span>
         <span ui-sref="app.seek">
             <img src="image/app/information.png"/>
-             资讯
+            资讯
         </span>
         <span ui-sref="app.mine">
             <img src="image/app/mine.png"/>
-             我的
+            我的
         </span>
     </div>
 </div>

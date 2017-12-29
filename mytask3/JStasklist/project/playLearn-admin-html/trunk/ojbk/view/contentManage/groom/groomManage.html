@@ -1,5 +1,5 @@
 <div class="col-lg-12 col-md-12 col-sm-12 edging while">
-    <h5><strong> | </strong>编辑课程</h5>
+    <h5><strong> | </strong>{{title.name}}</h5>
     <div class="inner within">
         <form class="form-horizontal" role="form">
             <fieldset>
@@ -18,19 +18,20 @@
                 <div class="form-group">
                     <label class="col-sm-1 control-label top-form" for="ds_name">推荐课程</label>
                     <div class="col-sm-11 top-form">
-                        <select class="form-control" id="ds_name">
+                        <select class="form-control" id="ds_name" ng-disabled="disabled">
                             <option>语文</option>
                         </select>
                     </div>
                     <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                     <div class="col-sm-11 top-form">
-                        <select class="form-control" id="ds_name">
+                        <select class="form-control" id="ds_name" ng-disabled="disabled">
                             <option>标点符号</option>
                         </select>
                     </div>
                     <label class="col-sm-1 control-label top-form" for="ds_name">推荐封面</label>
-                    <div class="col-sm-11 top-form">
-                        <img-upload ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
+                    <div class="col-sm-11 top-form" >
+                        <img ng-show="isShow" ng-src="{{src}}" style="width: 300px;height: 300px; margin-top: 10px;background: red">
+                        <img-upload ng-show="show" ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
                     </div>
                 </div>
                     <label class="col-sm-1 control-label top-form" for="ds_name"></label>

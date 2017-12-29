@@ -31,12 +31,13 @@
                     <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">价格</label>
                     <div class="col-sm-11 top-form">
-                        <input  ng-disabled="show" class="ipt" id="ds_name" value="111" type="text" />元
+                        <input  ng-disabled="disabled" class="ipt" id="ds_name" value="111" type="text" />元
                     </div>
                     </div>
                     <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">文件</label>
                     <div class="col-sm-11 top-form"  >
+                            <img ng-show="isShow" ng-src="{{src}}" style="width: 300px;height: 300px; margin-top: 10px;background: red">
                             <img-upload ng-show="show"  ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
                     </div>
                     </div>
@@ -44,7 +45,7 @@
                 <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                     <div class="col-sm-11 fastener">
-                        <button type="button" class="btn ascertain">{{title.edit}}</button>
+                        <button type="button" class="btn ascertain" ng-click="some()">{{title.edit}}</button>
                         <button type="button" class="btn cancel">取消</button>
                     </div>
                 </div>

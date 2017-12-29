@@ -3,10 +3,11 @@
     <div class="data_content">
         <img src="image/seek/background.png" class="data_main_img">
         <div class="data_main">
-            <h2>和差倍问题</h2>
+            <h2 class="data_main_learning">和差倍问题</h2>
             <img src="image/app/heat.png" class="data_recommended">
-            <span>{{1056}}人已学</span>
+            <div><span>{{1056}}人已学</span>
             <span>{{'A'}}级</span>
+            </div>
         </div>
     </div>
     <h3>本课程(含有本课程全部学习资料)</h3>
@@ -16,11 +17,11 @@
             <span>￥9.90</span>
         </div>
         <label for="surebuy" class="data_surebuy"></label>
-        <img src="image/app/surebuy.png" ng-show="checked" class="data_surebuy_img">
-        <input type="checkbox" id="surebuy" style="display: none;" ng-model="checked">
+        <img src="image/app/surebuy.png" ng-show="vm.checked" class="data_surebuy_img">
+        <input type="radio" id="surebuy" style="display: none;">
     </div>
     <div class="data_nextstep_content data_content_fixed">
-        <div class="data_nextstep" ui-sref="app.dataPay">下一步
-        </div>
+        <button type="button" class="data_nextstep" ui-sref="app.dataPay" ng-disabled="!vm.checked">下一步
+        </button>
     </div>
 </div>

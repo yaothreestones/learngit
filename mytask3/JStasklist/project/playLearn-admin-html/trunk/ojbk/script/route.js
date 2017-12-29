@@ -255,16 +255,19 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 url: "/data",
                 templateUrl: 'view/dataManage/data.html',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                    ])
                 }
             })
             //资料管理（新增.查看.编辑）
             .state("backStage.dataManage.dataManage", {
-                url: "/dataManage",
+                url: "/dataManage?from",
                 templateUrl: 'view/dataManage/dataManage.html',
-                // controller: 'dataManageCtrl',
+                controller: 'dataManageCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/dataManage/dataManage.js"
+                    ])
                 }
             })
             //data
@@ -290,7 +293,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //合作机构管理（新增.查看.编辑）
             .state("backStage.contentManage.uniteManage", {
-                url: "/uniteManage",
+                url: "/uniteManage?from",
                 templateUrl: 'view/contentManage/unite/uniteManage.html',
                 // controller: 'uniteManageCtrl',
                 resolve: {

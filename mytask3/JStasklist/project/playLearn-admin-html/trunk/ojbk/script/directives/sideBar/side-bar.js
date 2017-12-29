@@ -8,7 +8,6 @@
                 var Accordion = function (el, multiple) {
                     this.el = el || {};
                     this.multiple = multiple || false;
-
                     // Variables privadas
                     var links = this.el.find('.link');
                     // Evento

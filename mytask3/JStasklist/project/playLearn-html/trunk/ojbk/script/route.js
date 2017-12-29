@@ -473,7 +473,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.courseDetails", {
                 url: "/course/courseDetails",
                 templateUrl: 'view/course/courseDetails.html',
-                controller: 'courseDetailsCtrl',
+                controller: 'courseDetailsCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",
@@ -492,7 +492,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.data", {
                 url: "/data/data",
                 templateUrl: 'view/data/data.html',
-                controller: 'dataCtrl',
+                controller: 'dataCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",
@@ -502,6 +502,24 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '购买试卷';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            .state("app.dataPay", {
+                url: "/data/dataPay",
+                templateUrl: 'view/dataPay/dataPay.html',
+                controller: 'dataPayCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/dataPay/dataPayCtrl.js",
+                        'view/dataPay/dataPay.html',
+                        'style/data/data.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '确认邮件地址';
                         $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }

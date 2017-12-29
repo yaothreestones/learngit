@@ -1,14 +1,14 @@
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>新增机构</h5>
+    <h5><strong> | </strong>{{title.name}}</h5>
     <form class="form-horizontal " role="form">
         <fieldset class="form-bottom">
             <div class="form-group">
                 <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">机构logo</label>
-                    <div class="col-sm-11 top-form">
+                    <div class="col-sm-11 top-form" n-show="show">
                         <img-upload ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
                     </div>
-                    <label class="col-sm-1 control-label top-form" for="ds_name">机构名称</label>
+                    <label class="col-sm-1 control-label top-form" for="ds_name" ng-disabled="show">机构名称</label>
                     <div class="col-sm-11 top-form">
                         <input class="form-control" id="ds_name" type="text"   />
                     </div>
@@ -17,7 +17,7 @@
             <div class="row">
                 <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                 <div class="col-sm-11 fastener">
-                    <button type="button" class="btn ascertain">确定</button>
+                    <button type="button" class="btn ascertain">{{title.edit}}确定</button>
                     <button type="button" class="btn cancel">取消</button>
                 </div>
             </div>

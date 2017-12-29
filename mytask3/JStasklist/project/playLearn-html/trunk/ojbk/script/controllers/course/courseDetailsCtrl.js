@@ -1,27 +1,28 @@
 angular.module('app')
     .controller('courseDetailsCtrl',['$scope','$timeout','$state','$stateParams',
         function ($scope,$timeout,$state,$stateParams) {
-            $scope.vm={};
-            $scope.vm.img = 'image/app/collection.png';
-            $scope.vm.show = false;
-            $scope.collection = function() {
-                    if ($scope.vm.img === 'image/app/collection.png') {
-                        $scope.vm.img = 'image/app/isCollection.png';
-                        $scope.vm.show = true;
-                        $scope.vm.collection = '收藏成功';
+            var vm = this;
+            console.log(vm)
+            vm.img = 'image/app/collection.png';
+            vm.show = false;
+            vm.collection = function() {
+                    if (vm.img === 'image/app/collection.png') {
+                        vm.img = 'image/app/isCollection.png';
+                        vm.show = true;
+                        vm.collect = '收藏成功';
                         $timeout(function(){
-                            $scope.vm.show = false;
+                            vm.show = false;
                         },2500)
                     } else {
-                        $scope.vm.img = 'image/app/collection.png';
-                        $scope.vm.show = true;
-                        $scope.vm.collection = '取消收藏成功';
+                        vm.img = 'image/app/collection.png';
+                        vm.show = true;
+                        vm.collect = '取消收藏成功';
                         $timeout(function(){
-                            $scope.vm.show = false;
+                            vm.show = false;
                         },2500)
                     }
             };
-            $scope.data = function(x){
+            vm.data = function(x){
                 if(x===1){
                     $state.go('app.data')
                 }

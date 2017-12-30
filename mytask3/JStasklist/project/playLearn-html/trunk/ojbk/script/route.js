@@ -492,7 +492,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
 
             })
             .state("app.data", {
-                url: "/data/data",
+                url: "/data/data?there",
                 templateUrl: 'view/data/data.html',
                 controller: 'dataCtrl as vm',
                 resolve: {
@@ -510,7 +510,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.dataPay", {
-                url: "/data/dataPay",
+                url: "/data/dataPay?there",
+                params:{
+                  there:null,
+                },
                 templateUrl: 'view/dataPay/dataPay.html',
                 controller: 'dataPayCtrl as vm',
                 resolve: {

@@ -7,6 +7,7 @@
         <div class="pull-left">
             <!--登录页-->
             <a ng-show="$root.config.headNav.backBtn.isShow" style="white-space:pre;margin-left: 2.63vw;" ng-click="cancel()"><img class="return" src="image/app/return.png" height="30" width="30" /></a>
+            <img ng-show="$root.config.headNav.backBtnExp.isShow" class="return" src="image/app/return.png" height="30" width="30" ui-sref="app.data"/>
             <span>{{$root.config.headNav.title}}</span>
             <span style="margin-left: 5vw;display: inline-block">{{$root.config.headNav.subject}}</span>
             <!--首页-->

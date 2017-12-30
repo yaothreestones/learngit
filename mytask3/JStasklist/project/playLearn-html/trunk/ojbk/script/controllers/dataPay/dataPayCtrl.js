@@ -1,12 +1,10 @@
 angular.module('app')
-    .controller('dataPayCtrl',['$scope',function ($scope) {
+    .controller('dataPayCtrl',['$scope','$stateParams',function ($state,$stateParams,$scope) {
         var vm = this;
         vm.goPay = true;
         vm.email = sessionStorage.getItem('email');
-        sessionStorage.setItem('email',vm.email);
-
         vm.click = function () {
-            vm.goPay = !vm.goPay
+            vm.goPay = !vm.goPay;
         };
         vm.cancel = function () {
             vm.goPay = true;

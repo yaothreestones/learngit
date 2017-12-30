@@ -54,6 +54,9 @@ angular.module("app")
                 //完成
                 finish: {
                     isShow:false,
+                },
+                backBtnExp: {
+                    isShow:false,
                 }
 
             },
@@ -77,6 +80,7 @@ angular.module("app")
             $rootScope.config.headNav.share.isShow = false;
             $rootScope.config.headNav.augment.isShow = false;
             $rootScope.config.headNav.finish.isShow = false;
+            $rootScope.config.headNav.backBtnExp.isShow = false;
 
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         })

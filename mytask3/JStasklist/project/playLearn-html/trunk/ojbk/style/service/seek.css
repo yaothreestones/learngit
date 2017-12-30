@@ -331,4 +331,26 @@
     display: inline-block;
     font-size: 3.5vw;
     font-weight: 600;
+    letter-spacing: 1vw;
+    margin-right: 3vw;
+}
+.list-ol .info{
+    padding-top: 3vw;
+}
+.list-ol .pd-md i{
+    font-size: 3.1vw;
+    font-style: normal;
+    color: #999;
+}
+.list-ol .pd-md img{
+    width: 3.2vw;
+    height: 3.2vw;
+    margin-left: 23vw;
+    margin-top: -1.5vw;
+}
+.list-ol .pd-md p{
+    font-size: 4.3vw;
+    color: red;
+    margin-left: -0.8vw;
+    margin-top: 1vw;
 }

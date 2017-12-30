@@ -1,0 +1,17 @@
+
+<div id="modal">
+    <div class="modal-data" id="" ng-show="text"  ng-class="modaldataClass">
+        <!--登录-->
+        <span  ng-show="myForm.phone.$dirty && myForm.phone.$invalid">手机格式不正确！(输入长度为11位)</span>
+        <span  ng-show="myForm.pwd.$dirty && myForm.pwd.$invalid">密码格式不正确! (只限输入数字或字母长度为6-16位)</span>
+        <span  ng-show="myForm.phone.$dirty && myForm.phone.$invalid">手机格式不正确！(输入长度为11位)</span>
+        <span ng-show="myForm.phone.$error.required">手机号未填写</span>
+        <span ng-show="myForm.pwd.$error.required">密码未填写</span>
+        <span ng-show="{{code != 0}}">{{message}}</span>
+        <!--个人资料-->
+        <span  ng-show="myForm.name.$dirty && myForm.name.$invalid">昵称格式不正确! (只限输入数字或字母长度为1-10位)</span>
+        <span  ng-show="myForm.email.$dirty && myForm.email.$invalid">邮箱格式不正确! </span>
+        <span ng-show="myForm.name.$error.required">昵称未填写</span>
+        <span ng-show="myForm.email.$error.required">邮箱未填写</span>
+    </div>
+</div>

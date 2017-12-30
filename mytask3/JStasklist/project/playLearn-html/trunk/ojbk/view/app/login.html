@@ -3,40 +3,36 @@
     <div class="login-center top-edge">
         <div class="top-handset">
             <img src="image/app/cellphone.png" height="37" width="24"/>
-            <input id="ds_name" type="number" class="push-button" name="name"
-                    ng-model="name"   ng-maxlength="11" required
-                   placeholder="请输入手机号码"/>
+            <input type="text" class="push-button" name="phone" required  ng-model="phone" placeholder="请输入手机号码" ng-pattern="phonePattern">
         </div>
         <div class="bottom-password">
             <img src="image/app/password.png" height="35" width="26"/>
             <input id="ds_name" type="password" class="push-button" name="pwd"
-                   ng-pattern="/^[0-9a-zA-Z]+$/" ng-model="pwd" ng-minlength=6 ng-maxlength=16 required
+                   ng-pattern="pwdPattern"
+                    ng-model="pwd"  required
                    placeholder="请输入登录密码"/>
         </div>
     </div>
     <div class="press-button">
-        <button type="button" class="btn btn-default" ui-sref="app.profile">登录</button>
+        <button type="button" class="btn btn-default"  ng-click="loginS()">登录</button>
         <a class="pull-left" ui-sref="app.enroll">立即注册</a>
         <a class="pull-right" ui-sref="app.retrieve">忘记密码？</a>
     </div>
     <div class="clear"></div>
 
     <div class="prompt" id="point">
-        <span ng-show="myForm.name.$error.maxlength">手机号长度至多为11位。</span>
-        <span ng-show="{{code != 0}}">{{message}}</span>
-        <span ng-show="myForm.pwd.$error.maxlength">密码长度至多为10。</span>
-        <span ng-show="myForm.pwd.$error.pattern">密码格式错误</span>
-    </div>
 
+    </div>
     <div class="third-party ">
         <div class="third-title"><b></b><span>第三方账号登录</span><b></b></div>
         <div class="party-logo">
      <span>
       <img ng-click="login()"  src="image/app/Wechat.png" height="77" width="76"/>
-         <!--ui-sref="app.wechat"-->
       <p>微信登陆</p>
      </span>
         </div>
     </div>
+        <modal></modal>
     </form>
+
 </div>

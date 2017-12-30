@@ -1,5 +1,6 @@
 <!--填写个人资料-->
 <div class="top-side">
+    <form name="myForm" novalidate >
     <div class="upload-image">
         <img src="image/app/UploadHeadImage.png" />
         <span>上传头像</span>
@@ -7,13 +8,8 @@
     <div class="login-center login-ipt">
         <div class="nickname lognow-bottom">
             <img src="image/app/nickname.png" />
-            <span>用户名：</span>
-            <input  id="" type="text" class="push-button" value=""  placeholder="设置用户名"   />
-        </div>
-        <div class="nickname lognow-bottom">
-            <img src="image/app/nickname.png" />
             <span>昵&#8195称：</span>
-            <input  id="" type="text" class="push-button" value=""  placeholder="设置昵称"   />
+            <input  id="" type="text" class="push-button" required  ng-model="name" name="name" ng-pattern="namePattern" value=""  placeholder="设置昵称"   />
         </div>
         <div class="grade lognow-bottom">
             <img src="image/app/grade.png" />
@@ -23,10 +19,13 @@
         <div class="mail lognow-bottom">
             <img src="image/app/mail.png"/>
             <span>邮&#8195件：</span>
-            <input  id="" type="text"class="push-button"  placeholder="设置邮件" />
+            <input  id="" type="email"class="push-button"  ng-model="email"  required ng-pattern="emailPattern"  name="email" placeholder="设置邮件" />
         </div>
     </div>
     <div class="lognow">
-        <button type="button" class="btn btn-default associate-top" ui-sref="app.page">立即学习</button>
+        <button type="button" class="btn btn-default associate-top" ng-click="profile()" >立即学习</button>
     </div>
+        <modal></modal>
+    </form>
+
 </div>

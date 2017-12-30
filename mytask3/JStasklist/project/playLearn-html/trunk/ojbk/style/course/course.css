@@ -249,3 +249,96 @@
     left: 62.5vw;
     transform: translate(-50%,0);
 }
+.course_period_top-side {
+    margin-top: 12.91vw;
+    padding-top: 0.1vw;
+}
+.course_period_headline {
+    background: #ffffff;
+    margin: 2.4vw;
+    border-radius: 1.5vw;
+    box-shadow: 2px 2px 3px 0px #aaaaaa;
+}
+.course_period_headline img {
+    width: 3.3vw;
+    height: 3.3vw;
+    margin-right: 2vw;
+    vertical-align: -0.5vw;
+    border: 0;
+}
+.course_period_lesson {
+    height: 13.47vw;
+    text-align: center;
+    line-height: 13.47vw;
+    font-size: 4.16vw;
+    color: #000000;
+    font-weight: 600;
+    border-top-right-radius: 1.5vw;
+    border-top-left-radius: 1.5vw;
+    border-bottom: 0.1vw solid #e8e8e8;
+}
+.course_period_dissect {
+    height: 63.19vw;
+    padding-top: 5.55vw;
+}
+.course_period_attribute {
+    padding-left: 3.33vw;
+}
+.course_period_dissect span {
+    color: #999999;
+    margin-left: 8.19vw;
+    display: inline-block;
+    font-size: 3.3vw;
+}
+
+.course_period_attribute h5 {
+    color: #03a8f2;
+    font-size: 3.3vw;
+}
+.course_period_substance {
+    padding: 0 8.19vw;
+    color: #999999;
+    font-size: 3.33vw;
+    line-height: 6vw;
+}
+.course_period_base-bottom {
+    margin-bottom: 15.37vw;
+}
+.course_period_task {
+    height: 15vw;
+    line-height: 15vw;
+    font-size: 3.3vw;
+    color: #03a8f2;
+    padding-left: 3.33vw;
+    border-top-right-radius: 1.5vw;
+    border-top-left-radius: 1.5vw;
+    border-bottom: 0.1vw solid #e8e8e8;
+}
+.course_period_dissect-task {
+    width: 60%;
+    height: 8vw;
+    line-height: 8vw;
+    padding-bottom: 5.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 3.3vw;
+    color: #333;
+    padding-left: 3vw;
+    border-left: 1px solid #000;
+}
+.course_period_dissect-task p {
+    display: inline-block;
+    width: 3.3vw;
+    height: 3.3vw;
+    line-height: 3vw;
+    text-align: center;
+    color: #000000;
+    border-radius: 50%;
+    border: 0.1vw solid #aaaaaa;
+    background: #ffffff;
+    position: absolute;
+    left: -1.7vw;
+}

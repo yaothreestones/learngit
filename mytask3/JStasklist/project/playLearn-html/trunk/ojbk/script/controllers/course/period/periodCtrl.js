@@ -24,6 +24,11 @@ angular.module('app')
                 }, 2500)
             }
         };
+            vm.data = function(x){
+                if(x===1){
+                    $state.go('app.data')
+                }
+            };
     }])
     .filter('data',function () {
             return function(param){

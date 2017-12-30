@@ -373,12 +373,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.serviceManage.enroll", {
                 url: "/enroll",
                 templateUrl: 'view/serviceManage/enroll/enroll.html',
-                controller: 'enrollCtrl',
+                controller: 'chartsCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/serviceManage/serviceManage.css",
                         "script/directives/serviceManage/enroll/registerCtrl.js",
-                        "script/controllers/serviceManage/enroll/enrollCtrl.js"
+                        "script/controllers/serviceManage/enroll/chartsCtrl.js"
                     ])
                 }
             })

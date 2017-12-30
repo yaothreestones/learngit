@@ -1,5 +1,16 @@
 angular.module('app')
     .controller('loginCtrl',function ($scope,$state,$rootScope,$stateParams) {
+        //登录
+        $scope.loginS= function () {
+            // if(code != 0){
+            //     // $scope.modal();
+            // }else{
+            //   $state.go("app.profile");
+            // }
+            $scope.modal();
+            $state.go("app.profile")
+        };
+        //微信
             $scope.login =function () {
                 $scope.WxURL='https://open.weixin.qq.com/connect/oauth2/authorize?' +
                     'appid=wx0b31bcd6cbe880a4' +

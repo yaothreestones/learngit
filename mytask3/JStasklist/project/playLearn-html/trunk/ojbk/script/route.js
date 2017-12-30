@@ -19,7 +19,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/app/app.css",
                         "style/app/coping.css",//顶部
                         "style/app/base.css",//底部
-                        "script/controllers/app/app.js"
+                        "script/directives/modalData/modalData.css",//提示模态框
+                        "script/controllers/app/app.js",
                     ]),
                 }
             })
@@ -142,10 +143,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.profile", {
                 url: "/profile",
                 templateUrl: 'view/app/profile.html',
-                // controller: 'profileCtrl',
+                controller: 'profileCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/app/profile.js",
+                        "script/controllers/app/profile.js",
                         "style/communal/public.css",
                         "style/communal/mobileSelect.css",
                         "script/communal/mobileSelect.js",

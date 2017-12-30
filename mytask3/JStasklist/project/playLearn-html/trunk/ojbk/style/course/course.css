@@ -2,7 +2,7 @@
 .course_clear-fix {
     overflow: hidden;
     position: fixed;
-    top: 13vw;
+    top: 12.9vw;
     z-index: 49;
     background-color: #fff;
 }
@@ -233,4 +233,19 @@
     left: 0;
     top: 0;
     z-index: 100;
+}
+.course_details_bottom_left {
+    position: absolute;
+    left: 12.5vw;
+    transform: translate(-50%,0);
+}
+.course_details_bottom_middle {
+    position: absolute;
+    left: 37.5vw;
+    transform: translate(-50%,0);
+}
+.course_details_bottom_right {
+    position: absolute;
+    left: 62.5vw;
+    transform: translate(-50%,0);
 }

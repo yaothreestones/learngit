@@ -316,3 +316,19 @@
     margin-left: 30.5vw;
     margin-top: 1vw;
 }
+/*我的资料*/
+.list-ol{
+    width: 100%;
+    background: #fff;
+}
+.list-ol .pd-md{
+    width: 92%;
+    height: 17vw;
+    margin: auto;
+    border-bottom: 1px solid #ececec;
+}
+.list-ol .pd-md span{
+    display: inline-block;
+    font-size: 3.5vw;
+    font-weight: 600;
+}

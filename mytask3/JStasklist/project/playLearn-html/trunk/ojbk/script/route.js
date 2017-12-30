@@ -303,7 +303,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/service/seek.css",
                         "script/controllers/service/mine/mineCtrl.js",
                         "script/controllers/service/mine/mine.js",
-                        "script/controllers/service/mine/showAlertCtrl.js",
                         "script/directives/showAlert/showAlert.js",
                         "style/service/register.css",
                     ]),
@@ -351,23 +350,74 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //我的收藏
+            .state("app.collect", {
+                url: "/collect",
+                templateUrl: 'view/service/mine/collect.html',
+                // controller: 'personalCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '我的收藏';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+            //我的资料
+            .state("app.means", {
+                url: "/means",
+                templateUrl: 'view/service/mine/means.html',
+                // controller: 'personalCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '我的资料';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+            //消息
+            .state("app.message", {
+                url: "/message",
+                templateUrl: 'view/service/mine/message.html',
+                // controller: 'personalCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '我的消息';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+            //设置
+            .state("app.install", {
+                url: "/install",
+                templateUrl: 'view/service/mine/install.html',
+                // controller: 'personalCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '设置';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
 
 
 
@@ -493,13 +543,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             .state("app.data", {
                 url: "/data/data?there",
-                templateUrl: 'view/data/data.html',
+                templateUrl: 'view/course/dataPay/data.html',
                 controller: 'dataCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",
-                        "script/controllers/data/data.js",
-                        'view/data/data.html',
+                        "script/controllers/course/dataPay/data.js",
+                        'view/course/dataPay/data.html',
                         'style/data/data.css',
                     ]),
                     configByRouter: function ($rootScope) {
@@ -514,13 +564,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 params:{
                   there:null,
                 },
-                templateUrl: 'view/dataPay/dataPay.html',
+                templateUrl: 'view/course/dataPay/dataPay.html',
                 controller: 'dataPayCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",
-                        "script/controllers/dataPay/dataPayCtrl.js",
-                        'view/dataPay/dataPay.html',
+                        "script/controllers/course/dataPay/dataPayCtrl.js",
+                        'view/course/dataPay/dataPay.html',
                         'style/data/data.css',
                     ]),
                     configByRouter: function ($rootScope) {
@@ -532,17 +582,35 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             .state("app.changeEmail", {
                 url: "/data/changeEmail",
-                templateUrl: 'view/dataPay/changeEmail.html',
+                templateUrl: 'view/course/dataPay/changeEmail.html',
                 controller: 'changeEmailCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",
-                        "script/controllers/dataPay/changeEmailCtrl.js",
-                        'view/dataPay/changeEmail.html',
+                        "script/controllers/course/dataPay/changeEmailCtrl.js",
+                        'view/course/dataPay/changeEmail.html',
                         'style/data/data.css',
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '修改默认邮箱';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            .state("app.period", {
+                url: "/course/period",
+                templateUrl: 'view/course/period/period.html',
+                controller: 'periodCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/course/period/periodCtrl.js",
+                        'view/course/period/period.html',
+                        'style/course/course.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '课时详情';
                         $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }

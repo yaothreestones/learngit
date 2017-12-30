@@ -5,9 +5,9 @@ angular.module('app')
     $scope.subject_search = function () {
         $scope.subject_isShow = !$scope.subject_isShow;
         $scope.class_isShow = false;
-    }
+    };
     $scope.class_search = function () {
         $scope.class_isShow = !$scope.class_isShow;
         $scope.subject_isShow = false;
     }
-}])
+}]);

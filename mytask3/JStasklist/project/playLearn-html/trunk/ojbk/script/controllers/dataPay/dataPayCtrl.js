@@ -2,9 +2,9 @@ angular.module('app')
     .controller('dataPayCtrl',['$scope',function ($scope) {
         var vm = this;
         vm.goPay = true;
-        vm.email = '';
+        vm.email = sessionStorage.getItem('email');
         sessionStorage.setItem('email',vm.email);
-        vm.email = sessionStorage.getItem('emailFix');
+
         vm.click = function () {
             vm.goPay = !vm.goPay
         };

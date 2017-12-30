@@ -5,6 +5,6 @@ angular.module('app')
         vm.emailAddress = vm.getEmail;
         vm.dataPay_changeEmail_finish = function() {
             $state.go('app.dataPay');
-            sessionStorage.setItem('emailFix',vm.emailAddress)
+            sessionStorage.setItem('email',vm.emailAddress)
         }
     }])

@@ -4,6 +4,9 @@ angular.module('app')
         var vm = this;
         vm.goPay = true;
         vm.email = sessionStorage.getItem('email');
+        vm.dataPay_changeEmail = function () {
+            $state.go("app.changeEmail",{payment:$state.params.payment,choose:$state.params.choose});
+        }
         vm.click = function () {
             vm.goPay = !vm.goPay;
         };

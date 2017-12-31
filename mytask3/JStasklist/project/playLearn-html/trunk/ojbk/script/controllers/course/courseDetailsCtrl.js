@@ -2,6 +2,7 @@ angular.module('app')
     .controller('courseDetailsCtrl',['$scope','$timeout','$state','$stateParams',
         function ($scope,$timeout,$state,$stateParams) {
             var vm = this;
+            //收藏功能
             vm.img = 'image/app/collection.png';
             vm.collecting = '收藏';
             vm.show = false;
@@ -24,6 +25,7 @@ angular.module('app')
                         },2500)
                     }
             };
+            //根据资料或者已购来判断跳转方向，1为资料，跳到资料购买界面；2为已购，跳到购买记录
             vm.data = function(x){
                 if(x===1){
                     $state.go('app.data',{choose:1})

@@ -561,7 +561,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.dataPay", {
-                url: "/data/dataPay?there&payment",
+                url: "/data/dataPay?there&payment&choose",
                 templateUrl: 'view/course/dataPay/dataPay.html',
                 controller: 'dataPayCtrl as vm',
                 resolve: {
@@ -579,7 +579,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.changeEmail", {
-                url: "/data/changeEmail",
+                url: "/data/changeEmail?payment&choose",
                 templateUrl: 'view/course/dataPay/changeEmail.html',
                 controller: 'changeEmailCtrl as vm',
                 resolve: {

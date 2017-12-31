@@ -26,7 +26,7 @@ angular.module('app')
         };
             vm.data = function(x){
                 if(x===1){
-                    $state.go('app.data',{})
+                    $state.go('app.data',{choose:0})
                 }
             };
     }])

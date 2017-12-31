@@ -1,5 +1,6 @@
 angular.module('app')
-    .controller('dataPayCtrl',['$scope','$stateParams',function ($state,$stateParams,$scope) {
+    .controller('dataPayCtrl',['$scope','$state','$stateParams',
+        function ($stateParams,$state,$scope) {
         var vm = this;
         vm.goPay = true;
         vm.email = sessionStorage.getItem('email');
@@ -8,6 +9,7 @@ angular.module('app')
         };
         vm.cancel = function () {
             vm.goPay = true;
+
         };
         vm.sure = function () {
             //此处调用后端接口获得数据后调用微信支付接口

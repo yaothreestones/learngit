@@ -4,3 +4,4 @@ mytask3/JStasklist/ui-router/
 *.iml
 *.svn-base
 mytask3/JStasklist/project/playLearn-html/.svn/wc.db
+*.db

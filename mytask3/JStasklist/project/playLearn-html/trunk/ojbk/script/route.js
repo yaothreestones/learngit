@@ -543,7 +543,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
 
             })
             .state("app.data", {
-                url: "/data/data?there",
+                url: "/data/data?there&choose",
                 templateUrl: 'view/course/dataPay/data.html',
                 controller: 'dataCtrl as vm',
                 resolve: {
@@ -561,10 +561,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.dataPay", {
-                url: "/data/dataPay?there",
-                params:{
-                  there:null,
-                },
+                url: "/data/dataPay?there&payment",
                 templateUrl: 'view/course/dataPay/dataPay.html',
                 controller: 'dataPayCtrl as vm',
                 resolve: {

@@ -10,6 +10,19 @@
             </div>
         </div>
     </div>
+    <div ng-show="vm.courseShow">
+    <h3>本课时(含有本课时学习资料)</h3>
+    <div class="data_content data_content_fixed">
+        <div class="data_main">
+            <h2 class="data_learning">学习资料</h2>
+            <span>￥9.90</span>
+        </div>
+        <label for="surebuy_course" class="data_surebuy"></label>
+        <img src="image/app/surebuy.png" ng-show="vm.selected == 0" class="data_surebuy_img">
+        <input type="radio" id="surebuy_course" style="display: none;" name="sure_buy" ng-model="vm.selected" value="0">
+    </div>
+    </div>
+    <div>
     <h3>本课程(含有本课程全部学习资料)</h3>
     <div class="data_content data_content_fixed">
         <div class="data_main">
@@ -17,11 +30,12 @@
             <span>￥9.90</span>
         </div>
         <label for="surebuy" class="data_surebuy"></label>
-        <img src="image/app/surebuy.png" ng-show="vm.checked" class="data_surebuy_img">
-        <input type="radio" id="surebuy" style="display: none;">
+        <img src="image/app/surebuy.png" ng-show="vm.selected == 1" class="data_surebuy_img">
+        <input type="radio" id="surebuy" style="display: none;" name="sure_buy" ng-model="vm.selected" value="1">
+    </div>
     </div>
     <div class="data_nextstep_content data_content_fixed">
-        <button type="button" class="data_nextstep" ui-sref="app.dataPay({there:1})" ng-disabled="!vm.checked">下一步
+        <button type="button" class="data_nextstep" ui-sref="app.dataPay({there:1,payment:vm.selected})">下一步
         </button>
     </div>
 </div>

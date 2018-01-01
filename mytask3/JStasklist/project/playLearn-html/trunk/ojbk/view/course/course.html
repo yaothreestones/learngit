@@ -1,23 +1,14 @@
 <div class="course_clear-fix">
-    <span class="course_drop-down" ng-click="subject_search()">课程</span>
-    <span class="course_drop-down" ng-click="class_search()">年级</span>
+    <span class="course_drop-down" ng-click="subject_search()">{{subject_selected}}</span>
+    <span class="course_drop-down" ng-click="class_search()">{{class_selected}}</span>
 </div>
 <div>
     <ul class="course_dropdown-list" ng-show="subject_isShow">
-        <li class="course_search-list">语文</li>
-        <li class="course_search-list">数学</li>
-        <li class="course_search-list">英语</li>
-        <li class="course_search-list">逻辑思维</li>
-        <li class="course_search-list">常春藤芽</li>
+        <li class="course_search-list" ng-repeat="subject in subjects" ng-click="subject_select(subject)">{{subject.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
     <ul class="course_dropdown-list" ng-show="class_isShow">
-        <li class="course_search-list">一年级</li>
-        <li class="course_search-list">二年级</li>
-        <li class="course_search-list">三年级</li>
-        <li class="course_search-list">四年级</li>
-        <li class="course_search-list">五年级</li>
-        <li class="course_search-list">六年级</li>
+        <li class="course_search-list" ng-repeat="class in classes" ng-click="class_select(class)">{{class.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
 </div>

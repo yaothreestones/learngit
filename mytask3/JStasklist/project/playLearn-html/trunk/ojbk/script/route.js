@@ -516,6 +516,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/controllers/course/courseCtrl.js",
                         'view/course/course.html',
                         'style/course/course.css',
+                        'script/services/services_for_course.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';

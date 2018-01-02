@@ -8,6 +8,6 @@ angular.module('app')
             //   $state.go("app.profile");
             // }
             $scope.modal();
-            // $state.go("app.page");
+            $state.go("app.page");
         };
     });

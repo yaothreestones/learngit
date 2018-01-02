@@ -157,7 +157,6 @@ a{
     min-height: 177.7vw;
 }
 .login-center div{
-    position: relative;
     width: 100%;
     height: 15.27vw;
     background: #ffffff;
@@ -376,7 +375,7 @@ a{
     margin-left: 6.66vw;
 }
 .login-ipt input{
-    padding-left: 17vw;
+    padding-left: 16vw;
     font-size: 3.12vw;
     color: #999999;
 }
@@ -384,8 +383,8 @@ a{
     position: absolute;
     left: 22.8vw;
     font-size: 3.12vw;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 6.94vw;
+    line-height: 6.94vw;
 }
 
 /*首页*/
@@ -731,7 +730,8 @@ a{
     flex-wrap: wrap;
     margin-right: -4%;
 }
-.options div{
+.options  li{
+    float: left!important;
     width: 30%;
     height: 9.72vw;
     line-height: 9.72vw;
@@ -742,6 +742,7 @@ a{
     margin-top: 3.47vw;
     font-size: 3.33vw;
     color: #666666;
+    list-style: none;
 }
 .options .change{
     border: 0.1vw solid #00a5e0;

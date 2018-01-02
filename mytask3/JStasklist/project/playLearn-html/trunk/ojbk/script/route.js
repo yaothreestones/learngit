@@ -147,7 +147,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/app/profile.js",
-                        "style/communal/public.css",
                         "style/communal/mobileSelect.css",
                         "script/communal/mobileSelect.js",
                     ]),
@@ -200,10 +199,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.rakeThrough", {
                 url: "/rakeThrough",
                 templateUrl: 'view/homePage/rakeThrough.html',
-                // controller: 'rakeThroughCtrl',
+                controller: 'rakeThroughCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/homePage/rakeThrough.js",
+                        "script/controllers/homePage/rakeThrough.js",
+                        'script/services/services_for_course.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '搜索';
@@ -216,10 +216,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.search", {
                 url: "/search",
                 templateUrl: 'view/homePage/search.html',
-                // controller: 'searchCtrl',
+                controller: 'searchCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/homePage/search.js",
+                        'script/services/services_for_course.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '教材';
@@ -359,6 +360,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                        "script/controllers/service/mine/collectCtrl.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '我的收藏';

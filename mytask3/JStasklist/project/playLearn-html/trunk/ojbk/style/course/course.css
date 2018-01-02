@@ -342,3 +342,50 @@
     position: absolute;
     left: -1.7vw;
 }
+.course_mission_total {
+    position: fixed;
+    top: 12.9vw;
+    width: 100vw;
+}
+.course_mission_title {
+    text-align: center;
+    height: 10.6vw;
+    font-size: 3.9vw;
+    line-height: 0;
+    padding-top: 5.3vw;
+    background-color: #fff;
+}
+.course_mission_body {
+    margin: 2.2vw;
+    background-color: #fff;
+    overflow: scroll;
+    height: 78vh;
+}
+.course_mission_step {
+    width: 83vw;
+    font-size: 3.3vw;
+    padding-left: 2.8vw;
+    color: #333;
+}
+.course_mission_stepCount {
+    display: inline-block;
+    width: 3.3vw;
+    height: 3.3vw;
+    line-height: 3vw;
+    text-align: center;
+    color: #000000;
+    border-radius: 50%;
+    border: 0.1vw solid #aaaaaa;
+    background: #ffffff;
+    position: absolute;
+    left: -1.7vw;
+}
+.course_mission_stepOut {
+    position: relative;
+    width: 86vw;
+    left: 4.5vw;
+    margin-right: 2.8vw;
+    border-bottom: 1px dashed #d9dde0;
+    padding: 3.3vw 2.4vw 3.3vw 0;
+
+}

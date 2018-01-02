@@ -96,5 +96,22 @@
 
     </div>
 </div>
+<div class="filter filter-search" ng-show="$root.config.headNav.screenList.isShow">
+    <div class="filter-left"></div>
+    <div class="filter-right cast account">
+        <span style="color: #000000;margin-left: 0">年级</span>
+        <ul class="options">
+            <li class="change">全部</li>
+            <li class="change" ng-repeat="class in classes">{{class.name}}</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="gather-search search-gather">
+        <button class="search-left">重置</button>
+        <button class="search-right" ng-click="$root.config.headNav.screenList.isShow=false";>搜索</button>
+    </div>
+</div>
+
+
 
 

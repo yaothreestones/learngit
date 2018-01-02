@@ -23,12 +23,11 @@
     margin-bottom: 2vw;
 }
 .information{
-    width: 96vw;
+    width: 95vw;
     height: 29.2vw;
     margin: auto;
     border: 1px solid #a8a9ac;
-    border-radius: 6px;
-    box-shadow: 2px 2px #a8a9ac ;
+    border-radius: 3px;
     margin-bottom: 3vw;
 }
 
@@ -134,7 +133,7 @@
 .head .head-content {
     display: flex;
     align-items: center;
-    font-size: 4.3vw;
+    font-size: 4.3vw!important;
 }
 .head .head-content img {
     width: 2.1vw;
@@ -144,6 +143,9 @@
 }
 .head .head-content .year{
     margin-top: 1.5vw;
+}
+.head .head-content span{
+    font-size: 4.2vw;
 }
 .head img {
     width: 23.5vw;
@@ -240,7 +242,7 @@
     right: 7vw;
     width: 4.6vw;
     height: 4.6vw;
-    margin-top: -13vw;
+    margin-top: -14vw;
 }
 
 .wear .overcoat .main{
@@ -251,7 +253,7 @@
     /*margin: auto;*/
     margin-left: 5vw;
 }
-.btn {
+.btnDelet {
     position: absolute;
     top: 0;
     right: -80px;
@@ -266,8 +268,10 @@
     color: #03a9f4;
 }
 .wear .main h4{
-    padding-top: 2.9vw;
+    padding-top: 1.9vw;
     padding-left: 30.8vw;
+    font-size: 4.5vw;
+    padding-bottom: 2vw;
 }
 .wear .main h5{
     padding-left: 30.8vw;
@@ -303,10 +307,10 @@
     font-size: 5vw;
 }
 .wear .footer .check_all{
-    width: 49.8vw;
+    width: 48.8vw;
     border-right: 1px solid #ececec;
 }
-.wear .footer .delet{
+.wear .footer .checkDelet{
     width: 49.5vw;
     color: red;
 }
@@ -314,7 +318,7 @@
     height: 1.5vw;
     width: 37vw;
     margin-left: 30.5vw;
-    margin-top: 1vw;
+    margin-top: 5vw;
 }
 /*我的资料*/
 .list-ol{
@@ -353,4 +357,22 @@
     color: red;
     margin-left: -0.8vw;
     margin-top: 1vw;
+}
+/*我的收藏*/
+.courseClear{
+    height: 12.5vw;
+    width: 100%;
+    background: #fff;
+    margin-top: 13.2vw;
+}
+.courseClear span{
+    height: 12.5vw;
+    line-height: 12.5vw;
+    display: inline-block;
+    width: 49.6%;
+    font-size: 3.7vw;
+    text-align: center;
+}
+.courseClear .courseDown_right{
+    border-right: 1px solid #ececec;
 }

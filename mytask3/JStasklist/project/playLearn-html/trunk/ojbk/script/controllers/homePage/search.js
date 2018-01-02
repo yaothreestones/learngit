@@ -1,4 +1,4 @@
 angular.module('app')
-    .controller('searchCtrl',function ($scope,$state,$rootScope) {
-
+    .controller('searchCtrl',function ($scope,classes) {
+        $scope.classes=classes;
     });

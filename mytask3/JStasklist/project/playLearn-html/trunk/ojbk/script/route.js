@@ -615,6 +615,24 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
+            .state("app.mission", {
+                url: "/course/period/mission",
+                templateUrl: 'view/course/mission/mission.html',
+                controller: 'missionCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/course/mission/missionCtrl.js",
+                        'view/course/mission/mission.html',
+                        'style/course/course.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '任务详情';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
     }
 
 ]);

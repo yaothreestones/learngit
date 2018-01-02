@@ -1,9 +1,10 @@
 angular.module('app')
-    .controller('dataPayCtrl',['$scope','$state','$stateParams',
-        function ($stateParams,$state,$scope) {
+    .controller('dataPayCtrl',['$state','$stateParams',
+        function ($state,$stateParams) {
         var vm = this;
         vm.goPay = true;
         vm.email = sessionStorage.getItem('email');
+        console.log($stateParams)
         vm.dataPay_changeEmail = function () {
             $state.go("app.changeEmail",{payment:$state.params.payment,choose:$state.params.choose});
         }

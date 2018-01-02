@@ -29,6 +29,9 @@ angular.module('app')
                     $state.go('app.data',{choose:0})
                 }
             };
+            vm.begin_study = function () {
+                $state.go('app.mission')
+            }
     }])
     .filter('data',function () {
             return function(param){

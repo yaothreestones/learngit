@@ -375,14 +375,16 @@ a{
     margin-left: 6.66vw;
 }
 .login-ipt input{
-    padding-left: 20vw;
+    padding-left: 16vw;
     font-size: 3.12vw;
     color: #999999;
 }
 .login-ipt span{
     position: absolute;
     left: 22.8vw;
-    font-size: 3.5vw;
+    font-size: 3.12vw;
+    height: 6.94vw;
+    line-height: 6.94vw;
 }
 
 /*首页*/

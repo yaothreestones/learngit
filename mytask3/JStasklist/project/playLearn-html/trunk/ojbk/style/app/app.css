@@ -156,7 +156,6 @@ a{
 .least{
     min-height: 177.7vw;
 }
-
 .login-center div{
     width: 100%;
     height: 15.27vw;
@@ -179,6 +178,9 @@ a{
     width: 3.47vw;
     height: 3.88vw;
     margin-left: 6.66vw;
+}
+.bottom-password{
+    border-bottom: 0.1vw solid #e4e4e4;
 }
 .bottom-password img{
     width: 3.61vw;
@@ -218,11 +220,10 @@ a{
     font-size: 3.33vw;
 }
 .third-party{
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    position: absolute;
+    bottom: 0vw;
     width: 100%;
-    height: 50vw;
+    height: 45vw;
     text-align: center;
 }
 .third-title{
@@ -283,7 +284,7 @@ a{
 }
 .top-code b{
     position: absolute;
-    right: 23vw;
+    right: 20vw;
     display: inline-block;
     height:6.94vw;
     width: 0.2vw;

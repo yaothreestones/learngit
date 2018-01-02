@@ -110,10 +110,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.enroll", {
                 url: "/enroll",
                 templateUrl: 'view/app/enroll.html',
-                // controller: 'enrollCtrl',
+                controller: 'enrollCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/app/enroll.js",
+                        "script/controllers/app/enroll.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '注册';
@@ -126,10 +126,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.retrieve", {
                 url: "/retrieve",
                 templateUrl: 'view/app/retrieve.html',
-                // controller: 'retrieveCtrl',
+                controller: 'retrieveCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/app/retrieve.js",
+                        "script/controllers/app/retrieve.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '找回密码';

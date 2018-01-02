@@ -10,20 +10,12 @@ app.directive('modal', function () {
             //个人资料的昵称和邮件
             $scope.namePattern=/^[a-zA-Z0-9_-]{1,10}$/;
             $scope.emailPattern=/^[1-9a-zA-Z_]\w*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$/;
+            $scope.provingPattern=/^\d{6}$/;
             $scope.modal=function () {
-                if(myForm.$invalid="true"){
                     $scope.text=true;
                     $timeout(function(){
                         $scope.text = false;
-
                     },2500)
-                }else{
-                    $scope.text=true;
-
-                    $timeout(function(){
-                        $scope.text = false;
-                    },2500)
-                }
             }
         }
     }

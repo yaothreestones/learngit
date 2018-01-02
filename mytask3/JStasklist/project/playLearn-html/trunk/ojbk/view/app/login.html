@@ -1,5 +1,5 @@
 <div class="top-side">
-    <form name="myForm" novalidate >
+    <form name="myForm" novalidate style="position: absolute; width: 100%">
     <div class="login-center top-edge">
         <div class="top-handset">
             <img src="image/app/cellphone.png" height="37" width="24"/>
@@ -14,16 +14,14 @@
         </div>
     </div>
     <div class="press-button">
-        <button type="button" class="btn btn-default"  ng-click="loginS()">登录</button>
+        <button type="button" class="btn btn-default"  ng-click="entry()">登录</button>
         <a class="pull-left" ui-sref="app.enroll">立即注册</a>
         <a class="pull-right" ui-sref="app.retrieve">忘记密码？</a>
     </div>
     <div class="clear"></div>
-
-    <div class="prompt" id="point">
-
-    </div>
-    <div class="third-party ">
+        <modal></modal>
+    </form>
+    <div class="third-party " id="footer">
         <div class="third-title"><b></b><span>第三方账号登录</span><b></b></div>
         <div class="party-logo">
      <span>
@@ -32,7 +30,4 @@
      </span>
         </div>
     </div>
-        <modal></modal>
-    </form>
-
 </div>

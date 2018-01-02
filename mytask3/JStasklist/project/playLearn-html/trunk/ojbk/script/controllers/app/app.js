@@ -1,6 +1,5 @@
 angular.module('app')
     .controller('appCtrl',function ($scope,$state) {
-
         $scope.cancel = function() {
             if($state.params.there === '1'){
               $state.go('app.data',{there:2,choose:$state.params.choose})
@@ -11,4 +10,13 @@ angular.module('app')
             history.back(-1);
             }
         }
+        var oHeight = $(document).height(); //浏览器当前的高度
+        $(window).resize(function(){
+            $("#footer").css("opacity","1");
+            if($(document).height() < oHeight){
+                $("#footer").css("opacity","0");
+            }else{
+                $("#footer").css("opacity","1");
+            }
+        });
     });

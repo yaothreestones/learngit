@@ -4,7 +4,7 @@
     <div class="login-center top-edge">
         <div class="top-handset">
             <img src="image/app/cellphone.png" />
-            <input  id="ds_name" type="number" name="name"
+            <input  id="ds_name" type="number" name="phone"
                      ng-model="name"   ng-maxlength=11 required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   />
         </div>
         <proving></proving>
@@ -15,16 +15,19 @@
         </div>
     </div>
     <div class="press-button">
-        <button type="button" class="btn btn-default" ui-sref="app.profile">立即注册</button>
+        <button type="button" class="btn btn-default" ng-click="enroll()">立即注册</button>
         <a class="pull-right" ui-sref="app.login">已有账号？去登录</a>
     </div>
     <div class="clear"></div>
-       <div class="prompt" id="point">
-           <span ng-show="myForm.name.$error.maxlength">手机号长度至多为11位。</span>
-           <span ng-show="{{code != 0}}">{{message}}</span>
-           <span ng-show="myForm.pwd.$error.minlength">密码长度至少为6。</span>
-           <span ng-show="myForm.pwd.$error.maxlength">密码长度至多为10。</span>
-           <span ng-show="myForm.pwd.$error.pattern">密码格式错误</span>
-       </div>
        </form>
+       <div class="third-party " id="footer">
+           <div class="third-title"><b></b><span>第三方账号登录</span><b></b></div>
+           <div class="party-logo">
+     <span>
+      <img ng-click="login()"  src="image/app/Wechat.png" height="77" width="76"/>
+      <p>微信登陆</p>
+     </span>
+           </div>
+       </div>
+       <modal></modal>
    </div>

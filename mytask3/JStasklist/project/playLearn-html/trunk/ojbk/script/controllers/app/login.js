@@ -1,7 +1,7 @@
 angular.module('app')
-    .controller('loginCtrl',function ($scope,$state,$rootScope,$stateParams) {
+    .controller('loginCtrl',function ($scope,$state,$rootScope,$stateParams,$timeout) {
         //登录
-        $scope.loginS= function () {
+        $scope.entry= function () {
             // if(code != 0){
             //     // $scope.modal();
             // }else{

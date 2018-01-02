@@ -1,13 +1,13 @@
 angular.module('app','')
-    .controller('enrollCtrl',function ($scope,$state,$rootScope,$stateParams,$timeout) {
-        $scope.enroll= function () {
+    .controller('retrieveCtrl',function ($scope,$state,$rootScope,$stateParams,$timeout) {
+        $scope.retrieve= function () {
             // if(code != 0){
             //     // $scope.modal();
             // }else{
             //   $state.go("app.profile");
             // }
             $scope.modal();
-            $state.go("app.profile");
+            // $state.go("app.login");
         };
     });
 

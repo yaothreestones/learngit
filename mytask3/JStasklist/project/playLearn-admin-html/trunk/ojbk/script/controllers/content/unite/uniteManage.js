@@ -2,6 +2,7 @@ angular.module('app').controller('uniteManageCtrl', ['$scope', '$stateParams', '
     function ($scope, $stateParams, $rootScope, $state, $http){
         $scope.title = {};
         $scope.data = $stateParams;
+        console.log($scope.data)
         $scope.show = true;
         $scope.disabled = false;
         $scope.isShow = false;
@@ -19,7 +20,7 @@ angular.module('app').controller('uniteManageCtrl', ['$scope', '$stateParams', '
         }
         if($scope.data.from==2) {
             $scope.some=function () {
-                $state.go("backStage.dataManage.dataManage",{from:3}, {reload: true});
+                $state.go("backStage.contentManage.uniteManage",{from:3}, {reload: true});
             }
         }else{
             $scope.some=function () {

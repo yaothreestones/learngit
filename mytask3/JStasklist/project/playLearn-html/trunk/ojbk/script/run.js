@@ -57,6 +57,9 @@ angular.module("app")
                 },
                 backBtnExp: {
                     isShow:false,
+                },
+                rubbish:{
+                    isShow:false,
                 }
 
             },
@@ -81,7 +84,7 @@ angular.module("app")
             $rootScope.config.headNav.augment.isShow = false;
             $rootScope.config.headNav.finish.isShow = false;
             $rootScope.config.headNav.backBtnExp.isShow = false;
-
+            $rootScope.config.headNav.rubbish.isShow = false;
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         })
 

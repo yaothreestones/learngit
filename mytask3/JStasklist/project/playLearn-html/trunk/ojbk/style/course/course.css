@@ -344,6 +344,7 @@
 }
 .course_mission_total {
     position: fixed;
+    background-color: #f0f4f7;
     top: 12.9vw;
     width: 100vw;
 }
@@ -357,21 +358,22 @@
 }
 .course_mission_body {
     margin: 2.2vw;
-    background-color: #fff;
+    background-color: #f0f4f7;
     overflow: scroll;
     height: 78vh;
 }
 .course_mission_step {
     width: 83vw;
     font-size: 3.3vw;
-    padding-left: 2.8vw;
     color: #333;
+    line-height: 3.3vw;
+    padding-bottom: 1.98vw;
 }
 .course_mission_stepCount {
     display: inline-block;
     width: 3.3vw;
     height: 3.3vw;
-    line-height: 3vw;
+    font-size: 2.5vw;
     text-align: center;
     color: #000000;
     border-radius: 50%;
@@ -379,13 +381,46 @@
     background: #ffffff;
     position: absolute;
     left: -1.7vw;
+    line-height: 2.9vw;
+    top: 0;
 }
 .course_mission_stepOut {
     position: relative;
     width: 86vw;
     left: 4.5vw;
     margin-right: 2.8vw;
+    padding: 0 2.4vw 3.3vw 0;
+    border-left: 1px solid transparent;
+}
+.course_mission_select_last {
+    width: 42vw;
+    height: 11.1vw;
+    margin-left: 2.2vw;
+    float: left;
+    border: 1px solid #03a9f3;
+    outline: none;
+    cursor: pointer;
+    font-size: 3.9vw;
+}
+.course_mission_select_next {
+    width: 42vw;
+    height: 11.1vw;
+    margin-right: 2.2vw;
+    float: right;
+    border: 1px solid #03a9f3;
+    outline: none;
+    cursor: pointer;
+    font-size: 3.9vw;
+}
+.course_mission_mainbody {
+    background-color: #fff;
+    padding-top: 3.3vw;
+}
+.course_mission_fixed {
+    margin-bottom: 3.3vw;
     border-bottom: 1px dashed #d9dde0;
-    padding: 3.3vw 2.4vw 3.3vw 0;
-
+    margin-left: 2.8vw;
+}
+.course_mission_border {
+    border-left: 1px solid #eee;
 }

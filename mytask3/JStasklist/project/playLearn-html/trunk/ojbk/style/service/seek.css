@@ -1,14 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 /*咨询*/
-.row{
+.row {
     width: 96vw;
     margin: auto;
     position: relative;
 }
-.row p{
+
+.row p {
     position: absolute;
     top: 53vw;
     font-size: 4.3vw;
@@ -16,13 +18,15 @@
     bottom: 3.12vw;
     margin-left: 3.28vw;
 }
-.row img{
+
+.row img {
     width: 96vw;
     height: 47.18vw;
     margin-top: 16vw;
     margin-bottom: 2vw;
 }
-.information{
+
+.information {
     width: 95vw;
     height: 29.2vw;
     margin: auto;
@@ -31,52 +35,62 @@
     margin-bottom: 3vw;
 }
 
-.information img{
+.information img {
     width: 24.5vw;
     height: 21.5vw;
     float: left;
     margin: 3.5vw 3.2vw;
 }
-.information .main{
+
+.information .main {
     margin-top: 5.3vw;
 }
-.information .main h4{
+
+.information .main h4 {
     font-size: 4.3vw;
     color: #999999;
 }
-.information .main h5{
+
+.information .main h5 {
     font-size: 3.7vw;
     color: #999999;
 }
-.information .main h6{
+
+.information .main h6 {
     font-size: 3.1vw;
     color: #999999;
     margin-left: 75vw;
 }
+
 /*资讯详情*/
-.seek{
+.seek {
     width: 96vw;
     margin: auto;
     margin-top: 16vw;
     margin-left: 5.6vw;
 }
-.seek h4{
+
+.seek h4 {
     margin-top: 20vw;
     font-weight: 800;
 }
-.seek img{
+
+.seek img {
     width: 87.9vw;
     height: 46.8vw;
     margin-top: 2vw;
 }
-.seek span{
+
+.seek span {
     font-size: 3.1vw;
     color: #999999;
 }
-.seek .time{
+
+.seek .time {
     margin-right: 7vw;
 }
-.seek .characters{
+
+.seek .characters {
     vertical-align: middle;
     width: 87.9vw;
     font-size: 3.5vw;
@@ -90,16 +104,20 @@
 .has-header {
     margin-top: 3.2vw;
 }
-.has-header a{
+
+.has-header a {
     vertical-align: top;
 }
-.has-header a:hover{
+
+.has-header a:hover {
     text-decoration: none;
 }
+
 .pd-left-20 {
     padding-left: 20px;
     background: #ffffff;
 }
+
 .item {
     height: 15vw;
     border: none;
@@ -109,18 +127,22 @@
     border-bottom: 1px solid #ececec;
     color: #000;
 }
+
 .item .logo {
     width: 7vw;
     height: 7vw;
     margin-right: 10px;
 }
+
 .item-icon-left {
     padding-left: 0;
 }
+
 .item-icon-right .icon {
     font-size: 20px;
     color: #ddd;
 }
+
 .head {
     height: 28vh;
     display: flex;
@@ -130,31 +152,38 @@
     background: url("../../image/mine/mine-background.png");
     background-size: 100%;
 }
+
 .head .head-content {
     display: flex;
     align-items: center;
-    font-size: 4.3vw!important;
+    font-size: 4.3vw !important;
 }
+
 .head .head-content img {
     width: 2.1vw;
     height: 4.3vw;
     position: absolute;
     right: 5vw;
 }
-.head .head-content .year{
+
+.head .head-content .year {
     margin-top: 1.5vw;
 }
-.head .head-content span{
+
+.head .head-content span {
     font-size: 4.2vw;
 }
+
 .head img {
     width: 23.5vw;
     margin-right: 1vw;
 }
+
 .head p {
     font-size: 3.1vw;
     margin: 0;
 }
+
 .sign {
     display: flex;
     align-items: center;
@@ -162,10 +191,12 @@
     top: 5vh;
     right: 6.25vw;
 }
+
 .sign img {
     width: 5vw;
     height: 4.5vw;
 }
+
 /*个人资料*/
 .person-right {
     position: absolute;
@@ -173,50 +204,58 @@
     color: #999;
     font-size: 12px;
 }
+
 .item-icon-right .icon {
     right: 0;
 }
+
 .basicdata {
     height: 18vw;
     color: #000;
     line-height: 18vw;
 }
+
 .revise {
     width: 100%;
     border: none;
     resize: none;
 }
+
 .limit {
     position: absolute;
     right: 10px;
     bottom: 5px;
     color: #999;
 }
-.list-xr{
+
+.list-xr {
     margin-top: 13.2vw;
 }
 
-.item .img{
+.item .img {
     width: 2.1vw;
     height: 4.3vw;
     position: absolute;
     right: 2vw;
 }
+
 .person-img {
-    width: 15.6vw!important;
-    height: 15.6vw!important;
+    width: 15.6vw !important;
+    height: 15.6vw !important;
     position: absolute;
     right: 4vw;
 }
+
 /*课程记录*/
-.wear{
+.wear {
     padding-top: 16vw;
     position: relative;
     padding-bottom: 20vw;
     background: #ececec;
     margin: auto;
 }
-.wear .overcoat img{
+
+.wear .overcoat img {
     width: 25vw;
     height: 23vw;
     float: left;
@@ -224,20 +263,23 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-.wear .overcoat .image{
+
+.wear .overcoat .image {
     width: 6vw;
     height: 6.4vw;
     border-radius: 0;
     position: absolute;
     right: 16vw;
 }
-.wear .overcoat{
+
+.wear .overcoat {
     height: 25vw;
     display: -webkit-inline-box;
     margin-top: 0.7vw;
     position: relative;
 }
-.wear .main input{
+
+.wear .main input {
     position: absolute;
     right: 7vw;
     width: 4.6vw;
@@ -245,7 +287,7 @@
     margin-top: -14vw;
 }
 
-.wear .overcoat .main{
+.wear .overcoat .main {
     width: 90vw;
     height: 23vw;
     background: #fff;
@@ -253,6 +295,7 @@
     /*margin: auto;*/
     margin-left: 5vw;
 }
+
 .btnDelet {
     position: absolute;
     top: 0;
@@ -264,108 +307,127 @@
     height: 23vw;
     color: #000;
 }
-.wear .overcoat .main .number{
+
+.wear .overcoat .main .number {
     color: #03a9f4;
 }
-.wear .main h4{
+
+.wear .main h4 {
     padding-top: 1.9vw;
     padding-left: 30.8vw;
     font-size: 4.5vw;
     padding-bottom: 2vw;
 }
-.wear .main h5{
+
+.wear .main h5 {
     padding-left: 30.8vw;
     letter-spacing: 1.5px;
     margin-bottom: 0;
 }
-.wear .main .statement{
+
+.wear .main .statement {
     display: inline;
     padding-left: 12vw;
 
     font-size: 3.1vw;
     color: #999999;
 }
-.footer{
+
+.footer {
     width: 100%;
     height: 15vw;
     background: #fff;
     position: fixed;
     bottom: -2px;
 }
-.wear .footer span{
+
+.wear .footer span {
     display: inline-block;
     height: 11vw;
     width: 2px;
     background: #ececec;
     padding-top: 2vw;
 }
-.wear .footer .fastener{
+
+.wear .footer .fastener {
     border: none;
     background: #fff;
     height: 15vw;
     line-height: 15vw;
     font-size: 5vw;
 }
-.wear .footer .check_all{
+
+.wear .footer .check_all {
     width: 48.8vw;
     border-right: 1px solid #ececec;
 }
-.wear .footer .checkDelet{
+
+.wear .footer .checkDelet {
     width: 49.5vw;
     color: red;
 }
-.progress{
+
+.progress {
     height: 1.5vw;
     width: 37vw;
     margin-left: 30.5vw;
     margin-top: 5vw;
 }
+
 /*我的资料*/
-.list-ol{
+.list-ol {
     width: 100%;
     background: #fff;
 }
-.list-ol .pd-md{
+
+.list-ol .pd-md {
     width: 92%;
     height: 17vw;
     margin: auto;
     border-bottom: 1px solid #ececec;
 }
-.list-ol .pd-md span{
+
+.list-ol .pd-md span {
     display: inline-block;
     font-size: 3.5vw;
     font-weight: 600;
     letter-spacing: 1vw;
     margin-right: 3vw;
 }
-.list-ol .info{
+
+.list-ol .info {
     padding-top: 3vw;
 }
-.list-ol .pd-md i{
+
+.list-ol .pd-md i {
     font-size: 3.1vw;
     font-style: normal;
     color: #999;
 }
-.list-ol .pd-md img{
+
+.list-ol .pd-md img {
     width: 3.2vw;
     height: 3.2vw;
     margin-left: 23vw;
     margin-top: -1.5vw;
 }
-.list-ol .pd-md p{
+
+.list-ol .pd-md p {
     font-size: 4.3vw;
     color: red;
     margin-left: -0.8vw;
     margin-top: 1vw;
 }
+
 /*我的收藏*/
-.courseClear{
+.courseClear {
     height: 12.5vw;
     width: 100%;
     background: #fff;
     margin-top: 13.2vw;
 }
-.courseClear span{
+
+.courseClear span {
     height: 12.5vw;
     line-height: 12.5vw;
     display: inline-block;
@@ -373,6 +435,171 @@
     font-size: 3.7vw;
     text-align: center;
 }
-.courseClear .courseDown_right{
+
+.courseClear .courseDown_right {
     border-right: 1px solid #ececec;
 }
+
+/*消息*/
+.enwrap {
+    background: #f0f4f7;
+}
+
+.enwrap .packFirst {
+    margin-top: 17vw !important;
+}
+
+.enwrap .package {
+    height: 29vw;
+    background: #fff;
+    border-radius: 4px;
+    width: 92%;
+    margin: 5vw 0 0 4%;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.enwrap .package h3 {
+    padding-top: 5vw;
+    font-size: 4.3vw;
+    font-weight: 600;
+}
+
+.enwrap .package p {
+    font-size: 3.1vw;
+    color: #999999;
+    margin-top: 2vw;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 3vw;
+}
+
+.enwrap .package a {
+    font-size: 3.7vw;
+    color: #999999;
+}
+
+.enwrap .package img {
+    width: 4vw;
+    height: 4vw;
+    padding-right: 2vw;
+    margin-right: 2vw;
+    margin-top: 1vw;
+}
+
+.enwrap .package .packMain {
+    margin-top: 1.5vw;
+}
+
+/*信息详情*/
+.particulars {
+    background: #fff;
+    padding-top: 20vw;
+}
+
+.particulars .particularsMain {
+    padding: 4%;
+}
+
+.particulars .particularsMain p {
+    text-indent: 3.5rem;
+    letter-spacing: 2px;
+    color: #666666;
+    font-size: 3.7vw;
+}
+
+/*设置*/
+.intercalate {
+    margin-top: 13vw;
+}
+
+.pd-30 {
+    height: 16.5vw;
+    border-bottom: 1px solid #ececec;
+    line-height: 16.5vw;
+}
+
+.intercalate .Img {
+    width: 2vw;
+    height: 4vw;
+    margin-right: 5vw;
+    margin-top: 6.5vw;
+}
+
+.setItem .backImg {
+    width: 7vw;
+    height: 7vw;
+    margin-right: 10px;
+}
+
+.setItem-icon-left {
+    padding-left: 0;
+}
+
+.setItem-icon-right {
+    font-size: 4vw;
+    color: #000;
+}
+
+/*密码修改*/
+.top{
+    margin-top: 14vw;
+}
+.affirm button{
+    margin-left: 3%;
+    width: 94%;
+    height: 13.7vw;
+    margin-top: 6.5vw;
+    background: -webkit-linear-gradient(#03a9f4, #03a9f4);
+    opacity: 0.9;
+    box-shadow:0px 0 0 #00A7F7, 0 6px 10px rgba(0,167,247,0.7);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 4.6vw;
+}
+.affirm button:active,button:focus{
+    background: -webkit-linear-gradient(#03a9f4, #03a9f4);
+    opacity: 0.9;
+    box-shadow:0px 0 0 #00A7F7, 0 6px 10px rgba(0,167,247,0.7);
+    border: none;
+    border-radius: 5px;
+    outline:none;
+}
+/*关于我们*/
+.concerning{
+    background: #fff;
+    margin-top: 13vw;
+}
+.concerning .anenst{
+    padding-left: 40%;
+    padding-top: 15vw;
+}
+.concerning .anenst img{
+    width: 25vw;
+    height: 25vw;
+}
+.concerning .anenst h3{
+    font-size: 6vw;
+    font-weight: bold;
+    padding-top: 3vw;
+}
+.concerning .anenst p{
+    font-size: 3.7vw;
+    padding-top: 1vw;
+}
+.concerning .anenstWrap {
+    padding-top: 8vw;
+    padding-left: 33%;
+}
+.concerning .anenstWrap p{
+    font-size: 3.7vw;
+    margin-top: 3vw;
+}
+.footAnenst{
+    position: absolute;
+    bottom: 10vw;
+    left: 41%;
+    font-size: 3vw;
+    color: #999;
+}
+/*使用帮助*/

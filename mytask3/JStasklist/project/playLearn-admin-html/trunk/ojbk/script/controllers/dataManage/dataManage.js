@@ -17,7 +17,7 @@ angular.module('app').controller('dataManageCtrl', ['$scope', '$stateParams', '$
         }else if($scope.data.from === '3'){
             $scope.title.name = '编辑资料';
         }
-        //2为编辑 //1和3为确定
+        //2为查看 //1和3为确定
             if($scope.data.from==2) {
                 $scope.some=function () {
                     $state.go("backStage.dataManage.dataManage",{from:3}, {reload: true});
@@ -26,6 +26,9 @@ angular.module('app').controller('dataManageCtrl', ['$scope', '$stateParams', '$
                 $scope.some=function () {
                 }
             }
+        $scope.maxSize = 5;
+        $scope.totalItems = 80;
+        $scope.currentPage = 1;
     }
 
     ]);

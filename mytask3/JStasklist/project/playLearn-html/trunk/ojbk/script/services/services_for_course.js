@@ -51,3 +51,15 @@ angular.module('app')
             }
         ]
     })
+    .factory('range',function () {
+        return [
+            {
+                id:1,
+                name:'课程'
+            },
+            {
+                id:2,
+                name:'课时'
+            }
+        ]
+    })

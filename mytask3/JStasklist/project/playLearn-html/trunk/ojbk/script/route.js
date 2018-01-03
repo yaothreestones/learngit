@@ -404,14 +404,34 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
-            //设置
-            .state("app.install", {
-                url: "/install",
-                templateUrl: 'view/service/mine/install.html',
+            //消息详情
+            .state("app.particulars", {
+                url: "/particulars",
+                templateUrl: 'view/service/mine/particulars.html',
                 // controller: 'personalCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '怎样学好小学英语，你知道吗？';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.headNav.rubbish.isShow = true;
+                    }
+                }
+            })
+            //设置
+            .state("app.install", {
+                url: "/install",
+                templateUrl: 'view/service/mine/install.html',
+                controller: 'installCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                        "script/controllers/service/mine/install.js",
+                        "script/controllers/service/mine/installCtrl.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '设置';
@@ -421,27 +441,70 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //密码修改
+            .state("app.changePassword", {
+                url: "/changePassword",
+                templateUrl: 'view/service/mine/changePassword.html',
+                // controller: 'installCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '密码修改';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            //关于我们
+            .state("app.aboutStage", {
+                url: "/aboutStage",
+                templateUrl: 'view/service/mine/aboutStage.html',
+                // controller: 'installCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '关于我们';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            //使用帮助
+            .state("app.usinghelp", {
+                url: "/usinghelp",
+                templateUrl: 'view/service/mine/usinghelp.html',
+                // controller: 'installCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '如何购买试卷？';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            //意见反馈
+            .state("app.feedbackStage", {
+                url: "/feedbackStage",
+                templateUrl: 'view/service/mine/feedbackStage.html',
+                // controller: 'installCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '意见反馈';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
 
 
 

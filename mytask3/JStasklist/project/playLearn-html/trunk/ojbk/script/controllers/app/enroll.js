@@ -7,7 +7,7 @@ angular.module('app','')
             //   $state.go("app.profile");
             // }
             $scope.modal();
-            $state.go("app.profile");
+            // $state.go("app.profile");
         };
     });
 

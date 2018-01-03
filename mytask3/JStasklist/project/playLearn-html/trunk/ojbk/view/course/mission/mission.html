@@ -1,36 +1,29 @@
 <div class="course_mission_total">
     <div class="course_mission_title">例题一</div>
     <div class="course_mission_body">
-        <div class="course_mission_stepOut">
-            <p class="course_mission_stepCount">{{vm.step.id}}</p>
-            <div class="course_mission_step">
-                {{vm.step.content}}
+        <div class="course_mission_mainbody">
+            <div class="course_mission_stepOut" ng-class="{'course_mission_border':vm.isLast(step.id)}" ng-repeat="step in vm.a">
+                <div class="course_mission_fixed">
+                <p class="course_mission_stepCount">{{step.id}}</p>
+                <p class="course_mission_step">第{{step.id|change}}步</p>
+                <div class="course_mission_step">
+                    {{step.content}}
+                </div>
+                <div ng-hide="step.audio===undefined" class="course_mission_step">
+                    <input type="button" value="播放" ng-click="vm.playAudio(step.id)" />
+                    <input type="button" value="停止" ng-click="vm.stopAudio(step.id)" />
+                    <input type="button" value="快进10秒" onclick="forward()" />
+                    <audio id="audio{{step.id}}">
+                        <source ng-src="{{step.audio}}" type="audio/mp3">
+                    </audio>
+                </div>
+                    <img ng-src="{{step.img}}" class="course_mission_step">
+                </div>
             </div>
-            <div ng-hide="vm.step.audio===undefined">
-                <input type="button" value="播放" ng-click="vm.playAudio(vm.step.id)" />
-                <input type="button" value="停止" ng-click="vm.stopAudio(vm.step.id)" />
-                <input type="button" value="快进10秒" onclick="forward()" />
-                <audio id="audio{{vm.step.id}}">
-                    <source ng-src="{{vm.step.audio}}" type="audio/mp3">
-                </audio>
-            </div>
+            <button class="main" ng-click="vm.reduce()" ng-disabled="vm.a.length===1">减少</button>
+            <button class="main" ng-click="vm.add()" ng-disabled="vm.a.length === vm.steps.length">增加</button>
         </div>
-        <div class="course_mission_stepOut" ng-repeat="step in vm.a">
-            <p class="course_mission_stepCount">{{step.id}}</p>
-            <div class="course_mission_step">
-                {{step.content}}
-            </div>
-            <div ng-hide="step.audio===undefined">
-                <input type="button" value="播放" ng-click="vm.playAudio(step.id)" />
-                <input type="button" value="停止" ng-click="vm.stopAudio(step.id)" />
-                <input type="button" value="快进10秒" onclick="forward()" />
-                <audio id="audio{{step.id}}">
-                    <source ng-src="{{step.audio}}" type="audio/mp3">
-                </audio>
-            </div>
-            <img ng-src="{{step.img}}" class="course_mission_step">
-        </div>
-        <button class="main" ng-click="vm.reduce()" ng-disabled="vm.a[0]===undefined">减少</button>
-        <button class="main" ng-click="vm.add()" ng-disabled="vm.a.length === vm.steps.length">增加</button>
     </div>
+    <button ng-click="vm.last()" class="course_mission_select_last" ng-disabled="vm.lastMission">上个任务</button>
+    <button ng-click="vm.next()" class="course_mission_select_next" ng-disabled="vm.nextMission">下个任务</button>
 </div>

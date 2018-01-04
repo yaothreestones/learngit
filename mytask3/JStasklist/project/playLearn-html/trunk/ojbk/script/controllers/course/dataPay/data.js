@@ -14,6 +14,6 @@ angular.module('app')
                 //there为后退按钮判断参数；
                 //payment为资料付款类型，0为课时下资料，1位课程下资料；
                 //choose为防止后退时造成课程课时页面混乱，0为从课时下进入，1为从课程下进入。
-            $state.go("app.dataPay",{there:1,payment:vm.selected,choose:$state.params.choose})
+            $state.go("app.dataPay",{there:1,payment:vm.selected,choose:$state.params.choose,preview:$state.params.preview})
         }
     }])

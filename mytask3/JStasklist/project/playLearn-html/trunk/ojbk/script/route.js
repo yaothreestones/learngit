@@ -214,7 +214,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //同步预习
             .state("app.search", {
-                url: "/search",
+                url: "/search?preview",
                 templateUrl: 'view/homePage/search.html',
                 controller: 'searchCtrl',
                 resolve: {
@@ -232,7 +232,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //同步预习  课时列表
             .state("app.teaching", {
-                url: "/teaching",
+                url: "/teaching?preview",
                 templateUrl: 'view/homePage/teaching.html',
                 controller: 'teachingCtrl',
                 resolve: {
@@ -271,7 +271,14 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                        "style/service/seekList.css",
+                        "style/service/mui.min.css",
+                        "style/service/swiper-3.3.1.min.css",
                         "script/controllers/service/seek/seekCtrl.js",
+                        "script/directives/seek/mui.min.js",
+                        "script/directives/seek/seek.js",
+                        "script/directives/seek/swiper-3.3.1.min.js",
+                        "script/directives/seek/tools.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '资讯';
@@ -609,7 +616,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
 
             })
             .state("app.data", {
-                url: "/data/data?there&choose",
+                url: "/data/data?there&choose&preview",
                 templateUrl: 'view/course/dataPay/data.html',
                 controller: 'dataCtrl as vm',
                 resolve: {
@@ -627,7 +634,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.dataPay", {
-                url: "/data/dataPay?there&payment&choose",
+                url: "/data/dataPay?there&payment&choose&preview",
                 templateUrl: 'view/course/dataPay/dataPay.html',
                 controller: 'dataPayCtrl as vm',
                 resolve: {
@@ -645,7 +652,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.changeEmail", {
-                url: "/data/changeEmail?payment&choose",
+                url: "/data/changeEmail?payment&choose&preview",
                 templateUrl: 'view/course/dataPay/changeEmail.html',
                 controller: 'changeEmailCtrl as vm',
                 resolve: {
@@ -693,6 +700,24 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '任务详情';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            .state("app.periodFinish", {
+                url: "/course/period/periodFinish",
+                templateUrl: 'view/course/period/periodFinish.html',
+                controller: 'periodFinishCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/course/period/periodFinishCtrl.js",
+                        'view/course/period/periodFinish.html',
+                        'style/course/course.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '第一课 和倍问题';
                         $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }

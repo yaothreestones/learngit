@@ -3,7 +3,7 @@ angular.module('app')
         function ($scope,$timeout,$state,$stateParams) {
             $scope.data = function(x){
                 if(x===1){
-                    $state.go('app.data',{choose:1})
+                    $state.go('app.data',{choose:1,preview:1})
                 }
             };
         }])

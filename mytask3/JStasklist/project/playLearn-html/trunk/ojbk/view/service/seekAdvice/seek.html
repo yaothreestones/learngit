@@ -1,43 +1,194 @@
-    <div style="background: #f0f4f7">
-        <div class="row">
-            <img src="image/seek/background.png">
-            <p>别人放暑假，正是你追赶的好时机！</p>
-        </div>
-        <div class="information" ui-sref="app.seekDetails">
-            <img src="image/seek/background.png">
-            <div class="main">
-                <h4>怎么学好英语？</h4>
-                <h5>如何购买试卷如何购买试卷如何<br>
-                    购买试卷如何购买试卷</h5>
-                <h6>12月25日</h6>
-            </div>
-        </div>
-        <div class="information" ui-sref="app.seekDetails">
-            <img src="image/seek/background.png">
-            <div class="main">
-                <h4>怎么学好英语？</h4>
-                <h5>如何购买试卷如何购买试卷如何<br>
-                    购买试卷如何购买试卷</h5>
-                <h6>12月25日</h6>
-            </div>
-        </div>
-        <div class="information" ui-sref="app.seekDetails">
-            <img src="image/seek/background.png">
-            <div class="main">
-                <h4>怎么学好英语？</h4>
-                <h5>如何购买试卷如何购买试卷如何<br>
-                    购买试卷如何购买试卷</h5>
-                <h6>12月25日</h6>
-            </div>
-        </div>
-        <div class="information" ui-sref="app.seekDetails">
-            <img src="image/seek/background.png">
-            <div class="main">
-                <h4>怎么学好英语？</h4>
-                <h5>如何购买试卷如何购买试卷如何<br>
-                    购买试卷如何购买试卷</h5>
-                <h6>12月25日</h6>
+<style>
+    body {
+        padding-bottom: 15vw;
+    }
+
+    html, body {
+        background-color: #efeff4;
+    }
+
+    .title a {
+        font-size: 14px;
+        color: black;
+    }
+
+    .swiper-container {
+        height: 180px;
+    }
+
+    .swiper-container img {
+        height: 180px;
+        width: 100%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 5px;
+    }
+</style>
+<div style="background: #f0f4f7">
+    <div class="row">
+        <div class="mui-content">
+            <div id="slider" class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="image/seek/background.png">
+                            <p>别人放暑假，正是你追赶的好时机！</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="image/seek/background.png">
+                            <p>别人放暑假，正是你追赶的好时机！</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="image/seek/background.png">
+                            <p>别人放暑假，正是你追赶的好时机！</p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="image/seek/background.png">
+                            <p>别人放暑假，正是你追赶的好时机！</p>
+                        </a>
+                    </div>
+                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="image/seek/background.png">
+                            <p>别人放暑假，正是你追赶的好时机！</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="information" ui-sref="app.seekDetails">
+        <img src="image/seek/background.png">
+        <div class="main">
+            <h4>怎么学好英语？</h4>
+            <h5>如何购买试卷如何购买试卷如何<br>
+                购买试卷如何购买试卷</h5>
+            <h6>12月25日</h6>
+        </div>
     </div>
+    <div class="information" ui-sref="app.seekDetails">
+        <img src="image/seek/background.png">
+        <div class="main">
+            <h4>怎么学好英语？</h4>
+            <h5>如何购买试卷如何购买试卷如何<br>
+                购买试卷如何购买试卷</h5>
+            <h6>12月25日</h6>
+        </div>
+    </div>
+    <div class="information" ui-sref="app.seekDetails">
+        <img src="image/seek/background.png">
+        <div class="main">
+            <h4>怎么学好英语？</h4>
+            <h5>如何购买试卷如何购买试卷如何<br>
+                购买试卷如何购买试卷</h5>
+            <h6>12月25日</h6>
+        </div>
+    </div>
+    <div class="information" ui-sref="app.seekDetails">
+        <img src="image/seek/background.png">
+        <div class="main">
+            <h4>怎么学好英语？</h4>
+            <h5>如何购买试卷如何购买试卷如何<br>
+                购买试卷如何购买试卷</h5>
+            <h6>12月25日</h6>
+        </div>
+    </div>
+</div>
+</div>
+<!--<script>-->
+    <!--var slider = mui("#slider");-->
+    <!--var swiperTest = null;-->
+    <!--var banerArray = new Array();-->
+
+    <!--mui.init({-->
+        <!--swipeBack: false //启用右滑关闭功能-->
+    <!--});-->
+    <!--var slider = mui("#slider");-->
+    <!--slider.slider({-->
+        <!--interval: 3000-->
+    <!--});-->
+    <!--/**/-->
+    <!--mui.plusReady(function () {-->
+        <!--swiperTest = document.getElementById('swiperTest');-->
+        <!--getaData();-->
+    <!--})-->
+
+    <!--// 获取数据-->
+    <!--function getaData() {-->
+        <!--var timestamp = getDataStr();-->
+        <!--mui.plusReady(function () {-->
+            <!--mui.ajax(baseUrl, {-->
+                <!--data: {-->
+                    <!--key: '',-->
+                    <!--typeId: '',-->
+                    <!--showapi_appid: appid,-->
+                    <!--showapi_sign: sign,-->
+                    <!--showapi_timestamp: timestamp,-->
+                    <!--page: 1-->
+                <!--},-->
+                <!--dataType: 'json',-->
+                <!--type: 'post',-->
+                <!--timeout: 10000,-->
+                <!--beforeSend: function (data) {-->
+                    <!--plus.nativeUI.showWaiting();-->
+                <!--},-->
+                <!--success: function (data) {-->
+                    <!--plus.nativeUI.closeWaiting();-->
+                    <!--if (data.showapi_res_code == 0) {-->
+                        <!--console.log("成功");-->
+                        <!--var dice1 = data.showapi_res_body;-->
+                        <!--var dice2 = dice1.pagebean;-->
+                        <!--var swpier = '';-->
+                        <!--for (var i = 0; i < 5; i++) {-->
+                            <!--var item = dice2.contentlist[i];-->
+                            <!--var temp = '<div class="swiper-slide"><img src=" ' + item.contentImg + '" id="test' + i + '"/></div>';-->
+                            <!--swpier = swpier + temp;-->
+                            <!--banerArray.push(item);-->
+                        <!--}-->
+                        <!--swiperTest.innerHTML = swpier;-->
+                        <!--var mySwiper = new Swiper('.swiper-container', {-->
+                            <!--autoplay: 1000, /*自动播放时间间隔 单位ms*/-->
+                            <!--pagination: '.swiper-pagination', /*添加分页*/-->
+                            <!--loop: true, /*开启循环*/-->
+                        <!--})-->
+                        <!--/*轮播图页面跳转*/-->
+                        <!--mui.each(banerArray, function (index, item) {-->
+                            <!--var imgID = 'test' + index;-->
+                            <!--document.getElementById(imgID).addEventListener('tap', function () {-->
+                                <!--mui.openWindow({-->
+                                    <!--url: 'detail.html',-->
+                                    <!--id: 'detail',-->
+                                    <!--show: {-->
+                                        <!--aniShow: 'slide-in-right' /*页面切换效果*/-->
+                                    <!--},-->
+                                    <!--extras: {-->
+                                        <!--detailUrl: item.url,-->
+                                        <!--detailTitle: item.title-->
+                                    <!--},-->
+                                <!--});-->
+                            <!--})-->
+                        <!--})-->
+                    <!--}-->
+                <!--},-->
+                <!--error: function (xhr, type, errerThrown) {-->
+                    <!--mui.toast('网络异常,请稍候再试');-->
+                    <!--plus.nativeUI.closeWaiting();-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+    <!--}-->
+<!--</script>-->

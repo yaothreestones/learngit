@@ -1,0 +1,34 @@
+<style>
+    .footNav {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        height: 15.31vw;
+        line-height: 2.96vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: #fff;
+    }
+
+    .footNav .tab {
+        font-size: 2.96vw;
+        text-align: center;
+    }
+
+    .footNav .tab img {
+        display: block;
+        height: 5.62vw;
+        margin: 0 auto 1.8vw auto;
+    }
+
+    .footNav .tab.active {
+        color: #2eb9f8;
+    }
+</style>
+
+<div class="footNav shadow5">
+    <div listener-repeat-finish="appFootNav" class="tab" ui-sref="{{item.url}}" ng-repeat="item in data">
+        <img ng-src="{{item.active.icon}}" class="">{{item.active.title}}
+    </div>
+</div>

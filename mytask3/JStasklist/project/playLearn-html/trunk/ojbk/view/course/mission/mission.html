@@ -22,7 +22,7 @@
                         {{step.content}}
                     </div>
                     <div ng-hide="step.audio===undefined" class="course_mission_step">
-                        <button type="button" ng-click="vm.playAudio(step.id)">{{vm.audioPlay[step.id]|playMusic}}</button>
+                        <button type="button" ng-click="vm.playAudio(step.id)">{{vm.audioPlay[step.id-1]|playMusic}}</button>
                         <input type="button" value="快进10秒" onclick="forward()" />
                         <audio id="audio{{step.id}}">
                             <source ng-src="{{step.audio}}" type="audio/mp3">

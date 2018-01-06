@@ -50,7 +50,6 @@
 
 .information .main h4 {
     font-size: 4.3vw;
-    color: #999999;
 }
 
 .information .main h5 {
@@ -93,11 +92,9 @@
 }
 
 .seek .characters {
-    vertical-align: middle;
     width: 87.9vw;
-    font-size: 3.5vw;
+    font-size: 12px;
     color: #666666;
-    letter-spacing: 1px;
     line-height: 7vw;
     margin-top: 3vw;
 }

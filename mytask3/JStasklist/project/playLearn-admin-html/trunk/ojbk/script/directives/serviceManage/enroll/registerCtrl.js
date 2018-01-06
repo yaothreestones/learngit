@@ -3,13 +3,13 @@ angular.module('app')
     .controller('chartsCtrl', ['$scope', 'chartsServ', function($scope,chartsServ){
         $scope.chartsData = null
         // 数据初始化
-        chartsServ.getData('sign')
-        //     .then(function (d) {
-        //     $scope.chartsData = d
-        // })
+        return chartsServ.getData('sign')
+            .then(function (d) {
+            $scope.chartsData = d
+        })
         // 按钮改变数据
         $scope.changeChart = function (para) {
-            chartsServ.getData(para).then(function (d) {
+            return chartsServ.getData(para).then(function (d) {
                 $scope.chartsData = d
             })
         }

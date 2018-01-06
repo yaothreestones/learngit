@@ -87,5 +87,4 @@ angular.module("app")
             $rootScope.config.headNav.rubbish.isShow = false;
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         })
-
     }])

@@ -1,6 +1,6 @@
 angular.module('app')
-    .controller('periodCtrl',['$scope','$timeout','$state','$stateParams',
-        function ($scope,$timeout,$state,$stateParams) {
+    .controller('periodCtrl',['$scope','$timeout','$state','$stateParams','$http',
+        function ($scope,$timeout,$state,$stateParams,$http) {
         var vm = this;
         vm.img = 'image/app/collection.png';
         vm.collecting = '收藏';
@@ -30,7 +30,18 @@ angular.module('app')
                 }
             };
             vm.begin_study = function () {
-                $state.go('app.mission')
+                $http({
+                    method: 'get',
+                    url:'/playlearn/get//a/u/task/{taskid}/step/list',
+                    header:{'Content-Type':'application/x-www-form-urlencoded'},
+                }).then(function (res) {
+                    console.log(res.data.task1);
+                    if(res.data.code === 0){
+                        vm.task = res.data.task1;
+                        // $state.go('app.mission',{json:angular.toJson(vm.task)})
+                    }
+                })
+
             }
     }])
     .filter('data',function () {

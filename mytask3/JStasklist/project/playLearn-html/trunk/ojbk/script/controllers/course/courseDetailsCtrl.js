@@ -1,11 +1,29 @@
 angular.module('app')
-    .controller('courseDetailsCtrl',['$scope','$timeout','$state','$stateParams',
-        function ($scope,$timeout,$state,$stateParams) {
+    .controller('courseDetailsCtrl',['$scope','$timeout','$state','$stateParams','Course_service',
+        function ($scope,$timeout,$state,$stateParams,Course_service) {
             var vm = this;
             //收藏功能
             vm.img = 'image/app/collection.png';
             vm.collecting = '收藏';
             vm.show = false;
+            vm.Course_service = Course_service;
+            vm.courseDetail_params = $stateParams.courseId;
+            // {
+            //     courseId:$stateParams.courseId
+            // };
+            vm.Course_service.get_course_detail(vm.courseDetail_params).then(function (res) {
+                console.log(res);
+                vm.courseDetail = res.data.data;
+            });
+            vm.periodLists_params = {
+                taskId: 1,
+                Page: 1,
+                PageSize: 10
+            };
+            vm.Course_service.get_period_list(vm.periodLists_params).then(function (res) {
+                console.log(res.data.data);
+                vm.periodLists = res.data.data
+            });
             vm.collection = function() {
                     if (vm.img === 'image/app/collection.png') {
                         vm.img = 'image/app/isCollection.png';

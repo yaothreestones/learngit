@@ -21,6 +21,9 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/app/base.css",//底部
                         "script/directives/modalData/modalData.css",//提示模态框
                         "script/controllers/app/app.js",
+                        "script/constent/footNavData.js",
+                        "script/directives/footNav/footNav.js"
+
                     ]),
                 }
             })
@@ -581,7 +584,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.course", {
                 url: "/course",
                 templateUrl: 'view/course/course.html',
-                controller: 'courseCtrl',
+                controller: 'courseCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         //"style/service/seek.css",
@@ -597,7 +600,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.courseDetails", {
-                url: "/course/courseDetails",
+                url: "/course/courseDetails?courseId",
                 templateUrl: 'view/course/courseDetails.html',
                 controller: 'courseDetailsCtrl as vm',
                 resolve: {
@@ -688,7 +691,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             .state("app.mission", {
-                url: "/course/period/mission",
+                url: "/course/period/mission?json",
                 templateUrl: 'view/course/mission/mission.html',
                 controller: 'missionCtrl as vm',
                 resolve: {

@@ -1,79 +1,25 @@
 <div class="course_clear-fix">
-    <span class="course_drop-down" ng-click="subject_search()">{{subject_selected}}</span>
-    <span class="course_drop-down" ng-click="class_search()">{{class_selected}}</span>
+    <span class="course_drop-down" ng-click="vm.subject_search()">{{vm.subject_selected}}</span>
+    <span class="course_drop-down" ng-click="vm.class_search()">{{vm.class_selected}}</span>
 </div>
 <div>
-    <ul class="course_dropdown-list" ng-show="subject_isShow">
-        <li class="course_search-list" ng-repeat="subject in subjects" ng-click="subject_select(subject)">{{subject.name}}</li>
+    <ul class="course_dropdown-list" ng-show="vm.subject_isShow">
+        <li class="course_search-list" ng-repeat="subject in vm.subjects" ng-click="vm.subject_select(subject)">{{subject.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
-    <ul class="course_dropdown-list" ng-show="class_isShow">
-        <li class="course_search-list" ng-repeat="class in classes" ng-click="class_select(class)">{{class.name}}</li>
+    <ul class="course_dropdown-list" ng-show="vm.class_isShow">
+        <li class="course_search-list" ng-repeat="class in classes" ng-click="vm.class_select(class)">{{class.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
 </div>
 <div class="course_main-content">
-    <div class="course_content" ui-sref="app.courseDetails">
+    <div class="course_content" ng-repeat="courseList in vm.courseLists" ng-click="vm.courseDetail(courseList.courseId)">
         <img src="image/seek/background.png" class="course_main-img">
         <div class="course_main">
-            <h4>和差倍问题</h4>
+            <h4>{{courseList.course}}</h4>
             <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
-        </div>
-    </div>
-    <div class="course_content">
-        <img src="image/seek/background.png" class="course_main-img">
-        <div class="course_main">
-            <h4>和差倍问题</h4>
-            <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
-        </div>
-    </div>
-    <div class="course_content">
-        <img src="image/seek/background.png" class="course_main-img">
-        <div class="course_main">
-            <h4>和差倍问题</h4>
-            <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
-        </div>
-    </div>
-    <div class="course_content">
-        <img src="image/seek/background.png" class="course_main-img">
-        <div class="course_main">
-            <h4>和差倍问题</h4>
-            <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
-        </div>
-    </div>
-    <div class="course_content">
-        <img src="image/seek/background.png" class="course_main-img">
-        <div class="course_main">
-            <h4>和差倍问题</h4>
-            <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
-        </div>
-    </div>
-    <div class="course_content">
-        <img src="image/seek/background.png" class="course_main-img">
-        <div class="course_main">
-            <h4>和差倍问题</h4>
-            <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
-        </div>
-    </div>
-    <div class="course_content">
-        <img src="image/seek/background.png" class="course_main-img">
-        <div class="course_main">
-            <h4>和差倍问题</h4>
-            <img src="image/app/heat.png" class="course_recommended">
-            <span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
+            <span>{{courseList.studyNumber}}人已学</span>
+            <span>{{courseList.grade}}</span>
         </div>
     </div>
 </div>

@@ -1,6 +1,5 @@
 (function (app) {
-    app
-        .directive('listenerRepeatFinish', function ($rootScope) {
+    app.directive('listenerRepeatFinish', function ($rootScope) {
                 //@example 需要link一个标识符
                 // <div class="options" choose-scope="aaa">
                 // <div listener-repeat-finish="aaa" ng-repeat="i in [1,2,3,4,5,6]">{{$index}}年级</div>

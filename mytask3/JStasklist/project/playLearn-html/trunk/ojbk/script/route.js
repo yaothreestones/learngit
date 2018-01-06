@@ -23,7 +23,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/controllers/app/app.js",
                         "script/constent/footNavData.js",
                         "script/directives/footNav/footNav.js"
-
                     ]),
                 }
             })
@@ -170,6 +169,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     loadMyFile: _lazyLoad([
                         "script/controllers/homePage/page.js",
                         'style/course/course.css',
+                        'script/filters/CourseFilter.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '玩转学习';
@@ -591,7 +591,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/controllers/course/courseCtrl.js",
                         'view/course/course.html',
                         'style/course/course.css',
-                        'script/services/services_for_course.js'
+                        'script/services/services_for_course.js',
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';
@@ -609,6 +609,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/controllers/course/courseDetailsCtrl.js",
                         'view/course/courseDetails.html',
                         'style/course/course.css',
+                        'script/filters/CourseFilter.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';

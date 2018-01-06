@@ -19,9 +19,9 @@
         </div>
     </div>
     <div class="course_details_main" ui-sref="app.period" ng-repeat="periodList in vm.periodLists track by $index">
-        <div class="course_details_float mission_finish"><p class="course_details_status">已完成</p></div>
+        <div class="course_details_float" ng-class="periodList.lessonPeriodStatus|lessonPeriodClass"><p class="course_details_status">{{periodList.lessonPeriodStatus|lessonPeriodStatus}}</p></div>
         <div>
-            <p class="course_details_mission_title">{{periodList.lessionPeriodName}}</p>
+            <p class="course_details_mission_title">{{periodList.lessonPeriodName}}</p>
             <div class="course_details_mission_list">
                 <img src="image/app/mission.png" alt="任务列表" class="course_details_mission_img">任务：{{periodList.taskCount}}
             </div>

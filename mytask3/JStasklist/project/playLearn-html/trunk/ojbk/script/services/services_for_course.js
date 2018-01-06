@@ -2,6 +2,10 @@ angular.module('app')
     .factory('classes',function () {
         return [
             {
+                id:0,
+                name:'全部'
+            },
+            {
                 id:1,
                 name:'一年级'
             },

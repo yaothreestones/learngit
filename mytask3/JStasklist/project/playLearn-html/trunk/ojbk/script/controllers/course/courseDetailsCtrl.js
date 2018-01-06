@@ -8,19 +8,15 @@ angular.module('app')
             vm.show = false;
             vm.Course_service = Course_service;
             vm.courseDetail_params = $stateParams.courseId;
-            // {
-            //     courseId:$stateParams.courseId
-            // };
             vm.Course_service.get_course_detail(vm.courseDetail_params).then(function (res) {
-                console.log(res);
                 vm.courseDetail = res.data.data;
+                console.log(vm.courseDetail);
             });
-            vm.periodLists_params = {
-                taskId: 1,
-                Page: 1,
-                PageSize: 10
-            };
-            vm.Course_service.get_period_list(vm.periodLists_params).then(function (res) {
+            vm.Course_service.get_period_list({
+                courseId: $stateParams.courseId,
+                page: 1,
+                size: 10
+            }).then(function (res) {
                 console.log(res.data.data);
                 vm.periodLists = res.data.data
             });

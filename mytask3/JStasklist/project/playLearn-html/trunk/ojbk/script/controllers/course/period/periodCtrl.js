@@ -30,11 +30,10 @@ angular.module('app')
                 }
             };
             vm.begin_study = function () {
-                $http({
-                    method: 'get',
-                    url:'/playlearn/get//a/u/task/{taskid}/step/list',
-                    header:{'Content-Type':'application/x-www-form-urlencoded'},
-                }).then(function (res) {
+                vm.params = {
+                    taskId:11
+                }
+                .then(function (res) {
                     console.log(res.data.task1);
                     if(res.data.code === 0){
                         vm.task = res.data.task1;

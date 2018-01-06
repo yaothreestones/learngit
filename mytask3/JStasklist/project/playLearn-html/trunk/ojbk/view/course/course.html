@@ -4,16 +4,16 @@
 </div>
 <div>
     <ul class="course_dropdown-list" ng-show="vm.subject_isShow">
-        <li class="course_search-list" ng-repeat="subject in vm.subjects" ng-click="vm.subject_select(subject)">{{subject.name}}</li>
+        <li class="course_search-list" ng-repeat="subject in vm.subjects" ng-click="vm.subject_select(subject)">{{subject.subject}}</li>
         <li class="course_modal-list"></li>
     </ul>
     <ul class="course_dropdown-list" ng-show="vm.class_isShow">
-        <li class="course_search-list" ng-repeat="class in classes" ng-click="vm.class_select(class)">{{class.name}}</li>
+        <li class="course_search-list" ng-repeat="class in vm.classes" ng-click="vm.class_select(class)">{{class.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
 </div>
 <div class="course_main-content">
-    <div class="course_content" ng-repeat="courseList in vm.courseLists" ng-click="vm.courseDetail(courseList.courseId)">
+    <div class="course_content" ng-repeat="courseList in vm.courseLists" ng-click="vm.course_detail(courseList.courseId)">
         <img src="image/seek/background.png" class="course_main-img">
         <div class="course_main">
             <h4>{{courseList.course}}</h4>

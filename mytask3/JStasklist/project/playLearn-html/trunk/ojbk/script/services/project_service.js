@@ -6,7 +6,14 @@ angular.module("app")
             get_phone:function (params) {
                 return $http.get(pathProject.getPhone_url(),params)
             },
-
+            //注册
+            get_Enroll:function (params) {
+                return $http.get(pathProject.getEnroll_url(),params)
+            },
+            //短信验证
+            get_Send:function (params) {
+                return $http.get(pathProject.getSend_url(),params)
+            },
 
             //萌萌哒
 
@@ -34,4 +41,4 @@ angular.module("app")
                 return $http.get(pathProject.getTaksList_url(params))
             }
         }
-})
+    })

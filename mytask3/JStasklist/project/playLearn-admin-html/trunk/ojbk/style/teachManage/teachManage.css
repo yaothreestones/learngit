@@ -156,6 +156,7 @@
 }
 .within{
     border: 1px solid #aaaaaa;
+    margin: 10px 0;
 }
 .ipt{
     text-align: center;
@@ -236,8 +237,12 @@
     overflow: hidden;
     margin: 2rem;
 }
-
-
+.form-horizontal .control-label {
+    font-size: 12px !important;
+}
+.w-e-text-container {
+    max-height: 100px !important;
+}
 
 
 

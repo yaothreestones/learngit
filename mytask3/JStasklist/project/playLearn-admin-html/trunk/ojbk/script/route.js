@@ -30,7 +30,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/backstage/backStage.css",
                         "script/controllers/backstage/backStage.js",
                         "script/directives/Side-navigation.js",
-                        "script/services/Side-navigation-list.js"
+                        "script/services/Side-navigation-list.js",
+                        'style/teachManage/teachManage.css'
                     ])
                 }
             })
@@ -42,7 +43,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 //整个模块公共文件
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        'style/teachManage/teachManage.css'
                     ])
                 }
             })
@@ -135,7 +135,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台任务管理页
             .state("backStage.teachManage.mission", {
-                url: "/mission",
+                url: "/mission?add",
                 templateUrl: 'view/teachManage/mission/mission.html',
                 controller: 'missionCtrl',
                 resolve: {
@@ -147,11 +147,16 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //任务管理（新增.查看.编辑）
             .state("backStage.teachManage.missionManage", {
-                url: "/missionManage",
+                url: "/missionManage?from",
                 templateUrl: 'view/teachManage/mission/missionManage.html',
                 controller: 'missionManageCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        'script/controllers/teachManage/mission/missionManageCtrl.js',
+                        'view/teachManage/mission/missionManage.html',
+                        'script/directives/wangEditor/rich.js'
+
+                    ])
                 }
             })
             //preview

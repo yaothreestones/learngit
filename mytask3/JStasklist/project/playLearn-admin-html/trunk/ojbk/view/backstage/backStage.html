@@ -1,65 +1,81 @@
 <div class="pageWrap">
     <div class="head">
+        <span class="col-xs-3 col-sm-6">
             <img src="image/logo.png"/>回家学习
-        </div>
-    <div side-bar  style="margin-top: 2rem">
+        </span>
+        <span class="col-xs-3 col-sm-2">管理员</span>
+        <span class="user col-xs-3 col-sm-2">
+            <img src="image/user.png" alt="" style="width: 1.3vw;height: 1.3vw">
+            <span>admin</span>
+        </span>
+        <span class="loginOut col-xs-3 col-sm-2" ng-click="cancel()">
+            注销
+        </span>
+    </div>
+    <div side-bar style="margin-top: 2rem">
         <!-- Contenedor -->
         <div class="col-lg-2 col-md-3 col-sm-3" class="sidebar" ng-controller="backStageCtrl">
-        <ul id="accordion" class="accordion">
-            <li>
-                <div class="link" style="font-size: 20px"><i class="fa fa-university" aria-hidden="true"></i>后台欢迎页</div>
-            </li>
-            <li>
-                <div class="link"><i class="fa fa-book iconfont"></i>教学管理<i class="fa fa-chevron-down iconfont"></i></div>
-                <ul class="submenu">
-                    <li><a id="1" ui-sref="backStage.teachManage.subject">科目管理</a></li>
-                    <li><a id="2" ui-sref="backStage.teachManage.courses">课程管理</a></li>
-                    <li><a id="3" ui-sref="backStage.teachManage.period">课时管理</a></li>
-                    <li><a  id="4" ui-sref="backStage.teachManage.mission">任务管理</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="link"><i class="fa fa-suitcase"></i>同步预习管理<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                    <li><a id="5" ui-sref="backStage.previewManage.datum">教材管理</a></li>
-                    <li><a id="6" ui-sref="backStage.previewManage.period">课时管理</a></li>
-                    <li><a id="7" ui-sref="backStage.previewManage.mission">任务管理</a></li>
-                </ul>
-            </li>
-            <li><div class="link"><i class="fa fa-rebel"></i>资料管理<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                    <li><a id="8" ui-sref="backStage.dataManage.data">资料管理</a></li>
-                </ul>
-            </li>
-            <li><div class="link"><i class="fa fa-hacker-news"></i>内容管理<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                    <li><a id="9" ui-sref="backStage.contentManage.unite">合作机构管理</a></li>
-                    <li><a id="10" ui-sref="backStage.contentManage.hot">热门推荐管理</a></li>
-                </ul>
-            </li>
-            <li><div class="link"><i class="fa fa-tty"></i>客服管理<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                    <li><a id="11" ui-sref="backStage.serviceManage.party">用户管理</a></li>
-                    <li><a id="12" ui-sref="backStage.serviceManage.enroll">注册统计</a></li>
-                    <li><a id="13" ui-sref="backStage.serviceManage.information">资讯管理</a></li>
-                    <li><a id="14" ui-sref="backStage.serviceManage.news">消息管理</a></li>
-                    <li><a id="15" ui-sref="backStage.serviceManage.help">帮助管理</a></li>
-                    <li><a id="16" ui-sref="backStage.serviceManage.objection">意见管理</a></li>
-                    <li><a id="17" ui-sref="backStage.serviceManage.imageManage">头像背景管理</a></li>
-                    <!--<li><a id="18" ui-sref="backStage.serviceManage.version">版本管理</a></li>-->
-                </ul>
-            </li>
-            <li><div class="link"><i class="fa fa-globe"></i>后台管理<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                   <li><a id="20" ui-sref="backStage.moduleManage.user">模块管理</a></li>
-                   <li><a id="21" ui-sref="backStage.moduleManage.role">角色管理</a></li>
-                   <li><a id="22" ui-sref="backStage.moduleManage.password">密码修改</a></li>
-                   <li><a id="23" ui-sref="backStage.moduleManage.account">账户管理</a></li>
-                </ul>
-            </li>
+            <ul id="accordion" class="accordion">
+                <li>
+                    <div class="link" style="font-size: 20px"><i class="fa fa-university" aria-hidden="true"></i>后台欢迎页
+                    </div>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-book iconfont"></i>教学管理<i class="fa fa-chevron-down iconfont"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a id="1" ui-sref="backStage.teachManage.subject">科目管理</a></li>
+                        <li><a id="2" ui-sref="backStage.teachManage.courses">课程管理</a></li>
+                        <li><a id="3" ui-sref="backStage.teachManage.period">课时管理</a></li>
+                        <li><a id="4" ui-sref="backStage.teachManage.mission">任务管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-suitcase"></i>同步预习管理<i class="fa fa-chevron-down"></i></div>
+                    <ul class="submenu">
+                        <li><a id="5" ui-sref="backStage.previewManage.datum">教材管理</a></li>
+                        <li><a id="6" ui-sref="backStage.previewManage.period">课时管理</a></li>
+                        <li><a id="7" ui-sref="backStage.previewManage.mission">任务管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-rebel"></i>资料管理<i class="fa fa-chevron-down"></i></div>
+                    <ul class="submenu">
+                        <li><a id="8" ui-sref="backStage.dataManage.data">资料管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-hacker-news"></i>内容管理<i class="fa fa-chevron-down"></i></div>
+                    <ul class="submenu">
+                        <li><a id="9" ui-sref="backStage.contentManage.unite">合作机构管理</a></li>
+                        <li><a id="10" ui-sref="backStage.contentManage.hot">热门推荐管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-tty"></i>客服管理<i class="fa fa-chevron-down"></i></div>
+                    <ul class="submenu">
+                        <li><a id="11" ui-sref="backStage.serviceManage.party">用户管理</a></li>
+                        <li><a id="12" ui-sref="backStage.serviceManage.enroll">注册统计</a></li>
+                        <li><a id="13" ui-sref="backStage.serviceManage.information">资讯管理</a></li>
+                        <li><a id="14" ui-sref="backStage.serviceManage.news">消息管理</a></li>
+                        <li><a id="15" ui-sref="backStage.serviceManage.help">帮助管理</a></li>
+                        <li><a id="16" ui-sref="backStage.serviceManage.objection">意见管理</a></li>
+                        <li><a id="17" ui-sref="backStage.serviceManage.imageManage">头像背景管理</a></li>
+                        <!--<li><a id="18" ui-sref="backStage.serviceManage.version">版本管理</a></li>-->
+                    </ul>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-globe"></i>后台管理<i class="fa fa-chevron-down"></i></div>
+                    <ul class="submenu">
+                        <li><a id="20" ui-sref="backStage.moduleManage.user">模块管理</a></li>
+                        <li><a id="21" ui-sref="backStage.moduleManage.role">角色管理</a></li>
+                        <li><a id="22" ui-sref="backStage.moduleManage.password">密码修改</a></li>
+                        <li><a id="23" ui-sref="backStage.moduleManage.account">账户管理</a></li>
+                    </ul>
+                </li>
 
-        </ul>
-            </div>
+            </ul>
+        </div>
         <div class="col-lg-10 col-md-9 col-sm-9">
             <div ui-view><h1>welcome</h1></div>
         </div>

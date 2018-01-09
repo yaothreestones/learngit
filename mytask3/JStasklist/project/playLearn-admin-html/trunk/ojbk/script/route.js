@@ -12,9 +12,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("login", {
                 url: "/login",
                 templateUrl: 'view/login/login.html',
+                controller:'loginCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "view/login/login.html",
+                        "style/login/login.css",
                         "script/controllers/login/login.js"
                     ])
                 }
@@ -28,10 +30,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     loadMyFile: _lazyLoad([
                         "view/backstage/backStage.html",
                         "style/backstage/backStage.css",
-                        "script/controllers/backstage/backStage.js",
+                        "script/controllers/backPage/backStage.js",
                         "script/directives/Side-navigation.js",
                         "script/services/Side-navigation-list.js",
-                        'style/teachManage/teachManage.css'
+                        'style/teachManage/teachManage.css',
                     ])
                 }
             })
@@ -154,7 +156,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     loadMyFile: _lazyLoad([
                         'script/controllers/teachManage/mission/missionManageCtrl.js',
                         'view/teachManage/mission/missionManage.html',
-                        'script/directives/wangEditor/rich.js'
+                        'script/directives/wangEditor/rich.js',
+                        'script/services/backStage/backStage.js'
 
                     ])
                 }
@@ -259,8 +262,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.dataManage.data", {
                 url: "/data",
                 templateUrl: 'view/dataManage/data.html',
+                controller: 'dataCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "script/controllers/dataManage/data.js"
                     ])
                 }
             })
@@ -352,7 +357,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.serviceManage.party", {
                 url: "/party",
                 templateUrl: 'view/serviceManage/party/party.html',
-                controller: 'partyCtrl',
+                controller: "partyCtrl",
+                controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/serviceManage/serviceManage.css",

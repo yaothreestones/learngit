@@ -3,7 +3,7 @@
     <div class="login-center top-edge">
         <div class="top-handset">
             <img src="image/app/cellphone.png" height="37" width="24"/>
-            <input type="text" class="push-button" name="phone" required  ng-model="phone" placeholder="请输入手机号码" ng-pattern="phonePattern">
+            <input type="text" class="push-button" name="phone" required  ng-value="value" ng-model="phone" placeholder="请输入手机号码" ng-pattern="phonePattern">
         </div>
         <div class="bottom-password">
             <img src="image/app/password.png" height="35" width="26"/>
@@ -14,7 +14,9 @@
         </div>
     </div>
     <div class="press-button">
-        <button type="button" class="btn btn-default"  ng-click="entry()">登录</button>
+        <button type="button" class="butColor btn"
+                ng-class="{'butColor':!phone||!password}"
+                ng-click="entry()">登录</button>
         <a class="pull-left" ui-sref="app.enroll">立即注册</a>
         <a class="pull-right" ui-sref="app.retrieve">忘记密码？</a>
     </div>

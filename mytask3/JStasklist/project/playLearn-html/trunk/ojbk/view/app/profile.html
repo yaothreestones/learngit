@@ -14,7 +14,7 @@
         <div class="grade lognow-bottom">
             <img src="image/app/grade.png" />
             <span >年级：</span>
-            <input mobile-select1 id="trigger1" type="text" class="push-button" value=""  placeholder="设置年级"  />
+            <input mobile-select1 id="trigger" ng-model="grade" name="grade" required type="text" class="push-button" value=""  placeholder="设置年级"  />
         </div>
         <div class="mail lognow-bottom">
             <img src="image/app/mail.png"/>
@@ -23,7 +23,9 @@
         </div>
     </div>
     <div class="lognow">
-        <button type="button" class="btn btn-default associate-top" ng-click="profile()" >立即学习</button>
+        <button type="button" class="btn butColor"
+                ng-class="{'butColor':!name||!email||!grade}"
+                ng-click="profile()" >立即学习</button>
     </div>
         <modal></modal>
     </form>

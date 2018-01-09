@@ -214,6 +214,8 @@ a{
     color: #ffffff;
     font-size: 4.44vw;
     margin-bottom: 3.75vw;
+    outline: none;
+    border: none;
 }
 .press-button a{
     color: #c5c7c8;
@@ -1094,4 +1096,8 @@ a{
 /*公用下边距*/
 .base-bottom{
     margin-bottom: 15.37vw;
+}
+.butColor{
+    background: #e4e5e6!important;
+    color: #ffffff!important;
 }

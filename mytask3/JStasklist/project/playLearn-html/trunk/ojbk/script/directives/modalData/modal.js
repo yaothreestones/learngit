@@ -8,7 +8,7 @@ app.directive('modal', function () {
             $scope.phonePattern=/(^$)|^(((\+86)|(86))?1[34578]\d{9})$/;
             $scope.pwdPattern=/\w{6,16}/;
             //个人资料的昵称和邮件
-            $scope.namePattern=/^[a-zA-Z0-9_-]{1,10}$/;
+            $scope.namePattern=/^[\w\u4e00-\u9fa5]{1,10}$/;
             $scope.emailPattern=/^[1-9a-zA-Z_]\w*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$/;
             $scope.provingPattern=/^\d{6}$/;
             $scope.modal=function () {

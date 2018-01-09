@@ -8,6 +8,10 @@ angular.module("app")
         getPhone_url:function () {
             return"/playlearn/GET/a/login"
         },
+        //第三方登录
+        getOpen_url:function () {
+            return"/playlearn/GET/a/open/login/"
+        },
         //注册
         getEnroll_url:function () {
             return"/playlearn/POST/a/register"
@@ -16,7 +20,22 @@ angular.module("app")
         getSend_url:function () {
             return"playlearn/GET/a/code/send"
         },
-
+        //语音验证接口
+        getCall_url:function () {
+            return"playlearn/GET/a/code/call"
+        },
+        //找回密码
+        getForget_url:function () {
+            return"playlearn/PUT/a/forget"
+        },
+        //填写个人资料
+        getDetail_url:function () {
+            return"playlearn/PUT/a/u/user/detail"
+        },
+        //是否注册验证
+        getVerify_url:function () {
+            return"playlearn/PUT/a/register/verify"
+        },
 
 
 
@@ -40,9 +59,9 @@ angular.module("app")
 
         //萌萌哒
         //前台资讯接口
-        getPhone_url:function () {
-            return"/playlearn/GET/a/information/all"
-        },
+        // getPhone_url:function () {
+        //     return"/playlearn/GET/a/information/all"
+        // },
 
 
 

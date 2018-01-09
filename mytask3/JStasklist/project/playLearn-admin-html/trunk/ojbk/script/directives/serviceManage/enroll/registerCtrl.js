@@ -4,9 +4,9 @@ angular.module('app')
         $scope.chartsData = null
         // 数据初始化
         return chartsServ.getData('sign')
-            .then(function (d) {
-            $scope.chartsData = d
-        })
+        //     .then(function (d) {
+        //     $scope.chartsData = d
+        // })
         // 按钮改变数据
         $scope.changeChart = function (para) {
             return chartsServ.getData(para).then(function (d) {
@@ -71,7 +71,7 @@ angular.module('app')
             // 依赖echarts.min.js
             link: function($scope, ele) {
                 // 创建echart对象
-                var myChart = echarts.init(ele[0]);
+                // var myChart = echarts.init(ele[0]);
 
                 // 生成图表
                 function bootup (data) {
@@ -240,7 +240,7 @@ angular.module('app')
                 }
 
                 // 加载loading界面
-                myChart.showLoading({color:'#44525d'})
+                // myChart.showLoading({color:'#44525d'})
                 // 监测数据变化（按钮按下），生成图表
                 $scope.$watch('data',function (newData) {
                     if ($scope.data) {

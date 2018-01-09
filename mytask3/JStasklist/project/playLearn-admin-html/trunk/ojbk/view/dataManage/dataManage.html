@@ -16,9 +16,15 @@
                     </label>
                     <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">第一课 标点符号
                     </label>
-                    <label class="col-sm-1 control-label top-form" for="ds_name">提示任务
+                    <label class="col-sm-1 control-label top-form" for="ds_name" style="line-height: 34px">提示任务
                     </label>
-                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">任务一
+                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">
+                        <select class="form-control" id="ds_name" ng-disabled="disabled">
+                            <option value="">不提示</option>
+                            <option value="0">任务一</option>
+                            <option value="1">任务二</option>
+                            <option value="2">任务三</option>
+                        </select>
                     </label>
                 </div>
             </fieldset>

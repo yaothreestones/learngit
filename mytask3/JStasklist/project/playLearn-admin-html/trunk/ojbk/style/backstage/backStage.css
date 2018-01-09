@@ -11,10 +11,8 @@
     font-weight: 800;
 }
 .head img{
-    margin-left: 2rem;
     width: 3rem;
     height: 2.5rem;
-    margin-right: 1.5rem;
 }
 .input_style {
     padding: 0 !important;
@@ -22,4 +20,10 @@
 }
 .pad {
     padding: 0 !important;
+}
+.pageWrap .head .user{
+    display: inline-block;
+}
+.pageWrap .head .loginOut{
+    display: inline-block;
 }

@@ -2,7 +2,42 @@ angular.module('VerificationDirective',[])
     .directive('proving',function () {
             return {
                 templateUrl: "script/directives/proving/proving.html",
-                controller: function ($scope, $interval) {
+                controller: function ($scope,$interval,Course_service) {
+                    //短信验证
+                    var data = {
+                        phone: $scope.phone,
+                    }
+                    $scope.send=function () {
+                        getTestCode();
+                        Course_service.get_Send({
+                            data:data
+                        })
+                            .then(function(res) {
+                                $scope.code=res.data.code;
+                                console.log($scope.code)
+                                $scope.message=res.data.message;
+                                console.log(res)
+                                alert(1)
+                            }, function(res) {
+                                alert('请求失败')
+                            })
+                    };
+                    //语音验证
+                    $scope.call=function () {
+                        getTestStart();
+                        Course_service.get_Call({
+                            data:data
+                        })
+                            .then(function(res) {
+                                $scope.code=res.data.code;
+                                console.log($scope.code)
+                                $scope.message=res.data.message;
+                                console.log(res)
+                                alert(1)
+                            }, function(res) {
+                                alert('请求失败')
+                            })
+                    };
                     $scope.canClick = false;
                     $scope.startClick = false;
                      $scope.speech = "语音验证";
@@ -17,7 +52,7 @@ angular.module('VerificationDirective',[])
                         $scope.startClick = false;
                         $scope.codeColor = "color-code";
                     }
-                    $scope.getTestCode = function () {
+                       function getTestCode() {
                         alert("短信")
                         timerHandler = $interval(function () {
                             $scope.canClick = true;
@@ -35,7 +70,7 @@ angular.module('VerificationDirective',[])
                             }
                         }, 1000);
                     };
-                    $scope.getTestStart = function () {
+                    function getTestStart() {
                         alert("语音")
                         timerHandler = $interval(function () {
                             $scope.startClick = true;
@@ -53,6 +88,7 @@ angular.module('VerificationDirective',[])
                             }
                         }, 1000);
                     };
+
 
                 }
             }

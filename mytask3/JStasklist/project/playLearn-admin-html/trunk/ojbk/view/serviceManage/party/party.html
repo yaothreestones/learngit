@@ -8,7 +8,7 @@
                             用户名
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="vm.manage.name">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 form-group">
@@ -16,7 +16,7 @@
                             ID
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="vm.manage.id">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 form-group">
@@ -25,7 +25,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="x for x in names">
+                                    ng-model="vm.manage.grade" ng-options="x for x in names">
                             </select>
                         </div>
                     </div>
@@ -36,17 +36,17 @@
                             学习星数
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="vm.manage.studyStar">
                         </div>
                         <label class="col-sm-1 control-label padding-center">
                             ~
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="vm.manage.studyEnd">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label">
+                        <label class="col-sm-3 control-label" ng-model="vm.manage.courseTime">
                             学习课时数
                         </label>
                         <div class="col-sm-3">
@@ -56,7 +56,7 @@
                             ~
                         </label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="vm.manage.courseHour">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 form-group">
@@ -68,7 +68,7 @@
                             邮箱
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="vm.manage.email">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 form-group">
@@ -77,14 +77,14 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="x for x in state">
+                                    ng-model="vm.manage.status" ng-options="x for x in state">
                             </select>
                         </div>
                     </div>
                     <div class="row pd-bottom-2">
                         <div class="col-md-4 pull-right text-right">
-                            <div params="vm.searchParams" class="ng-isolate-scope">
-                                <button type="button" class="btn btn-success" ng-click="search()">查询</button>
+                            <div class="ng-isolate-scope">
+                                <button type="button" class="btn btn-success" ng-click="vm.search()">查询</button>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                 <thead>
                 <th>序号</th>
                 <th>ID</th>
-                <th>用户名</th>
+                <th>昵称</th>
                 <th>年级</th>
                 <th>学习星数</th>
                 <th>学习课时数</th>
@@ -113,21 +113,21 @@
                 <th>操作</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="self in [1,2,3,4,5,6]">
+                <tr ng-repeat="x in vm.ajaxData">
                     <td>{{$index+1}}</td>
-                    <td>132</td>
-                    <td>anny</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.grade}}</td>
+                    <td>{{x.studyStar}}</td>
+                    <td>{{x.courseTime}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.status}}</td>
                     <td>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
                                 ng-clock>
                             <!--1草稿，2上线-->
-                            <a ui-sref="backStage.serviceManage.see">查看</a>
+                            <a ui-sref="backStage.serviceManage.see" ng-click="sea">查看</a>
                         </button>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
@@ -141,9 +141,11 @@
         </div>
         <div class="row" >
             <div class="its col-xs-11 text-right pull-right">
-                <uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"
+                <uib-pagination total-items="vm.pagination.total" ng-model="currentPage" max-size="5"
+                                items-per-page="vm.pagination.perPageItems"
                                 first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
-                                boundary-links="true" boundary-link-numbers="true"></uib-pagination>
+                                boundary-links="true" boundary-link-numbers="true" ng-change="vm.pagination.changePage()">
+                </uib-pagination>
             </div>
         </div>
     </div>

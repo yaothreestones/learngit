@@ -24,17 +24,17 @@ angular.module('app')
                 //设置初始值
                 if (ngModelCtrl) {
                     ngModelCtrl.$render = function () {
-                        instance.txt.html(ngModelCtrl.$modelValue);
-                        console.log(ngModelCtrl.$modelValue);
+                        instance.txt.text(ngModelCtrl.$modelValue);
+
                     }
                 }
                 //内容变化回调函数
                 instance.customConfig.onchange = function () {
                     //angular 更新视图值
-                    ngModelCtrl.$setViewValue(instance.txt.html())
+                    ngModelCtrl.$setViewValue(instance.txt.text())
                 }
                 //生成
                 instance.create();
             }
         }
-    })
+    });

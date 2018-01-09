@@ -6,7 +6,11 @@ angular.module("app")
             get_phone:function (params) {
                 return $http.get(pathProject.getPhone_url(),params)
             },
-            //注册
+            //第三方登录
+            get_Open:function (params) {
+                return $http.get(pathProject.getOpen_url(),params)
+            },
+            //注册接口
             get_Enroll:function (params) {
                 return $http.get(pathProject.getEnroll_url(),params)
             },
@@ -14,7 +18,22 @@ angular.module("app")
             get_Send:function (params) {
                 return $http.get(pathProject.getSend_url(),params)
             },
-
+            //语音验证
+            get_Call:function (params) {
+                return $http.get(pathProject.getCall_url(),params)
+            },
+            //找回密码
+            get_Forget:function (params) {
+                return $http.get(pathProject.getForget_url(),params)
+            },
+            //填写个人资料
+            get_Detail:function (params) {
+                return $http.get(pathProject.getDetail_url(),params)
+            },
+            //是否注册验证
+            get_Verify:function (params) {
+                return $http.get(pathProject.getVerify_url(),params)
+            },
             //萌萌哒
 
 

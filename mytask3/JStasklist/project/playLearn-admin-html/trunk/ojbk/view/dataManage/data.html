@@ -13,13 +13,13 @@
                 <label class="col-sm-1 control-label" for="ds_name">所属科目</label>
                 <div class="col-sm-3">
                     <select class="form-control" id="ds_name">
-                        <option value="0">语文</option>
+                            <option value="0">语文</option>
                         <option value="1">数学</option>
                         <option value="2">外语</option>
                         <option value="3">语文(同步预习)</option>
                     </select>
                 </div>
-                <label class="col-sm-1 control-label" for="ds_name">等级</label>
+                <label class="col-sm-1 control-label" for="ds_name">年级</label>
                 <div class="col-sm-3">
                     <select class="form-control" id="ds_name">
                         <option value="">全部</option>
@@ -43,16 +43,21 @@
                 </div>
                 <label class="col-sm-1 control-label" for="ds_name">所属课时</label>
                 <div class="col-sm-3">
-                    <input class="form-control" id="ds_name" type="text"  disabled="none"/>
-                </div>
-                <label class="col-sm-1 control-label" for="ds_name">状态</label>
-                <div class="col-sm-3">
                     <select class="form-control" id="ds_name">
-                        <option value="">全部</option>
-                        <option value="0">上架</option>
-                        <option value="1">下架</option>
+                        <option>全部</option>
+                        <option>语文</option>
+                        <option>数学</option>
+                        <option>外语</option>
                     </select>
                 </div>
+                <!--<label class="col-sm-1 control-label" for="ds_name">状态</label>-->
+                <!--<div class="col-sm-3">-->
+                    <!--<select class="form-control" id="ds_name">-->
+                        <!--<option value="">全部</option>-->
+                        <!--<option value="0">上架</option>-->
+                        <!--<option value="1">下架</option>-->
+                    <!--</select>-->
+                <!--</div>-->
             </div>
             <button type="button" class="btn btn-default pull-right">查询</button>
             </div>
@@ -72,83 +77,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
+    <tr ng-repeat="self in vm.demoLists">
+        <td>{{$index+1}}</td>
+        <td>{{self.course}}</td>
+        <td>{{self.lessionPeriod}}</td>
         <td>
             <a ui-sref="backStage.dataManage.dataManage({'from':2})">查看</a>
             <a ui-sref="backStage.dataManage.dataManage({'from':3})">编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>占位符</td>
-        <td>
-            <a>查看</a>
-            <a>编辑</a>
             <a>删除</a>
         </td>
     </tr>

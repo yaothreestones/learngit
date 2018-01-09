@@ -5,18 +5,20 @@
         <div class="top-handset">
             <img src="image/app/cellphone.png" />
             <input  id="ds_name" type="number" name="phone"
-                     ng-model="phone"   ng-maxlength=11 required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   />
+                     ng-model="phone"   ng-maxlength=11 required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   ng-pattern="phonePattern"/>
         </div>
         <proving></proving>
         <div class="bottom-password">
             <img src="image/app/password.png"/>
             <input  id="ds_name" type="password"class="push-button" name="pwd"
-                    ng-pattern="/^[0-9a-zA-Z]+$/" ng-model="password" ng-minlength=6 ng-maxlength=16 required  placeholder="请输入登录密码" />
+                    ng-pattern="pwdPattern" ng-model="pwd" ng-minlength=6 ng-maxlength=16 required  placeholder="请输入登录密码" />
         </div>
     </div>
     <div class="press-button">
-        <button type="button" class="btn btn-default" ng-click="enroll()">立即注册</button>
-        <a class="pull-right" ui-sref="app.login">已有账号？去登录</a>
+        <button type="button" class="butColor btn"
+                ng-class="{'butColor':!phone||!pwd||!phonecode}"
+                ng-click="enroll()">立即注册</button>
+        <a class="pull-right" ui-sref="app.login">已有账号？去<span style="color: #00b9ff">登录</span></a>
     </div>
     <div class="clear"></div>
        </form>

@@ -4,6 +4,7 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
         vm.steps = steps;
         vm.i = 0;
         $scope.i = 0;
+        $scope.title={};
         //设置下拉菜单初始值
         $scope.select = vm.steps[0];
         //获取路由参数来判断操作
@@ -16,7 +17,6 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
         }else if($stateParams.from === '3'){
             $scope.title.name = '编辑任务';
         }
-        $scope.title={};
         $scope.show = false;
         $scope.lock =true;
         //上传图片接口，暂定为任务的接口

@@ -9,60 +9,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
+        <tr ng-repeat="hot in vm.hot">
+            <td>{{$index+1}}</td>
+            <td>{{hot.name}}</td>
             <td>
-                <a ui-sref="backStage.contentManage.groom">编辑</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>编辑</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>编辑</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>编辑</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>编辑</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>编辑</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>编辑</a>
+                <a ui-sref="{{hot.url}}">{{hot.operate}}</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <div class="its col-xs-11 pull-right text-right">
-        <uib-pagination total-items="80" ng-model="currentPage" max-size="maxSize"
-                        first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
-                        boundary-links="true" boundary-link-numbers="true"></uib-pagination>
-    </div>
 </div>

@@ -113,15 +113,15 @@
                 <th>操作</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="x in vm.ajaxData">
+                <tr ng-repeat="self in vm.ajaxData">
                     <td>{{$index+1}}</td>
-                    <td>{{x.id}}</td>
-                    <td>{{x.name}}</td>
-                    <td>{{x.grade}}</td>
-                    <td>{{x.studyStar}}</td>
-                    <td>{{x.courseTime}}</td>
-                    <td>{{x.email}}</td>
-                    <td>{{x.status}}</td>
+                    <td>{{self.id}}</td>
+                    <td>{{self.name}}</td>
+                    <td>{{self.grade}}</td>
+                    <td>{{self.studyStar}}</td>
+                    <td>{{self.courseTime}}</td>
+                    <td>{{self.email}}</td>
+                    <td>{{self.status}}</td>
                     <td>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "

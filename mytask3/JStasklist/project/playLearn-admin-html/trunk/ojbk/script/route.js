@@ -34,6 +34,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/directives/Side-navigation.js",
                         "script/services/Side-navigation-list.js",
                         'style/teachManage/teachManage.css',
+                        'script/filters/filter.js'
                     ])
                 }
             })
@@ -45,27 +46,25 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 //整个模块公共文件
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        'script/services/backStage/backStage.js'
                     ])
                 }
             })
             //后台科目管理页
             .state("backStage.teachManage.subject", {
-                url: "/subject",
+                url: "/subject?page&size&type&status&name",
                 templateUrl: 'view/teachManage/subject/subject.html',
                 controller: 'subjectCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         'view/teachManage/subject/subject.html',
-                        'script/controllers/teachManage/subject/subjectCtrl.js'
+                        'script/controllers/teachManage/subject/subjectCtrl.js',
                     ])
                 }
             })
             //科目管理（新增.查看.编辑）
             .state("backStage.teachManage.subjectManage", {
-                params:{
-                    from:null
-                },
-                url: "/subjectManage?from",
+                url: "/subjectManage?from&id&subject",
                 templateUrl: 'view/teachManage/subject/subjectManage.html',
                 controller: 'subjectManageCtrl',
                 resolve: {
@@ -77,10 +76,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台课程管理页
             .state("backStage.teachManage.courses", {
-                params: {
-                    add:null
-                },
-                url: "/courses?add",
+                url: "/courses?add&subject&page&size",
                 templateUrl: 'view/teachManage/courses/courses.html',
                 controller: 'coursesCtrl',
                 resolve: {
@@ -92,10 +88,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //课程管理（新增.查看.编辑）
             .state("backStage.teachManage.coursesManage", {
-                params: {
-                    from:null
-                },
-                url: "/coursesManage?from",
+                url: "/coursesManage?from&id&subject&add",
                 templateUrl: 'view/teachManage/courses/coursesManage.html',
                 controller: 'coursesManageCtrl',
                 resolve: {
@@ -107,10 +100,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台课时管理页
             .state("backStage.teachManage.period", {
-                params: {
-                    add:null
-                },
-                url: "/period?add",
+                url: "/period?add&course&page&size",
                 templateUrl: 'view/teachManage/period/period.html',
                 controller: 'periodCtrl',
                 resolve: {
@@ -122,9 +112,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //课时管理（新增.查看.编辑）
             .state("backStage.teachManage.periodManage", {
-                params: {
-                    from:null
-                },
                 url: "/periodsManage?from",
                 templateUrl: 'view/teachManage/period/periodManage.html',
                 controller: 'periodManageCtrl',
@@ -137,7 +124,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台任务管理页
             .state("backStage.teachManage.mission", {
-                url: "/mission?add",
+                url: "/mission?add&page&size",
                 templateUrl: 'view/teachManage/mission/mission.html',
                 controller: 'missionCtrl',
                 resolve: {
@@ -170,13 +157,14 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 //整个模块公共文件
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        "style/teachManage/teachManage.css"
+                        "style/teachManage/teachManage.css",
+                        "script/services/backStage/backStage.js"
                     ])
                 }
             })
             //后台教材管理页
             .state("backStage.previewManage.datum", {
-                url: "/datum",
+                url: "/datum?page&size",
                 templateUrl: 'view/previewManage/datum/datum.html',
                 controller: 'datumCtrl',
                 resolve: {
@@ -188,7 +176,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //教材管理（新增.查看.编辑）
             .state("backStage.previewManage.datumManage", {
-                url: "/datumManage",
+                url: "/datumManage?from&datumId",
                 templateUrl: 'view/previewManage/datum/datumManage.html',
                 controller: 'datumManageCtrl',
                 resolve: {
@@ -200,7 +188,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台课时管理页
             .state("backStage.previewManage.period", {
-                url: "/periodInPreview",
+                url: "/periodInPreview?add&page&size&book",
                 templateUrl: 'view/previewManage/period/period.html',
                 controller: 'periodCtrlInPreview',
                 resolve: {
@@ -212,7 +200,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //课时管理（新增.查看.编辑）
             .state("backStage.previewManage.periodManage", {
-                url: "/periodsManageInPreview",
+                url: "/periodsManageInPreview?from",
                 templateUrl: 'view/previewManage/period/periodManage.html',
                 controller: 'periodManageCtrlInPreview',
                 resolve: {
@@ -224,7 +212,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台任务管理页
             .state("backStage.previewManage.mission", {
-                url: "/missionInPreview",
+                url: "/missionInPreview?add&page&size",
                 templateUrl: 'view/previewManage/mission/mission.html',
                 controller: 'missionCtrlInPreview',
                 resolve: {
@@ -236,13 +224,15 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //任务管理（新增.查看.编辑）
             .state("backStage.previewManage.missionManage", {
-                url: "/missionManage",
+                url: "/missionManage?from",
                 templateUrl: 'view/previewManage/mission/missionManage.html',
                 controller: 'missionManageCtrlInPreview',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         'view/previewManage/mission/missionManage.html',
-                        'script/controllers/previewManage/missionInPreview/missionManageCtrlInPreview.js'
+                        'script/controllers/previewManage/missionInPreview/missionManageCtrlInPreview.js',
+                        'script/directives/wangEditor/rich.js',
+                        'script/services/backStage/backStage.js'
                     ])
                 }
             })
@@ -262,7 +252,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.dataManage.data", {
                 url: "/data",
                 templateUrl: 'view/dataManage/data.html',
-                controller: 'dataCtrl as vm',
+                controller: 'dataCtrl',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/dataManage/data.js"
@@ -293,12 +283,15 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             //后台合作机构管理页
-            .state("backStage.contentManage.unite", {
+                .state("backStage.contentManage.unite", {
                 url: "/unite",
+                controller: 'uniteCtrl as vm',
                 templateUrl: 'view/contentManage/unite/unite.html',
                 // controller: 'uniteCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/content/unite/unite.js"
+                    ])
                 }
             })
             //合作机构管理（新增.查看.编辑）
@@ -316,25 +309,29 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.contentManage.hot", {
                 url: "/hot",
                 templateUrl: 'view/contentManage/hot/hot.html',
-                // controller: 'hotCtrl',
+                controller: 'hotCtrl as vm',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/content/hot/hot.js"
+                    ])
                 }
             })
             //推荐课程管理
             .state("backStage.contentManage.groom", {
                 url: "/groom",
                 templateUrl: 'view/contentManage/groom/groom.html',
-                // controller: 'groomCtrl',
+                controller: 'groomCtrl as vm',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/content/groom/groom.js"
+                    ])
                 }
             })
-            //推荐课程管理（编辑）
+            //推荐课程管理（编辑，查看）
             .state("backStage.contentManage.groomManage", {
                 url: "/groomManage?from",
                 templateUrl: 'view/contentManage/groom/groomManage.html',
-                controller: 'groomManageCtrl',
+                controller: 'groomManageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/content/groom/groomManage.js"

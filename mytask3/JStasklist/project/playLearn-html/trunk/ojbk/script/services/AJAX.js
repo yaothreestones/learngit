@@ -36,6 +36,9 @@ angular.module("app")
         getVerify_url:function () {
             return"playlearn/PUT/a/register/verify"
         },
+        //首页学习星 和击败用户
+
+
 
 
 

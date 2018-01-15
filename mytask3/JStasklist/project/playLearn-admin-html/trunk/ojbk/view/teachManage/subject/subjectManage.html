@@ -2,58 +2,22 @@
     <h5><strong> | </strong>{{title.name}}</h5>
     <div class="clear-float">
         <label class="control-label label-fixed col-sm-2" for="tm_subject">科目名称</label>
-        <input id="tm_subject" class="col-sm-10" ng-disabled="show">
+        <input id="tm_subject" class="col-sm-10" ng-disabled="show" ng-model="subject_name">
     </div>
     <div class="clear-float">
-    <label class="control-label label-fixed col-sm-3">类型</label>
-    <label class="control-label cursor col-sm-3" for="tm_type">
-        <input type="radio" name="type" id="tm_type" checked ng-disabled="show">自有
-    </label>
-    <label class="control-label cursor col-sm-3">
-        <input type="radio" name="type" ng-disabled="show">校内
-    </label>
-    <label class="control-label cursor col-sm-3">
-        <input type="radio" name="type" ng-disabled="show">合作
-    </label>
-    </div>
-    <div class="clear-float">
-        <label class="col-sm-2">年级划分</label>
-        <div class="col-sm-10">
-            <div class="col-sm-2">
-                <label class="cursor">
-                    <input type="checkbox" ng-disabled="show">一年级
-                </label>
-            </div>
-            <div class="col-sm-2">
-                <label class="cursor">
-                    <input type="checkbox" ng-disabled="show">二年级
-                </label>
-            </div>
-            <div class="col-sm-2">
-                <label class="cursor">
-                    <input type="checkbox" ng-disabled="show">三年级
-                </label>
-            </div>
-            <div class="col-sm-2">
-                <label class="cursor">
-                    <input type="checkbox" ng-disabled="show">四年级
-                </label>
-            </div>
-            <div class="col-sm-2">
-                <label class="cursor">
-                    <input type="checkbox" ng-disabled="show">五年级
-                </label>
-            </div>
-            <div class="col-sm-2">
-                <label class="cursor">
-                    <input type="checkbox" ng-disabled="show">六年级
-                </label>
-            </div>
-        </div>
-        <textarea class="col-sm-10 col-sm-offset-2" style="max-width: 83.334%" ng-disabled="show"></textarea>
+        <label class="control-label label-fixed col-sm-3">类型</label>
+            <label class="control-label cursor col-sm-3">
+                <input type="radio" name="type" ng-checked="true" ng-disabled="show" ng-model="subject_type" value="0">自有
+            </label>
+            <label class="control-label cursor col-sm-3">
+                <input type="radio" name="type" ng-disabled="show" ng-model="subject_type" value="1">校内
+            </label>
+            <label class="control-label cursor col-sm-3">
+                <input type="radio" name="type" ng-disabled="show" ng-model="subject_type" value="2">合作
+            </label>
     </div>
     <div class="col-sm-4 col-sm-offset-2 ">
-        <button type="button" class="btn btn-primary" ui-sref="backStage.teachManage.subject">确定</button>
+        <button type="button" class="btn btn-primary" ng-click="subject_operation()">确定</button>
     </div>
     <div class="col-sm-4 ">
         <button type="button" class="btn btn-primary" ui-sref="backStage.teachManage.subject">取消</button>

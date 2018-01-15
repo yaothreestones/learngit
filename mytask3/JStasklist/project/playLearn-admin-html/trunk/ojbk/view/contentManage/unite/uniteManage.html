@@ -6,15 +6,16 @@
                 <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">机构logo</label>
                     <div class="col-sm-11 top-form" >
-                        <img ng-show="isShow" ng-src="{{src}}" style="width: 300px;height: 300px; margin-top: 10px;background: red">
-                        <img-upload ng-show="show" ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
+                        <img ng-show="isShow" ng-src="{{homePicture}}" style="width: 300px;height: 300px; margin-top: 10px;">
+                        <img-upload ng-show="show" ajax-ads="ajax" ng-src="{{exportSrc}}" btn-title="上传" ng-disabled="" ></img-upload>
                     </div>
                     <label class="col-sm-1 control-label top-form" for="ds_name" ng-disabled="show">机构名称</label>
                     <div class="col-sm-11 top-form">
-                        <input class="form-control" ng-disabled="disabled" id="ds_name" type="text"   />
+                        <input class="form-control" ng-disabled="disabled" ng-model="name" id="ds_name" type="text"   />
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                 <div class="col-sm-11 fastener">

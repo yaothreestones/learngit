@@ -20,13 +20,20 @@ angular.module('fileUploadDirective', [])
                 scope.$watch('select.id',function (NewV) {
                     if(NewV){
                         if(scope.select.id === 1){
-                            scope.filename = '图片名'
+                            scope.filename = '图片名';
+                            scope.type = 1;
+                            scope.file_type = 'image/*';
                         }else if(scope.select.id === 3){
-                            scope.filename = '音频名'
+                            scope.filename = '音频名';
+                            scope.type = 3;
+                            scope.file_type = 'audio/*';
                         }else if(scope.select.id === 4){
-                            scope.filename = '视频名'
+                            scope.filename = '视频名';
+                            scope.file_type = 'video/*';
                         }else if(scope.select.id === 5){
-                            scope.filename = '音频名'
+                            scope.filename = '音频名';
+                            scope.type = 3;
+                            scope.file_type = 'audio/*';
                         }
                     }
                 });
@@ -106,7 +113,7 @@ angular.module('fileUploadDirective', [])
                             if (res.data.code === 0) {
                                 scope.progress.value = scope.progress.max;
                                 $interval.cancel(scope.progress.timer);
-                                scope.exportSrc = res.data.data.url;
+                                scope.exportSrc = res.data.url;
                                 scope.isLoading = false;
                                 scope.loadInfo = '上传成功';
                             }
@@ -133,6 +140,8 @@ angular.module('fileUploadDirective', [])
                         var defer = $q.defer();
                         var data = new FormData();
                         data.append('file', scope.file);
+                        data.append('type', scope.type);
+                        data.append('belong',3);
                         var ajaxPromise = $http({
                             method: 'post',
                             url: scope.ajaxAds || makeError('ajaxAds is Falsy'),

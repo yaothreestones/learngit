@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label class="col-sm-1 control-label top-form" for="ds_name">所属年级
                     </label>
-                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">一年级
+                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{grade}}
                     </label>
                 </div>
             </fieldset>
@@ -30,7 +30,7 @@
                     </div>
                     <label class="col-sm-1 control-label top-form" for="ds_name">推荐封面</label>
                     <div class="col-sm-11 top-form" >
-                        <img ng-show="isShow" ng-src="{{src}}" style="width: 300px;height: 300px; margin-top: 10px;background: red">
+                        <img ng-show="isShow" ng-src="{{homePicture}}" style="width: 300px;height: 300px; margin-top: 10px;">
                         <img-upload ng-show="show" ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
                     </div>
                 </div>

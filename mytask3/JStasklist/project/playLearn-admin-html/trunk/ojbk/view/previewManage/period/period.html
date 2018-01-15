@@ -2,27 +2,24 @@
     <form class="form-horizontal" role="form">
         <fieldset>
             <div class="form-group">
-                <label class="col-sm-1 control-label" for="ds_type">所属科目</label>
+                <label class="col-sm-1 control-label" for="ds_type">年级</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_type">
-                        <option>语文</option>
-                        <option>数学</option>
-                        <option>外语</option>
+                    <div class="form-control" ng-show="vm.isShow">{{vm.grade.name}}</div>
+                    <select class="form-control" id="ds_type" ng-options="class.name for class in vm.Grade" ng-model="vm.grade" ng-hide="vm.isShow">
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_datum">所属教材</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="ds_datum">
+                    <div class="form-control" ng-show="vm.isShow">{{vm.datum.bookName}}</div>
+                    <select class="form-control" id="ds_datum" ng-hide="vm.isShow" ng-model="vm.datum">
+                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-1 control-label" for="ds_subject">所属课程</label>
+                <label class="col-sm-1 control-label" for="ds_subject">版本</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_subject">
-                        <option>语文</option>
-                        <option>数学</option>
-                        <option>外语</option>
-                        <option selected>全部</option>
+                    <div class="form-control" ng-show="vm.isShow">{{vm.press.name}}</div>
+                    <select class="form-control" id="ds_subject" ng-options="press.name for press in vm.Press" ng-model="vm.press" ng-hide="vm.isShow">
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_period">课时名称</label>
@@ -33,10 +30,7 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_host">状态</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_host">
-                        <option>全部</option>
-                        <option>上架</option>
-                        <option>下架</option>
+                    <select class="form-control" id="ds_host" ng-options="status.name for status in vm.Status" ng-model="vm.status">
                     </select>
                 </div>
             </div>
@@ -46,7 +40,7 @@
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>课时管理<a ui-sref="backStage.previewManage.periodManage" class="pull-right">新增+</a></h5>
+    <h5><strong> | </strong>课时管理<a ui-sref="backStage.previewManage.periodManage({from:1})" class="pull-right" ng-show="isShow">新增+</a></h5>
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
@@ -68,10 +62,10 @@
             <td>占位符</td>
             <td>占位符</td>
             <td>
-                <a ui-sref="backStage.previewManage.mission">任务</a>
+                <a ui-sref="backStage.previewManage.mission({add:1})">任务</a>
                 <a>资料</a>
-                <a ui-sref="backStage.previewManage.periodManage">查看</a>
-                <a ui-sref="backStage.previewManage.periodManage">编辑</a>
+                <a ui-sref="backStage.previewManage.periodManage({from:2})">查看</a>
+                <a ui-sref="backStage.previewManage.periodManage({from:3})">编辑</a>
                 <a>上架</a>
                 <a>删除</a>
             </td>
@@ -174,4 +168,9 @@
         </tr>
         </tbody>
     </table>
+    <div class="its col-xs-11 pull-right text-right">
+        <uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" max-size="5"
+                        first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                        boundary-links="true" boundary-link-numbers="true" ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
+    </div>
 </div>

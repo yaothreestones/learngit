@@ -1,45 +1,40 @@
 <div class="col-lg-12 col-md-12 col-sm-12 edging while">
-    <h5><strong> | </strong>{{title.name}}</h5>
+    <h5 class="padding_bottom"><strong> | </strong>{{vm.title.name}}</h5>
     <div class="col-lg-12 col-md-12 col-sm-12 edging">
         <form class="form-horizontal" role="form">
             <fieldset class="form-bottom">
-                <div class="form-group">
+                <div class="form-group container-fluid">
                     <div class="row">
                         <label class="col-sm-1 control-label top-form">封面</label>
-                        <div class="col-sm-11 top-form top-form-nomargin">
-                            <img-upload ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
+                        <div class="col-sm-11 top-form top-form-no-margin">
+                            <img ng-src="{{vm.exportSrc}}" alt="" ng-show="vm.isShow">
+                            <img-upload ajax-ads="vm.ajax" img-src="vm.exportSrc" btn-title="上传" ng-disabled="" img-src="params.img" ng-hide="vm.isShow"></img-upload>
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label top-form">教材名称</label>
-                        <div class="col-sm-11 top-form top-form-nomargin">
-                            <input type="input">
+                        <div class="col-sm-11 top-form top-form-no-margin">
+                            <input type="input" class="min-width" ng-model="vm.datumName" ng-disabled="vm.isShow">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label top-form">教材版本</label>
-                        <div class="col-sm-11 top-form top-form-nomargin">
-                            <select class="form-control" ng-disabled="show">
-                                <option>语文</option>
-                                <option>数学</option>
-                                <option>外语</option>
+                        <div class="col-sm-11 top-form top-form-no-margin">
+                            <select class="form-control min-width" ng-options="press.name for press in vm.Press" ng-model="vm.press" ng-disabled="vm.isShow">
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label top-form">年级</label>
-                        <div class="col-sm-11 top-form top-form-nomargin">
-                            <select class="form-control" ng-disabled="show">
-                                <option>语文</option>
-                                <option>数学</option>
-                                <option>外语</option>
+                        <div class="col-sm-11 top-form top-form-no-margin">
+                            <select class="form-control min-width" ng-options="class.name for class in vm.Grade" ng-model="vm.class" ng-disabled="vm.isShow">
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label top-form">教材简介</label>
-                        <div class="col-sm-11 top-form top-form-nomargin">
-                            <textarea class="col-sm-10" style="min-width:100%" ng-disabled="show" ng-disabled="show"></textarea>
+                        <div class="col-sm-11 top-form top-form-no-margin">
+                            <textarea class="col-sm-10" style="min-width:100%" ng-disabled="vm.isShow" ng-model="vm.bookIntro"></textarea>
                         </div>
                     </div>
 
@@ -49,7 +44,7 @@
                 <div class="row">
                     <label class="col-sm-1 control-label top-form"></label>
                     <div class="col-sm-11 fastener">
-                        <button type="button" class="btn ascertain" ui-sref="backStage.previewManage.datum">确定</button>
+                        <button type="button" class="btn ascertain" ng-click="vm.submit()">确定</button>
                         <button type="button" class="btn cancel" ui-sref="backStage.previewManage.datum">取消</button>
                     </div>
                 </div>

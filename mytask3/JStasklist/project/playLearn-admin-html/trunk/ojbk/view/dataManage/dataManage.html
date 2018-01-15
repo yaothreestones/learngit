@@ -6,26 +6,23 @@
                 <div class="form-group">
                     <label class="col-sm-1 control-label top-form" for="ds_name">所属科目
                     </label>
-                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">数学
+                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{materials.subjectName}}
                     </label>
                     <label class="col-sm-1 control-label top-form" for="ds_name">所属课程
                     </label>
-                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">和差倍问题
+                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{materials.courseName}}
                     </label>
                     <label class="col-sm-1 control-label top-form" for="ds_name">所属课时
                     </label>
-                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">第一课 标点符号
+                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{materials.lessonPeriodName}}
                     </label>
-                    <label class="col-sm-1 control-label top-form" for="ds_name" style="line-height: 34px">提示任务
-                    </label>
-                    <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">
-                        <select class="form-control" id="ds_name" ng-disabled="disabled">
-                            <option value="">不提示</option>
-                            <option value="0">任务一</option>
-                            <option value="1">任务二</option>
-                            <option value="2">任务三</option>
-                        </select>
-                    </label>
+                    <!--<label class="col-sm-1 control-label top-form" for="ds_name" style="line-height: 34px">提示任务-->
+                    <!--</label>-->
+                    <!--<label class="col-sm-11 control-label top-form bottom-label" for="ds_name">-->
+                        <!--<select class="form-control" id="ds_name" ng-disabled="disabled">-->
+                            <!--<option value="" ng-repeat="task in task">{{task.name}}</option>-->
+                        <!--</select>-->
+                    <!--</label>-->
                 </div>
             </fieldset>
         </form>
@@ -37,13 +34,13 @@
                     <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">价格</label>
                     <div class="col-sm-11 top-form">
-                        <input  ng-disabled="disabled" class="ipt" id="ds_name" value="111" type="text" />元
+                        <input  ng-disabled="disabled" class="ipt" id="ds_name" value="{{materials.needMoney}}" type="text" />元
                     </div>
                     </div>
                     <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">文件</label>
                     <div class="col-sm-11 top-form"  >
-                            <img ng-show="isShow" ng-src="{{src}}" style="width: 300px;height: 300px; margin-top: 10px;background: red">
+                            <img ng-show="isShow" ng-src="{{materials.url}}" style="width: 300px;height: 300px; margin-top: 10px;">
                             <img-upload ng-show="show"  ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
                     </div>
                     </div>
@@ -52,6 +49,7 @@
                     <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                     <div class="col-sm-11 fastener">
                         <button type="button" class="btn ascertain" ng-click="some()">{{title.edit}}</button>
+
                         <button type="button" class="btn cancel">取消</button>
                     </div>
                 </div>

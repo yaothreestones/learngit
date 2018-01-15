@@ -120,3 +120,134 @@ angular.module("app")
             }
         ]
     })
+    //资料管理
+    //类别
+    .factory('family',function () {
+        return [
+            {
+                name:'课程资料'
+            },
+            {
+                name:'教程资料'
+            },
+
+        ]
+    })
+        //科目
+    .factory('subject',function () {
+        return [
+            {
+                name:'全部'
+            },
+            {
+                name:'语文'
+            },
+            {
+                name:'数学'
+            },
+            {
+                name:'外语'
+            },
+            {
+                name:'语文（同步预习）'
+            },
+        ]
+    })
+        //
+    .factory('CourseMaterials',function () {
+        return [
+            {
+                name:'全部'
+            },
+            {
+                name:'语文'
+            },
+            {
+                name:'数学'
+            },
+            {
+                name:'外语'
+            },
+        ]
+    })
+    //年级
+    .factory('grade',function () {
+        return [
+            {
+                name:'全部'
+            },
+            {
+                name:'一年级'
+            },
+            {
+                name:'二年级'
+            },
+            {
+                name:'三年级'
+            },
+            {
+                name:'四年级'
+            },
+            {
+                name:'五年级'
+            },
+            {
+                name:'六年级'
+            }
+        ]
+    })
+//编辑任务提示
+    .factory('task',function () {
+        return [
+            {
+                name:'不提示'
+            },
+            {
+                name:'任务一'
+            },
+            {
+                name:'任务二'
+            },
+            {
+                name:'任务三'
+            },
+            {
+                name:'任务四'
+            },
+        ]
+    })
+    //热门推荐
+.factory('hot',function () {
+    return [
+        {
+            name:'一年级',
+            url:"backStage.contentManage.groom",
+            operate:"编辑"
+        },
+        {
+            name:'二年级',
+            url:"backStage.contentManage.groom",
+            operate:"编辑"
+        },
+        {
+            name:'三年级',
+            url:"backStage.contentManage.groom",
+            operate:"编辑"
+        },
+        {
+            name:'四年级',
+            url:"backStage.contentManage.groom",
+            operate:"编辑"
+        },
+        {
+            name:'五年级',
+            url:"backStage.contentManage.groom",
+            operate:"编辑"
+        },
+        {
+            name:'六年级',
+            url:"backStage.contentManage.groom",
+            operate:"编辑"
+        },
+    ]
+});

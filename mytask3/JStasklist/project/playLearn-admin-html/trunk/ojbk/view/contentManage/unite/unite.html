@@ -11,11 +11,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>占位符</td>
-                <td><img src="image/logo.png" height="116" width="115"/></td>
-                <td>占位符</td>
-                <td>冻结</td>
+            <tr >
+                <td>{{$index+1}}</td>
+                <td><img ng-src="{{demoLists.logo}}" height="116" width="115"/></td>
+                <td>{{demoLists.name}}</td>
+                <td>{{demoLists.status}}</td>
                 <td>
                     <a ui-sref="backStage.contentManage.uniteManage({'from':2})">查看</a>
                     <a ui-sref="backStage.contentManage.uniteManage({'from':3})">编辑</a>
@@ -23,54 +23,15 @@
                     <a class="dyestuff">删除</a>
                 </td>
             </tr>
-            <tr>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>冻结</td>
-
+            <tr ng-repeat="demoLists in vm.demoLists">
+                <td>{{$index+1}}</td>
+                <td><img ng-src="{{demoLists.logo}}" height="116" width="115"/></td>
+                <td>{{demoLists.name}}</td>
+                <td>{{demoLists.status}}</td>
                 <td>
-                    <a>查看</a>
-                    <a>编辑</a>
-                    <a class="dyestuff">冻结</a>
-                    <a class="dyestuff">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>冻结</td>
-
-                <td>
-                    <a>查看</a>
-                    <a>编辑</a>
-                    <a class="dyestuff">冻结</a>
-                    <a class="dyestuff">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>冻结</td>
-
-                <td>
-                    <a>查看</a>
-                    <a>编辑</a>
-                    <a class="dyestuff">冻结</a>
-                    <a class="dyestuff">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>占位符</td>
-                <td>冻结</td>
-                <td>
-                    <a>查看</a>
-                    <a>编辑</a>
-                    <a class="dyestuff">冻结</a>
+                    <a ui-sref="backStage.contentManage.uniteManage({'from':2})">查看</a>
+                    <a ui-sref="backStage.contentManage.uniteManage({'from':3})">编辑</a>
+                    <a class="dyestuff">解冻</a>
                     <a class="dyestuff">删除</a>
                 </td>
             </tr>

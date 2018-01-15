@@ -6,7 +6,7 @@ angular.module('app')
                 phone: $scope.phone,
                 password: $scope.password
             }
-            if(!$scope.phone==''&&!$scope.password==''){
+            // if(!$scope.phone==''&&!$scope.password==''){
                 Course_service.get_phone({
                     data:data
                 })
@@ -25,10 +25,11 @@ angular.module('app')
                     }, function(res) {
                         alert('请求失败')
                     })
-            }else{
-                $scope.modal();
             }
-            }
+            // else{
+            //     $scope.modal();
+            // }
+            // }
 
         //微信
         $scope.login=function () {

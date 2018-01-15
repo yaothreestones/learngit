@@ -4,21 +4,16 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_type">所属科目</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_type">
-                        <option>语文</option>
-                        <option>数学</option>
-                        <option>外语</option>
+                    <div class="form-control" ng-show="isShow">{{vm.course.subject}}</div>
+                    <select class="form-control" id="ds_type" ng-hide="isShow" >
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_subject">所属课程</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_subject">
-                        <option>语文</option>
-                        <option>数学</option>
-                        <option>外语</option>
-                        <option selected>全部</option>
+                    <div class="form-control" ng-show="isShow">{{vm.course.courseName}}</div>
+                    <select class="form-control" id="ds_subject" ng-hide="isShow">
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_period">课时名称</label>
@@ -55,126 +50,26 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
+        <tr ng-repeat="period in vm.periodlists">
+            <td>{{$index+1}}</td>
+            <td>{{period.lessonPeriodName}}</td>
+            <td>{{period.subject}}</td>
+            <td>{{period.course}}</td>
+            <td>{{period.status|subject_status}}</td>
             <td>
                 <a ui-sref="backStage.teachManage.mission({'add':'1'})">任务</a>
                 <a>资料</a>
                 <a ui-sref="backStage.teachManage.periodManage({'from':'3'})">编辑</a>
                 <a ui-sref="backStage.teachManage.periodManage({'from':'2'})">查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>任务</a>
-                <a>资料</a>
-                <a>编辑</a>
-                <a>查看</a>
-                <a>上架</a>
+                <a>{{period.status|subject_status_operation}}</a>
                 <a>删除</a>
             </td>
         </tr>
         </tbody>
     </table>
+    <div class="its col-xs-11 pull-right text-right">
+        <uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" max-size="5"
+                        first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                        boundary-links="true" boundary-link-numbers="true" ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
+    </div>
 </div>

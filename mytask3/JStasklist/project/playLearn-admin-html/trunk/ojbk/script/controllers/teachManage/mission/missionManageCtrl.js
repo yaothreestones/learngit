@@ -1,12 +1,14 @@
-angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http','steps',
-    function ($scope,$stateParams,$rootScope,$http,$state,steps){
+angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http','steps','pathProject',
+    function ($scope,$stateParams,$rootScope,$http,$state,steps,pathProject){
         var vm = $scope.vm = {};
         vm.steps = steps;
         vm.i = 0;
+        vm.ajax = pathProject.getFile_url();
         $scope.i = 0;
         $scope.title={};
         //设置下拉菜单初始值
         $scope.select = vm.steps[0];
+        console.log($scope.select);
         //获取路由参数来判断操作
         $scope.data = $stateParams;
         if($stateParams.from === '1'){

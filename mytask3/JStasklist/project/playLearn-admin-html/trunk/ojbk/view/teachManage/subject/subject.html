@@ -4,29 +4,20 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_type">类型</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_type">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
-                    </select>
+                    <select class="form-control" id="ds_type" ng-options="type.name for type in vm.subject_type" ng-model="vm.type"></select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_subject">科目名称</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="ds_subject">
+                    <input class="form-control" id="ds_subject" ng-model="vm.name">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_host">状态</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_host">
-                        <option>全部</option>
-                        <option>上架</option>
-                        <option>下架</option>
-                    </select>
+                    <select class="form-control" id="ds_host" ng-options="status.name for status in vm.subject_status" ng-model="vm.status"></select>
                 </div>
             </div>
-            <button type="button" class="btn btn-default pull-right">查询</button>
+            <button type="button" class="btn btn-default pull-right" ng-click="vm.subject_search()">查询</button>
         </fieldset>
     </form>
 </div>
@@ -43,111 +34,24 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
+        <tr ng-repeat="subject in  vm.lists track by $index">
+            <td>{{$index+1}}</td>
+            <td>{{subject.name}}</td>
+            <td>{{subject.type|subject_type}}</td>
+            <td>{{subject.status|subject_status}}</td>
             <td>
-                <a ui-sref="backStage.teachManage.courses({'add':'1'})">课程</a>
-                <a ui-sref="backStage.teachManage.subjectManage({'from':2})">查看</a>
-                <a ui-sref="backStage.teachManage.subjectManage({'from':3})">编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>课程</a>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>上架</a>
-                <a>删除</a>
+                <a ng-click="vm.course_jump(subject)">课程</a>
+                <a ng-click="vm.subject_view(subject)">查看</a>
+                <a ng-click="vm.subject_edit(subject)">编辑</a>
+                <a>{{subject.status|subject_status_operation}}</a>
+                <a ng-click="vm.subject_delete(subject)">删除</a>
             </td>
         </tr>
         </tbody>
     </table>
-
+    <div class="its col-xs-11 pull-right text-right">
+        <uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" max-size="5"
+                        first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                        boundary-links="true" boundary-link-numbers="true" ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
+    </div>
 </div>

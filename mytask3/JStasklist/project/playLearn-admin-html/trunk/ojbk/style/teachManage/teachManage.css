@@ -86,6 +86,7 @@
 }
 .edging tbody td{
     line-height: 60px!important;
+    cursor: pointer;
 }
 .mission_fastener{
     word-spacing: 50px;
@@ -211,9 +212,8 @@
     /*text-align: center;*/
     margin-top: 20px;
 }
-.top-form-nomargin {
+.top-form-no-margin {
     text-align: left !important;
-    font-size: 2rem;
 }
 .top-form select{
     width: 90%;
@@ -280,6 +280,15 @@
 }
 .mission-fixed {
     padding: 0 !important;
+}
+.padding_bottom {
+    margin-bottom:3rem !important;
+}
+.row {
+    margin: 1rem !important;
+}
+.min-width {
+    min-width: 100%;
 }
 
 

@@ -8,7 +8,7 @@ angular.module('app')
                 file:$scope.file
 
             }
-            if(!$scope.name==''&&!$scope.grade==''&&!$scope.email==''){//&&!$scope.file==''图片
+            // if(!$scope.name==''&&!$scope.grade==''&&!$scope.email==''){//&&!$scope.file==''图片
                 Course_service.get_Detail({
                     data:data
                 })
@@ -26,11 +26,10 @@ angular.module('app')
                     }, function(res) {
                         alert('请求失败')
                     })
-            }else{
-                $scope.modal();
             }
-
-
-        }
+        //     else{
+        //         $scope.modal();
+        //     }
+        // }
 
     });

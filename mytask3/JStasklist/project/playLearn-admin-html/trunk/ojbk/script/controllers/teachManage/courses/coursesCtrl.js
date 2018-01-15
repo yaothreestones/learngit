@@ -1,7 +1,98 @@
-angular.module('app').controller('coursesCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http',
-    function ($scope, $stateParams, $rootScope, $state, $http){
-        $scope.data = $stateParams;
-        if($scope.data.add === '1'){
-            $scope.isShow = true;
+angular.module('app').controller('coursesCtrl', ['$scope', '$stateParams', '$rootScope', '$state','Course_service','subject_status','subject_grade','subjectLists',
+    function ($scope, $stateParams, $rootScope, $state, Course_service,subject_status,subject_grade,subjectLists){
+        var vm = $scope.vm = {};
+        vm.subject = angular.fromJson($stateParams.subject)||{};
+        console.log($stateParams,vm.subject);
+        //factory赋值
+        vm.subject_status = subject_status;
+        vm.subject_grade = subject_grade;
+        //搜索栏部分的下拉菜单
+        vm.grade = vm.subject_grade[0];
+        vm.status = vm.subject_status[0];
+        //判断新增按钮的显示
+        $stateParams.add === '1'?$scope.isShow = true:$scope.isShow =false;
+        //路由刷新后后重载JS文件，优先获取page数据
+        vm.currentPage = Number($stateParams.page);
+        //分页按钮
+        vm.pageGo = function (x) {
+            $state.go('backStage.teachManage.courses',{page:x});
+        };
+        subjectLists.then(function (res) {
+            vm.subjectlists = res.data.data;
+            vm.subjectName = vm.subjectlists[0];
+            console.log(vm.subjectName)
+
+        });
+        //获取课程列表
+        Course_service.get_TechCourse({
+            params:{
+                page:Number($stateParams.page)||1,
+                size:Number($stateParams.size)||10,
+                subjectId:vm.subject.id||'',
+                grade:null,
+                courseName:null,
+                status:null,
+            }
+        }).then(function(res) {
+                console.log(res);
+                if(res.data.code === 0){
+                    vm.totalItems = res.data.total;
+                    vm.lists = res.data.data;
+                }
+            }
+            , function(res) {
+                alert('请求失败')
+            });
+        //新增按钮
+        vm.course_add = function () {
+            $state.go("backStage.teachManage.coursesManage",{from:1,add:1,subject:$stateParams.subject})
+        };
+        //查看按钮
+        vm.course_view = function (course) {
+                $stateParams.add==='1'?$state.go("backStage.teachManage.coursesManage",{from:2,add:1,id:course.courseId,subject:$stateParams.subject}):
+                    $state.go("backStage.teachManage.coursesManage",{from:2,id:course.courseId})
+
+        };
+        //编辑按钮
+        vm.course_edit = function (course) {
+            console.log(course);
+            vm.course_selected = angular.toJson(course);
+            $stateParams.add==='1'?$state.go("backStage.teachManage.coursesManage",{from:3,add:1,id:course.courseId,subject:$stateParams.subject}):
+                $state.go("backStage.teachManage.coursesManage",{from:3,id:course.courseId,subject:$stateParams.subject})
+        };
+        //删除按钮
+        vm.course_delete = function (course) {
+            Course_service.get_TechDeleteCourse({
+                params:course.id
+            }).then(function (res) {
+                if(res.data.code === 0){
+                    alert('删除成功')
+                }
+            })
+        };
+        //按条件查询课程列表
+        vm.search = function () {
+            Course_service.get_TechCourse({
+                params: {
+                    page: Number($stateParams.page) || 1,
+                    size: Number($stateParams.size) || 10,
+                    subjectId: vm.subject.id || vm.subjectName.id || '',
+                    courseName: null,
+                    status: vm.status.id || null,
+                    grade: vm.grade.id
+                }
+            }).then(function (res) {
+                console.log(res);
+                if (res.data.code === 0) {
+                    vm.totalItems = res.data.total;
+                    vm.lists = res.data.data;
+                }
+
+            })
+        };
+            //跳转到课时
+        vm.period_jump = function (course) {
+            vm.course_selected = angular.toJson(course);
+            $state.go("backStage.teachManage.period",{add:1,course:vm.course_selected})
         }
     }]);

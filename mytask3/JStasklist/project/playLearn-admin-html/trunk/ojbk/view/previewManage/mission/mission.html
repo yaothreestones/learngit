@@ -50,7 +50,7 @@
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>任务管理<a ui-sref="backStage.previewManage.missionManage" class="pull-right">新增+</a></h5>
+    <h5><strong> | </strong>任务管理<a ui-sref="backStage.previewManage.missionManage({from:1})" class="pull-right" ng-show="isShow">新增+</a></h5>
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
@@ -72,8 +72,8 @@
             <td>占位符</td>
             <td>占位符</td>
             <td>
-                <a>查看</a>
-                <a>编辑</a>
+                <a ui-sref="backStage.previewManage.missionManage({from:2})">查看</a>
+                <a ui-sref="backStage.previewManage.missionManage({from:3})">编辑</a>
                 <a>删除</a>
             </td>
         </tr>
@@ -144,4 +144,9 @@
         </tr>
         </tbody>
     </table>
+    <div class="its col-xs-11 pull-right text-right">
+        <uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" max-size="5"
+                        first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                        boundary-links="true" boundary-link-numbers="true" ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
+    </div>
 </div>

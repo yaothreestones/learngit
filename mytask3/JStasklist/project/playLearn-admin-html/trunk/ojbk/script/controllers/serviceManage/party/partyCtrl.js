@@ -3,19 +3,19 @@ angular.module('app')
         function ($scope, $stateParams, $state, $rootScope, $http,Course_service) {
             var vm = this;
             vm.ajaxData=[];
-            var params = {
-                id: vm.id,
-                name: vm.name,
-                status: vm.status,
-                grade: vm.grade,
-                email: vm.email,
-                studyStar: vm.studyStar,
-                studyEnd: vm.studyEnd,
-                courseTime: vm.courseTime,
-                courseHour: vm.courseHour,
-                page: vm.currentPage - 1,
-                size: '10'
-            };
+            // var params = {
+            //     id: vm.id,
+            //     name: vm.name,
+            //     status: vm.status,
+            //     grade: vm.grade,
+            //     email: vm.email,
+            //     studyStar: vm.studyStar,
+            //     studyEnd: vm.studyEnd,
+            //     courseTime: vm.courseTime,
+            //     courseHour: vm.courseHour,
+            //     page: vm.currentPage - 1,
+            //     size: '10'
+            // };
             Course_service.get_Party({
                 params:vm.params
 
@@ -24,8 +24,8 @@ angular.module('app')
                     if(res.data.code == 0){
                         vm.code=res.data.code;
                         console.log(vm.code)
-                        vm.demoLists=vm.code=res.data.data;
-                        console.log(vm.demoLists)
+                        vm.ajaxData=vm.code=res.data.data;
+                        console.log(vm.ajaxData)
                         vm.message=res.data.message;
 
                     }

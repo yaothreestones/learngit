@@ -86,14 +86,22 @@ angular.module('imgUploadDirective', [])
                         };
                         //处理promise
                         ajaxPromise.then(function (res) {
-                            if (res.data.code === 0) {
+                            scope.code=res.data
+                            console.log(scope.code)
+                            if (res.data.code == 0) {
+                                alert(1)
+                                scope.src=res.data.url;
                                 scope.progress.value = scope.progress.max;
                                 $interval.cancel(scope.progress.timer);
-                                scope.exportSrc = res.data.data.url;
+                                scope.src = scope.exportSrc;
+                                // console.log(scope.exportSrc)
                                 scope.isLoading = false;
                                 scope.loadInfo = '上传成功';
+
                             }
+
                         }, function (res) {
+                            alert(2)
                             $interval.cancel(scope.progress.timer);
                             scope.progress.value = 0;
                             scope.isLoading = false;
@@ -111,10 +119,12 @@ angular.module('imgUploadDirective', [])
                     ajaxFn: function () {
                         var defer = $q.defer();
                         var data = new FormData();
-                        data.append('file', scope.file)
+                        data.append('file', scope.file);
+                        data.append('type',1);
+                        data.append('belong',1);
                         var ajaxPromise = $http({
                             method: 'post',
-                            url: scope.ajaxAds || makeError('ajaxAds is Falsy'),
+                            url: scope.ajaxAds ,
                             // transformRequest: function (a) {return a;},
                             headers: {
                                 'content-type': undefined

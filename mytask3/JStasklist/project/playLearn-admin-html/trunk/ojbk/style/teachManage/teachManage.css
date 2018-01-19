@@ -209,8 +209,7 @@
 }
 /*推荐课程新增*/
 .teach_manage_top-form{
-    /*text-align: center;*/
-    margin-top: 20px;
+    margin: 20px 0;
 }
 .top-form-no-margin {
     text-align: left !important;
@@ -252,7 +251,6 @@
     margin: 20px 0;
 }
 .mission-task-step {
-    min-height: 400px;
     border-bottom: 1px solid;
 }
 .button-bottom {
@@ -260,6 +258,8 @@
     height: 50px;
     position: relative;
     border-bottom: 1px solid;
+    border-top: 1px solid;
+
 }
 .mission_row {
     border-bottom: 1px solid;

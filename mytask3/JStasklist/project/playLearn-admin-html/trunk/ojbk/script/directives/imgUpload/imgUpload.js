@@ -91,11 +91,10 @@ angular.module('imgUploadDirective', [])
                             if (res.data.code == 0) {
                                 alert(1)
                                 scope.src=res.data.url;
+                                scope.exportSrc=res.data.url;
+                                console.log(scope.exportSrc)
                                 scope.progress.value = scope.progress.max;
                                 $interval.cancel(scope.progress.timer);
-                                scope.src = scope.exportSrc;
-                                // console.log(scope.exportSrc)
-                                scope.isLoading = false;
                                 scope.loadInfo = '上传成功';
 
                             }

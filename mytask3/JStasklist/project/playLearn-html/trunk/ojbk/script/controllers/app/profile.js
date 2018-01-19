@@ -1,21 +1,23 @@
 angular.module('app')
-    .controller('profileCtrl',function ($scope,$state,$rootScope,$stateParams,$timeout,Course_service) {
-        $scope.profile=function () {
-            var data = {
-                name: $scope.name,
-                grade: $scope.grade,
-                email:$scope.email,
-                file:$scope.file
+    .controller('profileCtrl',function ($scope,$state,$rootScope,$stateParams,$timeout,Course_service,pathProject) {
 
-            }
-            // if(!$scope.name==''&&!$scope.grade==''&&!$scope.email==''){//&&!$scope.file==''图片
-                Course_service.get_Detail({
-                    data:data
-                })
+        //上传图片
+        $scope.data = {
+            name: $scope.name,
+            grade: $scope.grade,
+            email:$scope.email,
+            file:$scope.file
+        }
+        $scope.ajax=pathProject.getImgUp_url();
+        $scope.profile=function () {
+            console.log($scope.data.file);
+            console.log($scope.data)
+                Course_service.get_Detail($scope.data)
                     .then(function(res) {
                         if(res.data.code == 0){
-                            $scope.modal();
-                            $state.go("app.page");
+                            $scope.modal( function () {
+                                $state.go("app.page");
+                            });
                         }else{
                             $scope.modal();
                         }
@@ -26,10 +28,6 @@ angular.module('app')
                     }, function(res) {
                         alert('请求失败')
                     })
-            }
-        //     else{
-        //         $scope.modal();
-        //     }
-        // }
+        }
 
     });

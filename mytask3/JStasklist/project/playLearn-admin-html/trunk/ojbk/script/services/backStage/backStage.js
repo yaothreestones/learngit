@@ -45,29 +45,25 @@ angular.module("app")
                 id:1
             },
             {
-                name:'文本',
+                name:'音频',
                 id:2
             },
             {
-                name:'文字&音频',
+                name:'视频',
                 id:3
             },
             {
-                name:'视频',
+                name:'文本',
                 id:4
             },
             {
-                name:'音频',
+                name:'文字&音频',
                 id:5
             }
         ]
     })
     .factory('subject_type',function () {
         return [
-            {
-                id:0,
-                name:'全部'
-            },
             {
                 id:1,
                 name:'自有'
@@ -85,10 +81,6 @@ angular.module("app")
     .factory('subject_status',function () {
         return [
             {
-                id:2,
-                name:'全部'
-            },
-            {
                 id:0,
                 name:'下架'
             },
@@ -100,10 +92,6 @@ angular.module("app")
     })
     .factory('subject_grade',function () {
         return [
-            {
-                id:0,
-                name:'全部'
-            },
             {
                 id:1,
                 name:'一年级'
@@ -129,12 +117,6 @@ angular.module("app")
                 name:'六年级'
             }
         ]
-    })
-    .factory('subjectLists',function (Course_service) {
-        return Course_service.get_TechSubject({
-            page:1,
-            size:10
-        })
     })
     //出版社
     .factory('Press',function () {

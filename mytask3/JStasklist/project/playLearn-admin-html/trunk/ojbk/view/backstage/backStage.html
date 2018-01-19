@@ -24,30 +24,30 @@
                     <div class="link"><i class="fa fa-book iconfont"></i>教学管理<i class="fa fa-chevron-down iconfont"></i>
                     </div>
                     <ul class="submenu">
-                        <li><a id="1" ui-sref="backStage.teachManage.subject({page:1,size:10})">科目管理</a></li>
-                        <li><a id="2" ui-sref="backStage.teachManage.courses({page:1,size:10,add:null,subject:null,subjectName:null})">课程管理</a></li>
-                        <li><a id="3" ui-sref="backStage.teachManage.period({page:1,size:10})">课时管理</a></li>
-                        <li><a id="4" ui-sref="backStage.teachManage.mission({page:1,size:10})">任务管理</a></li>
+                        <li><a id="1" ui-sref="backStage.teachManage.subject({page:1,size:10,status:null,type:null,name:null})">科目管理</a></li>
+                        <li><a id="2" ui-sref="backStage.teachManage.courses({page:1,size:10,add:null,subjectId:null,grade:null,courseName:null,status:null,subject:null})">课程管理</a></li>
+                        <li><a id="3" ui-sref="backStage.teachManage.period({page:1,size:10,obj:null,add:null,course:null})">课时管理</a></li>
+                        <li><a id="4" ui-sref="backStage.teachManage.mission({add:null,page:1,size:10,period:null,grade:null,obj:null,mission:null})">任务管理</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="link"><i class="fa fa-suitcase"></i>同步预习管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
                         <li><a id="5" ui-sref="backStage.previewManage.datum({page:1,size:10})">教材管理</a></li>
-                        <li><a id="6" ui-sref="backStage.previewManage.period({page:1,size:10})">课时管理</a></li>
-                        <li><a id="7" ui-sref="backStage.previewManage.mission({page:1,size:10})">任务管理</a></li>
+                        <li><a id="6" ui-sref="backStage.previewManage.period({page:1,size:10,add:null,book:null})">课时管理</a></li>
+                        <li><a id="7" ui-sref="backStage.previewManage.mission({page:1,size:10,add:null,period:null})">任务管理</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="link"><i class="fa fa-rebel"></i>资料管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
-                        <li><a id="8" ui-sref="backStage.dataManage.data">资料管理</a></li>
+                        <li><a id="8" ui-sref="backStage.dataManage.data({add:2,page:1,size:10})">资料管理</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="link"><i class="fa fa-hacker-news"></i>内容管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
-                        <li><a id="9" ui-sref="backStage.contentManage.unite">合作机构管理</a></li>
+                        <li><a id="9" ui-sref="backStage.contentManage.unite({page:1,size:5})">合作机构管理</a></li>
                         <li><a id="10" ui-sref="backStage.contentManage.hot">热门推荐管理</a></li>
                     </ul>
                 </li>
@@ -60,7 +60,6 @@
                         <li><a id="14" ui-sref="backStage.serviceManage.news">消息管理</a></li>
                         <li><a id="15" ui-sref="backStage.serviceManage.help">帮助管理</a></li>
                         <li><a id="16" ui-sref="backStage.serviceManage.objection">意见管理</a></li>
-                        <li><a id="17" ui-sref="backStage.serviceManage.imageManage">头像背景管理</a></li>
                         <!--<li><a id="18" ui-sref="backStage.serviceManage.version">版本管理</a></li>-->
                     </ul>
                 </li>

@@ -24,44 +24,17 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr ng-repeat="data in vm.data">
                 <td>
-                    <img src="image/app/first.png" height="44" width="27"/></td>
-                <td>李明</td>
-                <td>100</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="image/app/second.png" height="44" width="27"/>
+                    <img ng-if="$index===0" src="image/app/first.png" height="44" width="27"/>
+                    <img ng-if="$index===2"  src="image/app/third.png" height="43" width="27"/>
+                    <img ng-if="$index===1" src="image/app/second.png" height="44" width="27"/>
+                    <span ng-if="$index>2">{{$index+1}}</span>
                 </td>
-                <td>李明</td>
-                <td>100</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="image/app/third.png" height="43" width="27"/>
-                </td>
-                <td>李明</td>
-                <td>100</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td class="sheet-td">
-                    4
-                </td>
-                <td>李明</td>
-                <td>100</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td class="sheet-td">
-                    5
-                </td>
-                <td>李明</td>
-                <td>100</td>
-                <td>100</td>
+
+                <td>{{data.userName}}</td>
+                <td>{{data.studyLessonPeriod}}</td>
+                <td>{{data.studyDay}}</td>
             </tr>
             </tbody>
         </table>

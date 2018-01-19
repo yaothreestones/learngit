@@ -16,8 +16,9 @@
                 resolve:{
                         params: {
                             content: content,
-                        }
-                    }
+                        },
+                    loadFile:_lazyLoad(['script/directives/alertModal/alertCtrl.js'])
+                }
             })
             instance.result.then(function (resolved) {
                 //$close()

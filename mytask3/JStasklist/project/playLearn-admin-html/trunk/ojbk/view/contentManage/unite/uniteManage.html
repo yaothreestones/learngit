@@ -6,8 +6,8 @@
                 <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">机构logo</label>
                     <div class="col-sm-11 top-form" >
-                        <img ng-show="isShow" ng-src="{{homePicture}}" style="width: 300px;height: 300px; margin-top: 10px;">
-                        <img-upload ng-show="show" ajax-ads="ajax" ng-src="{{exportSrc}}" btn-title="上传" ng-disabled="" ></img-upload>
+                        <img ng-show="check" ng-src="{{logo}}" style="width: 300px;height: 300px;">
+                        <img-upload ng-show="file"  ajax-ads="ajax" img-src="logo" btn-title="上传" ng-disabled="file" ></img-upload>
                     </div>
                     <label class="col-sm-1 control-label top-form" for="ds_name" ng-disabled="show">机构名称</label>
                     <div class="col-sm-11 top-form">
@@ -19,8 +19,8 @@
             <div class="row">
                 <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                 <div class="col-sm-11 fastener">
-                    <button type="button" class="btn ascertain" ng-click="some(1)">{{title.edit}}</button>
-                    <button type="button" class="btn cancel">取消</button>
+                    <button type="button" class="btn ascertain" ng-click="some()">{{title.edit}}</button>
+                    <button type="button" class="btn cancel" ng-click="remove()">取消</button>
                 </div>
             </div>
         </fieldset>

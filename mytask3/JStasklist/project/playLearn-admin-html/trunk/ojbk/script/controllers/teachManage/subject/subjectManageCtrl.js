@@ -2,6 +2,7 @@ angular.module('app').controller('subjectManageCtrl', ['$scope', '$stateParams',
     function ($scope, $stateParams, $rootScope, $state,Course_service){
         $scope.title = {};
         $scope.show = false;
+        console.log($stateParams);
         if($stateParams.from === '1'){
             $scope.title.name = '新增科目';
         }else if($stateParams.from === '2'){
@@ -28,13 +29,10 @@ angular.module('app').controller('subjectManageCtrl', ['$scope', '$stateParams',
                     name:$scope.subject_name,
                     type:Number($scope.subject_type)||0
                 };
-                Course_service.get_TechAddSubject({ //新增
-                    data:$scope.data
-                    // header:{'Content-Type':'application/x-www-form-urlencoded'}
-                }).then(function (res) {
+                Course_service.get_TechAddSubject($scope.data).then(function (res) {
                     console.log($scope.data);
                     if(res.data.code === 0){
-                        $state.go("backStage.teachManage.subject")
+                        $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
                     }
                 })
             }else if($stateParams.from ==='3'){
@@ -43,16 +41,17 @@ angular.module('app').controller('subjectManageCtrl', ['$scope', '$stateParams',
                     type:Number($scope.subject_type)||0,
                     id:$scope.subject.id
                 };
-                Course_service.get_TechEditSubject({ //编辑
-                    params:$scope.data
-                }).then(function (res) {
+                Course_service.get_TechEditSubject($scope.data).then(function (res) {
                     console.log($scope.data);
                     if(res.data.code === 0){
-                        $state.go("backStage.teachManage.subject")
+                        $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
                     }
                 })
             }else {
-                $state.go("backStage.teachManage.subject")
+                $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
             }
+        };
+        $scope.subject_cancel = function () {
+            $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
         }
     }]);

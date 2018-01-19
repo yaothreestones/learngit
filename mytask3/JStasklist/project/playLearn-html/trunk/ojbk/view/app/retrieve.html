@@ -1,32 +1,36 @@
-    <!--找回密码-->
-    <div class="top-side">
+<!--找回密码-->
+<div class="top-side">
 
-        <form name="myForm" novalidate >
-<div class="login-center top-edge">
-        <div class="top-handset">
-            <img src="image/app/cellphone.png" />
-            <input  id="ds_name" type="text" name="phone"
-                     ng-model="phone"    required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   ng-pattern="phonePattern"/>
+    <form name="myForm" novalidate>
+        <div class="login-center top-edge">
+            <div class="top-handset">
+                <img src="image/app/cellphone.png"/>
+                <input type="text" name="phone"
+                       ng-model="data.phone" required class="push-button" value="15203435003" placeholder="请输入手机号码"
+                       ng-pattern="phonePattern"/>
+            </div>
+            <proving></proving>
+            <div class="bottom-password">
+                <img src="image/app/password.png"/>
+                <input name="password"
+                       required="required" ng-model="data.password" required type="text" class="push-button"
+                       placeholder="设置新密码" ng-pattern="pwdPattern"/>
+            </div>
+            <div class="bottom-password">
+                <img src="image/app/password.png"/>
+                <input name="forpwd" required="required" ng-model="forpwd" required type="text" class="push-button"
+                       ng-pattern="pwdPattern" placeholder="确定新密码"/>
+            </div>
         </div>
-        <proving></proving>
-        <div class="bottom-password">
-            <img src="image/app/password.png"/>
-            <input  id="ds_name" name="password"
-                    required="required" ng-model="password"  required type="text" class="push-button"  placeholder="设置新密码" ng-pattern="pwdPattern"/>
+        <div class="press-button">
+            <button type="button" class="btn butColor"
+                    ng-class="{'butColor':!data.phone||!data.code||!data.password||!forpwd||!data.password==forpwd}"
+                    ng-click="retrieve()">确定
+            </button>
         </div>
-        <div class="bottom-password">
-            <img src="image/app/password.png"/>
-            <input  id="ds_name" name="forpwd" required="required"  ng-model="forpwd" required type="text"class="push-button" ng-pattern="pwdPattern" placeholder="确定新密码" />
-        </div>
-    </div>
-    <div class="press-button">
-        <button type="button" class="btn butColor"
-                ng-class="{'butColor':!phone||!phonecode||!password||!forpwd||!password==forpwd}"
-                ng-click="retrieve()">确定</button>
-    </div>
-    <div class="clear"></div>
-        </form>
-        <modal></modal>
-    </div>
+        <div class="clear"></div>
+    </form>
+    <modal></modal>
+</div>
 
 

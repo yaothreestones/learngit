@@ -1,6 +1,9 @@
 angular.module('app')
-    .controller('newsCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http',
-        function ($scope, $stateParams, $rootScope, $state, $http) {
+    .controller('newsCtrl', ['$scope', '$stateParams', '$rootScope', '$state', '$http','Course_service','optionsData',
+        function ($scope, $stateParams, $rootScope, $state, $http,Course_service,optionsData) {
+            var vm = this;
+            vm.type =optionsData()['type'];
+            vm.sendStatus = optionsData()['sendStatus'];
             $scope.publish=function () {
                 var publish = $rootScope.modalConfrim('确认发布？');
                 publish.then(function () {
@@ -13,19 +16,6 @@ angular.module('app')
                     console.log(11)
                 })
             }
-            $scope.send = [
-                "全部",
-                "一年级",
-                "二年级",
-                "三年级",
-                "四年级",
-                "五年级",
-                "六年级",
-            ]
-            $scope.type = [
-                "定时发送",
-                "即时发送",
-            ]
             $scope.time = [
                 "2017-12-20-14:45",
             ]

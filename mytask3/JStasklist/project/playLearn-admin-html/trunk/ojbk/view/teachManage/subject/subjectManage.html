@@ -7,19 +7,19 @@
     <div class="clear-float">
         <label class="control-label label-fixed col-sm-3">类型</label>
             <label class="control-label cursor col-sm-3">
-                <input type="radio" name="type" ng-checked="true" ng-disabled="show" ng-model="subject_type" value="0">自有
+                <input type="radio" name="type" ng-checked="true" ng-disabled="show" ng-model="subject_type" value="1">自有
             </label>
             <label class="control-label cursor col-sm-3">
-                <input type="radio" name="type" ng-disabled="show" ng-model="subject_type" value="1">校内
+                <input type="radio" name="type" ng-disabled="show" ng-model="subject_type" value="2">校内
             </label>
             <label class="control-label cursor col-sm-3">
-                <input type="radio" name="type" ng-disabled="show" ng-model="subject_type" value="2">合作
+                <input type="radio" name="type" ng-disabled="show" ng-model="subject_type" value="3">合作
             </label>
     </div>
     <div class="col-sm-4 col-sm-offset-2 ">
         <button type="button" class="btn btn-primary" ng-click="subject_operation()">确定</button>
     </div>
     <div class="col-sm-4 ">
-        <button type="button" class="btn btn-primary" ui-sref="backStage.teachManage.subject">取消</button>
+        <button type="button" class="btn btn-primary" ng-click="subject_cancel()">取消</button>
     </div>
 </div>

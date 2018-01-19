@@ -55,7 +55,8 @@ angular.module('app')
             }
         ]
     })
-    .factory('range',function () {
+
+.factory('range',function () {
         return [
             {
                 id:1,
@@ -66,4 +67,5 @@ angular.module('app')
                 name:'课时'
             }
         ]
-    })
+    });
+

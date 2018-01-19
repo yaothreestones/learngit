@@ -49,3 +49,23 @@ angular.module('app')
         }
     }
 })
+    .filter('freeze',function () {
+        return function (params) {
+            switch (params){
+                case 0:
+                    return '冻结';
+                case 1:
+                    return '解冻'
+            }
+        }
+    })
+    .filter('freezes',function () {
+        return function (params) {
+            switch (params){
+                case 0:
+                    return '解冻';
+                case 1:
+                    return '冻结'
+            }
+        }
+    })

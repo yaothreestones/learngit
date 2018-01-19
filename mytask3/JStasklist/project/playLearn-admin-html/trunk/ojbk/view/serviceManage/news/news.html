@@ -17,7 +17,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="x for x in class">
+                                    ng-model="selectedName" ng-options="c.value as c.txt for c in vm.type">
                             </select>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="x for x in state">
+                                    ng-model="selectedName" ng-options="c.value as c.txt for c in vm.sendStatus">
                             </select>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
             <table class="table table-striped">
                 <thead>
                 <th>序号</th>
-                <th>標題</th>
+                <th>标题</th>
                 <th>发送人群</th>
                 <th>消息类型</th>
                 <th>发送时间</th>

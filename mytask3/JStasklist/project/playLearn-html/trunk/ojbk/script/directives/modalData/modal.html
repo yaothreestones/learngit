@@ -1,20 +1,19 @@
     <div class="modal-data" id="" ng-show="text"  ng-class="modaldataClass">
         <!--登录--> <!--注册-->
-        <span  ng-show="myForm.phone.$dirty && myForm.phone.$invalid">手机格式不正确！(输入长度为11位)</span>
-        <span  ng-show="myForm.pwd.$dirty && myForm.pwd.$invalid">密码格式不正确! (只限输入数字或字母长度为6-16位)</span>
-        <span ng-show="myForm.phone.$error.required">手机号未填写</span>
-        <span ng-show="myForm.pwd.$error.required">密码未填写</span>
-        <span ng-show="{{code != 0}}">{{message}}</span>
+        <span ng-show="myForm.data.phone.$dirty && myForm.data.phone.$invalid">手机格式不正确！(输入长度为11位)</span>
+        <span ng-show="myForm.data.password.$dirty && myForm.data.password.$invalid">密码格式不正确! (只限输入数字或字母长度为6-16位)</span>
+        <span ng-show="myForm.data.phone.$error.required">手机号未填写</span>
+        <span ng-show="myForm.data.password.$error.required">密码未填写</span>
+        <span ng-show="{{code != 0||code==0}}">{{message}}</span>
         <!--个人资料-->
-        <span  ng-show="myForm.name.$dirty && myForm.name.$invalid">昵称格式不正确! (只限输入数字或字母长度为1-10位)</span>
-        <span  ng-show="myForm.email.$dirty && myForm.email.$invalid">邮箱格式不正确! </span>
-        <span ng-show="myForm.name.$error.required">昵称未填写</span>
-        <span ng-show="myForm.email.$error.required">邮箱未填写</span>
-       <!--修改密码-->
-            <span ng-show="myForm.password.$dirty && myForm.password.$invalid">密码格式不正确! (只限输入数字或字母长度为6-16位)</span>
-        <span  ng-show="myForm.proving.$dirty && myForm.proving.$invalid">验证码格式不正确! (只限输入数字长度为6位)</span>
-        <span ng-show="myForm.forpwd.$dirty&&password!=forpwd">两次输入密码不相同</span>
-        <span ng-show="myForm.proving.$error.required">验证码未填写</span>
-            <span ng-show="myForm.grade.$error.required">年级未填写</span>
-            <span ng-show="myForm.forpwd.$error.required">二次密码未填写</span>
+        <span ng-show="myForm.data.name.$dirty && myForm.data.name.$invalid">昵称格式不正确! (只限输入数字或字母长度为1-10位)</span>
+        <span ng-show="myForm.data.email.$dirty && myForm.data.email.$invalid">邮箱格式不正确! </span>
+        <span ng-show="myForm.data.name.$error.required">昵称未填写</span>
+        <span ng-show="myForm.data.email.$error.required">邮箱未填写</span>
+        <span ng-show="myForm.data.grade.$error.required">年级未填写</span>
+       <!--找回密码-->
+        <span ng-show="myForm.data.password.$dirty && myForm.data.password.$invalid">密码格式不正确! (只限输入数字或字母长度为6-16位)</span>
+        <span ng-show="myForm.data.code.$dirty && myForm.data.code.$invalid">验证码格式不正确! (只限输入数字长度为6位)</span>
+        <span ng-show="myForm.forpwd.$dirty&&data.password!=forpwd">两次输入密码不相同</span>
+        <span ng-show="myForm.data.code.$error.required">验证码未填写</span>
     </div>

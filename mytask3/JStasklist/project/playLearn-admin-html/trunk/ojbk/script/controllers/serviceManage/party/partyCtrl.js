@@ -1,24 +1,13 @@
 angular.module('app')
-    .controller('partyCtrl', ['$scope', '$stateParams', '$state', '$rootScope', '$http','Course_service',
-        function ($scope, $stateParams, $state, $rootScope, $http,Course_service) {
+    .controller('partyCtrl', ['$scope', '$stateParams', '$state', '$rootScope', '$http','Course_service','optionsData',
+        function ($scope, $stateParams, $state, $rootScope, $http,Course_service,optionsData) {
             var vm = this;
+            vm.Course_service = Course_service;
             vm.ajaxData=[];
-            // var params = {
-            //     id: vm.id,
-            //     name: vm.name,
-            //     status: vm.status,
-            //     grade: vm.grade,
-            //     email: vm.email,
-            //     studyStar: vm.studyStar,
-            //     studyEnd: vm.studyEnd,
-            //     courseTime: vm.courseTime,
-            //     courseHour: vm.courseHour,
-            //     page: vm.currentPage - 1,
-            //     size: '10'
-            // };
+            vm.status =optionsData()['status'];
+            vm.grade = optionsData()['grade'];
             Course_service.get_Party({
                 params:vm.params
-
             })
                 .then(function(res) {
                     if(res.data.code == 0){
@@ -34,25 +23,37 @@ angular.module('app')
                     alert('请求失败')
                 })
 
-            vm.thaw = function () {
-                var aa = $rootScope.modalConfrim('解冻后将无法登陆，是否冻结该账户？');
-                aa.then(function () {
-                    console.log(11)
+            vm.thaw = function (id,status) {
+                var isConfrim = undefined,
+                    ajaxPromise = undefined;
+                if (status ==1) {
+                    //现在是正常，需要解冻
+                    status = 2;
+                    isConfrim = $rootScope.modalConfrim('冻结后将无法登陆', '是否冻结该用户？');
+                } else if (status == 2) {
+                    //现在是解冻，需要冻结
+                    isConfrim = $rootScope.modalConfrim('解冻后正常显示', '是否执行解冻操作？');
+                    status = 1;
+                } else {
+                    return;
+                }
+                isConfrim.then(function () {
+                    //确认
+                    Course_service.get_Unfreeze({
+                        params:vm.params
+                    })
+                    .then(function (res) {
+                        if (res.data.code == 0) {
+                            $rootScope.modalAlert((status == 1 ? '解冻' : '冻结') + '成功');
+                        }
+                    }, function (res) {
+                        $rootScope.modalAlert(res);
+                    })
+
+                }, function () {
+                    //取消
+                    $rootScope.modalAlert('已取消');
                 })
             }
 
-            vm.names = [
-                "全部",
-                "一年級",
-                "二年級",
-                "三年級",
-                "四年級",
-                "五年級",
-                "六年級",
-            ]
-            vm.state = [
-                "全部",
-                "正常",
-                "凍結",
-            ]
         }])

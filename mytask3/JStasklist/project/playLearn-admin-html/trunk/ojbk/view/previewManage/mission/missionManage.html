@@ -3,21 +3,15 @@
     <div class="within">
         <form class="form-horizontal" role="form">
             <div class="form-group">
-                <label class="col-sm-1 control-label teach_manage_top-form">所属科目
+                <label class="col-sm-1 control-label teach_manage_top-form">所属教材
                 </label>
-                <label class="col-sm-11 control-label teach_manage_top-form bottom-label">数学
-                </label>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-1 control-label teach_manage_top-form">所属课程
-                </label>
-                <label class="col-sm-11 control-label teach_manage_top-form bottom-label">和差倍问题
+                <label class="col-sm-11 control-label teach_manage_top-form bottom-label">{{vm.bookName}}
                 </label>
             </div>
             <div class="form-group">
                 <label class="col-sm-1 control-label teach_manage_top-form">所属课时
                 </label>
-                <label class="col-sm-11 control-label teach_manage_top-form bottom-label">标点符号
+                <label class="col-sm-11 control-label teach_manage_top-form bottom-label">{{vm.lessonPeriodName}}
                 </label>
             </div>
         </form>
@@ -32,21 +26,26 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 edging while mission-fixed">
                         <h5 style="margin: 0"><strong> | </strong>步骤内容保存排序</h5>
-                        <div class="mission-task-step" ng-repeat="step in mission_steps track by $index">
+                        <div class="mission-task-step" ng-repeat="step in mission_steps" ng-if="vm.index[$index]">
                             <div class="row mission_standard">
                                 <div class="col-sm-1 mission_step_num">{{$index+1}}</div>
                                 <div class="col-sm-2">
                                     <select class="form-control" ng-model='select' id="ds_subject" ng-options="step.name for step in vm.steps" ng-change="selected(select,$index)"></select>
                                 </div>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-2 col-sm-offset-10">
+                                        <div class="form-control" style="text-align: center" ng-click="vm.delete($index)">删除</div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row mission_standard">
                                 <div class="col-sm-10 col-sm-offset-1">
-                                    <file-upload ajax-ads="ajaxAds" img-src="vm.img[$index].exportSrc" btn-title="上传" ng-disabled=""  img-src="src" select="select" ng-hide="select.id===2" i="i" ng-click="img_url($index)"></file-upload>
+                                    <file-upload ajax-ads="vm.ajaxAds" img-src="vm.img[$index]" btn-title="上传" ng-disabled=""  img-src="src" select="select" ng-hide="select.id===4" i="i" ng-click="img_url($index)" belong="3"></file-upload>
                                 </div>
                             </div>
                             <div class="row mission_standard">
                                 <div class="col-sm-1"></div>
-                                <div create-editoer-instance ng-model="editorContent" class="col-sm-10 rich" style="max-height: 80px" ng-show="select.id===2||select.id===3" ng-change="text(editorContent,$index)"></div>
+                                <div create-editoer-instance ng-model="editorContent" class="col-sm-10 rich" ng-show="select.id===4||select.id===5" ng-change="text(editorContent,$index)"></div>
                             </div>
                         </div>
                         <div class="button-bottom" ng-click="add_step()">

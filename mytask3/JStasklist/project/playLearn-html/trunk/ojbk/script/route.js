@@ -164,7 +164,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.page", {
                 url: "/page",
                 templateUrl: 'view/homePage/page.html',
-                controller: 'pageCtrl',
+                controller: 'pageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/homePage/page.js",
@@ -183,10 +183,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.ranking", {
                 url: "/ranking",
                 templateUrl: 'view/homePage/ranking.html',
-                // controller: 'rankingCtrl',
+                controller: 'rankingCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        // "script/controllers/homePage/ranking.js",
+                        "script/controllers/homePage/ranking.js",
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '排行榜';
@@ -397,6 +397,42 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
+            //邮箱
+            .state("app.meansMail", {
+                url: "/meansMail",
+                templateUrl: 'view/service/mine/meansMail.html',
+                // controller: 'personalCtrl as vm',
+
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '我的资料';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+            //确认邮箱
+            .state("app.Mail", {
+                url: "/Mail",
+                templateUrl: 'view/service/mine/Mail.html',
+                controller: 'mail as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                        "script/controllers/service/mine/mail.js"
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '确认邮箱地址';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
             //消息
             .state("app.message", {
                 url: "/message",
@@ -455,10 +491,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.changePassword", {
                 url: "/changePassword",
                 templateUrl: 'view/service/mine/changePassword.html',
-                // controller: 'installCtrl as vm',
+                controller: 'changePwdCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                        "script/controllers/service/mine/changePwdCtrl.js"
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '密码修改';
@@ -487,6 +524,22 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.usinghelp", {
                 url: "/usinghelp",
                 templateUrl: 'view/service/mine/usinghelp.html',
+                // controller: 'installCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '使用帮助';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            //使用帮助详情
+            .state("app.helpDetails", {
+                url: "/helpDetails",
+                templateUrl: 'view/service/mine/helpDetails.html',
                 // controller: 'installCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([

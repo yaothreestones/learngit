@@ -56,9 +56,9 @@
             </label>
         </div>
         <div class="col-sm-12">
-            <img ng-src="{{src}}" style="margin-top: 10px;" ng-show="select.id === 1">
-            <audio ng-src="{{src}}" controls="controls" ng-show="select.id === 3||select.id===5"></audio>
-            <video controls="controls" ng-src="{{src}}" ng-show="select.id===4"></video>
+            <img ng-src="{{src}}" style="margin-top: 10px;" ng-if="select.id === 1||select ===undefined">
+            <audio ng-src="{{src}}" controls="controls" ng-if="select.id === 2||select.id===5"></audio>
+            <!--<video controls="controls" ng-src="{{src}}" ng-if="select.id===3"></video>-->
         </div>
         <div class="col-sm-12">
             <table width="100%" class="table fileInfoPanel">

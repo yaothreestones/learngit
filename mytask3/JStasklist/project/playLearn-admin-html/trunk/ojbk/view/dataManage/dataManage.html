@@ -16,13 +16,6 @@
                     </label>
                     <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{materials.lessonPeriodName}}
                     </label>
-                    <!--<label class="col-sm-1 control-label top-form" for="ds_name" style="line-height: 34px">提示任务-->
-                    <!--</label>-->
-                    <!--<label class="col-sm-11 control-label top-form bottom-label" for="ds_name">-->
-                        <!--<select class="form-control" id="ds_name" ng-disabled="disabled">-->
-                            <!--<option value="" ng-repeat="task in task">{{task.name}}</option>-->
-                        <!--</select>-->
-                    <!--</label>-->
                 </div>
             </fieldset>
         </form>
@@ -39,9 +32,9 @@
                     </div>
                     <div class="row">
                     <label class="col-sm-1 control-label top-form" for="ds_name">文件</label>
-                    <div class="col-sm-11 top-form"  >
-                            <img ng-show="isShow" ng-src="{{materials.url}}" style="width: 300px;height: 300px; margin-top: 10px;">
-                            <img-upload ng-show="show"  ajax-ads="" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
+                    <div class="col-sm-11 top-form">
+                        <img ng-show="check" ng-src="{{logo}}" style="width: 300px;height: 300px;background: red">
+                            <img-upload ng-show="show"  ajax-ads="'/a/u/admin/file/up'" img-src="" btn-title="上传" ng-disabled="" img-src="params.img"></img-upload>
                     </div>
                     </div>
                 </div>
@@ -50,7 +43,7 @@
                     <div class="col-sm-11 fastener">
                         <button type="button" class="btn ascertain" ng-click="some()">{{title.edit}}</button>
 
-                        <button type="button" class="btn cancel">取消</button>
+                        <button type="button" class="btn cancel" ng-click="remove()">取消</button>
                     </div>
                 </div>
             </fieldset>

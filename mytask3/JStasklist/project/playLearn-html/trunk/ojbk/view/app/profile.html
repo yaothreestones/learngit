@@ -2,31 +2,34 @@
 <div class="top-side">
     <form name="myForm" novalidate >
     <div class="upload-image">
-        <img src="image/app/UploadHeadImage.png" />
+        <div class="col-md-12">
+            <img ng-src="{{imageSrc}}" src="image/app/UploadHeadImage.png" style="max-width:300px;max-height:300px;margin:0 auto;display:block;" />
+        </div>
         <span>上传头像</span>
     </div>
     <div class="login-center login-ipt">
         <div class="nickname lognow-bottom">
             <img src="image/app/nickname.png" />
             <span>昵称：</span>
-            <input  id="" type="text" class="push-button" required  ng-model="name" name="name" ng-pattern="namePattern" value=""  placeholder="设置昵称"   />
+            <input  type="text" class="push-button" required  ng-model="data.name" name="name" ng-pattern="namePattern" value=""  placeholder="设置昵称"   />
         </div>
         <div class="grade lognow-bottom">
             <img src="image/app/grade.png" />
-            <span >年级：</span>
+            <span >年级{{grade}}：</span>
             <input mobile-select1 id="trigger" ng-model="grade" name="grade" required type="text" class="push-button" value=""  placeholder="设置年级"  />
         </div>
         <div class="mail lognow-bottom">
             <img src="image/app/mail.png"/>
             <span>邮件：</span>
-            <input  id="" type="email"class="push-button"  ng-model="email"  required ng-pattern="emailPattern"  name="email" placeholder="设置邮件" />
+            <input  id="" type="email"class="push-button"  ng-model="data.email"  required ng-pattern="emailPattern"  name="email" placeholder="设置邮件" />
         </div>
     </div>
     <div class="lognow">
         <button type="button" class="btn butColor"
-                ng-class="{'butColor':!name||!email||!grade}"
+                ng-class="{'butColor':!data.name||!data.email||!data.grade}"
                 ng-click="profile()" >立即学习</button>
     </div>
+
         <modal></modal>
     </form>
 

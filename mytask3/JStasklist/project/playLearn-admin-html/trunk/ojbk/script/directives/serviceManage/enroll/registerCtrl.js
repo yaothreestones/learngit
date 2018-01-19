@@ -1,254 +1,179 @@
-angular.module('app')
-// Controller
-    .controller('chartsCtrl', ['$scope', 'chartsServ', function($scope,chartsServ){
-        $scope.chartsData = null
-        // 数据初始化
-        return chartsServ.getData('sign')
-        //     .then(function (d) {
-        //     $scope.chartsData = d
-        // })
-        // 按钮改变数据
-        $scope.changeChart = function (para) {
-            return chartsServ.getData(para).then(function (d) {
-                $scope.chartsData = d
-            })
-        }
-    }])
-    // Service
-    .service('chartsServ', ['$http', '$q', function ($http,$q) {
+angular.module("app")
+    .directive('register', [function () {
         return {
-            // @getData 异步获取数据并处理
-            // @para    Str    需要的数据
-            // @return  Obj    promise对象
-            getData: function (para) {
-                // para对应的配置对象
-                urlMap = {
-                    sign: {
-                        // url: '/charts/?' + Date(),
-                        title: '注册人数图表',
-                        subtext: '总人数',
-                        series: '日人数'
-                    },
-                    daily: {
-                        // url: '/dailys/?' + Date(),
-                        title: '日报数图表',
-                        subtext: '总日报数',
-                        series: '日报数'
-                    }
-                }
-                // @concatData   结合数据与配置
-                // @para   Obj   d    异步获取的数据
-                // @para   Str   para 参数
-                // @return Obj   整合的数据
-                function concatData (d,para) {
-                    var tmp = {
-                        data: d.data,
-                        detail: urlMap[para]
-                    }
-                    return tmp
-                }
-                // 异步获取数据，返回promise对象
-                // var deferred = $q.defer()
-                // $http.get(urlMap[para].url).then(
-                //     function (d) {
-                //         d = concatData(d,para)
-                //         deferred.resolve(d)
-                //     }
-                // )
-                // return deferred.promise
-            }
-        }
-    }])
-    // Directive
-    .directive('charts', ['chartsServ', function(chartsServ){
-        return {
-            restrict: 'E',
+            restrict: "EA",
+            templateUrl: "view/serviceManage/enroll/chart.html",
             replace: true,
+            // controller:function (ajaxService) {
+            //     var vm = this
+            // },
             scope: {
-                data: '=data'
+                count:'=count',
+                total:'=total'
             },
-            template: '<div class="signchart-wrap"></div>',
-            // 依赖echarts.min.js
-            link: function($scope, ele) {
-                // 创建echart对象
-                // var myChart = echarts.init(ele[0]);
+            link: function (scope) {
 
-                // 生成图表
-                function bootup (data) {
-                    // 数据分类
-                    var d = data.data.data
-                    var dayData = []
-                    var numData = []
-                    var totalData = []
+                // 图表配置
+                var options = {
+                    chart: {
+                        zoomType: 'x',
+                    },
 
-                    // 数据分别放入数组
-                    function transArr (data,type) {
-                        var tmp = []
-                        for (var i = 0; i < data.length; i++) {
-                            tmp.unshift(data[i][type])
-                        }
-                        return tmp
-                    }
+                    // 标题
+                    title: {
+                        align: 'low',
+                        text: '注册人数图表',
+                        margin: 40
+                    },
+                    // 副标题
+                    subtitle: {
+                        align: 'low',
+                        text: '总人数：5395'
+                    },
+                    // X轴
+                    xAxis: [{
+                        type: 'datetime',
+                        dateTimeLabelFormats: {
+                            day: '%Y-%m-%d'
+                        },
+                        tickmarkPlacement:'on',
 
-                    dayData = transArr(d,'date')
-                    numData = transArr(d,'num')
 
-                    // 计算每日总数
-                    function dayCount (data) {
-                        var tmpArr = []
-                        for (var i = 0;i < data.length; i++) {
-                            var tmpNum = data[0]
-                            for (var j = 0; j < i; j++) {
-                                tmpNum += data[j + 1]
-                            }
-                            tmpArr.push(tmpNum)
-                        }
-                        return tmpArr
-                    }
+                    }, {
+                        type: 'datetime',
+                        dateTimeLabelFormats: {
+                            day: '%A'
+                        },
+                        tickmarkPlacement:'on',
+                        //对面显示
+                        opposite: true,
+                        // scrollbar : {
+                        //     enabled:true
+                        // },
 
-                    var dateArr = (function () {
-                        var tmp = []
-                        var dayMap = {
-                            0: '周日',
-                            1: '周一',
-                            2: '周二',
-                            3: '周三',
-                            4: '周四',
-                            5: '周五',
-                            6: '周六'
-                        }
-                        for (var i = 0; i < dayData.length; i++) {
-                            tmp[i] = new Date(dayData[i])
-                            tmp[i] = dayMap[tmp[i].getDay()]
-                        }
-                        return tmp
-                    })()
+                    }],
+                    yAxis: [{
+                        lineWidth: 2,//轴线宽
 
-                    totalData = dayCount(numData)
+                        labels: {
+                            formatter: function () {
+                                return this.value;
+                            },
+                            //     staggerLines: 3,
+                        },
 
-                    // 填数据，初始化
-                    var detail = data.detail
-                    myChart.setOption({
-                        // 标题
+                        tickLength: 8,//刻度线的长度、宽度
+
+                        tickWidth: 2,
+
+                        tickPositions: [0, 1000, 2000, 3000, 4000, 5000, 6000,7000, 8000, 9000, 10000, 11000,12000, 13000, 14000] //刻度数组
+
+                    }, {
                         title: {
-                            text: detail.title,
-                            subtext: detail.subtext + '：' + totalData[totalData.length-1]
+                            align: 'high',
+                            offset: 0,
+                            text: '日人数',
+                            rotation: 0,
+                            y: -40
                         },
-                        // 表格位置
-                        grid: {
-                            top: 100,
-                        },
-                        // X轴（2个）
-                        xAxis: [
-                            // 年月日
-                            {
-                                type: 'category',
-                                boundaryGap : true,
-                                splitLine: {
-                                    show: false
-                                },
-                                data: dayData
-                            },
-                            // 星期
-                            {
-                                type: 'category',
-                                boundaryGap : true,
-                                splitLine: {
-                                    show: false
-                                },
-                                data: dateArr
-                            }
-                        ],
-                        // Y轴（2个）
-                        yAxis: [
-                            // 日数据
-                            {
-                                type: 'value',
-                                name: detail.subtext,
-                                nameGap: 35,
-                                splitLine: {
-                                    show: false
-                                },
-                            },
-                            // 总数据
-                            {
-                                type: 'value',
-                                name: detail.series,
-                                nameGap: 35,
-                                splitLine: {
-                                    show: false
-                                },
-                            }
-                        ],
-                        // 标注
-                        legend: {
-                            data: [detail.subtext,detail.series]
-                        },
-                        // 系列（2个）
-                        series: [
-                            // 总人数
-                            {
-                                yAxisIndex: 0,
-                                type: 'line',
-                                name: detail.subtext,
-                                data: totalData
-                            },
-                            // 日人数
-                            {
-                                yAxisIndex: 1,
-                                type: 'line',
-                                name: detail.series,
-                                data: numData
-                            },
-                            {
-                                xAxisIndex: 1,
-                                type: 'line',
-                                name: '1',
-                                data: dateArr
-                            }
-                        ],
-                        // 鼠标滑动提示
-                        tooltip: {
-                            trigger: 'axis',
-                        },
-                        // 缩放（数据过滤）
-                        dataZoom: [
-                            // 表内移动
-                            {
-                                type: 'inside',
-                                show: true,
-                                startValue: dateArr.length - 15,
-                                end: 100
-                            },
-                            // 滑动条移动 缩放
-                            {
-                                type: 'slider',
-                                xAxisIndex: [0, 1],
-                                handleSize: 20,
-                                show: true,
-                                startValue: dateArr.length - 15,
-                                end: 100
-                            }
-                        ],
-                        // 线条颜色（依次）
-                        color: ['#c23531', '#44525d', '#314656', '#61a0a8', '#dd8668', '#91c7ae', '#6e7074', '#61a0a8', '#bda29a', '#c4ccd3']
-                    })
 
-                    // 隐藏Loading
-                    myChart.hideLoading()
+                        lineWidth: 2,//轴线宽
 
-                }
+                        labels: {
+                            formatter: function () {
+                                return this.value;
+                            },
+                            //     staggerLines: 3,
+                        },
 
-                // 加载loading界面
-                // myChart.showLoading({color:'#44525d'})
-                // 监测数据变化（按钮按下），生成图表
-                $scope.$watch('data',function (newData) {
-                    if ($scope.data) {
-                        myChart.dispose()
-                        myChart = echarts.init(ele[0])
-                        bootup(newData)
-                    }
-                })
+                        tickLength: 8,//刻度线的长度、宽度
+
+                        tickWidth: 2,
+                        //对面显示
+                        opposite: true,
+                        //刻度数组
+                        tickPositions: [0, 5, 10, 15, 20, 25, 30,35,40,45,50,55,60,65,70]
+
+                    }],
+
+                    series: [{                              // 数据列
+                        name: '总人数',
+                        // 数据列名
+                        data: [],  // 数据
+
+                        pointStart: Date.UTC(2018, 0, 7),
+
+                        pointInterval: 24 * 3600 * 1000 ,// one day
+
+                        marker: {
+                            fillColor: '#FFFFFF',
+                            lineWidth: 2,
+                            symbol: 'circle',
+                            lineColor: null // inherit from series
+                        }
+
+                    }, {                              // 数据列
+                        name: '日人数',
+                        // 数据列名
+                        data: [], // 数据
+
+                        xAxis: 1,
+
+                        yAxis: 1,
+
+                        pointStart: Date.UTC(2018, 0, 7),
+
+                        pointInterval: 24 * 3600 * 1000 ,// one day
+
+                        marker: {
+                            fillColor: '#FFFFFF',
+                            lineWidth: 2,
+                            symbol: 'circle',
+                            lineColor: null // inherit from series
+                        }
+                    },],
+                    //图例位置
+                    legend: {
+                        align: 'center', //水平方向位置
+                        verticalAlign: 'top', //垂直方向位置
+                        y: 30 //距离Y轴的距离
+                    },
+
+                    rangeSelector: {
+                        buttons: [
+                            {
+                                type: 'month',
+                                count: 1,
+                                text: '1m'
+                            }]
+                        ,
+                        selected: 1
+                    },
+
+                    navigator: {
+                        enabled: false,
+                        // 针对导航器来的所有数据列有效，注意 data 配置无效，因为该数据来源于主数据列
+                        series: {
+                            type: 'areaspline',
+                            // ...
+                        }
+                    },
+
+                };
+
+
+                setTimeout(function () {
+                    options.series[0].data = scope.total;
+                    options.series[1].data = scope.count;
+
+                    var chart = Highcharts.chart('container', options);
+                    console.log(scope.count)
+                }, 500);
+
+                // 图表初始化函数
+
             }
-        };
-    }]);
+
+        }
+    }])
+

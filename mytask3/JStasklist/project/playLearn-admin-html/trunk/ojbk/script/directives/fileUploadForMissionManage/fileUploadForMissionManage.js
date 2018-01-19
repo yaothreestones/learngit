@@ -8,35 +8,42 @@ angular.module('fileUploadDirective', [])
                 //最终输出的src
                 exportSrc: '=imgSrc',
                 ajaxAds: '=ajaxAds',
-                select:'=select'
+                select:'=select',
+                belong:'=belong'//所属
                 //上传文件的时候，输出一个状态 loading ，比如想实现图片上传时不能进行保存操作，可以通过它在外部禁用保存按钮，
             },
             link: function (scope, element, property) {
                 //是否在上传阶段，
-                console.log(scope);
                 scope.isLoading = false;
                 scope.loadInfo = undefined;
                 scope.filename = '图片名';
-                scope.$watch('select.id',function (NewV) {
-                    if(NewV){
-                        if(scope.select.id === 1){
-                            scope.filename = '图片名';
-                            scope.type = 1;
-                            scope.file_type = 'image/*';
-                        }else if(scope.select.id === 3){
-                            scope.filename = '音频名';
-                            scope.type = 3;
-                            scope.file_type = 'audio/*';
-                        }else if(scope.select.id === 4){
-                            scope.filename = '视频名';
-                            scope.file_type = 'video/*';
-                        }else if(scope.select.id === 5){
-                            scope.filename = '音频名';
-                            scope.type = 3;
-                            scope.file_type = 'audio/*';
+                if(scope.select !== undefined){
+                    scope.$watch('select.id',function (NewV) {
+                        if(NewV){
+                            if(scope.select.id === 1){
+                                scope.filename = '图片名';
+                                scope.type = 1;
+                                scope.file_type = 'image/*';
+                            }else if(scope.select.id === 2){
+                                scope.filename = '音频名';
+                                scope.type = 3;
+                                scope.file_type = 'audio/*';
+                            }else if(scope.select.id === 5){
+                                scope.filename = '音频名';
+                                scope.type = 3;
+                                scope.file_type = 'audio/*';
+                            }
+                            // else if(scope.select.id === 3){
+                            //     scope.filename = '视频名';
+                            //     scope.file_type = 'video/*';
+                            // }
                         }
-                    }
-                });
+                    });
+                }else if(scope.select === undefined){
+                    scope.filename = '图片名';
+                    scope.type = 1;
+                    scope.file_type = 'image/*';
+                }
 
                 //制造一个错误
                 function makeError(info) {
@@ -53,7 +60,6 @@ angular.module('fileUploadDirective', [])
                         if (newV) {
                             scope.src = newV;
                             cancel();
-
                         }
                     })
 
@@ -116,6 +122,8 @@ angular.module('fileUploadDirective', [])
                                 scope.exportSrc = res.data.url;
                                 scope.isLoading = false;
                                 scope.loadInfo = '上传成功';
+                                scope.src = scope.exportSrc;
+                                // console.log(scope.exportSrc,scope.src)
                             }
                         }, function (res) {
                             $interval.cancel(scope.progress.timer);
@@ -139,9 +147,10 @@ angular.module('fileUploadDirective', [])
                     ajaxFn: function () {
                         var defer = $q.defer();
                         var data = new FormData();
+                        console.log(scope.type,scope.belong);
                         data.append('file', scope.file);
                         data.append('type', scope.type);
-                        data.append('belong',3);
+                        data.append('belong',scope.belong);
                         var ajaxPromise = $http({
                             method: 'post',
                             url: scope.ajaxAds || makeError('ajaxAds is Falsy'),

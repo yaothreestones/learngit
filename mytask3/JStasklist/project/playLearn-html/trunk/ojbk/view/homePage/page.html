@@ -1,39 +1,39 @@
 <div class="top-side">
-    <div ng-show="vm.show">
-        <div class="course_details_modal">
-            <div class="course_details_modal_collection">
-                <img src="image/app/success.png" alt="成功">
-                <div style="text-align: center;width: 25vw;">{{vm.collection}}</div>
-            </div>
-        </div>
-        <div class="shady"></div>
-    </div>
+    <!--<div ng-show="vm.show">-->
+        <!--<div class="course_details_modal">-->
+            <!--<div class="course_details_modal_collection">-->
+                <!--<img src="image/app/success.png" alt="成功">-->
+                <!--<div style="text-align: center;width: 25vw;">{{vm.collect}}</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="shady"></div>-->
+    <!--</div>-->
     <div class="bit top-edge bit-height">
         <div class="bit-left bit-border">
-        <span class="text-right">
+        <span class="text-right" ui-sref="app.course">
             <p><img src="image/app/star.png">
             获得星星<br></p>
-            <b>98000个</b>
+            <b>{{vm.study_star}}</b>
         </span>
         </div>
         <div class="bit-left">
         <span class="text-right" ui-sref="app.ranking">
             <p><img src="image/app/use.png">
             击败用户<br></p>
-            <b>76.5%</b>
+            <b>{{vm.rank}}</b>
         </span>
         </div>
     </div>
     <div class="curricula">
         <span>我的课程</span>
-        <div class="catalog list" ui-sref="app.courseDetails">
+        <div class="catalog list"  ui-sref="app.courseDetails">
             <div class="heat">
                 <img src="image/app/heat.png" height="41" width="39"/>
             </div>
             <h3>植树问题</h3>
             <h4>第10/20节</h4>
             <h5>1056人已学<c>年级</c>
-                <a class="pull-right singl-width"><img  ng-src="{{vm.img}}" height="32" width="34" ng-click="collection()" />收藏</a>
+                <a class="pull-right singl-width"><img  ng-src="{{vm.img}}" height="32" width="34" ng-click="vm.collection()" />{{vm.collecting}}</a>
             </h5>
         </div>
     </div>
@@ -57,91 +57,16 @@
 <div class="curricula major-bottom">
     <span>热门推荐</span>
     <div class="major">
-        <div class="major-left pull-left">
+        <div class="major-left" ng-repeat="data in vm.data"  ng-class="{even: $even==true, odd: $odd==false}" ui-sref="app.courseDetails">
        <div class="discussion">
+           <img src="image/app/catalog.png" ng-src="{{data.homePicture}}"  />
        </div>
         <div class="groom">
-            <p>和差倍问题</p>
-            <img src="image/app/people.png"><i>365人已学</i>
-            <img src="image/app/year.png" class="year-right"><i>一年级</i>
+            <p>{{data.name}}</p>
+            <img src="image/app/people.png"><i>{{data.studyLessonPeriod}}</i>
+            <img src="image/app/year.png" class="year-right"><i>{{data.grade}}</i>
         </div>
         </div>
-        <div class="major-right pull-right">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-
-    <div class="major">
-        <div class="major-left pull-left">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-        <div class="major-right pull-right">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-
-    <div class="major">
-        <div class="major-left pull-left">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-        <div class="major-right pull-right">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-
-    <div class="major">
-        <div class="major-left pull-left">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-        <div class="major-right pull-right">
-            <div class="discussion">
-            </div>
-            <div class="groom">
-                <p>和差倍问题</p>
-                <img src="image/app/people.png"><i>365人已学</i>
-                <img src="image/app/year.png" class="year-right"><i>一年级</i>
-            </div>
-        </div>
-
     </div>
     <div class="clear"></div>
 </div>

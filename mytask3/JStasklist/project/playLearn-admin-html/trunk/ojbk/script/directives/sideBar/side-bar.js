@@ -4,7 +4,7 @@
         return {
             restrict: 'A',
             link: function ($s, e) {
-                console.log(e);
+                // console.log(e);
                 var Accordion = function (el, multiple) {
                     this.el = el || {};
                     this.multiple = multiple || false;
@@ -33,10 +33,10 @@
                         $("#" + focusId).parent().parent().slideToggle();
                         $("#" + focusId).addClass("active");
                         $("#" + focusId).parent().parent().parent().find("div").children('i').addClass('open');
-                        console.log($("#" + focusId).parent().parent().parent().find("div").children('i').addClass('open'))
+                        //console.log($("#" + focusId).parent().parent().parent().find("div").children('i').addClass('open'))
                     } else {
                         $("#" + focusId).addClass("active");
-                        console.log($("#" + focusId).addClass("active"))
+                        //console.log($("#" + focusId).addClass("active"))
                     }
                 }
                 var navClick = function (el, multiple) {
@@ -44,7 +44,7 @@
                     this.multiple = multiple || false;
                     var links = this.el.find('.lick');
                     var domes = this.el.find('a');
-                    console.log(domes)
+                    //console.log(domes)
                     //一级栏绑定点击事件
                     links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown);
                     //二级栏绑定点击事件

@@ -1,17 +1,17 @@
 <div class="col-lg-12 col-md-12 col-sm-12 edging while">
-    <h5><strong> | </strong>{{title.name}}</h5>
+    <h5><strong> | </strong>{{vm.title}}</h5>
     <div class="within">
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">所属科目
                 </label>
-                <label class="col-sm-11 control-label teach_manage_top-form bottom-label" for="ds_name">数学
+                <label class="col-sm-11 control-label teach_manage_top-form bottom-label" for="ds_name">{{vm.subjectName}}
                 </label>
             </div>
             <div class="form-group">
                 <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">所属课程
                 </label>
-                <label class="col-sm-11 control-label teach_manage_top-form bottom-label" for="ds_name">和差倍问题
+                <label class="col-sm-11 control-label teach_manage_top-form bottom-label" for="ds_name">{{vm.courseName}}
                 </label>
             </div>
         </form>
@@ -22,38 +22,38 @@
                 <div class="form-group">
                     <div class="row">
                         <label class="col-sm-1 control-label teach_manage_top-form " for="ds_name">课时名称</label>
-                        <input id="ds_name" type="text" class="col-sm-10 teach_manage_top-form top-form-nomargin input_style" ng-disabled="show">
+                        <input id="ds_name" type="text" class="col-sm-10 teach_manage_top-form top-form-nomargin input_style" ng-disabled="vm.show" ng-model="vm.periodName">
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">课程简介</label>
                         <div class="teach_manage_top-form top-form-nomargin ">
-                            <textarea class="col-sm-10 input_style" ng-disabled="show" ng-disabled="show"></textarea>
+                            <textarea class="col-sm-10 input_style" ng-disabled="vm.show" ng-model="vm.periodIntro"></textarea>
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-1 control-label teach_manage_top-form " for="ds_study">学习星</label>
-                        <input id="ds_study" type="text" class="col-sm-2 teach_manage_top-form top-form-nomargin input_style" ng-disabled="show" placeholder="1-5颗星">
+                        <label class="col-sm-1 control-label top-form " for="ds_study">学习星</label>
+                        <input  type="number" id='ds_study' class="col-sm-2 top-form top-form-nomargin input_style" max="5" ng-disabled="vm.show" placeholder="1-5颗星" ng-model="vm.awardStar">
                     </div>
                     <div class="row">
-                        <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">是否收费</label>
-                        <div class="col-sm-11 teach_manage_top-form top-form-nomargin">
-                            <input type="checkbox" ng-disabled="show" class="input_style" ng-model="lock">锁定
+                        <label class="col-sm-1 control-label top-form" for="ds_name">收费</label>
+                        <div class="col-sm-11 top-form top-form-nomargin">
+                            <input type="checkbox" ng-disabled="vm.show" class="input_style" ng-model="vm.lock" ng-true-value="1" ng-false-value="0">收费
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-1 col-sm-offset-1 control-label teach_manage_top-form pad" for="ds_star">学习星解锁</label>
-                        <input id="ds_star" type="text" class="col-sm-2 teach_manage_top-form top-form-nomargin input_style" ng-disabled="show||lock"><label class="control-label teach_manage_top-form">颗</label>
+                        <label class="col-sm-1 col-sm-offset-1 control-label top-form pad" for="ds_star">学习星解锁</label>
+                        <input id="ds_star" type="number" class="col-sm-2 top-form top-form-nomargin input_style" ng-disabled="vm.show||!vm.lock" ng-model="vm.needStar"><label class="control-label top-form">颗</label>
                     </div>
                     <div class="row">
-                        <label class="col-sm-1 col-sm-offset-1 control-label teach_manage_top-form pad" for="ds_pay">付费解锁</label>
-                        <input id="ds_pay" type="text" class="col-sm-2 teach_manage_top-form top-form-nomargin input_style" ng-disabled="show||lock"><label class="control-label teach_manage_top-form">元</label>
+                        <label class="col-sm-1 col-sm-offset-1 control-label top-form pad" for="ds_pay">付费解锁</label>
+                        <input id="ds_pay" type="number" class="col-sm-2 top-form top-form-nomargin input_style" ng-disabled="vm.show||!vm.lock" ng-model="vm.needMoney"><label class="control-label top-form">元</label>
                     </div>
                 </div>
                 <div class="row">
                     <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name"></label>
                     <div class="col-sm-11 fastener">
-                        <button type="button" class="btn ascertain" ui-sref="backStage.teachManage.period">确定</button>
-                        <button type="button" class="btn cancel" ui-sref="backStage.teachManage.period">取消</button>
+                        <button type="button" class="btn ascertain" ng-click="vm.operation()">确定</button>
+                        <button type="button" class="btn cancel" ng-click="vm.cancel()">取消</button>
                     </div>
                 </div>
             </fieldset>

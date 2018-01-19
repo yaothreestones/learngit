@@ -8,24 +8,22 @@
      </div>
         <div class="account">
             <span>科目</span>
-            <ul class="options" >
-                <li class="change">全部</li>
-             <li class="change" ng-repeat="class in classes">{{class.name}}</li>
+            <ul class="options">
+                <li class="change"  ng-click="ngclick(class)"  ng-bing="class"   ng-class="{'selected':selected==class}"  ng-repeat="class in subjects">{{class.name}}</li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="account">
             <span>年级</span>
             <ul class="options">
-                <li class="change">全部</li>
-                <li class="change" ng-repeat="subject in subjects">{{subject.name}}</li>
+                <li class="change"  ng-click="ngclicks(class)"  ng-bing="class"   ng-class="{'selected':selecteds==class}"  ng-repeat="class in classes">{{class.name}}</li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="account account-bottom">
             <span>范围</span>
             <ul class="options">
-                <li class="change" ng-repeat="ranges in range">{{ranges.name}}</li>
+                <li class="change" ng-click="ngclickClass(ranges)"  ng-bing="ranges"   ng-class="{'selected':selectedClass==ranges}" ng-repeat="ranges in range">{{ranges.name}}</li>
             </ul>
             <div class="clear"></div>
         </div>

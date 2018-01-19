@@ -25,7 +25,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="vm.manage.grade" ng-options="x for x in names">
+                                    ng-model="vm.manage.grade" ng-options="c.value as c.txt for c in vm.grade">
                             </select>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="vm.manage.status" ng-options="x for x in state">
+                                    ng-model="vm.manage.status" ng-options="c.value as c.txt for c in vm.status">
                             </select>
                         </div>
                     </div>
@@ -98,19 +98,21 @@
     <div class="panel-heading">
         <span class="user_management">用户管理（用户总数：?人）</span>
     </div>
-    <div class="panel-body">
+    <div class="panel-body  tabulation table-responsive table-responsive">
         <div class="panel panel-default">
-            <table class="table table-striped">
+            <table class="table table-striped add-table-border">
                 <thead>
-                <th>序号</th>
-                <th>ID</th>
-                <th>昵称</th>
-                <th>年级</th>
-                <th>学习星数</th>
-                <th>学习课时数</th>
-                <th>邮箱</th>
-                <th>状态</th>
-                <th>操作</th>
+                <tr>
+                    <th>序号</th>
+                    <th>ID</th>
+                    <th>昵称</th>
+                    <th>年级</th>
+                    <th>学习星数</th>
+                    <th>学习课时数</th>
+                    <th>邮箱</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="self in vm.ajaxData">
@@ -121,35 +123,47 @@
                     <td>{{self.studyStar}}</td>
                     <td>{{self.courseTime}}</td>
                     <td>{{self.email}}</td>
-                    <td>{{self.status}}</td>
+                    <td>{{self.status==1?'解冻':'正常'}}</td>
                     <td>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
                                 ng-clock>
-                            <!--1草稿，2上线-->
                             <a ui-sref="backStage.serviceManage.see" ng-click="sea">查看</a>
                         </button>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
-                                ng-clock>
-                            <a ng-click="thaw()" style="cursor:pointer;">解冻</a>
+                                ng-clock ng-click="vm.thaw(self.id,1)"
+                                style="cursor:pointer;">
+                            {{self.status==1?'解冻':'冻结'}}
                         </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <div class="row" >
-            <div class="its col-xs-11 text-right pull-right">
-                <uib-pagination total-items="vm.pagination.total" ng-model="currentPage" max-size="5"
-                                items-per-page="vm.pagination.perPageItems"
-                                first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
-                                boundary-links="true" boundary-link-numbers="true" ng-change="vm.pagination.changePage()">
-                </uib-pagination>
+        <div class="pagination">
+            <div class="col-xs-12">
+                <div class="its col-xs-3" style="left: 20px;">每页
+                    <input type="text" ng-model="article.searchParams.size"
+                           style="width: 60px; text-align: center;height: 30px;border: none;border: 1px solid #ededed"
+                           value=""
+                           class="ng-pristine ng-untouched ng-valid ng-empty">条
+                </div>
+                <div class="its col-xs-5 text-right ">
+                    <uib-pagination total-items="vm.pagination.total" ng-model="vm.currentPage" max-size="5"
+                                    items-per-page="vm.pagination.perPageItems"
+                                    first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                                    boundary-links="true" boundary-link-numbers="true" ng-change="vm.pagination.changePage()">
+                    </uib-pagination>
+                </div>
+                <div class="its col-xs-4">跳转到
+                    <input type="text" ng-model="article.searchParams.page"
+                           style="width:60px;height:30px; text-align: center;border: none; border: 1px solid #ededed;"
+                           value=""
+                           class="ng-pristine ng-untouched ng-valid ng-empty">页
+                    <button ng-click="list()" style="border: none;width: 60px;height: 30px;">确定</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="pagination container-fluid">
-
     </div>
 </div>

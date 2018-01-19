@@ -4,53 +4,43 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_subject">年级</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_subject">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
+                    <div class="form-control" ng-show="vm.show">{{vm.grade|grade}}</div>
+                    <select class="form-control" id="ds_subject" ng-options="grade.name for grade in vm.Grade" ng-model="vm.grade" ng-hide="vm.show">
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_grade">所属教材</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_grade">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
+                    <div class="form-control" ng-show="vm.show">{{vm.book}}</div>
+                    <select class="form-control" id="ds_grade" ng-hide="vm.show" ng-model="vm.book" ng-options="book.bookName for book in vm.Books">
+                        <option value="" selected>全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_courses">任务名称</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_courses">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
-                    </select>
+                    <input class="form-control" id="ds_courses" ng-model="vm.mission">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_period">版本</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_period">
-                        <option>全部</option>
-                        <option>上架</option>
-                        <option>下架</option>
+                    <div class="form-control" ng-show="vm.show">{{vm.press}}</div>
+                    <select class="form-control" id="ds_period" ng-options="press.name for press in vm.Press" ng-model="vm.press" ng-hide="vm.show">
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_mission_name">所属课时</label>
                 <div class="col-sm-3">
-                    <input class="form-control" id="ds_mission_name">
+                    <div class="form-control" ng-show="vm.show">{{vm.lessonPeriod}}</div>
+                    <select class="form-control" id="ds_mission_name" ng-hide="vm.show" ng-model="vm.lessonPeriod">
+                    </select>
                 </div>
             </div>
-            <button type="button" class="btn btn-default pull-right">查询</button>
+            <button type="button" class="btn btn-default pull-right" ng-click="vm.search()">查询</button>
         </fieldset>
     </form>
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>任务管理<a ui-sref="backStage.previewManage.missionManage({from:1})" class="pull-right" ng-show="isShow">新增+</a></h5>
+    <h5><strong> | </strong>任务管理<a ng-click="vm.add()" class="pull-right" ng-show="vm.isShow">新增+</a></h5>
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
@@ -64,81 +54,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
+        <tr ng-repeat="task in vm.Tasks">
+            <td>{{$index+1}}</td>
+            <td>{{task.taskName}}</td>
+            <td>{{task.grade|grade}}</td>
+            <td>{{task.bookName}}</td>
+            <td>{{task.press}}</td>
+            <td>{{task.lessonPeriodName}}</td>
             <td>
                 <a ui-sref="backStage.previewManage.missionManage({from:2})">查看</a>
                 <a ui-sref="backStage.previewManage.missionManage({from:3})">编辑</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>查看</a>
-                <a>编辑</a>
-                <a>删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>
-                <a>查看</a>
-                <a>编辑</a>
                 <a>删除</a>
             </td>
         </tr>

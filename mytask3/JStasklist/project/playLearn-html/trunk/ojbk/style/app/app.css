@@ -167,7 +167,7 @@ a{
     border-bottom:0.1vw solid #e4e4e4;
 }
 .top-handset img{
-    width: 3.33vw;
+    width: 3.7vw;
     height: 5.13vw;
     margin-left: 6.66vw;
 }
@@ -175,7 +175,7 @@ a{
     border-bottom: 0.1vw solid #e4e4e4;
 }
 .top-code img{
-    width: 3.47vw;
+    width: 4.5vw;
     height: 3.88vw;
     margin-left: 6.66vw;
 }
@@ -192,7 +192,7 @@ a{
     border: none;
     outline-style: none;
     border-left: 0.1vw solid #e4e4e4;
-    margin-left: 6.11vw;
+    margin-left: 5.11vw;
     padding-left: 4.72vw;
     font-size: 3.88vw;
     word-spacing: 1px;
@@ -565,11 +565,15 @@ a{
     margin-right: auto;
     border-radius: 0.5vw;
 }
-.discussion{
+.odd {
+    float: left;
+}
+.even {
+    float: right;
+}
+.discussion img{
     width: 46.66vw;
     height: 30.97vw;
-    background: url("../../image/app/catalog.png") no-repeat;
-    background-size: 100% 100%;
 }
 .groom{
     box-shadow: 2px 2px 3px 0px #aaaaaa;
@@ -578,6 +582,7 @@ a{
     height: 14.86vw;
     background: #ffffff;
     padding-top: 1.61vw;
+    margin-bottom: 5vw;
 }
 .groom p{
     font-size: 4.16vw;
@@ -730,25 +735,27 @@ a{
 .options{
     display: flex;
     flex-wrap: wrap;
-    margin-right: -4%;
 }
 .options  li{
     float: left!important;
     width: 30%;
     height: 9.72vw;
     line-height: 9.72vw;
-    background: #f0f2f5;
     text-align: center;
     float: left;
     margin-right: 3%;
     margin-top: 3.47vw;
     font-size: 3.33vw;
-    color: #666666;
     list-style: none;
 }
-.options .change{
-    border: 0.1vw solid #00a5e0;
+.change{
+    border: 0.1vw solid #aaaaaa;
     background: #ffffff;
+}
+.selected{
+    border: 0.1vw solid #03a2eb;
+    background: #eeeeee;
+
 }
 .gather-search{
     height: 11.11vw;

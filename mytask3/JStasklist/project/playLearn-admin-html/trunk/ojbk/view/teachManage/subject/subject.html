@@ -4,7 +4,9 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_type">类型</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_type" ng-options="type.name for type in vm.subject_type" ng-model="vm.type"></select>
+                    <select class="form-control" id="ds_type" ng-options="type.id as type.name for type in vm.subject_type" ng-model="vm.type">
+                        <option value="" selected>全部</option>
+                    </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_subject">科目名称</label>
                 <div class="col-sm-4">
@@ -14,7 +16,9 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_host">状态</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_host" ng-options="status.name for status in vm.subject_status" ng-model="vm.status"></select>
+                    <select class="form-control" id="ds_host" ng-options="status.id as status.name for status in vm.subject_status" ng-model="vm.status">
+                        <option value="" selected>全部</option>
+                    </select>
                 </div>
             </div>
             <button type="button" class="btn btn-default pull-right" ng-click="vm.subject_search()">查询</button>
@@ -22,7 +26,7 @@
     </form>
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>科目管理<a ui-sref="backStage.teachManage.subjectManage({'from':1})" class="pull-right">新增+</a></h5>
+    <h5><strong> | </strong>科目管理<a ng-click="vm.add()" class="pull-right">新增+</a></h5>
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
@@ -43,7 +47,7 @@
                 <a ng-click="vm.course_jump(subject)">课程</a>
                 <a ng-click="vm.subject_view(subject)">查看</a>
                 <a ng-click="vm.subject_edit(subject)">编辑</a>
-                <a>{{subject.status|subject_status_operation}}</a>
+                <a ng-click="vm.changeStatus(subject)">{{subject.status|subject_status_operation}}</a>
                 <a ng-click="vm.subject_delete(subject)">删除</a>
             </td>
         </tr>

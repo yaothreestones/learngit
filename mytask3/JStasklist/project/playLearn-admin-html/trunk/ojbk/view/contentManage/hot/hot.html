@@ -10,10 +10,10 @@
         </thead>
         <tbody>
         <tr ng-repeat="hot in vm.hot">
-            <td>{{$index+1}}</td>
+            <td>{{hot.id}}</td>
             <td>{{hot.name}}</td>
             <td>
-                <a ui-sref="{{hot.url}}">{{hot.operate}}</a>
+                <a ng-click="vm.hots(hot.id)">{{hot.operate}}</a>
             </td>
         </tr>
         </tbody>

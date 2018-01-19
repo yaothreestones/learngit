@@ -4,58 +4,50 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_subject">所属科目</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_subject">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
+                    <div class="form-control" ng-show="vm.isShow">{{vm.subjectName}}</div>
+                    <select class="form-control" id="ds_subject" ng-hide="vm.isShow" ng-model="vm.subject" ng-options="subject.id as subject.name for subject in vm.Subjects">
+                        <option value="">全部</option>
                     </select>
                 </div>
-                <label class="col-sm-1 control-label" for="ds_grade">等级</label>
+                <label class="col-sm-1 control-label" for="ds_grade">年级</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_grade">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
+                    <select class="form-control" id="ds_grade" ng-model="vm.grade" ng-options="grade.id as grade.name for grade in vm.Grade">
+                        <option value="">全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_courses">所属课程</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_courses">
-                        <option>全部</option>
-                        <option>自有</option>
-                        <option>校内</option>
-                        <option>合作</option>
+                    <div class="form-control" ng-show="vm.isShow">{{vm.courseName}}</div>
+                    <select class="form-control" id="ds_courses" ng-hide="vm.isShow" ng-model="vm.course" ng-options="course.courseId as course.courseName for course in vm.Course">
+                        <option value="">全部</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-1 control-label" for="ds_period">所属课时</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="ds_period">
-                        <option>全部</option>
-                        <option>上架</option>
-                        <option>下架</option>
+                    <div class="form-control" ng-show="vm.isShow">{{vm.periodName}}</div>
+                    <select class="form-control" id="ds_period" ng-hide="vm.isShow" ng-model="vm.period" ng-options="period.lessonPeriodId as period.lessonPeriodName for period in vm.Period">
+                        <option value="">全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_mission_name">任务名称</label>
                 <div class="col-sm-3">
-                    <input class="form-control" id="ds_mission_name">
+                    <input class="form-control" id="ds_mission_name" ng-model="vm.mission">
                 </div>
             </div>
-            <button type="button" class="btn btn-default pull-right">查询</button>
+            <button type="button" class="btn btn-default pull-right" ng-click="vm.search()">查询</button>
         </fieldset>
     </form>
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>任务管理<a ui-sref="backStage.teachManage.missionManage({'from':1})" class="pull-right" ng-show="isShow">新增+</a></h5>
+    <h5><strong> | </strong>任务管理<a ng-click="vm.add()" class="pull-right" ng-show="vm.isShow">新增+</a></h5>
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
             <th>序号</th>
-            <th>科目名称</th>
+            <th>任务名称</th>
             <th>所属科目</th>
             <th>所属课程</th>
             <th>所属课时</th>
@@ -63,15 +55,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
-            <td>占位符</td>
+        <tr ng-repeat="mission in vm.Mission">
+            <td>{{$index+1}}</td>
+            <td>{{mission.taskName}}</td>
+            <td>{{mission.Subjectname}}</td>
+            <td>{{mission.courseName}}</td>
+            <td>{{mission.lessonPeriodName}}</td>
             <td>
-                <a ui-sref="backStage.teachManage.missionManage({'from':2})">查看</a>
-                <a ui-sref="backStage.teachManage.missionManage({'from':3})">编辑</a>
+                <a ng-click="vm.view(mission)">查看</a>
+                <a ng-click="vm.edit(mission)">编辑</a>
                 <a>删除</a>
             </td>
         </tr>

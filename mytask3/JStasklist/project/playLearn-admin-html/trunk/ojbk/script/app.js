@@ -1,1 +1,7 @@
-var myApp = angular.module("app", ["ui.router","oc.lazyLoad","ui.bootstrap", 'imgUploadDirective','fileUploadDirective']);
+var myApp = angular.module("app", [
+    "ui.router",
+    "oc.lazyLoad",
+    "ui.bootstrap",
+    'imgUploadDirective',
+    'fileUploadDirective',
+]);

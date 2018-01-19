@@ -18,6 +18,11 @@
     padding: 0 !important;
     margin-left: 15px;
 }
+.input_style_textarea {
+    min-height: 99px;
+    min-width: 83.333%;
+    max-width: 83.333%;
+}
 .pad {
     padding: 0 !important;
 }

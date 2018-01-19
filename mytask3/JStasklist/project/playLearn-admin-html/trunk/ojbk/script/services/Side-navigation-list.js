@@ -196,55 +196,42 @@ angular.module("app")
             }
         ]
     })
-//编辑任务提示
-    .factory('task',function () {
-        return [
-            {
-                name:'不提示'
-            },
-            {
-                name:'任务一'
-            },
-            {
-                name:'任务二'
-            },
-            {
-                name:'任务三'
-            },
-            {
-                name:'任务四'
-            },
-        ]
-    })
+
     //热门推荐
 .factory('hot',function () {
     return [
         {
+            id:'1',
             name:'一年级',
             url:"backStage.contentManage.groom",
             operate:"编辑"
         },
         {
+            id:'2',
             name:'二年级',
             url:"backStage.contentManage.groom",
             operate:"编辑"
         },
         {
+            id:'3',
             name:'三年级',
             url:"backStage.contentManage.groom",
             operate:"编辑"
         },
         {
+            id:'4',
             name:'四年级',
             url:"backStage.contentManage.groom",
             operate:"编辑"
         },
         {
+            id:'5',
             name:'五年级',
             url:"backStage.contentManage.groom",
             operate:"编辑"
         },
         {
+            id:'6',
             name:'六年级',
             url:"backStage.contentManage.groom",
             operate:"编辑"

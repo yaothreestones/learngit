@@ -11,24 +11,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>
-                <a ui-sref="backStage.contentManage.groomManage({'from':1})">查看</a>
-                <a ui-sref="backStage.contentManage.groomManage({'from':2})">编辑</a>
-            </td>
-        </tr>
         <tr ng-repeat="demoLists in vm.demoLists">
             <td>{{$index+1}}</td>
-            <td>{{demoLists.grade}}</td>
-            <td>{{demoLists.courseName}}</td>
+            <td>{{demoLists.grade|grade}}</td>
+            <td>{{demoLists.name}}</td>
             <td>{{demoLists.subjectName}}</td>
             <td>
-                <a ui-sref="backStage.contentManage.groomManage({'from':1})">查看</a>
-                <a ui-sref="backStage.contentManage.groomManage({'from':2})">编辑</a>
+                <a ui-sref="backStage.contentManage.groomManage({'from':1,'id':demoLists.grade})">查看</a>
+                <a ui-sref="backStage.contentManage.groomManage({'from':2,'id':demoLists.grade})">编辑</a>
             </td>
         </tr>
         </tbody>

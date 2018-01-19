@@ -16,8 +16,8 @@
                             发送人群
                         </label>
                         <div class="col-sm-9 ">
-                            <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="x for x in class">
+                            <select class="form-control"
+                                     ng-options="c.value as c.txt for c in vm.grade">
                             </select>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="x for x in state">
+                                    ng-model="selectedName" ng-options="c.value as c.txt for c in vm.sendStatus">
                             </select>
                         </div>
                     </div>

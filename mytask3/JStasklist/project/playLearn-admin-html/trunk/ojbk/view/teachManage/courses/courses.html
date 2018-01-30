@@ -5,7 +5,7 @@
                 <label class="col-sm-1 control-label" for="ds_type">所属科目</label>
                 <div class="col-sm-4">
                     <div class="form-control" ng-show="isShow">{{vm.subject.name}}</div>
-                    <select class="form-control" id="ds_type" ng-options="subject.id as subject.name for subject in vm.sublists" ng-model="vm.subjectName" ng-hide="isShow">
+                    <select class="form-control" id="ds_type" ng-options="subject.id as (subject.name +'-'+(subject.type|subject_type) +'-'+ (subject.status|subject_status)) for subject in vm.sublists" ng-model="vm.subjectName" ng-hide="isShow">
                         <option value="" selected>全部</option>
                     </select>
                 </div>
@@ -50,7 +50,7 @@
         <tbody>
         <tr ng-repeat="course in vm.lists">
             <td>{{$index+1}}</td>
-            <td>{{course.courseName}}</td>
+            <td>{{course.name}}</td>
             <td>{{course.subjectName}}</td>
             <td>{{course.grade|grade}}</td>
             <td>{{course.studyCount}}</td>
@@ -59,7 +59,7 @@
                 <a ng-click="vm.period_jump(course)">课时</a>
                 <a ng-click="vm.course_view(course)">查看</a>
                 <a ng-click="vm.course_edit(course)">编辑</a>
-                <a>{{course.status|subject_status_operation}}</a>
+                <a ng-click="vm.changeStatus(course)">{{course.status|subject_status_operation}}</a>
                 <a ng-click="vm.course_delete(course)">删除</a>
             </td>
         </tr>

@@ -32,7 +32,7 @@
     </form>
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>科目管理<a ui-sref="backStage.previewManage.datumManage({from:1})" class="pull-right">新增+</a></h5>
+    <h5><strong> | </strong>科目管理<a ng-click="vm.add()" class="pull-right">新增+</a></h5>
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
@@ -57,7 +57,7 @@
                 <a ng-click="vm.period_jump(book)">课时</a>
                 <a ng-click="vm.view(book)">查看</a>
                 <a ng-click="vm.edit(book)">编辑</a>
-                <a>{{book.status|subject_status_operation}}</a>
+                <a ng-click="vm.changeStatus(book)">{{book.status|subject_status_operation}}</a>
                 <a ng-click="vm.delete(book.id)">删除</a>
             </td>
         </tr>

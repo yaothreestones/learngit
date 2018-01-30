@@ -15,11 +15,11 @@
                 <td>{{$index+1}}</td>
                 <td><img ng-src="{{demoLists.logo}}" height="116" width="115"/></td>
                 <td>{{demoLists.name}}</td>
-                <td>{{demoLists.status}}{{demoLists.status|freeze}}</td>
+                <td>{{demoLists.status|freeze}}</td>
 
                 <td>
                     <a ng-click="vm.see(demoLists.id)">查看</a>
-                    <a ui-sref="backStage.contentManage.uniteManage({'from':3})">编辑</a>
+                    <a ui-sref="backStage.contentManage.uniteManage({'from':3,'id':demoLists.id})">编辑</a>
                     <a class="dyestuff" ng-click="vm.off(demoLists.id,demoLists.status)">{{demoLists.status|freezes}}</a>
                     <a class="dyestuff" ng-click="vm.delete(demoLists.id)">删除</a>
                 </td>
@@ -27,11 +27,13 @@
             </tbody>
         </table>
     <div class="its col-xs-11 pull-right text-right">
-        <uib-pagination total-items="12" ng-model="vm.currentPage" items-per-page="5" max-size="5" first-text="第一页"
+        <uib-pagination total-items="vm.total" ng-model="vm.currentPage" items-per-page="vm.size" max-size="5" first-text="第一页"
                         previous-text="上一页" next-text="下一页"
                         last-text="最后页" boundary-links="true"
                         ng-click="vm.pageGo(vm.currentPage)"
                         boundary-link-numbers="true">
         </uib-pagination>
+
+
     </div>
 </div>

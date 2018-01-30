@@ -18,7 +18,6 @@ angular.module('app')
                     $scope.codeColor = "color-code";
                 }
                 $scope.getTestCode=function (){
-                    alert("短信")
                     timerHandler = $interval(function () {
                         $scope.canClick = true;
                         $scope.description = "短信验证";
@@ -37,7 +36,6 @@ angular.module('app')
                 };
 
                 $scope.getTestStart=function () {
-                    alert("语音")
                     timerHandler = $interval(function () {
                         $scope.startClick = true;
                         $scope.speech = "语音验证";

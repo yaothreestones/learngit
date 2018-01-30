@@ -1,99 +1,15 @@
 
 <div class="top-side" style="position: relative">
     <div class="material">
-        <div class="textbook">
-        <div>
-            <span>
-            <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-             <b>三年级（上侧)</b>
-            人民出版社
-            </span>
-        </div>
-        <div>
-            <span>
-                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧</b>
-                人民出版社
-            </span>
-        </div>
-        <div>
-            <span>
-                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
-            </span>
-        </div>
-        </div>
-        <div class="textbook textbook-top">
+        <div class="textbook" ng-repeat="demoList in demoLists">
             <div>
             <span>
-            <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-             <b>三年级（上侧)</b>
-            人民出版社
-            </span>
-            </div>
-            <div>
-            <span>
-                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
-            </span>
-            </div>
-            <div>
-            <span>
-                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
+            <img ui-sref="app.teaching({bookId:demoList.bookId})" ng-src="{{demoList.picture}}" height="245" width="170"/>
+             <b>{{demoList.bookName}}</b>
+            {{demoList.version}}
             </span>
             </div>
         </div>
-        <div class="textbook textbook-top">
-            <div>
-            <span>
-            <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-             <b>三年级（上侧)</b>
-            人民出版社
-            </span>
-            </div>
-            <div>
-            <span>
-                <img ui-sref="app.teaching" src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
-            </span>
-            </div>
-            <div>
-            <span>
-                <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
-            </span>
-            </div>
-        </div>
-        <div class="textbook textbook-top">
-            <div>
-            <span>
-            <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
-             <b>三年级（上侧)</b>
-            人民出版社
-            </span>
-            </div>
-            <div>
-            <span>
-                <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
-            </span>
-            </div>
-            <div>
-            <span>
-                <img ui-sref="app.teaching"  src="image/app/textbook.png" height="245" width="170"/>
-                <b>三年级（上侧)</b>
-                人民出版社
-            </span>
-            </div>
-        </div>
-
     </div>
 </div>
 <div class="filter filter-search" ng-show="$root.config.headNav.screenList.isShow">
@@ -101,14 +17,13 @@
     <div class="filter-right cast account">
         <span style="color: #000000;margin-left: 0">年级</span>
         <ul class="options">
-            <li class="change">全部</li>
-            <li class="change" ng-repeat="class in classes">{{class.name}}</li>
+            <li class="change" ng-model="demoLists.grade"  ng-click="ngclicks(class.id)"  ng-bing="class"   ng-class="{'selected':selecteds==class.id}"  ng-repeat="class in classes">{{class.name}}</li>
         </ul>
         <div class="clear"></div>
     </div>
     <div class="gather-search search-gather">
-        <button class="search-left">重置</button>
-        <button class="search-right" ng-click="$root.config.headNav.screenList.isShow=false";>搜索</button>
+        <button class="search-left" ng-click="empty()">重置</button>
+        <button class="search-right" ng-click="search()">搜索</button>
     </div>
 </div>
 

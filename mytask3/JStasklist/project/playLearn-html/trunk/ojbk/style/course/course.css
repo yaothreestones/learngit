@@ -22,10 +22,8 @@
     top: 25.2vw;
     background-color: #fff;
     z-index: 49;
-    padding-top: 3.33vw;
+    padding: 3.33vw 0 3.33vw 0;
     width: 100vw;
-    height: 28.33vw;
-    padding-left: 0;
 }
 .course_search-list {
     display: inline-block;
@@ -487,4 +485,139 @@
 }
 .course_dropdown-list_fixed {
     padding-top: 0 !important;
+}
+.periodFinish_mian_body {
+    position: relative;
+    top: 12.9vw;
+}
+.periodFinish_orange_back {
+    height: 80vh;
+    background-color: #f68b3b;
+}
+.periodFinish_bottom_back {
+    height: 55vh;
+    background: url("../../image/app/cloud.png") no-repeat transparent;
+    background-size: cover;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 0 4.9vw;
+}
+.periodFinish_getStar {
+    width: 100vw;
+    height: 76.4vw;
+}
+.periodFinish_line {
+    border-top: 1px solid #dbc9aa;
+    width: 67%;
+    margin: 0 auto;
+}
+.periodFinish_line_top {
+    position: relative;
+    margin-top: 30vw;
+}
+.periodFinish_youcan {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 20px;
+    background-color: #fffee0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #8c5233;
+}
+.periodFinish_choose_public {
+    height: 17.2vw;
+    width: 17.2vw;
+    margin: 0 auto;
+}
+.periodFinish_choose_left {
+    background: url("../../image/app/choose.png") 12% 10% no-repeat;
+    background-size: cover;
+}
+.periodFinish_choose_middle {
+    background: url("../../image/app/choose.png") 50% 10% no-repeat;
+    background-size: cover;
+}
+.periodFinish_choose_right {
+    background: url("../../image/app/choose.png") 88% 10% no-repeat;
+    background-size: cover;
+}
+.periodFinish_choose_button {
+    width: 25vw;
+    background: #6bc739;
+    color: #fff;
+}
+.periodFinish_choose_div {
+    display: flex;
+    margin-top: 10vw;
+}
+.periodFinish_choose {
+    margin: 0 2.5vw;
+}
+.periodFinish_choose_center {
+    text-align: center;
+    padding: 1vw 0;
+    color: #8c5233;
+    font-size: 12px;
+}
+.payResult-body {
+    position: relative;
+    top: 12.9vw;
+}
+.payResult_modal {
+    position: fixed;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    width: 87.5vw;
+    height: 118vw;
+    border-radius: 5%;
+    background-color: #fff;
+}
+.payResult_sure_img {
+    display: block;
+    margin: 27vw auto 0;
+    height: 15.6vw;
+    width: 15.6vw;
+}
+.payResult_info {
+    font-size: 5vw;
+    text-align: center;
+    line-height: 200%;
+}
+.payResult_main {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.payResult_content {
+    font-size: 3.75vw;
+    color: #999999;
+}
+.payResult_bottom {
+    text-align: center;
+    margin-top: 44vw;
+}
+.payResult_bottom button {
+    border: #03a8f3 solid 1px;
+}
+.payResult_turnBack {
+    width: 32.8vw;
+    height: 10vw;
+    margin-right: 2vw;
+}
+.payResult_nextPeriod {
+    width: 32.8vw;
+    height: 10vw;
+}
+.payResult_focus {
+    background-color: #03a8f3;
+    color :#fff;
+
+}
+.payResult_loseFocus {
+    background-color: #fff;
+    color:#03a8f3;
 }

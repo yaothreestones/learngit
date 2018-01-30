@@ -12,11 +12,11 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
         //父级科目课程课时名称，由父级课时带过来
         vm.subjectName = vm.period_selected.subjectName||undefined;
         vm.courseName = vm.period_selected.courseName||undefined;
-        vm.periodName = vm.period_selected.lessonPeriodName||undefined;
+        vm.periodName = vm.period_selected.name||undefined;
         //非跳转时
-        vm.subject = vm.Data.subjectId;
-        vm.course = vm.Data.courseId;
-        vm.period = vm.Data.periodId;
+        vm.subject = vm.period_selected.subjectId||vm.Data.subjectId;
+        vm.course = vm.period_selected.courseId||vm.Data.courseId;
+        vm.period = vm.period_selected.id||vm.Data.periodId;
         vm.grade = parseInt(vm.Data.grade)||undefined;
         vm.mission = vm.Data.missionName;
         if(vm.data.add === '1'){
@@ -28,57 +28,57 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
             $state.go('backStage.teachManage.mission',{page:x});
         };
         //如果是跳转过来则带add参数，科目课程课时名字由父级课时带来且固定，不需要调用科目课程课时接口
-        if(!$stateParams.add){
-        //科目列表
-        Course_service.get_TechSearchSubject({
-            page:'',
-            size:''
-        }).then(function (res) {
-            if (res.data.code === 0) {
-                console.log('渲染完毕');
-                vm.Subjects = res.data.data;
-                console.log('科目列表', vm.Subjects);
-                console.log(res);
-            } else {
-                alert(res.message)
-            }
-        });
-        //课程列表
-        //获取课程列表
-        vm.params = {
-            page:'',
-            pageSize:''
-        };
-        console.log('课程列表参数',vm.params);
-        Course_service.get_TechSearchCourse({
-            params:vm.params
-        }).then(function(res) {
-                console.log(res);
-                if(res.data.code === 0){
-                    vm.Course = res.data.data;
-                    console.log('课程列表',vm.Course)
+        if(!$stateParams.add) {
+            //科目列表
+            Course_service.get_TechSearchSubject({
+                params: {
+                    page: 1,
+                    size: 999
                 }
-            }
-            , function(res) {
-                alert('请求失败')
-            });
-        //课时列表
-        Course_service.get_TechPeriod({
-            params:{
-                page:'',
-                size:''
-            }
-        }).then(function(res) {
-                console.log(res);
-                if(res.data.code === 0){
-                    vm.Period = res.data.data;
-                    console.log('课时列表',vm.Period)
+            }).then(function (res) {
+                if (res.data.code === 0) {
+                    console.log('渲染完毕');
+                    vm.Subjects = res.data.data;
+                    console.log('科目列表', vm.Subjects);
+                    console.log(res);
+
+                    //课程列表
+                    //获取课程列表
+                    console.log('课程列表参数', vm.params);
+                    Course_service.get_TechSearchCourse({
+                        page: 1,
+                        size: 999
+                    }).then(function (res) {
+                            console.log(res);
+                            if (res.data.code === 0) {
+                                vm.Course = res.data.data;
+                                console.log('课程列表', vm.Course);
+
+                                //课时列表
+                                Course_service.get_TechPeriod({
+                                        page: 1,
+                                        size: 999
+                                }).then(function (res) {
+                                        console.log(res);
+                                        if (res.data.code === 0) {
+                                            vm.Period = res.data.data;
+                                            console.log('课时列表', vm.Period)
+                                        }
+                                    }
+                                    , function (res) {
+                                        alert('请求失败')
+                                    });
+                            }
+                        }
+                        , function (res) {
+                            alert('请求失败')
+                        });
+                } else {
+                    alert(res.message)
                 }
-            }
-            , function(res) {
-                alert('请求失败')
             });
         }
+
         //获取任务列表
         console.log('获取任务列表');
         Course_service.get_TechMission({
@@ -86,7 +86,7 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
             grade:vm.grade,
             courseId:vm.course,
             lessonPeriodId:vm.period,
-            taskName:vm.mission,
+            name:vm.mission,
             page:1,
             size:10
         }).then(function (res) {
@@ -132,8 +132,10 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
             console.log(vm.stateParams);
             vm.obj = angular.toJson(vm.stateParams);
             vm.mission = {
-                courseId:mission.courseID,
-                courseName:mission.courseName
+                subjectName:mission.subjectName,
+                courseName:mission.courseName,
+                periodName:mission.lessonPeriodName,
+                taskId:mission.id
             };
             vm.task = angular.toJson(vm.mission);
             $stateParams.add === '1'?$state.go("backStage.teachManage.missionManage",{add:1,from:2,period:$stateParams.period,obj:vm.obj,task:vm.task}):
@@ -149,13 +151,63 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
             };
             console.log(vm.stateParams);
             vm.obj = angular.toJson(vm.stateParams);
-            vm.obj = angular.toJson(vm.stateParams);
             vm.mission = {
-                courseId:mission.courseID,
-                courseName:mission.courseName
+                subjectName:mission.subjectName,
+                courseName:mission.courseName,
+                periodName:mission.lessonPeriodName,
+                taskId:mission.id
             };
             vm.task = angular.toJson(vm.mission);
             $stateParams.add === '1'?$state.go("backStage.teachManage.missionManage",{add:1,from:3,period:$stateParams.period,obj:vm.obj,task:vm.task}):
                 $state.go("backStage.teachManage.missionManage",{from:3,period:$stateParams.period,obj:vm.obj,task:vm.task})
-        }
+        };
+        //删除
+        vm.delete = function (mission) {
+            $rootScope.modalConfrim('是否删除？')
+                .then(function () {
+                    Course_service.get_TechDeleteMission(mission.id)
+                        .then(function (res) {
+                            if(res.data.code===0){
+                                $rootScope.modalConfrim('删除成功')
+                                    .then(function () {
+                                        $state.go("backStage.teachManage.mission",{},{reload:true})
+                                    },function () {
+
+                                    })
+                            }else {
+                                $rootScope.modalConfrim(res.data.message)
+                            }
+                        });
+                },function () {
+
+                });
+        };
+
+        //科目选择
+        vm.subject_select = function (subject) {
+            if(subject === null){
+                vm.courses = null;
+                vm.grade = null;
+                vm.period = null;
+                vm.Courses = vm.courseStorage;
+                vm.Subjects = vm.SubjectStorage;
+                vm.Grade = subject_grade
+            }else {
+                if(vm.grade){
+                    vm.Courses = [];
+                    angular.forEach(vm.courseStorage,function (data) {
+                        if(data.grade === vm.data && data.subjectId === subject){
+                            vm.Courses.push(data)
+                        }
+                    })
+                }else {
+                    vm.Courses = [];
+                    angular.forEach(vm.courseStorage,function (data) {
+                        if(data.subjectId === subject){
+                            vm.Courses.push(data)
+                        }
+                    });
+                }
+            }
+        };
     }]);

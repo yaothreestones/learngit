@@ -52,13 +52,12 @@
         <div class="col-sm-12">
             <label class="btn upBtn" ng-class="{'btn-success':!isLoading,'btn-default':isLoading}">
                 {{btnTitle||"图片上传"}}
-                <input ng-disabled="isLoading" type="file" accept="{{file_type}}">
+                <input ng-disabled="isLoading" type="file"  accept="{{file_type}}">
             </label>
         </div>
         <div class="col-sm-12">
-            <img ng-src="{{src}}" style="margin-top: 10px;" ng-if="select.id === 1||select ===undefined">
-            <audio ng-src="{{src}}" controls="controls" ng-if="select.id === 2||select.id===5"></audio>
-            <!--<video controls="controls" ng-src="{{src}}" ng-if="select.id===3"></video>-->
+            <img ng-src="{{src}}" style="margin-top: 10px;" ng-if="select === 1||select ===undefined">
+            <audio ng-src="{{src}}" controls="controls" ng-if="select === 2||select===5"></audio>
         </div>
         <div class="col-sm-12">
             <table width="100%" class="table fileInfoPanel">

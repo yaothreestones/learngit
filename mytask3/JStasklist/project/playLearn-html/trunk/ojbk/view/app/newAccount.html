@@ -1,17 +1,25 @@
-    <!--注册并绑定玩转学习账号-->
-    <div class="top-side">
-    <div class="login-center top-edge">
-        <div class="top-handset">
-            <img src="image/app/cellphone.png" />
-            <input  id="ds_name" type="text" class="push-button" value="15203435003"  placeholder="请输入手机号码"   />
+<!--注册-->
+<div class="top-side">
+    <form name="myForm" novalidate >
+        <div class="login-center top-edge">
+            <div class="top-handset">
+                <img src="image/app/cellphone.png" />
+                <input   type="number" name="phone"
+                         ng-model="data.phone"   ng-maxlength='11' required class="push-button"  value="15203435003"  placeholder="请输入手机号码"   ng-pattern="phonePattern"/>
+            </div>
+            <proving></proving>
+            <div class="bottom-password">
+                <img src="image/app/password.png"/>
+                <input   type="password"class="push-button" name="pwd"
+                         ng-pattern="pwdPattern" ng-model="data.password" ng-minlength='6' ng-maxlength='16' required  placeholder="请输入登录密码" />
+            </div>
         </div>
-        <proving></proving>
-        <div class="bottom-password">
-            <img src="image/app/password.png"/>
-            <input  id="ds_name" type="text"class="push-button"  placeholder="请输入登录密码" />
+        <div class="press-button">
+            <button type="button" class="butColor btn"
+                    ng-class="{'butColor':!data.phone||!data.password||!data.code}"
+                    ng-click="enroll()">立即绑定</button>
         </div>
-    </div>
-    <div class="lognow">
-        <button type="button" class="btn btn-default associate-top" ui-sref="app.profile">立即绑定</button>
-    </div>
-    </div>
+        <div class="clear"></div>
+    </form>
+    <modal></modal>
+</div>

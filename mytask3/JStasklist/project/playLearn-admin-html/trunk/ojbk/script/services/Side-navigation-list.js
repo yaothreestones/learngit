@@ -122,17 +122,6 @@ angular.module("app")
     })
     //资料管理
     //类别
-    .factory('family',function () {
-        return [
-            {
-                name:'课程资料'
-            },
-            {
-                name:'教程资料'
-            },
-
-        ]
-    })
         //科目
     .factory('subject',function () {
         return [

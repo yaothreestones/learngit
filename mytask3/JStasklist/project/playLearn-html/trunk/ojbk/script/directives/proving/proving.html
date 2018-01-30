@@ -1,7 +1,7 @@
 
 <div class="top-code">
     <img src="image/app/code.png"/>
-    <input  id="ds_name" type="number" name="proving" ng-pattern="provingPattern" ng-model="data.code" required class="push-button code-right" placeholder="输入验证码"   required ng-model="user.testcode"/>
+    <input  id="ds_name" type="text" name="proving"  ng-model="data.code" required class="push-button code-right" placeholder="输入验证码"   required ng-model="user.testcode"/>
     <b></b>
     <span>
         <input type="button" value="{{description}}" class="code-input" ng-click="send()" ng-class="codeColor"  ng-disabled="canClick">

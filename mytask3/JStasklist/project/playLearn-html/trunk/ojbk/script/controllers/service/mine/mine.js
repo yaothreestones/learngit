@@ -5,7 +5,7 @@ angular.module("app")
                 {
                     title: "我的收藏",
                     url: "image/mine/collection.png",
-                    state: "app.collect"
+                    state: "app.collect({belong:1})"
                 },
                 {
                     title: "课程记录",

@@ -26,30 +26,35 @@
     </div>
     <div class="curricula">
         <span>我的课程</span>
-        <div class="catalog list"  ui-sref="app.courseDetails">
-            <div class="heat">
-                <img src="image/app/heat.png" height="41" width="39"/>
+        <img ng-show="vm.ensconce" class="logos" src="image/app/catalog.png"/>
+        <div ng-show="vm.ensconce" class="catalog list"  ui-sref="app.courseDetails">
+            <div class="heat" >
+                <img ng-show="vm.groom" src="image/app/heat.png" height="41" width="39"/>
             </div>
-            <h3>植树问题</h3>
-            <h4>第10/20节</h4>
-            <h5>1056人已学<c>年级</c>
-                <a class="pull-right singl-width"><img  ng-src="{{vm.img}}" height="32" width="34" ng-click="vm.collection()" />{{vm.collecting}}</a>
+
+            <h3>{{vm.list.courseName}}</h3>
+            <h4>第{{vm.list.countLessonPeriodIdByCourse}}/{{vm.list.userStudyLessonPeriod}}节</h4>
+            <h5>{{vm.list.learnPeople}}人已学<c>{{vm.list.courseGrade|grade}}</c>
+                <a ng-show="vm.grooms" class="pull-right singl-width"><img ng-src="{{vm.img}}" height="32" width="34" ng-click="vm.collection()" />{{vm.collecting}}</a>
             </h5>
         </div>
+
+        <div ng-show="vm.conceal" class="add" ui-sref="app.course">
+            <img src="image/app/plus.png" height="25" width="25"/>
+            添加课程
+        </div>
     </div>
-    <div class="add">
-        <img src="image/app/plus.png" height="25" width="25"/>
-        添加课程
-    </div>
+
     <div class="prepare" ui-sref="app.record">
         <span>查看更多我的课程</span>
         <a><img  src="image/app/rigit.png"/></a>
     </div>
     <div class="curricula">
         <span>同步预习</span>
-        <div class="catalog list"  ui-sref="app.search">
+        <img  class="logos" ng-src="{{vm.information.picture}}"/>
+        <div class="catalog list"  ng-click="vm.info()">
             <div class="shade">
-                同步预习（语文）
+                {{vm.information.bookName}}({{vm.information.version}}）
             </div>
         </div>
     </div>

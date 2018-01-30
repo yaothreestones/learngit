@@ -1,35 +1,36 @@
-<div class="top-side">
+<div class="top-side" >
     <div class="gather">
      <div class="Curriculum-search">
-         <input type="text" placeholder="请输入需要搜索的课程"/>
+         <input type="text" ng-model="indistinct" placeholder="请输入需要搜索的课程"/>
          <span class="search-img">
-         <img src="image/app/search1.png" height="36" width="36"/>
+             {{indistinct}}
+         <img src="image/app/search1.png" height="36" width="36" ng-click="vague()"/>
          </span>
      </div>
         <div class="account">
             <span>科目</span>
             <ul class="options">
-                <li class="change"  ng-click="ngclick(class)"  ng-bing="class"   ng-class="{'selected':selected==class}"  ng-repeat="class in subjects">{{class.name}}</li>
+                <li class="change"  ng-click="ngclick(subject.id)"  ng-bing="subject"   ng-class="{'selected':selected==subject.id}"  ng-repeat="subject in subjects">{{subject.name}}</li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="account">
             <span>年级</span>
             <ul class="options">
-                <li class="change"  ng-click="ngclicks(class)"  ng-bing="class"   ng-class="{'selected':selecteds==class}"  ng-repeat="class in classes">{{class.name}}</li>
+                <li class="change"  ng-click="ngclicks(class.id)"  ng-bing="class"   ng-class="{'selected':selecteds==class.id}"  ng-repeat="class in classes">{{class.name}}</li>
             </ul>
             <div class="clear"></div>
         </div>
         <div class="account account-bottom">
             <span>范围</span>
             <ul class="options">
-                <li class="change" ng-click="ngclickClass(ranges)"  ng-bing="ranges"   ng-class="{'selected':selectedClass==ranges}" ng-repeat="ranges in range">{{ranges.name}}</li>
+                <li class="change" ng-click="ngclickClass(ranges.id)"  ng-bing="ranges"   ng-class="{'selected':selectedClass==ranges.id}" ng-repeat="ranges in range">{{ranges.name}}</li>
             </ul>
             <div class="clear"></div>
         </div>
     </div>
     <div class="gather-search">
-        <button class="search-left">重置</button>
-        <button class="search-right">搜索</button>
+        <button class="search-left" ng-click="empty()">重置</button>
+        <button class="search-right" ng-click="search(subject.id,class.id,ranges.id)">搜索</button>
     </div>
 </div>

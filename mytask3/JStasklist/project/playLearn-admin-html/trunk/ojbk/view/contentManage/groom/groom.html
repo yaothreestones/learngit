@@ -1,5 +1,6 @@
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-    <h5><strong> | </strong>推荐课程管理<span  class="pull-right">保存排序</span></h5>
+    <h5><strong> | </strong>推荐课程管理</h5>
+    <!--<span  class="pull-right">保存排序</span>-->
     <table class="table table-striped gridiron edging">
         <thead>
         <tr>
@@ -14,14 +15,13 @@
         <tr ng-repeat="demoLists in vm.demoLists">
             <td>{{$index+1}}</td>
             <td>{{demoLists.grade|grade}}</td>
-            <td>{{demoLists.name}}</td>
             <td>{{demoLists.subjectName}}</td>
+            <td>{{demoLists.name}}</td>
             <td>
-                <a ui-sref="backStage.contentManage.groomManage({'from':1,'id':demoLists.grade})">查看</a>
-                <a ui-sref="backStage.contentManage.groomManage({'from':2,'id':demoLists.grade})">编辑</a>
+                <a ui-sref="backStage.contentManage.groomManage({'from':1,'id':demoLists.id,'grade':demoLists.grade,'subjectId':demoLists.subjectId,name:demoLists.name})">查看</a>
+                <a ui-sref="backStage.contentManage.groomManage({'from':2,'id':demoLists.id,'grade':demoLists.grade,'subjectId':demoLists.subjectId,name:demoLists.name})">编辑</a>
             </td>
         </tr>
         </tbody>
     </table>
-
 </div>

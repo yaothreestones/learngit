@@ -2,34 +2,35 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
     function ($scope, $stateParams, $rootScope, $state, Course_service){
         var vm = $scope.vm = {};
         vm.data = $stateParams;
-        vm.book = angular.fromJson(vm.data.book)||{};
+        console.log('路由参数',vm.data);
+        vm.Book = angular.fromJson($stateParams.book)||{};
+        console.log('父级教材',vm.Book);
         vm.period = {};
-        console.log('教材',vm.book);
-        vm.title={};
         vm.show=false;
         vm.lock= 0;
+        vm.bookName = vm.Book.name;
 
         if(vm.data.from === '1'){
-            vm.title.name = '新增课时';
+            vm.title = '新增课时';
         }else if(vm.data.from === '2'){
-            vm.title.name = '查看课时';
+            vm.title = '查看课时';
             vm.show = true;
         }else if(vm.data.from === '3'){
-            vm.title.name = '编辑课时';
+            vm.title = '编辑课时';
         };
         //获得课时详情
         if(vm.data.from==='2'||vm.data.from==='3'){
             console.log('获取课时详情...');
             Course_service.get_PreviewViewPeriod({
-                    lessonPeriodId:vm.data.period
+                params:{lessonPeriodId:vm.data.period}
             }).then(function (res) {
                 if(res.data.code===0){
                     console.log('成功获取课时详情');
                     vm.period = res.data.data;
                     console.log('课时详情',vm.period);
-                        vm.periodName    = vm.period.lessionPeriodName,
-                        vm.book.bookName = vm.period.bookName,
-                        vm.book.bookId   = vm.period.bookId,
+                        vm.periodName    = vm.period.lessonPeriodName,
+                        vm.bookName      = vm.period.bookName,
+                        vm.bookId        = vm.period.bookId,
                         vm.information   = vm.period.information,
                         vm.awardStar     = vm.period.awardStar,
                         vm.lock          = vm.period.needPay,
@@ -45,9 +46,8 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                 vm.needStar = 0;
             }
             vm.params = {
-                lessionPeriodId:vm.period.lessionPeriodId||null,
+                id:vm.period.lessonPeriodId,
                 name:vm.periodName,
-                bookId:vm.book.bookId,
                 information:vm.information,
                 awardStar:vm.awardStar,
                 needPay:vm.lock,
@@ -59,7 +59,7 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                 console.log('新增参数',vm.params);
                 Course_service.get_PreviewAddPeriod({
                     name:vm.periodName,
-                    bookId:vm.book.bookId,
+                    bookId:vm.Book.id,
                     information:vm.information,
                     awardStar:vm.awardStar,
                     needPay:vm.lock,
@@ -69,7 +69,7 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                     if(res.data.code===0){
                         console.log('新增成功');
                         console.log(res);
-                        $state.go('backStage.previewManage.period')
+                        $state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book})
                     }
                 })
             }else if($stateParams.from === '3'){
@@ -80,16 +80,22 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                     if(res.data.code===0){
                         console.log('编辑成功');
                         console.log(res);
-                        $state.go('backStage.previewManage.period')
+                        $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
+                            $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book})
                     }
                 })
             }else {
-                $state.go('backStage.previewManage.period')
+                $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
+                    $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book})
             }
 
         }
 
-
+        //取消
+        vm.cancel = function () {
+            $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
+                $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book,page:1})
+        }
 
 
 

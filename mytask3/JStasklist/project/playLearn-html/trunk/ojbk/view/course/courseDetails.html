@@ -1,16 +1,16 @@
 <div class="course_details_clear-fix">
     <div class="course_details_main">
         <div class="course_details_main_top">
-            <img ng-src="{{vm.courseDetail.Logo}}" class="course_details_main_img">
+            <img ng-src="{{vm.courseDetail.logo}}" class="course_details_main_img">
             <div class="course_details_middle">
-                <div class="course_details_title">{{vm.courseDetail.courseName}}</div>
+                <div class="course_details_title">{{vm.courseDetail.name}}</div>
                 <div class="course_details_info">
-                    <div class="course_details_font little_fix">难&nbsp度:<span>C级</span></div>
-                    <div class="course_details_font">资料数:<span>{{vm.courseDetail.dataNumber}}</span></div>
+                    <div class="course_details_font little_fix">年&nbsp级:<span>{{vm.courseDetail.grade|grade}}</span></div>
+                    <div class="course_details_font">资料数:<span>{{vm.courseDetail.dataCount}}</span></div>
                 </div>
                 <div class="course_details_info">
-                    <div class="course_details_font little_fix">进&nbsp度:<span>{{vm.courseDetail.courseProgress}}/{{vm.courseDetail.lessonPeriodNumber}}</span></div>
-                    <div class="course_details_font">学习人数:<span>{{vm.courseDetail.studyNumber}}</span></div>
+                    <div class="course_details_font little_fix">进&nbsp度:<span>{{vm.courseDetail.userCourseProgress}}/{{vm.courseDetail.totalCourseProgress}}</span></div>
+                    <div class="course_details_font">学习人数:<span>{{vm.courseDetail.studyCount}}</span></div>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
             <p class="course_details_bottom_title">课程简介:</p><p class="course_details_bottom_content">{{vm.courseDetail.intro}}</p>
         </div>
     </div>
-    <div class="course_details_main" ui-sref="app.period" ng-repeat="periodList in vm.periodLists track by $index">
-        <div class="course_details_float" ng-class="periodList.lessonPeriodStatus|lessonPeriodClass"><p class="course_details_status">{{periodList.lessonPeriodStatus|lessonPeriodStatus}}</p></div>
+    <div class="course_details_main" ng-click="vm.course_detail(periodList)" ng-repeat="periodList in vm.periodLists track by $index">
+        <div class="course_details_float" ng-class="periodList.studyStatus|lessonPeriodClass"><p class="course_details_status">{{periodList.studyStatus|lessonPeriodStatus}}</p></div>
         <div>
-            <p class="course_details_mission_title">{{periodList.lessonPeriodName}}</p>
+            <p class="course_details_mission_title">{{periodList.name}}</p>
             <div class="course_details_mission_list">
                 <img src="image/app/mission.png" alt="任务列表" class="course_details_mission_img">任务：{{periodList.taskCount}}
             </div>

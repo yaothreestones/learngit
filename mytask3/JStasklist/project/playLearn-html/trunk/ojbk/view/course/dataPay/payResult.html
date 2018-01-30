@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="payResult-body">
+    <div class="payResult_modal">
+        <div>
+            <img ng-src="{{vm.imgShow}}" alt="" class="payResult_sure_img">
+            <div class="payResult_info">{{vm.successPay}}</div>
+            <div class="payResult_main">
+                <div class="payResult_content">您的资料已经发送至:</div>
+                <div class="payResult_content">{{vm.userEmail}}</div>
+                <div class="payResult_content">请注意查收</div>
+            </div>
+        </div>
+        <div class="payResult_bottom">
+            <button class="payResult_turnBack" ng-class="{payResult_focus:vm.select,payResult_loseFocus:!vm.select}" ng-click="vm.goPage()">回到首页</button>
+            <button class="payResult_nextPeriod" ng-class="{payResult_focus:vm.isSelect,payResult_loseFocus:!vm.isSelect}" ng-click="vm.nextPeriod()">下一课时</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

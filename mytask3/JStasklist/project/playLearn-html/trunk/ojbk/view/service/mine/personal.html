@@ -4,28 +4,34 @@
             <div class="pd-left-20 ">
                 <a class="item item-icon-left item-icon-right basicdata">
                     <span>头像</span>
-                    <img ng-src="{{vm.data.img}}" class="person-img"></img>
-                    <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
+                    <img ng-src="vm.user.profilePicture" class="person-img"/>
+                    <img src="image/mine/right.png" class="img"/>
                 </a>
             </div>
-            <div class="pd-left-20 ">
+            <div class="pd-left-20" ui-sref="app.userData">
                 <a class="item item-icon-left item-icon-right basicdata">
                     <span>昵称</span>
-                    <span class="person-right">{{vm.data.nike}}</span>
+                    <span class="person-right">{{vm.user.name}}</span>
                     <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
                 </a>
             </div>
-            <div class="pd-left-20 " ontouchstart ng-click="vm.picker()">
-                <a class="item item-icon-left item-icon-right basicdata">
+            <div class="pd-left-20 " ontouchstart>
+                <a one-col-pop-picker
+                   id="test"
+                   picker-data="vm.$picker.constData"
+                   callback="vm.$picker.callback"
+                   value="vm.$picker.value"
+                   key="vm.$picker.key"
+                   class="item item-icon-left item-icon-right basicdata">
                     <span>年级</span>
-                    <span class="person-right">{{vm.data.grade}}</span>
-                    <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
+                    <span class="person-right">{{vm.$picker.key}}</span>
+                    <img src="image/mine/right.png" class="img"/>
                 </a>
             </div>
-            <div class="pd-left-20 ">
+            <div class="pd-left-20 " ui-sref="app.ChangeMailbox">
                 <a class="item item-icon-left item-icon-right basicdata">
                     <span>邮箱</span>
-                    <span class="person-right">{{vm.data.mail}}</span>
+                    <span class="person-right">{{vm.user.email}}</span>
                     <img src="image/mine/right.png" class="img" ui-sref="app.personal"/>
                 </a>
             </div>

@@ -8,16 +8,17 @@
                             标题
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control"  disabled="none">
+                            <input type="text" class="form-control" ng-model="vm.$stateParams.title">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 form-group">
                         <label class="col-sm-3 control-label">
-                            发送人群
+                            分类
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control"
-                                     ng-options="c.value as c.txt for c in vm.grade">
+                                    ng-model="vm.$stateParams.type"
+                                    ng-options="c.value as c.txt for c in vm.sendType">
                             </select>
                         </div>
                     </div>
@@ -26,15 +27,16 @@
                             消息类型
                         </label>
                         <div class="col-sm-9 ">
-                            <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="selectedName" ng-options="c.value as c.txt for c in vm.sendStatus">
+                            <select class="form-control"
+                                    ng-model="vm.$stateParams.status" ng-options="c.value as c.txt for c in vm.upperOrLower">
                             </select>
                         </div>
                     </div>
                     <div class="row pd-bottom-2">
                         <div class="col-md-4 pull-right text-right">
                             <div params="vm.searchParams" class="ng-isolate-scope">
-                                <button type="button" class="btn btn-success" ng-click="search()">查询</button>
+                                <button type="button" class="btn btn-success" ng-click="vm.clear()">重置</button>
+                                <button type="button" class="btn btn-success" ng-click="vm.search()">查询</button>
                             </div>
                         </div>
                     </div>
@@ -61,45 +63,47 @@
                 <th>操作</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="self in [1,2,3,4,5,6]">
+                <tr ng-repeat="self in vm.ajaxData">
                     <td>{{$index+1}}</td>
-                    <td>学习</td>
-                    <td><img src="image/logo.png" height="116" width="115"/></td>
-                    <td>1</td>
-                    <td>111</td>
-                    <td>1</td>
+                    <td>{{self.title}}</td>
+                    <td><img ng-src="{{self.homePicture}}" height="116" width="115"/></td>
+                    {{self.homePicture}}
+                    <td>{{self.type | service_type}}</td>
+                    <td>{{self.intro}}</td>
+                    <td>{{self.status==1?'上架':'下架'}}</td>
                     <td>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
                                 ng-clock>
-                            <!--1草稿，2上线-->
-                            <a ui-sref="backStage.serviceManage.sees">查看</a>
+                            <a ui-sref="backStage.serviceManage.sees({id:self.id})">查看</a>
                         </button>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
                                 ng-clock>
-                            <a  ui-sref="backStage.serviceManage.check" ng-click="thaw()" style="cursor:pointer;">编辑</a>
+                            <a  ui-sref="backStage.serviceManage.check({id:self.id})" ng-click="thaw()" style="cursor:pointer;">编辑</a>
+                        </button>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-click="vm.grounding(self.id,self.status)">
+                                {{self.status==1?'下架':'上架'}}
                         </button>
                         <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
                                 class="btn btn-sm  btn-primary "
                                 ng-clock>
-                            <a ng-click="grounding()" style="cursor:pointer;">上架</a>
-                        </button>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary "
-                                ng-clock>
-                            <a ng-click="delete()" style="cursor:pointer;">刪除</a>
+                            <a ng-click="vm.delete(self.id)" style="cursor:pointer;">刪除</a>
                         </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <div class="row" >
+        <div class="row">
             <div class="its col-xs-11 pull-right">
-                <uib-pagination total-items="80" ng-model="currentPage" max-size="maxSize"
+                <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="5"
+                                items-per-page="vm.size"
                                 first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
-                                boundary-links="true" boundary-link-numbers="true"></uib-pagination>
+                                boundary-links="true" boundary-link-numbers="true"
+                                ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
             </div>
         </div>
     </div>

@@ -4,4 +4,5 @@ var myApp = angular.module("app", [
     "ui.bootstrap",
     'imgUploadDirective',
     'fileUploadDirective',
+    "moment-picker"
 ]);

@@ -3,69 +3,63 @@
         <fieldset>
             <div class="row">
             <div class="form-group">
-                <label class="col-sm-1 control-label" for="ds_name">资料类别</label>
+                <label class="col-sm-1 control-label" >资料类别</label>
                 <div class="col-sm-3">
-                    <input  ng-show="vm.isShow" ng-disabled="vm.disabled" class="form-control" ng-disabled="disabled" ng-model="name" type="text"   />
-                    <select class="form-control" id="ds_name"
-                            ng-show="vm.show"
-                            ng-model="datums" ng-options="datums.value as datums.txt for datums in vm.datum">
+                    <select ng-disabled="vm.disabled" class="form-control" ng-model="vm.period.type"  ng-options="datum.id as datum.txt for datum in vm.Datum" >
                     </select>
                 </div>
-                <label class="col-sm-1 control-label" for="ds_name">所属科目</label>
+                <label class="col-sm-1 control-label" >所属科目</label>
                 <div class="col-sm-3">
-                    <input  ng-show="vm.isShow" ng-disabled="vm.disabled" class="form-control" ng-disabled="disabled" ng-model="name" type="text"   />
-                    <select class="form-control" id="ds_name"
-                            ng-show="vm.show"
-                            ng-model="accounts" ng-options="accounts.value as accounts.txt for accounts in vm.account">
+                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.subjectId"  ng-options="subjects.id as subjects.name for subjects in vm.Books">
+                        <option value="">全部</option>
                     </select>
                 </div>
-                <label class="col-sm-1 control-label" for="ds_name">年级</label>
+                <label class="col-sm-1 control-label">年级</label>
                 <div class="col-sm-3">
-                    <input  ng-show="vm.isShow" ng-disabled="vm.disabled" class="form-control" ng-disabled="disabled" ng-model="name" type="text"   />
-                    <select class="form-control"
-                            ng-show="vm.show"
-                            ng-model="grades" ng-options="grades.value as grades.txt for grades in vm.grade">
+                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.grade" ng-options="grades.id as grades.txt for grades in vm.downGrade">
+                        <option value="">全部</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-1 control-label step" for="ds_host">所属课程/教材</label>
+                <label class="col-sm-1 control-label step" >所属课程</label>
                 <div class="col-sm-3">
-                    <input  ng-show="vm.isShow" ng-disabled="vm.disabled" class="form-control" ng-disabled="disabled" ng-model="name" type="text"   />
-                    <select class="form-control" id="ds_name"
-                            ng-show="vm.show"
-                            ng-model="subjects" ng-options="subjects.value as subjects.txt for subjects in vm.subject">
+                    <select class="form-control" ng-disabled="vm.disabled" ng-model="(vm.period.bookId)"  ng-options="(courses.id||courses.courseId) as courses.name for courses in vm.Book">
+                        <option value="">全部</option>
                     </select>
                 </div>
-                <label class="col-sm-1 control-label" for="ds_name">所属课时</label>
+                <label class="col-sm-1 control-label" >所属课时</label>
                 <div class="col-sm-3">
-                    <input  ng-show="vm.isShow" ng-disabled="vm.disabled" class="form-control" ng-disabled="disabled" ng-model="name" type="text"   />
-                    <select class="form-control" id="ds_name"
-                            ng-show="vm.show"
-                            ng-model="periods" ng-options="periods.value as periods.txt for periods in vm.period">
+                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.lessonPeriodId"  ng-options="(period.lessonPeriodId||period.id) as (period.lessonPeriodName||period.name) for period in vm.Periods">
+                        <option value="">全部</option>
                     </select>
                 </div>
-                <!--<label class="col-sm-1 control-label" for="ds_name">状态</label>-->
-                <!--<div class="col-sm-3">-->
-                    <!--<select class="form-control" id="ds_name">-->
-                        <!--<option value="">全部</option>-->
-                        <!--<option value="0">上架</option>-->
-                        <!--<option value="1">下架</option>-->
-                    <!--</select>-->
-                <!--</div>-->
             </div>
-            <button type="button" class="btn btn-default pull-right">查询</button>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default" style="margin-right: 5px" ng-click="vm.inquiry()">查询</button>
+                    <button type="button" ng-show="vm.show" class="btn btn-default"  ng-click="vm.clear()">重置</button>
+                </div>
+
             </div>
         </fieldset>
     </form>
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 edging">
-
-    <h5><strong> | </strong>资料管理<a ng-show="vm.isShows" ui-sref="backStage.dataManage.dataManage({'from':1})" class="pull-right">新增</a></h5>
+    <h5><strong> | </strong>资料管理
+        <a ng-show="vm.newly"
+           ui-sref="backStage.dataManage.dataManage({
+           add:vm.period.add,
+           from:3,type:vm.period.type,
+           bookId:vm.period.bookId,
+           lessonPeriodId:vm.period.lessonPeriodId,
+           courseName:vm.period.courseName,
+           subjectName:vm.period.subjectName,
+           subjectId:vm.period.subjectId,
+           lessonPeriodName:vm.period.lessonPeriodName,bookName:vm.period.bookName})" class="pull-right">新增</a></h5>
     <table class="table table-striped gridiron edging">
     <thead>
-    <tr ng-hide="vm.newly">
+    <tr>
         <th>序号</th>
         <th>所属课程/教材</th>
         <th>所属课时</th>
@@ -73,30 +67,44 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr ng-repeat="self in vm.means">
         <td>{{$index+1}}</td>
-        <td>{{self.bookNameCourseName}}</td>
+            <td>{{self.courseName||self.bookName}}</td>
         <td>{{self.lessonPeriodName}}</td>
         <td>
-            <a ui-sref="backStage.dataManage.dataManage({'from':2,'id':1})">查看</a>
-            <a ui-sref="backStage.dataManage.dataManage({'from':3,'id':1})">编辑</a>
-            <a>删除</a>
-        </td>
-    </tr>
-    <tr ng-repeat="self in vm.demoLists">
-        <td>{{$index+1}}</td>
-        <td>{{self.bookNameCourseName}}</td>
-        <td>{{self.lessonPeriodName}}</td>
-        <td>
-            <a ui-sref="backStage.dataManage.dataManage({'from':2})">查看</a>
-            <a ui-sref="backStage.dataManage.dataManage({'from':3})">编辑</a>
-            <a>删除</a>
+            <a ui-sref="backStage.dataManage.dataManage({
+            add:vm.period.add,
+            from:1,type:vm.period.type,
+            grade:vm.period.grade,
+            datumId:self.id,
+            courseName:self.courseName,
+            courseId:self.courseId,
+            bookName:self.bookName,
+            lessonPeriodName:self.lessonPeriodName,
+            bookId:self.bookId,
+            subjectName:vm.period.subjectName,
+            subjectId:vm.period.subjectId,
+            lessonPeriodId:self.lessonPeriodId,})">查看</a>
+            <a ui-sref="backStage.dataManage.dataManage({
+            add:vm.period.add,
+            from:2,type:vm.period.type,
+            grade:vm.period.grade,
+            datumId:self.id,
+            courseId:self.courseId,
+            courseName:self.courseName,
+            bookName:self.bookName,
+            subjectName:vm.period.subjectName,
+            subjectId:vm.period.subjectId,
+            lessonPeriodName:self.lessonPeriodName,
+            bookId:self.bookId,
+            lessonPeriodId:self.lessonPeriodId,})">编辑</a>
+            <a ng-click="vm.delete(self.id)">删除</a>
         </td>
     </tr>
     </tbody>
 </table>
     <div class="its col-xs-11 pull-right text-right">
-        <uib-pagination total-items="12" ng-model="vm.currentPage" items-per-page="10" max-size="5" first-text="第一页"
+        <uib-pagination total-items="vm.total" ng-model="vm.currentPage" items-per-page="vm.period.size" max-size="5" first-text="第一页"
                         previous-text="上一页" next-text="下一页"
                         last-text="最后页" boundary-links="true"
                         ng-click="vm.pageGo(vm.currentPage)"

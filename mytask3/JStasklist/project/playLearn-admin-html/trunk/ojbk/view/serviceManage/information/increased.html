@@ -9,39 +9,41 @@
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">标题</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" disabled="none">
+                            <input type="text" class="form-control" ng-model="vm.params.title">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">类型</label>
                         <div class="col-sm-10">
-                            <select class="form-control"  disabled="none">
-                                <option value="">banner资讯</option>
+                            <select class="form-control"
+                                    ng-model="vm.params.type" ng-options="c.value as c.txt for c in vm.sendType">
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">封面</label>
                         <div class="col-sm-10">
-                            <img-upload belong="2" ajax-ads="'a/u/admin/file/up'" img-src="" btn-title="上传" ng-disabled=""></img-upload>
+                            <img-upload belong="5" ajax-ads="vm.ajax" img-src="vm.params.homePicture" btn-title="上传"></img-upload>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">摘要</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" rows="3" ng-disabled=""></textarea>
+                            <textarea class="form-control" rows="3" ng-model="vm.params.intro"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 col-lg-1 control-label" >正文</label>
+                        <label class="col-sm-2 col-lg-1 control-label">正文</label>
                         <div class="col-sm-10">
-                            <div create-editoer-instance ng-model="params.content"></div>
+                            <div create-editoer-instance ng-model="vm.params.text"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label"></label>
                         <div class="col-sm-10">
-                            <label type="button" class="btn btn-success mg-top-50" ng-click="">確定</label>
+                            <button type="button" class="btn btn-success mg-top-50"
+                                   ng-click="vm.indormationAdd()"
+                                   ng-disabled="!vm.params.title||!vm.params.type||!vm.params.homePicture||!vm.params.intro||!vm.params.text">確定</button>
                             <label type="button" class="btn btn-defult mg-top-50 mg-left-30 border">
                                 返回
                             </label>

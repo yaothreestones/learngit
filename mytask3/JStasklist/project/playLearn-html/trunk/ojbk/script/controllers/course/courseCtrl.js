@@ -1,26 +1,66 @@
 angular.module('app')
-    .controller('courseCtrl',['classes','Course_service','$state',
-        function (classes,Course_service,$state) {
+    .controller('courseCtrl',['classes','Course_service','$state','$http','$stateParams',
+        function (classes,Course_service,$state,$http,$stateParams) {
             var vm =this;
             vm.subject_isShow = false;
             vm.class_isShow = false;
-            vm.subject_selected = '课程';
-            vm.class_selected = '年级';
-            vm.Course_service = Course_service;
-            vm.params = {
-                SubjectId:1,
-                Grade:0,//全部年级
-                Page:1,
-                Size:10
-            };
-            vm.Course_service.get_subject({
-                Size:1,
-                Page:10
+            vm.class_selected = $stateParams.className||'年级';
+            vm.params = {};
+            vm.scroll = {};
+            vm.scroll.items = [];
+            Course_service.get_subject({
+                params:{
+                    size:999,
+                    page:1,
+                    status:1
+                }
+
             }).then(function (res) {
                 vm.subjects = res.data.data;
-                vm.Course_service.get_course_list(vm.params).then(function (res) {
-                    vm.courseLists = res.data.list;
-                });
+                console.log('科目列表',vm.subjects);
+                vm.subject_selected = $stateParams.subjectName||vm.subjects[0].name;
+                vm.params = {
+                    subjectId:vm.subjects[0].id,
+                    grade:'',
+                    page:1,
+                    size:10
+                };
+
+                vm.scroll.nextPage = function () {
+                    vm.scroll.subject = vm.params.subjectId;
+                    vm.scroll.busy = false;
+                    vm.scroll.after = '';
+                    vm.scroll.page = Math.ceil(vm.scroll.items.length/10) + 1;
+                    if(vm.scroll.busy){
+                        return;
+                    }
+                    vm.scroll.busy = true;
+                    $http({
+                        method:'post',
+                        url:"/a/u/admin/course/search/list",
+                        data: {
+                            subjectId: $stateParams.subject||vm.scroll.subject,
+                            grade: $stateParams.grade||vm.params.grade,
+                            page: vm.scroll.page,
+                            size: 10
+                        },
+                        transformRequest: function (data) {return $.param(data);},
+                        headers: {'content-type': 'application/x-www-form-urlencoded'}
+                    }).then(function (res) {
+                        if(res.data.code === 0){
+                            var items = res.data.data;
+                            vm.scroll.items.push.apply(vm.scroll.items,items);
+                            console.log(vm.scroll.items);
+                            vm.scroll.busy = false;
+                            vm.scroll.info = '加载中...'
+                        }else{
+                            vm.scroll.busy = true;
+                            vm.scroll.info = '已无更多...'
+                        }
+                    })
+                };
+                console.log(vm.scroll);
+                vm.scroll.nextPage();
             });
             vm.subject_search = function () {
                 vm.subject_isShow = !vm.subject_isShow;
@@ -32,27 +72,23 @@ angular.module('app')
             };
             vm.classes = classes;
             vm.subject_select = function (x) {
-                vm.subject_selected = x.subject;
+                vm.subject_selected = x.name;
                 vm.subject_isShow = false;
-                vm.params.SubjectId = x.subjectId;
+                vm.params.subjectId = x.id;
                 console.log(vm.params);
-                vm.Course_service.get_course_list(vm.params)
-                    .then(function (res) {
-                        vm.courseLists = res.data.list;
-                    });
+                $state.go('app.course',{subject:vm.params.subjectId,grade:vm.params.grade,subjectName:vm.subject_selected,className:vm.class_selected},{reload:true})
             };
             vm.class_select = function (x) {
                 vm.class_selected = x.name;
                 vm.class_isShow = false;
-                vm.params.Grade = x.id;
+                vm.params.grade = x.id;
                 console.log(vm.params);
-                vm.Course_service.get_course_list(vm.params)
-                    .then(function (res) {
-                        vm.courseLists = res.data.list;
-                    });
+                $state.go('app.course',{subject:vm.params.subjectId,grade:vm.params.grade,subjectName:vm.subject_selected,className:vm.class_selected},{reload:true})
             };
             vm.course_detail = function (x) {
                 $state.go('app.courseDetails',{courseId:x});
                 console.log(x)
-            }
+            };
+            //上拉加载
+
         }]);

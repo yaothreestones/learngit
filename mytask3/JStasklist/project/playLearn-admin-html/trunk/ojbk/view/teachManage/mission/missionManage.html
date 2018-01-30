@@ -32,69 +32,81 @@
                     </form>
                     <div class="col-lg-12 col-md-12 col-sm-12 edging while mission-fixed">
                         <h5 style="margin: 0"><strong> | </strong>步骤内容保存排序</h5>
-                        <div class="mission-task-step" ng-repeat="step in mission_steps" ng-if="vm.index[$index]">
+                        <div class="mission-task-step" ng-repeat="step in vm.mission_steps" ng-if="vm.index[$index]">
                             <div class="row mission_standard">
                                 <div class="col-sm-1 mission_step_num">{{$index+1}}</div>
+                                <!--选项下拉菜单-->
                                 <div class="col-sm-2">
-                                    <select class="form-control" ng-model='select' id="ds_subject" ng-options="step.name for step in vm.steps" ng-change="selected(select,$index)"></select>
+                                    <div class="form-control" style="border: 0;background: #fff" ng-if="show">{{vm.select[$index]|taskType}}</div>
+                                    <select class="form-control" ng-model='vm.select[$index]' id="ds_subject" ng-options="step.id as step.name for step in vm.steps" ng-hide="show"></select>
                                 </div>
-                                <div class="col-sm-9">
+                                <label class="col-sm-2" ng-show="vm.select[$index]===5">
+                                    <input type="checkbox" ng-false-value="0" ng-true-value="1" ng-model="vm.follow_task[$index]"  ng-disabled="show">跟读任务
+                                </label>
+                                <div class="col-sm-7">
                                     <div class="col-sm-2 col-sm-offset-10">
-                                        <div class="form-control" style="text-align: center" ng-click="vm.delete($index)">删除</div>
+                                        <button class="form-control" style="text-align: center" ng-click="vm.delete($index)"  ng-if="!show">删除</button>
                                     </div>
                                 </div>
                             </div>
+                            <!--文件上传模块-->
                             <div class="row mission_standard">
                                 <div class="col-sm-10 col-sm-offset-1">
-                                    <img ng-src="" alt="">
-                                    <file-upload ajax-ads="vm.ajax" img-src="vm.img[$index]" btn-title="上传" ng-disabled=""  img-src="src" select="select" ng-hide="select.id===4||select.id === 3" ng-click="img_url($index)" belong="3"></file-upload>
+                                    <img ng-src="{{vm.img[$index]}}" alt="" ng-if="show&&vm.select[$index]===1" height="100" width="100">
+                                    <audio ng-src="{{vm.img[$index]}}" ng-if="(show&&vm.select[$index]===2)||(show&&vm.select[$index]===5)" controls="controls"></audio>
+                                    <file-upload ajax-ads="vm.ajax" img-src="vm.img[$index]" btn-title="上传" ng-disabled=""  img-src="src" select="vm.select[$index]" ng-hide="vm.select[$index]===4||vm.select[$index] === 3||show" belong="3"></file-upload>
                                 </div>
                             </div>
+                            <!--富文本框-->
                             <div class="row mission_standard">
                                 <div class="col-sm-1"></div>
-                                <div create-editoer-instance ng-model="editorContent" class="col-sm-10 rich" ng-show="select.id===4||select.id===5" ng-change="text(editorContent,$index)"></div>
+                                <div ng-if="(show&&vm.select[$index]===4)||(show&&vm.select[$index]===5)">{{vm.editorContent[$index]}}</div>
+                                <div class="col-sm-10" ng-if="(!show&&vm.select[$index]===4)||(!show&&vm.select[$index]===5)">
+                                    <div create-editoer-instance ng-model="vm.editorContent[$index]" class="rich"  ng-disabled="show"></div>
+                                </div>
                             </div>
+                            <!--预览视频-->
                             <div class="row mission_standard">
-                                <div class="col-sm-10 col-sm-offset-1"  ng-show="select.id===3">
-                                    <input type="url" ng-model="vm.videoUrl" style="width: 100%" ng-change="vm.video(vm.videoUrl,$index)">
-                                    <div >预览视频{{vm.videoUrl}}</div>
+                                <div class="col-sm-10 col-sm-offset-1"  ng-show="vm.select[$index]===3">
+                                    <input type="url" ng-model="vm.videoUrl[$index]" style="width: 100%" ng-disabled="show">
+                                    预览视频:<a ng-href="{{vm.videoUrl[$index]}}">{{vm.videoUrl[$index]}}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </fieldset>
-                <div class="button-bottom" ng-click="add_step()">
+                <button class="button-bottom" ng-click="add_step()"  ng-if="!show">
                     <div class="mission_col"></div>
                     <div class="mission_row"></div>
-                </div>
+                </button>
                 <div class="form-horizontal">
                     <div class="row">
                         <label class="col-sm-1 control-label">提示</label>
                         <label>
-                            <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.tips">启用
+                            <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.tips"  ng-disabled="show">启用
                         </label>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label">贴士类型</label>
                         <label>
-                            <input type="radio" name="tips" value="1" ng-checked="true" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined">鼓励
+                            <input type="radio" name="tips" value="1" ng-checked="true" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined||show">鼓励
                         </label>
                         <label>
-                            <input type="radio" name="tips" value="2" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined">购买
+                            <input type="radio" name="tips" value="2" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined||show">购买
                         </label>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label">弹出时间</label>
                         <label>
-                            <input type="radio" name="time" value="1" ng-checked="true" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined">当前任务前
+                            <input type="radio" name="time" value="1" ng-checked="true" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined||show">当前任务前
                         </label>
                         <label>
-                            <input type="radio" name="time" value="2" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined">当前任务后
+                            <input type="radio" name="time" value="2" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined||show">当前任务后
                         </label>
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label">提示内容</label>
-                        <textarea class="col-sm-11" style="max-width: 91.66%;" ng-model="vm.promptInformation" ng-disabled="vm.tips===0||vm.tips===undefined"></textarea>
+                        <textarea class="col-sm-11" style="max-width: 91.66%;" ng-model="vm.promptInformation" ng-disabled="vm.tips===0||vm.tips===undefined||show"></textarea>
                     </div>
                 </div>
                 <div class="row mission_standard">

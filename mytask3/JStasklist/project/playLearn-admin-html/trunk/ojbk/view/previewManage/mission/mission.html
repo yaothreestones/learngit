@@ -5,13 +5,14 @@
                 <label class="col-sm-1 control-label" for="ds_subject">年级</label>
                 <div class="col-sm-3">
                     <div class="form-control" ng-show="vm.show">{{vm.grade|grade}}</div>
-                    <select class="form-control" id="ds_subject" ng-options="grade.name for grade in vm.Grade" ng-model="vm.grade" ng-hide="vm.show">
+                    <select class="form-control" id="ds_subject" ng-options="grade.id as grade.name for grade in vm.Grade" ng-model="vm.grade" ng-hide="vm.show" ng-change="vm.class(vm.grade)">
+                        <option value="">全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_grade">所属教材</label>
                 <div class="col-sm-3">
-                    <div class="form-control" ng-show="vm.show">{{vm.book}}</div>
-                    <select class="form-control" id="ds_grade" ng-hide="vm.show" ng-model="vm.book" ng-options="book.bookName for book in vm.Books">
+                    <div class="form-control" ng-show="vm.show">{{vm.bookName}}</div>
+                    <select class="form-control" id="ds_grade" ng-hide="vm.show" ng-model="vm.book" ng-options="book.id as (book.name + '-' + (book.grade|grade) + '-' + (book.version)) for book in vm.Books" ng-change="vm.Datum(vm.book)">
                         <option value="" selected>全部</option>
                     </select>
                 </div>
@@ -24,13 +25,15 @@
                 <label class="col-sm-1 control-label" for="ds_period">版本</label>
                 <div class="col-sm-3">
                     <div class="form-control" ng-show="vm.show">{{vm.press}}</div>
-                    <select class="form-control" id="ds_period" ng-options="press.name for press in vm.Press" ng-model="vm.press" ng-hide="vm.show">
+                    <select class="form-control" id="ds_period" ng-options="press.name as press.name for press in vm.Press" ng-model="vm.press" ng-hide="vm.show" ng-change="vm.version(vm.press)">
+                        <option value="">全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_mission_name">所属课时</label>
                 <div class="col-sm-3">
-                    <div class="form-control" ng-show="vm.show">{{vm.lessonPeriod}}</div>
-                    <select class="form-control" id="ds_mission_name" ng-hide="vm.show" ng-model="vm.lessonPeriod">
+                    <div class="form-control" ng-show="vm.show">{{vm.lessonPeriodName}}</div>
+                    <select class="form-control" id="ds_mission_name" ng-hide="vm.show" ng-model="vm.lessonPeriod" ng-options="period.lessonPeriodId as (period.lessonPeriodName+'-'+(period.grade|grade)+'-'+period.version) for period in vm.Periods" ng-change="vm.period(vm.lessonPeriod)">
+                        <option value="">全部</option>
                     </select>
                 </div>
             </div>
@@ -59,12 +62,12 @@
             <td>{{task.taskName}}</td>
             <td>{{task.grade|grade}}</td>
             <td>{{task.bookName}}</td>
-            <td>{{task.press}}</td>
+            <td>{{task.version}}</td>
             <td>{{task.lessonPeriodName}}</td>
             <td>
-                <a ui-sref="backStage.previewManage.missionManage({from:2})">查看</a>
-                <a ui-sref="backStage.previewManage.missionManage({from:3})">编辑</a>
-                <a>删除</a>
+                <a ng-click="vm.view(task)">查看</a>
+                <a ng-click="vm.edit(task)">编辑</a>
+                <a ng-click="vm.delete(task.taskId)">删除</a>
             </td>
         </tr>
         </tbody>

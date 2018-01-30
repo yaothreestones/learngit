@@ -25,7 +25,7 @@
                     </div>
                     <ul class="submenu">
                         <li><a id="1" ui-sref="backStage.teachManage.subject({page:1,size:10,status:null,type:null,name:null})">科目管理</a></li>
-                        <li><a id="2" ui-sref="backStage.teachManage.courses({page:1,size:10,add:null,subjectId:null,grade:null,courseName:null,status:null,subject:null})">课程管理</a></li>
+                        <li><a id="2" ui-sref="backStage.teachManage.courses({page:1,size:10,add:null,obj:null,subject:null})">课程管理</a></li>
                         <li><a id="3" ui-sref="backStage.teachManage.period({page:1,size:10,obj:null,add:null,course:null})">课时管理</a></li>
                         <li><a id="4" ui-sref="backStage.teachManage.mission({add:null,page:1,size:10,period:null,grade:null,obj:null,mission:null})">任务管理</a></li>
                     </ul>
@@ -33,15 +33,15 @@
                 <li>
                     <div class="link"><i class="fa fa-suitcase"></i>同步预习管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
-                        <li><a id="5" ui-sref="backStage.previewManage.datum({page:1,size:10})">教材管理</a></li>
-                        <li><a id="6" ui-sref="backStage.previewManage.period({page:1,size:10,add:null,book:null})">课时管理</a></li>
-                        <li><a id="7" ui-sref="backStage.previewManage.mission({page:1,size:10,add:null,period:null})">任务管理</a></li>
+                        <li><a id="5" ui-sref="backStage.previewManage.datum({page:1,size:10,obj:null})">教材管理</a></li>
+                        <li><a id="6" ui-sref="backStage.previewManage.period({page:1,size:10,add:null,book:null,obj:null})">课时管理</a></li>
+                        <li><a id="7" ui-sref="backStage.previewManage.mission({page:1,size:10,add:null,period:null,obj:null})">任务管理</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="link"><i class="fa fa-rebel"></i>资料管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
-                        <li><a id="8" ui-sref="backStage.dataManage.data({add:2,page:1,size:10})">资料管理</a></li>
+                        <li><a id="8" ui-sref="backStage.dataManage.data({add:2,page:1,size:10,type:1,from:null,datumId:null,subjectName:null,subjectId:null,courseName:null,lessonPeriodName:null,bookName:null,courseId:null,bookId:null,lessonPeriodId:null})">资料管理</a></li>
                     </ul>
                 </li>
                 <li>
@@ -54,22 +54,22 @@
                 <li>
                     <div class="link"><i class="fa fa-tty"></i>客服管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
-                        <li><a id="11" ui-sref="backStage.serviceManage.party">用户管理</a></li>
-                        <li><a id="12" ui-sref="backStage.serviceManage.enroll">注册统计</a></li>
-                        <li><a id="13" ui-sref="backStage.serviceManage.information">资讯管理</a></li>
-                        <li><a id="14" ui-sref="backStage.serviceManage.news">消息管理</a></li>
-                        <li><a id="15" ui-sref="backStage.serviceManage.help">帮助管理</a></li>
-                        <li><a id="16" ui-sref="backStage.serviceManage.objection">意见管理</a></li>
+                        <li><a id="11" ui-sref="backStage.party({page:1,size:10})">用户管理</a></li>
+                        <li><a id="12" ui-sref="backStage.enroll">注册统计</a></li>
+                        <li><a id="13" ui-sref="backStage.information({page:1,size:10})">资讯管理</a></li>
+                        <li><a id="14" ui-sref="backStage.news({page:1,size:10})">消息管理</a></li>
+                        <li><a id="15" ui-sref="backStage.help({page:1,size:10})">帮助管理</a></li>
+                        <li><a id="16" ui-sref="backStage.objection({page:1,size:10})">意见管理</a></li>
                         <!--<li><a id="18" ui-sref="backStage.serviceManage.version">版本管理</a></li>-->
                     </ul>
                 </li>
                 <li>
                     <div class="link"><i class="fa fa-globe"></i>后台管理<i class="fa fa-chevron-down"></i></div>
                     <ul class="submenu">
-                        <li><a id="20" ui-sref="backStage.moduleManage.user">模块管理</a></li>
-                        <li><a id="21" ui-sref="backStage.moduleManage.role">角色管理</a></li>
-                        <li><a id="22" ui-sref="backStage.moduleManage.password">密码修改</a></li>
-                        <li><a id="23" ui-sref="backStage.moduleManage.account">账户管理</a></li>
+                        <li><a id="20" ui-sref="backStage.user">模块管理</a></li>
+                        <li><a id="21" ui-sref="backStage.role">角色管理</a></li>
+                        <li><a id="22" ui-sref="backStage.password">密码修改</a></li>
+                        <li><a id="23" ui-sref="backStage.account">账户管理</a></li>
                     </ul>
                 </li>
 

@@ -209,7 +209,7 @@
 }
 /*推荐课程新增*/
 .teach_manage_top-form{
-    margin: 20px 0;
+    /*margin: 20px 0;*/
 }
 .top-form-no-margin {
     text-align: left !important;

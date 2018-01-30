@@ -1,167 +1,155 @@
-<div class="panel pael-default">
-    <div class="panel-body" style="border: 1px solid #f5f5f5;border-bottom: none">
-        <from class="form-horizontal">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label">
-                            用户名
-                        </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" ng-model="vm.manage.name">
+<div ui-view>
+    <div class="panel pael-default">
+        <div class="panel-body" style="border: 1px solid #f5f5f5;border-bottom: none">
+            <from class="form-horizontal">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                用户名
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.name">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                ID
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.userId">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                年级
+                            </label>
+                            <div class="col-sm-9 ">
+                                <select class="form-control"
+                                        ng-model="vm.$stateParams.grade" ng-options="c.value as c.txt for c in vm.grade">
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label">
-                            ID
-                        </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" ng-model="vm.manage.id">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6  form-group">
+                            <label class="col-sm-3 control-label">
+                                学习星数
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.starBegin">
+                            </div>
+                            <label class="col-sm-1 control-label padding-center">
+                                ~
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.starEnd">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                学习课时数
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.studyLessonBegin">
+                            </div>
+                            <label class="col-sm-1 control-label padding-center">
+                                ~
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.studyLessonEnd">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 form-group">
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label">
-                            年级
-                        </label>
-                        <div class="col-sm-9 ">
-                            <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="vm.manage.grade" ng-options="c.value as c.txt for c in vm.grade">
-                            </select>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                邮箱
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="vm.$stateParams.email">
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6  form-group">
-                        <label class="col-sm-3 control-label">
-                            学习星数
-                        </label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="vm.manage.studyStar">
+                        <div class="col-lg-4 col-sm-6 form-group">
+                            <label class="col-sm-3 control-label">
+                                状态
+                            </label>
+                            <div class="col-sm-9 ">
+                                <select class="form-control"
+                                        ng-model="vm.$stateParams.status" ng-options="c.value as c.txt for c in vm.status">
+                                </select>
+                            </div>
                         </div>
-                        <label class="col-sm-1 control-label padding-center">
-                            ~
-                        </label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="vm.manage.studyEnd">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label" ng-model="vm.manage.courseTime">
-                            学习课时数
-                        </label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="col-sm-1 control-label padding-center">
-                            ~
-                        </label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="vm.manage.courseHour">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 form-group">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label">
-                            邮箱
-                        </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" ng-model="vm.manage.email">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 form-group">
-                        <label class="col-sm-3 control-label">
-                            状态
-                        </label>
-                        <div class="col-sm-9 ">
-                            <select class="form-control" ng-init="selectedName = names[0]"
-                                    ng-model="vm.manage.status" ng-options="c.value as c.txt for c in vm.status">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row pd-bottom-2">
-                        <div class="col-md-4 pull-right text-right">
-                            <div class="ng-isolate-scope">
-                                <button type="button" class="btn btn-success" ng-click="vm.search()">查询</button>
+                        <div class="row pd-bottom-2">
+                            <div class="col-md-4 pull-right text-right">
+                                <div class="ng-isolate-scope">
+                                    <button type="button" class="btn btn-success" ng-click="vm.clear()">重置</button>
+                                    <button type="button" class="btn btn-success" ng-click="vm.search()">查询</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </from>
-    </div>
-</div>
-
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <span class="user_management">用户管理（用户总数：?人）</span>
-    </div>
-    <div class="panel-body  tabulation table-responsive table-responsive">
-        <div class="panel panel-default">
-            <table class="table table-striped add-table-border">
-                <thead>
-                <tr>
-                    <th>序号</th>
-                    <th>ID</th>
-                    <th>昵称</th>
-                    <th>年级</th>
-                    <th>学习星数</th>
-                    <th>学习课时数</th>
-                    <th>邮箱</th>
-                    <th>状态</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="self in vm.ajaxData">
-                    <td>{{$index+1}}</td>
-                    <td>{{self.id}}</td>
-                    <td>{{self.name}}</td>
-                    <td>{{self.grade}}</td>
-                    <td>{{self.studyStar}}</td>
-                    <td>{{self.courseTime}}</td>
-                    <td>{{self.email}}</td>
-                    <td>{{self.status==1?'解冻':'正常'}}</td>
-                    <td>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary "
-                                ng-clock>
-                            <a ui-sref="backStage.serviceManage.see" ng-click="sea">查看</a>
-                        </button>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary "
-                                ng-clock ng-click="vm.thaw(self.id,1)"
-                                style="cursor:pointer;">
-                            {{self.status==1?'解冻':'冻结'}}
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            </from>
         </div>
-        <div class="pagination">
-            <div class="col-xs-12">
-                <div class="its col-xs-3" style="left: 20px;">每页
-                    <input type="text" ng-model="article.searchParams.size"
-                           style="width: 60px; text-align: center;height: 30px;border: none;border: 1px solid #ededed"
-                           value=""
-                           class="ng-pristine ng-untouched ng-valid ng-empty">条
-                </div>
-                <div class="its col-xs-5 text-right ">
-                    <uib-pagination total-items="vm.pagination.total" ng-model="vm.currentPage" max-size="5"
-                                    items-per-page="vm.pagination.perPageItems"
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="user_management">用户管理（用户总数：?人）</span>
+        </div>
+        <div class="panel-body  tabulation table-responsive table-responsive">
+            <div class="panel panel-default">
+                <table class="table table-striped add-table-border">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>ID</th>
+                        <th>昵称</th>
+                        <th>年级</th>
+                        <th>学习星数</th>
+                        <th>学习课时数</th>
+                        <th>邮箱</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="self in vm.ajaxData">
+                        <td>{{$index+1}}</td>
+                        <td>{{self.id}}</td>
+                        <td>{{self.name}}</td>
+                        <td>{{self.grade | grade}}</td>
+                        <td>{{self.studyStar}}</td>
+                        <td>{{self.studyLesson||0}}</td>
+                        <td>{{self.email||'空'}}</td>
+                        <td>{{self.status==1?'正常':'冻结'}}{{self.status}}</td>
+                        <td>
+                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                    class="btn btn-sm  btn-primary "
+                                    ng-clock>
+                                <a ui-sref="backStage.party.see({userId:self.id})">查看</a>
+                            </button>
+                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                    class="btn btn-sm  btn-primary "
+                                    ng-clock
+                                    style="cursor:pointer;"
+                                    ng-click="vm.thaw(self.id,self.status)">
+                                {{self.status==1?'冻结':'解冻'}}
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="its col-xs-11 pull-right">
+                    <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="5"
+                                    items-per-page="vm.size"
                                     first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
-                                    boundary-links="true" boundary-link-numbers="true" ng-change="vm.pagination.changePage()">
-                    </uib-pagination>
-                </div>
-                <div class="its col-xs-4">跳转到
-                    <input type="text" ng-model="article.searchParams.page"
-                           style="width:60px;height:30px; text-align: center;border: none; border: 1px solid #ededed;"
-                           value=""
-                           class="ng-pristine ng-untouched ng-valid ng-empty">页
-                    <button ng-click="list()" style="border: none;width: 60px;height: 30px;">确定</button>
+                                    boundary-links="true" boundary-link-numbers="true"
+                                    ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
                 </div>
             </div>
         </div>

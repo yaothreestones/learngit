@@ -1,11 +1,13 @@
 angular.module('app')
-    .controller('missionCtrl',['$http','$state','$stateParams','steps','taskCount',
-        function ($http,$state,$stateParams,steps,taskCount) {
+    .controller('missionCtrl',['$http','$state','$stateParams','steps','taskCount','Course_service',
+        function ($http,$state,$stateParams,steps,taskCount,Course_service) {
             var vm = this;
             //接收参数
-
-            vm.steps = angular.fromJson($stateParams.json);
-            console.log(vm.steps)
+            Course_service.get_task_list()
+                .then(function (res) {
+                });
+            vm.steps = steps;
+            console.log(vm.steps);
             vm.taskCount = taskCount;
             vm.mission_isShow = false;
             vm.mission_isLast = '下个任务';
@@ -72,8 +74,6 @@ angular.module('app')
                 //上一个任务
 
             }
-
-
         }])
     //步骤一，步骤二...
     .filter('change',function () {
@@ -104,38 +104,38 @@ angular.module('app')
         }
     })
     //模拟参数
-    // .factory('steps',function () {
-    //     return [
-    //         {
-    //             id: 1,
-    //             content: '老张开车去东北',
-    //             audio: 'http://118.31.21.185/JStasklist/videoPlayer/%E8%A5%BF%E5%9F%8E%E7%94%B7%E5%AD%A9%20-%20my%20love.mp3'
-    //         },
-    //         {
-    //             id: 2,
-    //             content: '老李开车去东北'
-    //         },
-    //         {
-    //             id: 3,
-    //             content: '老王开车去东北',
-    //             img: 'http://carrots.ks3-cn-beijing.ksyun.com/task/ed28b438-676b-49c3-acbe-39545d4a260e.jpg'
-    //         },
-    //         {
-    //             id: 4,
-    //             content: '老赵开车去东北',
-    //             audio: 'http://118.31.21.185/JStasklist/videoPlayer/%E8%A5%BF%E5%9F%8E%E7%94%B7%E5%AD%A9%20-%20my%20love.mp3'
-    //         },
-    //         {
-    //             id: 5,
-    //             content: '老钱开车去东北',
-    //             img: 'http://carrots.ks3-cn-beijing.ksyun.com/3/870df837-bb8f-4c04-8e85-c22c3633c841.png'
-    //         },
-    //         {
-    //             id: 6,
-    //             content: '老孙开车去东北'
-    //         }
-    //     ]
-    // })
+    .factory('steps',function () {
+        return [
+            {
+                id: 1,
+                content: '老张开车去东北',
+                audio: 'http://118.31.21.185/JStasklist/videoPlayer/%E8%A5%BF%E5%9F%8E%E7%94%B7%E5%AD%A9%20-%20my%20love.mp3'
+            },
+            {
+                id: 2,
+                content: '老李开车去东北'
+            },
+            {
+                id: 3,
+                content: '老王开车去东北',
+                img: 'http://carrots.ks3-cn-beijing.ksyun.com/task/ed28b438-676b-49c3-acbe-39545d4a260e.jpg'
+            },
+            {
+                id: 4,
+                content: '老赵开车去东北',
+                audio: 'http://118.31.21.185/JStasklist/videoPlayer/%E8%A5%BF%E5%9F%8E%E7%94%B7%E5%AD%A9%20-%20my%20love.mp3'
+            },
+            {
+                id: 5,
+                content: '老钱开车去东北',
+                img: 'http://carrots.ks3-cn-beijing.ksyun.com/3/870df837-bb8f-4c04-8e85-c22c3633c841.png'
+            },
+            {
+                id: 6,
+                content: '老孙开车去东北'
+            }
+        ]
+    })
     .factory('taskCount',function () {
         return [
             {title:'任务1',status:0},

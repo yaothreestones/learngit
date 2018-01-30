@@ -14,7 +14,6 @@ angular.module('imgUploadDirective', [])
                 //是否在上传阶段，
                 scope.isLoading = false;
                 scope.loadInfo = undefined;
-
                 //制造一个错误
                 function makeError(info) {
                     throw new Error(info)
@@ -89,7 +88,6 @@ angular.module('imgUploadDirective', [])
                             scope.code=res.data
                             console.log(scope.code)
                             if (res.data.code == 0) {
-                                alert(1)
                                 scope.src=res.data.url;
                                 scope.exportSrc=res.data.url;
                                 console.log(scope.exportSrc)
@@ -124,7 +122,7 @@ angular.module('imgUploadDirective', [])
                         var ajaxPromise = $http({
                             method: 'post',
                             url: scope.ajaxAds ,
-                            // transformRequest: function (a) {return a;},
+                            transformRequest: function (a) {return a;},
                             headers: {
                                 'content-type': undefined
                             },

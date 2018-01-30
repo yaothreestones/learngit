@@ -162,5 +162,4 @@ angular.module("app")
                 name:'其他版本'
             }
         ]
-
     })

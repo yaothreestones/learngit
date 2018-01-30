@@ -16,4 +16,6 @@
         <span ng-show="myForm.data.code.$dirty && myForm.data.code.$invalid">验证码格式不正确! (只限输入数字长度为6位)</span>
         <span ng-show="myForm.forpwd.$dirty&&data.password!=forpwd">两次输入密码不相同</span>
         <span ng-show="myForm.data.code.$error.required">验证码未填写</span>
+<!---->
+            <span ng-show="{{code != 0||code==0}}">{{vm.message}}</span>
     </div>

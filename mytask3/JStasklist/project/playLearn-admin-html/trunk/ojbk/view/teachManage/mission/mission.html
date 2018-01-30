@@ -5,7 +5,7 @@
                 <label class="col-sm-1 control-label" for="ds_subject">所属科目</label>
                 <div class="col-sm-3">
                     <div class="form-control" ng-show="vm.isShow">{{vm.subjectName}}</div>
-                    <select class="form-control" id="ds_subject" ng-hide="vm.isShow" ng-model="vm.subject" ng-options="subject.id as subject.name for subject in vm.Subjects">
+                    <select class="form-control" id="ds_subject" ng-hide="vm.isShow" ng-model="vm.subject" ng-options="subject.id as subject.name for subject in vm.Subjects" ng-change="vm.subject_select(vm.subject)">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -18,7 +18,7 @@
                 <label class="col-sm-1 control-label" for="ds_courses">所属课程</label>
                 <div class="col-sm-3">
                     <div class="form-control" ng-show="vm.isShow">{{vm.courseName}}</div>
-                    <select class="form-control" id="ds_courses" ng-hide="vm.isShow" ng-model="vm.course" ng-options="course.courseId as course.courseName for course in vm.Course">
+                    <select class="form-control" id="ds_courses" ng-hide="vm.isShow" ng-model="vm.course" ng-options="course.id as course.name for course in vm.Course">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -27,7 +27,7 @@
                 <label class="col-sm-1 control-label" for="ds_period">所属课时</label>
                 <div class="col-sm-3">
                     <div class="form-control" ng-show="vm.isShow">{{vm.periodName}}</div>
-                    <select class="form-control" id="ds_period" ng-hide="vm.isShow" ng-model="vm.period" ng-options="period.lessonPeriodId as period.lessonPeriodName for period in vm.Period">
+                    <select class="form-control" id="ds_period" ng-hide="vm.isShow" ng-model="vm.period" ng-options="period.id as period.name for period in vm.Period">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -57,14 +57,14 @@
         <tbody>
         <tr ng-repeat="mission in vm.Mission">
             <td>{{$index+1}}</td>
-            <td>{{mission.taskName}}</td>
-            <td>{{mission.Subjectname}}</td>
+            <td>{{mission.name}}</td>
+            <td>{{mission.subjectName}}</td>
             <td>{{mission.courseName}}</td>
             <td>{{mission.lessonPeriodName}}</td>
             <td>
                 <a ng-click="vm.view(mission)">查看</a>
                 <a ng-click="vm.edit(mission)">编辑</a>
-                <a>删除</a>
+                <a ng-click="vm.delete(mission)">删除</a>
             </td>
         </tr>
         </tbody>

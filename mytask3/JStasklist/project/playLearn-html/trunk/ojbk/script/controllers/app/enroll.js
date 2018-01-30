@@ -13,10 +13,10 @@ angular.module('app','')
                         $scope.code=res.data.code;
                         console.log($scope.code)
                         $scope.message=res.data.message;
-                        console.log(res)
-                        if(res.data.code == 0) {
+                        console.log(res);
+                        if(res.data.code == 100) {
                             $scope.modal(function () {
-                                $state.go("app.profile");
+                                $state.go("app.login");
                             });
 
                         }else{

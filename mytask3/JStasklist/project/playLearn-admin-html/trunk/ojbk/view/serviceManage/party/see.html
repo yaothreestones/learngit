@@ -18,7 +18,7 @@
                         用户名
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ng-model="vm.name" ng-disabled="true">
                     </div>
                 </div>
                 <div class="col-lg-12 col-sm-12 form-group">
@@ -26,16 +26,16 @@
                         邮箱
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ng-model="vm.email" ng-disabled="true">
                     </div>
                 </div>
                 <div class="col-lg-12 col-sm-12 form-group">
                     <label class="col-sm-3 control-label">
-                        年級
+                        年级
                     </label>
                     <div class="col-sm-9">
                         <select class="form-control"
-                                ng-model="selectedName"  ng-options="c.value as c.txt for c in vm.grade">
+                                ng-model="vm.grade"  ng-options="c.value as c.txt for c in vm.year" ng-disabled="true">
                         </select>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
                     <label class="col-sm-3 control-label">
                         头像
                     </label>
-                    <div class="col-sm-9 portrait">
-
+                    <div class="col-sm-9 portrait" ng-model="vm.profilePicture">
+                        <img src="" alt="" ng-src="{{vm.profilePicture}}">
                     </div>
                 </div>
                 <div class="col-lg-12 col-sm-12 form-group">
@@ -55,114 +55,16 @@
                     <p style="color:#fff">我是佔位符</p>
                 </div>
             </div>
-
             <ul id="tabs">
-                <li><a href="#" title="tab1">我的收藏(课程)</a></li>
-                <li><a href="#" title="tab2">我的收藏(课时)</a></li>
-                <li><a href="#" title="tab3">我的资料</a></li>
+                <li><a ui-sref="backStage.party.see.tab1({userId:vm.$stateParams.userId,
+            page:vm.$stateParams.page,size:vm.$stateParams.size})">我的收藏(课程)</a></li>
+                <li><a ui-sref="backStage.party.see.tab2({userId:vm.$stateParams.userId,
+            page:vm.$stateParams.page,size:vm.$stateParams.size})">我的收藏(课时)</a></li>
+                <li><a ui-sref="backStage.party.see.tab3({userId:vm.$stateParams.userId,
+            page:vm.$stateParams.page,size:vm.$stateParams.size})">我的资料</a></li>
             </ul>
-            <div id="content">
-                <div id="tab1">
-                    <table class="table table-striped add-table-border sheet">
-                        <thead>
-                        <tr>
-                            <th>序号</th>
-                            <th>课程名称</th>
-                            <th>所屬科目</th>
-                            <th>等级</th>
-                            <th>累计学习人数</th>
-                            <th>状态</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="self in vm.ajax">
-                            <td>{{$index+1}}</td>
-                            <td>{{self.courseName}}</td>
-                            <td>{{self.id}}</td>
-                            <td>{{self.userId}}</td>
-                            <td>{{self.name}}</td>
-                            <td>{{self.subject==1?'上架':'下架'}}</td>
-                            <td>
-                                <button style="border: none;background: none;color: #337Ab7;outline:none; "
-                                        type="button"
-                                        class="btn btn-sm  btn-primary "
-                                        ng-clock  ui-sref="backStage.teachManage.courses">
-                                    <!--1草稿，2上线-->
-                                    查詢
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div id="content" ui-view="favDetail">
 
-            <div id="tab2">
-                <table class="table table-striped add-table-border sheet">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>课时名称</th>
-                        <th>所屬课程</th>
-                        <th>等级</th>
-                        <th>累计学习人数</th>
-                        <th>状态</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="x in vm.subject">
-                        <td>{{$index+1}}</td>
-                        <td>{{x.lessionName}}</td>
-                        <td>{{x.lession}}</td>
-                        <td>{{x.lessionId}}</td>
-                        <td>{{x.taskCount}}</td>
-                        <td>{{x.lock}}</td>
-                        <td>
-                            <button style="border: none;background: none;color: #337Ab7;outline:none; "
-                                    type="button"
-                                    class="btn btn-sm  btn-primary "
-                                    ng-clock ui-sref="backStage.teachManage.period">
-                                <!--1草稿，2上线-->
-                                查詢
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="tab3">
-                <table class="table table-striped add-table-border sheet">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>所屬科目</th>
-                        <th>所属课程/教材</th>
-                        <th>所属课时</th>
-                        <th>状态</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="x in vm.means">
-                        <td>{{$index+1}}</td>
-                        <td>{{x.subject}}</td>
-                        <td>{{x.course}}</td>
-                        <td>{{x.lessionPeriod}}</td>
-                        <td>{{x.grade}}</td>
-                        <td>
-                            <button style="border: none;background: none;color: #337Ab7;outline:none; "
-                                    type="button"
-                                    class="btn btn-sm  btn-primary "
-                                    ng-clock ui-sref="backStage.dataManage.data">
-                                <!--1草稿，2上线-->
-                                查詢
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
             </div>
         </div>
     </div>
@@ -175,7 +77,6 @@
         $("#content div:first").fadeIn(); // Show first tab content
 
         $('#tabs a').click(function (e) {
-            e.preventDefault();
             $("#content div").hide(); //Hide all content
             $("#tabs li").attr("id", ""); //Reset id's
             $(this).parent().attr("id", "current"); // Activate this

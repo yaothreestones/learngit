@@ -3,8 +3,7 @@
  */
 //app 头尾导航
 angular.module("app")
-    .run(['$rootScope', function ($rootScope) {
-
+    .run(['$rootScope',  function ($rootScope) {
         $rootScope.config = {
             //顶部
             headNav: {
@@ -17,6 +16,10 @@ angular.module("app")
                 //返回
                 backBtn: {
                     //返回按钮 使用原生操作
+                    isShow: false,
+                },
+                //课程 课时返回首页
+                revert: {
                     isShow: false,
                 },
                 //跳转
@@ -47,20 +50,26 @@ angular.module("app")
                 share: {
                     isShow: false,
                 },
-                //加号
-                augment: {
-                    isShow: false,
-                },
                 //完成
                 finish: {
-                    isShow:false,
+                    isShow: false,
                 },
                 backBtnExp: {
-                    isShow:false,
+                    isShow: false,
                 },
-                rubbish:{
-                    isShow:false,
+                //课程记录
+                rubbish: {
+                    isShow: false,
+                    url: ''
+                },
+                augment: {
+                    isShow: false
+                },
+                cancelDelete: {
+                    isShow: false,
+                    url: ''
                 }
+                //课程记录
 
             },
             //底部
@@ -74,6 +83,7 @@ angular.module("app")
             $rootScope.config.headNav.isSteep = false;
             $rootScope.config.footNav.isShow = true;
             $rootScope.config.headNav.backBtn.isShow = false;
+            $rootScope.config.headNav.revert.isShow = false;
             $rootScope.config.headNav.Skip.isShow = false;
             $rootScope.config.headNav.search.isShow = false;
             $rootScope.config.headNav.screen.isShow = false;
@@ -81,10 +91,13 @@ angular.module("app")
             $rootScope.config.headNav.screenList.isShow = false;
             $rootScope.config.headNav.promptList.isShow = false;
             $rootScope.config.headNav.share.isShow = false;
-            $rootScope.config.headNav.augment.isShow = false;
             $rootScope.config.headNav.finish.isShow = false;
             $rootScope.config.headNav.backBtnExp.isShow = false;
-            $rootScope.config.headNav.rubbish.isShow = false;
             document.body.scrollTop = document.documentElement.scrollTop = 0;
-        })
+            // 课程记录
+            $rootScope.config.headNav.cancelDelete.isShow = false;
+            $rootScope.config.headNav.rubbish.isShow = false;
+            $rootScope.config.headNav.augment.isShow = false;
+            // 课程记录
+        });
     }])

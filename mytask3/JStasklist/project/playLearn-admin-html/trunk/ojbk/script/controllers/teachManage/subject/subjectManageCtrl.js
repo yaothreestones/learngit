@@ -25,7 +25,6 @@ angular.module('app').controller('subjectManageCtrl', ['$scope', '$stateParams',
                 alert('资料不完整')
             }else if($stateParams.from === '1'){
                 $scope.data = {
-                    token:'',
                     name:$scope.subject_name,
                     type:Number($scope.subject_type)||0
                 };

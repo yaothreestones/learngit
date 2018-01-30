@@ -1,2 +1,3 @@
-angular.module('app',[])
-    .controller("usingHelpCtrl",[])
+angular.module('app', [])
+    .controller("usingHelpCtrl", ['$state', function () {
+    }]);

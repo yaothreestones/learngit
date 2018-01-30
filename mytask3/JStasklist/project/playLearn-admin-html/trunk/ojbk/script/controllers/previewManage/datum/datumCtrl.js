@@ -22,7 +22,6 @@ angular.module('app').controller('datumCtrl', ['$scope', '$stateParams', '$rootS
             vm.obj = angular.toJson(vm.stateParams);
             $state.go('backStage.previewManage.datum',{page:1,size:10,obj:vm.obj},{reload:true})
         };
-
         //获取列表
         console.log('渲染中...');
         Course_service.get_PreviewDatum({
@@ -37,28 +36,109 @@ angular.module('app').controller('datumCtrl', ['$scope', '$stateParams', '$rootS
         }).then(function (res) {
             console.log('渲染完毕');
             vm.Books = res.data.data;
+            console.log(vm.Books);
             vm.totalItems = res.data.total
         });
-
+        //新增
+        vm.add = function () {
+            vm.stateParams = {
+                name:vm.bookName,
+                grade:vm.class,
+                version:vm.press,
+                status:vm.status
+            };
+            vm.obj = angular.toJson(vm.stateParams);
+            $state.go('backStage.previewManage.datumManage',{add:1,from:1,obj:vm.obj})
+        };
         //查看、编辑
         vm.view = function (book) {
-            $state.go('backStage.previewManage.datumManage',{from:2,datumId:book.id})
+            vm.stateParams = {
+                name:vm.bookName,
+                grade:vm.class,
+                version:vm.press,
+                status:vm.status
+            };
+            vm.obj = angular.toJson(vm.stateParams);
+            $state.go('backStage.previewManage.datumManage',{from:2,datumId:book.id,obj:vm.obj})
         };
         vm.edit = function (book) {
-            $state.go('backStage.previewManage.datumManage',{from:3,datumId:book.id})
+            vm.stateParams = {
+                name:vm.bookName,
+                grade:vm.class,
+                version:vm.press,
+                status:vm.status
+            };
+            vm.obj = angular.toJson(vm.stateParams);
+            $state.go('backStage.previewManage.datumManage',{from:3,datumId:book.id,obj:vm.obj})
+        };
+        //上下架
+        vm.changeStatus = function (book) {
+            if(book.status === 0){
+                vm.confirm = '确认上架？';
+                vm.result = '上架成功';
+            $rootScope.modalConfrim(vm.confirm)
+                .then(function () {
+                    Course_service.get_PreviewUpperDatum({bookId:book.id})
+                        .then(function (res) {
+                            if(res.data.code===0){
+                                $rootScope.modalConfrim(vm.result)
+                                    .then(function () {
+                                        $state.go("backStage.previewManage.datum",{},{reload:true})
+                                    },function () {
+
+                                    })
+                            }else {
+                                $rootScope.modalConfrim(res.data.message)
+                            }
+                        });
+                },function () {
+
+                });
+            }else {
+                vm.confirm = '确认下架？';
+                vm.result = '下架成功';
+                $rootScope.modalConfrim(vm.confirm)
+                    .then(function () {
+                        Course_service.get_PreviewUnderDatum({bookId:book.id})
+                            .then(function (res) {
+                                if(res.data.code===0){
+                                    $rootScope.modalConfrim(vm.result)
+                                        .then(function () {
+                                            $state.go("backStage.previewManage.datum",{},{reload:true})
+                                        },function () {
+
+                                        })
+                                }else {
+                                    $rootScope.modalConfrim(res.data.message)
+                                }
+                            });
+                    },function () {
+
+                    });
+            }
         };
         //删除
         vm.delete = function (id) {
-            Course_service.get_PreviewDeleteDatum({
-                params:{
-                    bookId:id
-                }
-            }).then(function (res) {
-                    console.log(res);
-                $state.go('backStage.previewManage.datum',{},{reload:true})
-                })
+            $rootScope.modalConfrim('是否删除？')
+                .then(function () {
+                    Course_service.get_PreviewDeleteDatum({
+                        params:{
+                            bookId:id
+                        }
+                    }).then(function (res) {
+                        if(res.data.code===1){
+                            $rootScope.modalConfrim('删除成功')
+                                .then(function () {
+                                    $state.go('backStage.previewManage.datum',{},{reload:true});
+                                })
+                        }else {
+                            $rootScope.modalConfrim(res.data.message)
+                        }
+                    });
+                },function () {
 
-        }
+                });
+            };
         //分页按钮
         vm.pageGo = function (x) {
             $state.go('backStage.previewManage.datum',{page:x});
@@ -67,6 +147,6 @@ angular.module('app').controller('datumCtrl', ['$scope', '$stateParams', '$rootS
         //课时跳转
         vm.period_jump = function (book) {
             vm.book = angular.toJson(book);
-            $state.go('backStage.previewManage.period',{add:1,book:vm.book})
+            $state.go('backStage.previewManage.period',{add:1,book:vm.book,page:1})
         }
-    }])
+    }]);

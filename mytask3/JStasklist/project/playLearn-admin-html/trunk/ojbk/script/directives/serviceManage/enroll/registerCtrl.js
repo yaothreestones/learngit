@@ -168,6 +168,7 @@ angular.module("app")
 
                     var chart = Highcharts.chart('container', options);
                     console.log(scope.count)
+                    console.log(scope.total);
                 }, 500);
 
                 // 图表初始化函数

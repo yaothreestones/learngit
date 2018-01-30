@@ -1,7 +1,7 @@
 (angular.module('app'))
 app.directive('modal', function () {
     return {
-        restrict: 'ACE',
+        restrict: 'AE',
         templateUrl: 'script/directives/modalData/modal.html',
         controller: function ($scope, $timeout, $state) {
             //手机和密码
@@ -10,7 +10,7 @@ app.directive('modal', function () {
             //个人资料的昵称和邮件
             $scope.namePattern = /^[\w\u4e00-\u9fa5]{1,10}$/;
             $scope.emailPattern = /^[1-9a-zA-Z_]\w*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$/;
-            $scope.provingPattern = /^\d{6}$/;
+            // $scope.provingPattern = /^\d{6}$/;
             $scope.modal = function (callback) {
                 $scope.text = true;
                 $timeout(function () {
@@ -18,8 +18,7 @@ app.directive('modal', function () {
                     if (typeof callback === "function"){
                         callback();
                     }
-
-                }, 2500)
+                }, 1500)
             }
         }
     }

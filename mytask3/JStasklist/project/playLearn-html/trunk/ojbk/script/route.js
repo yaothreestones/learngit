@@ -1,6 +1,5 @@
 angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$ocLazyLoadProvider',
     function ($stateProvider, $urlRouterProvider, $locationProvider, $ocLazyLoadProvider) {
-        $locationProvider.hashPrefix("!");
         var _lazyLoad = function (loaded) {
             return function ($ocLazyLoad) {
                 return $ocLazyLoad.load(loaded, {serie: true});
@@ -22,7 +21,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/directives/modalData/modalData.css",//提示模态框
                         "script/controllers/app/app.js",
                         "script/constent/footNavData.js",
-                        "script/directives/footNav/footNav.js"
+                        "script/directives/footNav/footNav.js",
+                        "script/filters/CourseFilter.js"
                     ]),
                 }
             })
@@ -86,7 +86,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         // "script/controllers/app/bingding.js",
                     ]),
                     configByRouter: function ($rootScope) {
-                        $rootScope.config.headNav.title = '关联回家学习账号';
+                        $rootScope.config.headNav.title = '关联回家学习已有账号';
                         $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
@@ -102,7 +102,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         // "script/controllers/app/newAccount.js",
                     ]),
                     configByRouter: function ($rootScope) {
-                        $rootScope.config.headNav.title = '绑定回家学习账号';
+                        $rootScope.config.headNav.title = '绑定回家学习新账号';
                         $rootScope.config.headNav.backBtn.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                     }
@@ -162,14 +162,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //首页
             .state("app.page", {
-                url: "/page",
+                url: "/page?grade",
                 templateUrl: 'view/homePage/page.html',
                 controller: 'pageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "script/controllers/homePage/page.js",
                         'style/course/course.css',
-                        'script/filters/CourseFilter.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '玩转学习';
@@ -215,9 +214,28 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     }
                 }
             })
+            //课程 课时
+            .state("app.range", {
+                url: "/range?range&subject&grade&indistinct&id",
+                templateUrl: 'view/homePage/range.html',
+                controller: 'rangeCtrl',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "script/controllers/homePage/range.js",
+                        'script/services/services_for_course.js'
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '';
+                        $rootScope.config.headNav.backBtn.isShow = false;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.search.isShow = true;
+                        $rootScope.config.headNav.revert.isShow = true;
+                    }
+                }
+            })
             //同步预习
             .state("app.search", {
-                url: "/search?preview",
+                url: "/search?preview&grade",
                 templateUrl: 'view/homePage/search.html',
                 controller: 'searchCtrl',
                 resolve: {
@@ -235,7 +253,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //同步预习  课时列表
             .state("app.teaching", {
-                url: "/teaching?preview",
+                url: "/teaching/{bookId}/{grade}?preview",
                 templateUrl: 'view/homePage/teaching.html',
                 controller: 'teachingCtrl',
                 resolve: {
@@ -275,12 +293,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
                         "style/service/seekList.css",
-                        "style/service/mui.min.css",
-                        "style/service/swiper-3.3.1.min.css",
                         "script/controllers/service/seek/seekCtrl.js",
-                        "script/directives/seek/mui.min.js",
-                        "script/directives/seek/seek.js",
-                        "script/directives/seek/swiper-3.3.1.min.js",
                         "script/directives/seek/tools.js",
                     ]),
                     configByRouter: function ($rootScope) {
@@ -332,6 +345,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                        "script/directives/seek/one-col-pop-picker.js",
                         "script/controllers/service/mine/personalCtrl.js"
                     ]),
                     configByRouter: function ($rootScope) {
@@ -344,29 +358,29 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //课程记录
             .state("app.record", {
-                url: "/record",
+                url: "/record?delete&ids",
                 templateUrl: 'view/service/mine/record.html',
-                // controller: 'personalCtrl as vm',
+                controller: 'recordCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
-                        "script/directives/delete/delete.js"
+                        "script/controllers/service/mine/recordCtrl.js",
+                        // "script/directives/delete/delete.js"
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程记录';
-                        $rootScope.config.headNav.cancel = '取消';
                         $rootScope.config.headNav.isShow = true;
                         $rootScope.config.footNav.isShow = false;
-                        $rootScope.config.headNav.augment.isShow = true;
                         $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.headNav.augment.isShow = true;
                     }
                 }
             })
             //我的收藏
             .state("app.collect", {
-                url: "/collect",
+                url: "/collect/{belong}",
                 templateUrl: 'view/service/mine/collect.html',
-                // controller: 'personalCtrl as vm',
+                controller: 'collectCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
@@ -394,6 +408,43 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         $rootScope.config.headNav.isShow = true;
                         $rootScope.config.footNav.isShow = false;
                         $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+                //我的/个人资料
+
+            .state("app.ChangeMailbox", {
+                url: "/ChangeMailbox",
+                templateUrl: 'view/service/mine/ChangeMailbox.html',
+                controller: 'ChangeMailboxCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                        "script/controllers/service/mine/ChangeMailboxCtrl.js",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '修改邮箱';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                    }
+                }
+            })
+            .state("app.userData", {
+                url: "/userData",
+                templateUrl: 'view/service/mine/userData.html',
+                controller: 'userDataCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/service/seek.css",
+                        "script/controllers/service/mine/userDataCtrl.js",
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '我的资料';
+                        $rootScope.config.headNav.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.headNav.finish.isShow = true;
                     }
                 }
             })
@@ -556,10 +607,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("app.feedbackStage", {
                 url: "/feedbackStage",
                 templateUrl: 'view/service/mine/feedbackStage.html',
-                // controller: 'installCtrl as vm',
+                controller: 'feedbackStageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/service/seek.css",
+                        "script/controllers/service/mine/feedbackStageCtrl.js"
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '意见反馈';
@@ -635,12 +687,11 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
 
             //课程
             .state("app.course", {
-                url: "/course",
+                url: "/course?subject&grade&subjectName&className",
                 templateUrl: 'view/course/course.html',
                 controller: 'courseCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        //"style/service/seek.css",
                         "script/controllers/course/courseCtrl.js",
                         'view/course/course.html',
                         'style/course/course.css',
@@ -662,7 +713,6 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/controllers/course/courseDetailsCtrl.js",
                         'view/course/courseDetails.html',
                         'style/course/course.css',
-                        'script/filters/CourseFilter.js'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '课程';
@@ -772,6 +822,24 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "script/controllers/course/period/periodFinishCtrl.js",
                         'view/course/period/periodFinish.html',
                         'style/course/course.css',
+                    ]),
+                    configByRouter: function ($rootScope) {
+                        $rootScope.config.headNav.title = '第一课 和倍问题';
+                        $rootScope.config.headNav.backBtn.isShow = true;
+                        $rootScope.config.footNav.isShow = false;
+                    }
+                }
+            })
+            .state("app.result", {
+                url: "/course/data/payResult",
+                templateUrl: 'view/course/dataPay/payResult.html',
+                controller: 'payResultCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        //"style/service/seek.css",
+                        "script/controllers/course/dataPay/payResult.js",
+                        'view/course/dataPay/payResult.html',
+                        'style/course/course.css'
                     ]),
                     configByRouter: function ($rootScope) {
                         $rootScope.config.headNav.title = '第一课 和倍问题';

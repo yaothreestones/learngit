@@ -9,7 +9,8 @@ angular.module('fileUploadDirective', [])
                 exportSrc: '=imgSrc',
                 ajaxAds: '=ajaxAds',
                 select:'=select',
-                belong:'=belong'//所属
+                fileName:'=fileName',
+                belong:'=belong',//所属
                 //上传文件的时候，输出一个状态 loading ，比如想实现图片上传时不能进行保存操作，可以通过它在外部禁用保存按钮，
             },
             link: function (scope, element, property) {
@@ -18,25 +19,25 @@ angular.module('fileUploadDirective', [])
                 scope.loadInfo = undefined;
                 scope.filename = '图片名';
                 if(scope.select !== undefined){
-                    scope.$watch('select.id',function (NewV) {
+                    scope.$watch('select',function (NewV) {
                         if(NewV){
-                            if(scope.select.id === 1){
+                            if(scope.select === 1){
                                 scope.filename = '图片名';
                                 scope.type = 1;
                                 scope.file_type = 'image/*';
-                            }else if(scope.select.id === 2){
+                            }else if(scope.select === 2){
                                 scope.filename = '音频名';
                                 scope.type = 3;
                                 scope.file_type = 'audio/*';
-                            }else if(scope.select.id === 5){
+                            }else if(scope.select === 5){
                                 scope.filename = '音频名';
                                 scope.type = 3;
                                 scope.file_type = 'audio/*';
+                            }else if(scope.select === 6){
+                                scope.filename = '文件名';
+                                scope.type = 2;
+                                scope.file_type = 'zip/*';
                             }
-                            // else if(scope.select.id === 3){
-                            //     scope.filename = '视频名';
-                            //     scope.file_type = 'video/*';
-                            // }
                         }
                     });
                 }else if(scope.select === undefined){
@@ -44,7 +45,6 @@ angular.module('fileUploadDirective', [])
                     scope.type = 1;
                     scope.file_type = 'image/*';
                 }
-
                 //制造一个错误
                 function makeError(info) {
                     throw new Error(info)
@@ -62,7 +62,6 @@ angular.module('fileUploadDirective', [])
                             cancel();
                         }
                     })
-
                 }();
                 /*  btnTitle,按钮文字,不需要绑定策略*/
                 property.btnTitle && (scope.btnTitle = property.btnTitle);
@@ -74,11 +73,13 @@ angular.module('fileUploadDirective', [])
                     scope.file = this.files[0];
                     scope.progress.value = 0;
                     scope.loadInfo = '未上传';
+                    scope.fileName=scope.file.name;
                     readFile.readAsDataURL(scope.file);
                     readFile.onload = function () {
                         scope.src = readFile.result;
                         //这里不触发 脏检查,我想让他和文件信息一起出来
                         scope.$apply();
+
                     }
                 });
                 //进度条方法
@@ -123,7 +124,7 @@ angular.module('fileUploadDirective', [])
                                 scope.isLoading = false;
                                 scope.loadInfo = '上传成功';
                                 scope.src = scope.exportSrc;
-                                // console.log(scope.exportSrc,scope.src)
+                                console.log(scope.exportSrc,scope.src)
                             }
                         }, function (res) {
                             $interval.cancel(scope.progress.timer);

@@ -1,151 +1,86 @@
 <div class="wear">
-    <div class="overcoat">
-        <div class="main">
-            <img src="image/seek/background.png">
-            <img src="image/mine/craze.png" class="image"/>
-            <h4>和倍差问题？</h4>
-            <h5>
+    <!--<div class="collect-body" ng-if="vm.list.length==0">-->
+    <!--<div>-->
+    <!--<img class="collect-img" src="image/mine/void.png"/>-->
+    <!--<p>空空如也，快出去找一些回来吧</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <style>
+        ul:before, ul:after {
+            display: none;
+        }
+
+        li:before, li:after {
+            display: none;
+        }
+
+        ul {
+            background: #f0f4f7 !important;
+        }
+
+        li {
+            background: #fff;
+            margin: 20px 0;
+        }
+
+        #OA_task_1 .mui-active {
+            background: #fff !important;
+        }
+
+        .mui-active > .mui-slider-handle {
+            background: #fff !important;
+        }
+    </style>
+
+    <ul id="OA_task_1" class="mui-table-view ">
+        <li ng-repeat="item in vm.requestLessonList track by $index" class=" mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle overcoat">
+                <div ng-if="$root.config.headNav.cancelDelete.isShow"
+                     class="singleChooseBox">
+                    <input type="checkbox"
+                           ng-checked="vm.lessonStatus[$index]"
+                           ng-click="vm.chooseItem($index,item.courseId)"
+                           name="delectCheckbox">
+                </div>
+                <div class="main">
+                    <img src="image/seek/background.png">
+                    <img src="image/mine/craze.png" class="image"/>
+                    <h4>{{item.courseName}}？</h4>
+                    <h5>
                 <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
+                    第{{item.countLessonPeriodIdByCourse}}节
                 </span>
-                <span class="statement">
-                   1056人已学|A级
+                        <span class="statement">
+                   {{item.learnPeople}}人已学
                 </span>
-            </h5>
-                <!--<input type="checkbox" name="ck" value="0" />-->
-            <!--<span style="display: inline;margin-left: 6vw">40% 完成</span>-->
-            <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                     style="width: 40%;">
-                    <span class="sr-only">40% 完成</span>
+                    </h5>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                             style="width: 40%;">
+                            <span class="sr-only">完成{{item.userStudyLessonPeriod}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--<div class="btnDelet" >删除</div>-->
-        </div>
-    </div>
-    <div class="overcoat">
-        <div class="main">
-            <img src="image/seek/background.png">
-            <img src="image/mine/craze.png" class="image"/>
-            <h4>和倍差问题？</h4>
-            <h5>
-                <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
-                </span>
-                <span class="statement">
-                   1056人已学|A级
-                </span>
-            </h5>
-            <!--<input type="checkbox" name="ck" value="1" />-->
-            <!--<span style="display: inline;margin-left: 6vw">40% 完成</span>-->
-            <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                     style="width: 40%;">
-                    <span class="sr-only">40% 完成</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overcoat">
-        <div class="main">
-            <img src="image/seek/background.png">
-            <img src="image/mine/craze.png" class="image"/>
-            <h4>和倍差问题？</h4>
-            <h5>
-                <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
-                </span>
-                <span class="statement">
-                   1056人已学|A级
-                </span>
-            </h5>
-            <!--<input type="checkbox" name="ck" value="2" />-->
-            <!--<span style="display: inline;margin-left: 6vw">40% 完成</span>-->
-            <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                     style="width: 80%;">
-                    <span class="sr-only">40% 完成</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overcoat">
-        <div class="main">
-            <img src="image/seek/background.png">
-            <img src="image/mine/craze.png" class="image"/>
-            <h4>和倍差问题？</h4>
-            <h5>
-                <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
-                </span>
-                <span class="statement">
-                   1056人已学|A级
-                </span>
-            </h5>
-            <!--<input type="checkbox" name="ck" value="3" />-->
-            <!--<span style="display: inline;margin-left: 6vw">40% 完成</span>-->
-            <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                     style="width: 35%;">
-                    <span class="sr-only">40% 完成</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overcoat">
-        <div class="main">
-            <img src="image/seek/background.png">
-            <img src="image/mine/craze.png" class="image"/>
-            <h4>和倍差问题？</h4>
-            <h5>
-                <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
-                </span>
-                <span class="statement">
-                   1056人已学|A级
-                </span>
-            </h5>
-            <!--<input type="checkbox" name="ck" value="4" />-->
-            <!--<span style="display: inline;margin-left: 6vw">40% 完成</span>-->
-            <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                     style="width: 20%;">
-                    <span class="sr-only">40% 完成</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="overcoat">
-        <div class="main">
-            <img src="image/seek/background.png">
-            <img src="image/mine/craze.png" class="image"/>
-            <h4>和倍差问题？</h4>
-            <h5>
-                <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
-                </span>
-                <span class="statement">
-                   1056人已学|A级
-                </span>
-            </h5>
-            <!--<input type="checkbox" name="ck" value="5" />-->
-            <!--<span style="display: inline;margin-left: 6vw">40% 完成</span>-->
-            <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success" role="progressbar"
-                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                     style="width: 50%;">
-                    <span class="sr-only">40% 完成</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <button class="fastener check_all">全选</button>
-        <button class="fastener checkDelet">删除(1)</button>
+        </li>
+    </ul>
+    <div class="footer" ng-if="$root.config.headNav.cancelDelete.isShow">
+        <button
+                ng-click="vm.allItems.do()"
+                class="fastener check_all">
+            {{ vm.allItems.txt}}
+        </button>
+        <button class="fastener checkDelet" ng-click="vm.deleteAll()">
+            删除{{vm.deleteItems.length?('('+vm.deleteItems.length+')'):''}}
+        </button>
     </div>
 </div>
+
+
+<script>
+
+</script>

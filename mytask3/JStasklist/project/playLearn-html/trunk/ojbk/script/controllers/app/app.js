@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('appCtrl',function ($scope,$state) {
+    .controller('appCtrl',function ($scope,$state,$stateParams) {
         $scope.cancel = function() {
             if($state.params.there === '1'){
               $state.go('app.data',{there:2,choose:$state.params.choose,preview:$state.params.preview})
@@ -15,6 +15,9 @@ angular.module('app')
             else {
                 history.back(-1);
             }
+        }
+        $scope.revert=function () {
+            $state.go('app.page')
         }
         var oHeight = $(document).height(); //浏览器当前的高度
         $(window).resize(function(){

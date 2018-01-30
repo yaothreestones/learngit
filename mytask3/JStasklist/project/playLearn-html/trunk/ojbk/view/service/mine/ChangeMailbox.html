@@ -1,0 +1,9 @@
+<form name="formEmail" style="margin-top: 13vw">
+    　　<textarea class="form-control" rows="3" ng-model="vm.suggetByUser"
+                placeholder="请输入邮箱" ng-change="vm.$textarea.check(vm.suggetByUser)"
+                 name="tell" id="tell"></textarea>
+    <div class="press-button">
+        <button type="button" class="btn butColor" ng-click="vm.$textarea()" ng-class="{'butColor':!vm.suggetByUser}" style="outline: none;color: #fff;">确认</button>
+    </div>
+</form>
+<modal></modal>

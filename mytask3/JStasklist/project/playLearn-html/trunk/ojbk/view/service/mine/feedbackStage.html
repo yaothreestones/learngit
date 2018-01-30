@@ -1,10 +1,12 @@
 <style>
-    body{
+    body {
         background: #ffffff;
     }
+
     .feedbackWrap {
         background: #fff;
         padding-top: 17vw;
+        position: relative;
     }
 
     .feedback_main {
@@ -18,13 +20,22 @@
         border: none;
         height: 60vw;
     }
+    .feedbackWrap .wordCount{
+        position: absolute;
+        top: 73%;
+        right: 5vw;
+    }
 </style>
 <div class="feedbackWrap">
     <div class="feedback_main">
-        <textarea class="form-control" rows="3" ng-disabled=""></textarea>
+        <textarea class="form-control" rows="3" ng-model="vm.suggetByUser"
+                  placeholder="4-150字" ng-change="vm.$textarea.check(vm.suggetByUser)"></textarea>
     </div>
+    <div class="wordCount"><span ng-style="{color:vm.$textarea.length>45&&'red'}">{{150-vm.$textarea.length}}</span>/150</div>
     <div class="affirm">
-        <button type="button" class="btn btn-default" ng-click="" style="outline: none;color: #fff;">提交</button>
+        <button type="button" class="btn btn-default" ng-disabled="vm.$textarea.invalid" ng-click="vm.submit()"
+                style="outline: none;color: #fff;">提交
+        </button>
     </div>
 </div>
 

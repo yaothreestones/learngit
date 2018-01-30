@@ -1,0 +1,43 @@
+<div id="tab1">
+    <table class="table table-striped add-table-border sheet">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>课程名称</th>
+            <th>所屬科目</th>
+            <th>等级</th>
+            <th>累计学习人数</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="self in vm.ajax">
+            <td>{{$index+1}}</td>
+            <td>{{self.name}}</td>
+            <td>{{self.subjectName}}</td>
+            <td>{{self.grade}}</td>
+            <td>{{self.studyCount}}</td>
+            <td>{{self.subject==1?'上架':'下架'}}</td>
+            <td>
+                <button style="border: none;background: none;color: #337Ab7;outline:none; "
+                        type="button"
+                        class="btn btn-sm  btn-primary "
+                        ng-clock  ui-sref="backStage.teachManage.courses">
+                    <!--1草稿，2上线-->
+                    查询
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="its col-xs-11 pull-right">
+            <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="5"
+                            items-per-page="vm.size"
+                            first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                            boundary-links="true" boundary-link-numbers="true"
+                            ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
+        </div>
+    </div>
+</div>

@@ -1,21 +1,26 @@
 angular.module('app')
-    .controller("changePwdCtrl", ["$state", "$stateParams", "$http", function ($state, $stateParams, $http) {
+    .controller("changePwdCtrl", ["$scope", "$state", "$stateParams", "$http", "Course_service", function ($scope, $state, $stateParams, $http, Course_service) {
         var vm = this;
+        vm.Course_service = Course_service;
         vm.send = function () {
-            $http({
-                url: '/a/u/password/modify',
-                method: 'post',
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded;cgarst'
-                },
-                transformRequest: function (data) {
-                    return 'oldPassword=222222&newPassword=111111';
-                },
-                data: {
-                    oldPassword: '222222',
-                    newPassword: '111111',
-                }
+            Course_service.get_ChangePwd({
+                newPassword: vm.newPassword,
+                oldPassword: vm.oldPassword,
+                againPassword:vm.againPassword
             })
+                .then(function (res) {
+                    $scope.modal(function () {
+                        if(res.data.code==-5033){
+                            vm.code = res.data.code;
+                            $state.go("app.login");
+                        }else{
+                            $scope.modal();
+                        }
+                    });
+                    vm.message = res.data.message;
 
+                }, function (res) {
+                    alert('请求失败')
+                })
         }
     }])

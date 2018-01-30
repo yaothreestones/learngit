@@ -1,5 +1,5 @@
 (function (app) {
-    app.run(function ($rootScope,$uibModal) {
+    app.run(function ($rootScope, $uibModal) {
         var _lazyLoad = function (loaded) {
             return function ($ocLazyLoad) {
                 return $ocLazyLoad.load(loaded, {serie: true});
@@ -13,11 +13,11 @@
                 templateUrl: 'script/directives/alertModal/alert.html',
                 controller: 'alertCtrl',
                 size: 'md',
-                resolve:{
-                        params: {
-                            content: content,
-                        },
-                    loadFile:_lazyLoad(['script/directives/alertModal/alertCtrl.js'])
+                resolve: {
+                    params: {
+                        content: content,
+                    },
+                    loadFile: _lazyLoad(['script/directives/alertModal/alertCtrl.js'])
                 }
             })
             instance.result.then(function (resolved) {
@@ -25,6 +25,23 @@
             }, function (rejected) {
                 //$dismiss()
             })
+        };
+        $rootScope.modalAlert2 = function (content) {//............
+            var instantiate = $uibModal.open({
+                keyboard: true,
+                animation: true,
+                backdrop: 'static',
+                templateUrl: 'script/directives/alertModal/alert.html',
+                controller: 'alertCtrl',
+                size: 'md',
+                resolve: {
+                    params: {
+                        content: content,
+                    },
+                    loadFile: _lazyLoad(['script/directives/alertModal/alertCtrl.js'])
+                }
+            });
+            return instantiate.result;
         };
         $rootScope.modalConfrim = function () {
             var content = [].slice.call(arguments);//传入的参数
@@ -35,12 +52,12 @@
                 templateUrl: 'script/directives/confrimModal/confrim.html',
                 controller: 'confrimCtrl',
                 size: 'md',
-                resolve:{
+                resolve: {
                     params: {
-                            content: content,
-                            },
-                    loadFile:_lazyLoad(['script/directives/confrimModal/confrimCtrl.js'])
-                    }
+                        content: content,
+                    },
+                    loadFile: _lazyLoad(['script/directives/confrimModal/confrimCtrl.js'])
+                }
             });
             //这是promise
             return instance.result;

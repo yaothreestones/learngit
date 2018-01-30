@@ -2,13 +2,10 @@ angular.module('app').controller('uniteCtrl',
     function ($scope,$stateParams,$rootScope,$state,$http,Course_service){
     var vm=this;
     //分页
-        vm.currentPage = parseInt($stateParams.page);
         vm.size=$stateParams.size;
-        console.log(vm.currentPage);
         //分页按钮
         vm.pageGo = function (x) {
             $state.go($state.current,{page:x},{reload:true});
-            // $state.go('backStage.contentManage.unite',{page:x});
             console.log(vm.size)
         };
       //获取list
@@ -22,11 +19,12 @@ angular.module('app').controller('uniteCtrl',
             })
                 .then(function(res) {
                     if(res.data.code == 0){
+                        vm.currentPage = parseInt($stateParams.page);
                         vm.code=res.data.code;
                         vm.demoLists=res.data.data;
-                        console.log(vm.demoLists)
+                        vm.name=vm.demoLists.name
+                        console.log(vm.name)
                         vm.total= res.data.total;
-                        console.log(vm.total)
                     }
                     console.log(res)
                 }, function(res) {

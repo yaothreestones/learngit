@@ -17,9 +17,6 @@ a{
     width: 100%;
     z-index: 999;
 }
-.code-right{
-    border-right: 0.1vw solid #e4e4e4!important;
-}
 /*清除浮动*/
 .clear{
     clear: both;
@@ -175,7 +172,6 @@ a{
     border-bottom: 0.1vw solid #e4e4e4;
 }
 .top-code img{
-    width: 4.5vw;
     height: 3.88vw;
     margin-left: 6.66vw;
 }
@@ -206,16 +202,27 @@ a{
 
 }
 .press-button button{
+    background: -webkit-linear-gradient(#03a9f4, #03a9f4);
+    box-shadow:0px 0 0 #00A7F7, 0 6px 10px rgba(0,167,247,0.7);
+    opacity: 0.9;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
     width: 100%;
     height: 12.22vw;
     margin-left: auto;
     margin-right: auto;
-    background: #03a9f4;
-    color: #ffffff;
     font-size: 4.44vw;
     margin-bottom: 3.75vw;
     outline: none;
+}
+.press-button button:active,button:focus{
+    background: -webkit-linear-gradient(#03a9f4, #03a9f4);
+    opacity: 0.9;
+    box-shadow:0px 0 0 #00A7F7, 0 6px 10px rgba(0,167,247,0.7);
     border: none;
+    border-radius: 5px;
+    outline:none;
 }
 .press-button a{
     color: #c5c7c8;
@@ -268,15 +275,15 @@ a{
 }
 /*注册*/
 .code-input{
-    display: inline-block;
-    width: 19.05vw;
-    line-height: 15vw;
-    height: 15vw;
-    text-align: center;
-    border: none;
+    display: inline-block!important;
     outline-style: none;
     background: #ffffff;
-    color: #039fe6;
+    color: #039fe6!important;
+    border-top: none!important;
+    border-bottom: none!important;
+    border-radius: 0!important;
+    padding: 1px 12px!important;
+    border-right: none!important;
 }
 .code-color{
     color: #aaaaaa;
@@ -451,18 +458,30 @@ a{
 }
 .catalog{
     position: relative;
+    bottom: 0;
     margin-top: 3.33vw;
     width: 95.55vw;
     height: 30.97vw;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5vw;
-    background: url("../../image/app/catalog.png") no-repeat;
     background-size: cover;
+
+}
+.logos{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 4.69vw;
+    /*width: 95.55vw;*/
+    height: 30.97vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .list{
+    margin-top: 4.69vw;
     padding-top: 4.69vw;
-
     padding-right: 3.33vw;
 }
 .list h3{
@@ -480,7 +499,7 @@ a{
 }
 .list h5{
     padding-left: 4.58vw;
-    margin-top:8.24vw ;
+    margin-top:14.24vw ;
     color: #ffffff;
     letter-spacing: 0.2vw;
     font-size: 2.77vw;
@@ -718,6 +737,7 @@ a{
     border: none;
     position: relative;
     background: #f0f2f5;
+    font-size: 12px;
 }
 .Curriculum-search span{
     display: inline-block;
@@ -728,8 +748,8 @@ a{
     border-left: 0.1vw solid #d7d7d7;
 }
 .search-img img{
-    width: 4.02vw;
-    height: 4.02vw;
+    width: 7.02vw;
+    height: 7.02vw;
     vertical-align: middle;
 }
 .options{
@@ -814,6 +834,7 @@ a{
 .textbook img{
     width: 27.08vw;
     height: 37.5vw;
+    border: 0.1px solid #aaaaaa;
 }
 .textbook-top{
     margin-top: 16.53vw;
@@ -836,6 +857,7 @@ a{
     box-shadow: 2px 2px 3px 0px #aaaaaa;
 }
 .single-book{
+    display: inline-block;
     width: 19.86vw;
     height: 28.75vw;
     margin-right: 5.83vw;
@@ -1106,5 +1128,95 @@ a{
 }
 .butColor{
     background: #e4e5e6!important;
+    box-shadow:0px 0 0 #e4e5e6, 0 6px 10px rgba(229,231,232,0.7)!important;
     color: #ffffff!important;
+}
+.through{
+    position: relative;
+    margin-top: 3.33vw;
+    width: 95.55vw;
+    height: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5vw;
+    background-size: cover;
+    border: 0.1vw solid #aaaaaa;
+    padding: 2vw;
+}
+.through .throughName{
+    font-size: 5vw;
+    font-weight: 600;
+}
+.throughs{
+    width: 100%;
+    margin-top: 11vw;
+}
+.throughs span{
+    display: inline-block;
+    padding: 1vw;
+    background: #2ac845;
+    color: #ffffff;
+ }
+.throughs p{
+    display: inline-block;
+    margin-top: 4vw;
+    color: #999999;
+}
+.hours{
+    position: relative;
+    margin-top: 3.33vw;
+    width: 95.55vw;
+    height: 18vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5vw;
+    background-size: cover;
+    border: 0.1vw solid #aaaaaa;
+    padding: 2vw;
+}
+.hours .hourName{
+    font-size: 5vw;
+    font-weight: 600;
+}
+.lessons{
+    width: 100%;
+}
+.lessons span{
+    display: inline-block;
+    padding: 1vw;
+    font-size: 4.5vw;
+    color: #999999;
+}
+.hours img{
+    display: inline-block;
+    width: 5vw;
+    height: 5vw;
+    margin-right: 10vw;
+    margin-top: 4.5vw;
+}
+.empty{
+    width: 60%;
+    height: 150px;
+    background: #aaaaaa;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+}
+.emptys{
+    margin-top: 5vw;
+    text-align: center;
+    font-size: 12px;
+}
+.through img{
+    margin-top:-35px;
+}
+.infos{
+    display: inline-block;
+}
+.info{
+    display: inline-block;
+    padding: 0vw 0.5vw;
+    background: #2ac845;
+    color: #ffffff;
+
 }

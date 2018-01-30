@@ -30,16 +30,7 @@ angular.module('app')
                 }
             };
             vm.begin_study = function () {
-                vm.params = {
-                    taskId:11
-                }
-                    .then(function (res) {
-                        console.log(res.data.task1);
-                        if(res.data.code === 0){
-                            vm.task = res.data.task1;
-                            // $state.go('app.mission',{json:angular.toJson(vm.task)})
-                        }
-                    })
+                $state.go('app.mission')
             }
         }])
     .filter('data',function () {

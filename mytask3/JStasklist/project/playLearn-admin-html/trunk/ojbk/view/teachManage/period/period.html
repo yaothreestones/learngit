@@ -5,13 +5,14 @@
                 <label class="col-sm-1 control-label" for="ds_type">所属科目</label>
                 <div class="col-sm-4">
                     <div class="form-control" ng-show="isShow">{{vm.subjectName}}</div>
-                    <select class="form-control" id="" ng-hide="isShow" ng-options="subject.id as subject.name for subject in vm.Subjects" ng-model="vm.subject">
+                    <select class="form-control" id="" ng-hide="isShow" ng-options="subject.id as (subject.name +'-'+(subject.type|subject_type) +'-'+ (subject.status|subject_status)) for subject in vm.Subjects" ng-model="vm.subject" ng-change="vm.subject_select(vm.subject)">
                         <option value="">全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" for="ds_type">年级</label>
                 <div class="col-sm-4">
-                    <select class="form-control" id="ds_type" ng-options="grade.id as grade.name for grade in vm.Grade" ng-model="vm.grade">
+                    <div class="form-control" ng-show="isShow">{{vm.course.grade|grade}}</div>
+                    <select class="form-control" id="ds_type" ng-options="grade.id as grade.name for grade in vm.Grade" ng-model="vm.grade" ng-hide="isShow" ng-change="vm.class_select(vm.grade)">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -20,7 +21,7 @@
                 <label class="col-sm-1 control-label" for="ds_subject">所属课程</label>
                 <div class="col-sm-4">
                     <div class="form-control" ng-show="isShow">{{vm.courseName}}</div>
-                    <select class="form-control" id="ds_subject" ng-hide="isShow" ng-options="course.courseId as course.courseName for course in vm.Courses" ng-model="vm.courses">
+                    <select class="form-control" id="ds_subject" ng-hide="isShow" ng-options="course.id as (course.name +'-'+(course.grade|grade) +'-'+ (course.status|subject_status)) for course in vm.Courses" ng-model="vm.courses" ng-change="vm.course_select(vm.courses)">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -58,17 +59,17 @@
         <tbody>
         <tr ng-repeat="period in vm.periodlists">
             <td>{{$index+1}}</td>
-            <td>{{period.lessonPeriodName}}</td>
+            <td>{{period.name}}</td>
             <td>{{period.subjectName}}</td>
             <td>{{period.courseName}}</td>
             <td>{{period.status|subject_status}}</td>
             <td>
                 <a ng-click="vm.missionJump(period)">任务</a>
-                <a>资料</a>
+                <a ui-sref="backStage.dataManage.data({add:3,page:1,size:10,type:1,courseName:period.courseName,lessonPeriodId:period.id,bookId:period.courseId,lessonPeriodName:period.name,bookName:period.bookName,subjectId:period.subjectId,subjectName:period.subjectName})">资料</a>
                 <a ng-click="vm.edit(period)">编辑</a>
                 <a ng-click="vm.view(period)">查看</a>
-                <a>{{period.status|subject_status_operation}}</a>
-                <a>删除</a>
+                <a ng-click="vm.changeStatus(period)">{{period.status|subject_status_operation}}</a>
+                <a ng-click="vm.delete(period)">删除</a>
             </td>
         </tr>
         </tbody>

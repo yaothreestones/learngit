@@ -2,7 +2,7 @@
     height: 12.9vw;
     line-height: 12.9vw!important;
     padding-left: 2.63vw;
-    background: -webkit-linear-gradient(#4a90fe, #00a5e0);
+    background: -webkit-linear-gradient(#4a90fe, #00a5e0)!important;
 }
 .login-headColor{
     position: relative !important;

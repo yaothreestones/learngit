@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label class="col-sm-1 control-label top-form" for="ds_name">所属教材
                 </label>
-                <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{vm.book.bookName}}
+                <label class="col-sm-11 control-label top-form bottom-label" for="ds_name">{{vm.bookName}}
                 </label>
             </div>
         </form>
@@ -47,7 +47,7 @@
                     <label class="col-sm-1 control-label top-form" for="ds_name"></label>
                     <div class="col-sm-11 fastener">
                         <button type="button" class="btn ascertain" ng-click="vm.sure()">确定</button>
-                        <button type="button" class="btn cancel" ui-sref="backStage.previewManage.period">取消</button>
+                        <button type="button" class="btn cancel" ng-click="vm.cancel()">取消</button>
                     </div>
                 </div>
             </fieldset>

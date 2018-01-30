@@ -31,7 +31,7 @@
     height: 29.2vw;
     margin: auto;
     border: 1px solid #dbdee1;
-    box-shadow:0 2px  #dbdee1;
+    box-shadow: 0 2px #dbdee1;
     border-radius: 3px;
     margin-bottom: 3vw;
     background: #fff;
@@ -250,13 +250,70 @@
     padding-top: 16vw;
     position: relative;
     padding-bottom: 20vw;
-    background: #ececec;
     margin: auto;
+}
+.collect-body {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.collect-body div {
+    text-align: center;
+}
+.collect-body .collect-img {
+    width: 40vw;
+}
+
+.wear .singleChooseBox {
+    padding-left: 2vw;
+    margin-right: -3vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.wear .singleChooseBox input {
+    outline: none !important;
+    position: relative;
+    width: 4.68vw;
+    height: 4.68vw;
+}
+
+.wear .singleChooseBox input:checked:before {
+    display: block;
+}
+
+.wear .singleChooseBox input:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+    bottom: 0;
+}
+
+.wear .singleChooseBox input:before {
+    content: '';
+    display: none;
+    position: absolute;
+    z-index: 20;
+    background: url(../../image/mine/checkMark.png) #03a4ed no-repeat 0.2vw center;
+    background-size: 4vw auto;
+    border-radius: 3px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .wear .overcoat img {
     width: 25vw;
-    height: 23vw;
+    height: 28vw;
     float: left;
     border-radius: 1vw;
     border-top-right-radius: 0;
@@ -272,7 +329,7 @@
 }
 
 .wear .overcoat {
-    height: 25vw;
+    height: 28vw;
     display: -webkit-inline-box;
     margin-top: 0.7vw;
     position: relative;
@@ -288,7 +345,7 @@
 
 .wear .overcoat .main {
     width: 90vw;
-    height: 23vw;
+    height: 28vw;
     background: #fff;
     border-radius: 1vw;
     /*margin: auto;*/
@@ -336,6 +393,7 @@
     background: #fff;
     position: fixed;
     bottom: -2px;
+    z-index: 999;
 }
 
 .wear .footer span {
@@ -350,7 +408,7 @@
     border: none;
     background: #fff;
     height: 15vw;
-    line-height: 15vw;
+    line-height: 13vw;
     font-size: 5vw;
 }
 
@@ -538,65 +596,83 @@
 }
 
 /*密码修改*/
-.top{
+.top {
     margin-top: 14vw;
 }
-.affirm button{
+
+.affirm button {
     margin-left: 3%;
     width: 94%;
     height: 13.7vw;
     margin-top: 6.5vw;
     background: -webkit-linear-gradient(#03a9f4, #03a9f4);
     opacity: 0.9;
-    box-shadow:0px 0 0 #00A7F7, 0 6px 10px rgba(0,167,247,0.7);
+    box-shadow: 0px 0 0 #00A7F7, 0 6px 10px rgba(0, 167, 247, 0.7);
     border: none;
     border-radius: 5px;
     color: #fff;
     font-size: 4.6vw;
 }
-.affirm button:active,button:focus{
+
+.affirm button:active, button:focus {
     background: -webkit-linear-gradient(#03a9f4, #03a9f4);
     opacity: 0.9;
-    box-shadow:0px 0 0 #00A7F7, 0 6px 10px rgba(0,167,247,0.7);
+    box-shadow: 0px 0 0 #00A7F7, 0 6px 10px rgba(0, 167, 247, 0.7);
     border: none;
     border-radius: 5px;
-    outline:none;
+    outline: none;
 }
+
 /*关于我们*/
-.concerning{
+.concerning {
     background: #fff;
     margin-top: 13vw;
 }
-.concerning .anenst{
-    padding-left: 40%;
+
+.concerning .anenst {
+    padding-left: 39%;
     padding-top: 15vw;
 }
-.concerning .anenst img{
+
+.concerning .anenst img {
     width: 25vw;
     height: 25vw;
 }
-.concerning .anenst h3{
+
+.concerning .anenst h3 {
     font-size: 6vw;
     font-weight: bold;
     padding-top: 3vw;
 }
-.concerning .anenst p{
+
+.concerning .anenst p {
     font-size: 3.7vw;
     padding-top: 1vw;
 }
+
 .concerning .anenstWrap {
     padding-top: 8vw;
-    padding-left: 33%;
+    padding-left: 30%;
 }
-.concerning .anenstWrap p{
+
+.concerning .anenstWrap p {
     font-size: 3.7vw;
     margin-top: 3vw;
 }
-.footAnenst{
+
+.footAnenst {
     position: absolute;
     bottom: 0vw;
-    left: 40%;
+    left: 38%;
     font-size: 3vw;
     color: #999;
 }
+
+
+.modal-signPop{
+    width: 50%;
+    margin: auto;
+    margin-top: 60%;
+}
+
 /*使用帮助*/

@@ -6,20 +6,26 @@ angular.module('app')
             vm.img = 'image/app/collection.png';
             vm.collecting = '收藏';
             vm.show = false;
+            console.log($stateParams);
             vm.Course_service = Course_service;
             vm.courseDetail_params = $stateParams.courseId;
-            vm.Course_service.get_course_detail(vm.courseDetail_params).then(function (res) {
+            vm.Course_service.get_course_detail(vm.courseDetail_params)
+                .then(function (res) {
                 vm.courseDetail = res.data.data;
                 console.log(vm.courseDetail);
             });
             vm.Course_service.get_period_list({
-                courseId: $stateParams.courseId,
-                page: 1,
-                size: 10
+                courseId: $stateParams.courseId
             }).then(function (res) {
                 console.log(res.data.data);
                 vm.periodLists = res.data.data
             });
+            vm.course_detail = function (data) {
+                console.log(data);
+                if(data.lock !== 2){
+                    $state.go("app.period",{})
+                }
+            };
             vm.collection = function() {
                 if (vm.img === 'image/app/collection.png') {
                     vm.img = 'image/app/isCollection.png';

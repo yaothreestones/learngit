@@ -34,6 +34,10 @@ angular.module('app')
     .factory('subjects',function () {
         return [
             {
+                id:0,
+                name:'全部'
+            },
+            {
                 id:1,
                 name:'语文'
             },
@@ -67,5 +71,7 @@ angular.module('app')
                 name:'课时'
             }
         ]
-    });
+    })
+
+
 

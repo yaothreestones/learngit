@@ -20,12 +20,12 @@ angular.module("app")
                 return "/a/u/admin/materials"
             },
             //删除
-            getMaterialsDelete_url:function () {
-                return "/a/u/admin/materials/{id}"
+            getMaterialsDelete_url:function (id) {
+                return "/a/u/admin/materials/"+id
             },
             //编辑
             getMaterialsPut_url:function () {
-                return "/a/u/admin/materials/{id}"
+                return "/a/u/admin/materials"
             },
             //合作管理
             //获得list
@@ -34,7 +34,7 @@ angular.module("app")
             },
             //新增
             getCompanyAdd_url:function () {
-                return "/a/u/admin/company/add"
+                return "/a/u/admin/company"
             },
             //编辑
             getCompanyNewly_url:function () {
@@ -60,10 +60,10 @@ angular.module("app")
             },
             //编辑
             getRecommendNewly_url:function () {
-                return "/a/u/admin/recommend/course"
+                return "/a/u/admin/course/hot"
             },
             //后台/热门推荐管理/编辑/课程名称下拉框
-            getRNewly_url:function () {
+            get_RNewlysName_url:function () {
                 return "/a/u/admin/course/options"
             },
             //查看
@@ -81,47 +81,57 @@ angular.module("app")
             //萌萌哒
             //客服
             //用户管理接口
-            getParty_url:function () {
-                return "playlearn/GET/a/u/admin/user/list"
+            getseerch_url:function () {
+                return "/a/u/admin/user/search/list"
             },
             //客服/用户管理/解冻、冻结接口
             getUnfreeze_url:function () {
-                return "playlearn/PUT/a/u/admin/user/status"
+                return "/a/u/admin/user/status"
+            },
+            //用户管理/查看用户接口
+            getUserDetail_url:function (id) {
+                return "/a/u/admin/user/"+id
             },
             //用户管理/收藏课程接口
             getSee_url:function () {
-                return "playlearn/GET/a/u/admin/user/keep/course"
+                return "/a/u/admin/user/keep/course/list"
             },
             //用户管理/收藏课时接口
             getSubject_url:function () {
-                return "playlearn/GET/a/u/admin/user/keep/lessionPeriod"
+                return "/a/u/admin/user/keep/lessonPeriod/list"
             },
             //用户管理/我的资料接口
             getMeans_url:function () {
-                return "playlearn/GET/a/u/admin/admin/data"
+                return "/a/u/admin/user/data/list"
             },
 
             //客服
             //资讯管理接口
             getInformation_url:function () {
-                return "playlearn/GET/a/u/admin/information/all"
+                return "/a/u/admin/information/list"
             },
             //资讯管理/增加接口
-            getInformationAugment_url:function () {
-                return "playlearn/POST/a/u/admin/information/add"
+            getInformationAdd_url:function () {
+                return "/a/u/admin/information/add"
             },
             //资讯管理/查看接口
-            getInformationSee_url:function () {
-                return "playlearn/GET/a/u/admin/information/{id}"
+            getInformationSee_url:function (id) {
+                return "/a/u/admin/information"+id
             },
             //资讯管理/编辑接口
             getInformationEdit_url:function () {
-                return "playlearn/PUT/a/u/admin/information"
+                return "/a/u/admin/information"
             },
             //资讯管理/删除接口
             getInformationDelet_url:function () {
-                return "playlearn/DELETE/a/u/admin/infomation"
+                return "/a/u/admin/information";
             },
+            //资讯管理/上下架接口
+            getInformationStatus_url:function () {
+                return "playlearn/GET/a/u/admin/information/status"
+            },
+
+
 
             //客服
             //注册统计接口
@@ -349,11 +359,11 @@ angular.module("app")
             },
             //获取教学管理科目管理新增科目接口
             getTechAddSubject_url:function () {
-                return '/playlearn/POST//a/u/admin/subject'
+                return '/a/u/admin/subject'
             },
             //获取教学管理科目管理编辑科目接口
             getTechEditSubject_url:function () {
-                return '/playlearn/Put//a/u/admin/subject'
+                return '/a/u/admin/subject'
             },
             //获取教学管理科目管理删除科目接口
             getTechDeleteSubject_url:function (id) {
@@ -370,72 +380,96 @@ angular.module("app")
 
             //课程管理
             //获取教学管理课程管理课程列表接口
-            getTechCourse_url:function () {
-                return '/playlearn/GET//a/u/admin/course/list'
-            },
+            // getTechCourse_url:function () {
+            //     return '/playlearn/GET//a/u/admin/course/list'
+            // },
             //获取教学管理课程管理新增课程接口
             getTechAddCourse_url:function () {
-                return '/playlearn/Post//a/u/admin/course/addition'
+                return '/a/u/admin/course'
             },
             //获取教学管理课程管理查看课程接口
-            getTechViewCourse_url:function () {
-                return '/playlearn/GET//a/u/admin/course'
+            getTechViewCourse_url:function (id) {
+                return '/a/u/admin/course/recommend/'+ id
             },
             //获取教学管理课程管理编辑课程接口
             getTechEditCourse_url:function () {
-                return '/playlearn/Put/'
+                return '/a/u/admin/course'
             },
             //获取教学管理课程管理删除课程接口
             getTechDeleteCourse_url:function (courseId) {
-                return '/playlearn/Delete//a/u/admin/course/'+ courseId
+                return '/a/u/admin/course/'+ courseId
             },
             //获取教学管理课程管理搜索课程接口
             getTechSearchCourse_url:function () {
-                return '/playlearn/get/a/u/admin/search/course'
+                return '/a/u/admin/course/search/list'
+            },
+            //获取教学管理课程管理课程上下架接口
+            getTechStatusCourse_url:function () {
+                return '/a/u/admin/course/status'
             },
 
             //课时管理
-            //获取教学管理课时管理课时列表接口
+            //获取教学管理课时管理课时列表/查询接口
             getTechPeriod_url:function () {
-                return '/playlearn/GET//a/u/admin/subject/lessonPeriod/list'
+                return '/a/u/admin/course/lessonPeriod/search/list'
             },
             //获取教学管理课时管理新增课时接口
             getTechAddPeriod_url:function () {
-                return '/playlearn/Post//a/u/admin/lessonPeriod'
+                return '/a/u/admin/course/lessonPeriod'
             },
             //获取教学管理课时管理查看课时接口
-            getTechViewPeriod_url:function () {
-                return '/playlearn/get//a/u/admin/subject/lessonPeriod/detail'
+            getTechViewPeriod_url:function (id) {
+                return '/a/u/admin/course/lessonPeriod/'+id
             },
             //获取教学管理课时管理编辑课时接口
             getTechEditPeriod_url:function () {
-                return '/playlearn/Put//a/u/admin/subject/lessonPeriod/'
+                return '/a/u/admin/course/lessonPeriod'
             },
             //获取教学管理课时管理删除课时接口
-            getTechDeletePeriod_url:function () {
-                return '/playlearn/Delete//a/u/admin/lessonPeriod/'
+            getTechDeletePeriod_url:function (id) {
+                return '/a/u/admin/course/lessonPeriod/' + id
+            },
+            //获取教学管理课时管理课时上下架接口
+            getTechStatusPeriod_url:function () {
+                return '/a/u/admin/course/lessonPeriod/status'
             },
 
             //任务管理
             //获取教学管理任务管理任务列表接口
             getTechMission_url:function () {
-                return '/playlearn/GET//a/u/admin/subject/task/list'
+                return '/a/u/admin/course/task/search/list'
             },
             //获取教学管理任务管理新增任务接口
             getTechAddMission_url:function () {
-                return '/playlearn/Post//a/u/admin/subject/task/addition'
+                return '/a/u/admin/course/task'
             },
             //获取教学管理任务管理查看任务接口
-            getTechViewMission_url:function () {
-                return '/playlearn/get//a/u/admin/subject/task'
+            getTechViewMission_url:function (id) {
+                return '/a/u/admin/course/task/'+id
             },
             //获取教学管理任务管理编辑任务接口
             getTechEditMission_url:function () {
-                return '/playlearn/Put//a/u/admin/task/'
+                return '/a/u/admin/course/task'
             },
             //获取教学管理任务管理删除任务接口
-            getTechDeleteMission_url:function () {
-                return '/playlearn/Delete//a/u/admin/task/'
+            getTechDeleteMission_url:function (id) {
+                return '/a/u/admin/course/task/'+id
+            },
+            //任务下步骤列表接口
+            getTechTask_url:function (id) {
+                return '/a/u/admin/course/task/step/list/'+id
+            },
+            //任务下步骤新增接口
+            getTechAddTask_url:function () {
+                return '/a/u/admin/course/step'
+            },
+            //任务下步骤编辑接口
+            getTechEditTask_url:function () {
+                return '/a/u/admin/course/step'
+            },
+            //任务下步骤删除接口
+            getTechDeleteTask_url:function () {
+                return '/a/u/admin/course/step'
             },
 
 
@@ -461,45 +495,81 @@ angular.module("app")
             getPreviewDeleteDatum_url:function () {
                 return '/a/u/admin/book'
             },
+            //获取同步预习管理教材管理教材上架接口
+            getPreviewUpperDatum_url:function () {
+                return '/a/u/admin/book/status/upper'
+            },
+            //获取同步预习管理教材管理教材下架接口
+            getPreviewUnderDatum_url:function () {
+                return '/a/u/admin/book/status/under'
+            },
 
             //课时管理
             //获取同步预习管理课时管理课时列表接口
             getPreviewPeriod_url:function () {
-                return '/playlearn/GET//a/u/admin/book/lessonPeriod/list'
+                return '/a/u/admin/book/lessonPeriod/list'
             },
             //获取同步预习管理课时管理新增课时接口
             getPreviewAddPeriod_url:function () {
-                return '/playlearn/Post//a/u/admin/lessonPeriod/addition/'
+                return '/a/u/admin/book/lessonPeriod/addition'
             },
             //获取同步预习管理课时管理获取课时详情接口
             getPreviewViewPeriod_url:function () {
-                return '/playlearn/get//a/u/admin/lessonPeriod/'
+                return '/a/u/admin/book/lessonPeriod'
             },
             //获取同步预习管理课时管理编辑课时接口
             getPreviewEditPeriod_url:function () {
-                return '/playlearn/Put//a/u/admin/lessonPeriod/'
+                return '/a/u/admin/book/lessonPeriod'
             },
             //获取同步预习管理课时管理删除课时接口
             getPreviewDeletePeriod_url:function () {
-                return '/playlearn/Delete//a/u/admin/lessonPeriod/'
+                return '/a/u/admin/book/lessonPeriod'
+            },
+            //获取同步预习管理课时管理课时上架接口
+            getPreviewUpperPeriod_url:function () {
+                return '/a/u/admin/book/lessonperiod/status/upper'
+            },
+            //获取同步预习管理课时管理课时下接口
+            getPreviewUnderPeriod_url:function () {
+                return '/a/u/admin/book/lessonperiod/status/under'
             },
 
             //任务管理
             //获取同步预习管理任务管理任务列表接口
             getPreviewMission_url:function () {
-                return '/playlearn/GET//a/u/admin/task/list'
+                return '/a/u/admin/book/task/list'
             },
             //获取同步预习管理任务管理新增任务接口
             getPreviewAddMission_url:function () {
-                return '/playlearn/Post//a/u/admin/task/addition'
+                return '/a/u/admin/book/task/addition'
+            },
+            //获取同步预习管理任务管理查看任务接口
+            getPreviewViewMission_url:function () {
+                return '/a/u/admin/book/task'
             },
             //获取同步预习管理任务管理编辑任务接口
             getPreviewEditMission_url:function () {
-                return '/playlearn/Put//a/u/admin/task/'
+                return '/a/u/admin/book/task/'
             },
             //获取同步预习管理任务管理删除任务接口
             getPreviewDeleteMission_url:function () {
-                return '/playlearn/Delete//a/u/admin/task/'
+                return '/a/u/admin/book/task'
             },
+            //任务下步骤列表接口
+            getPreviewTask_url:function () {
+                return '/a/u/admin/book/step/list'
+            },
+            //任务下步骤新增接口
+            getPreviewAddTask_url:function () {
+                return '/a/u/admin/book/step'
+            },
+            //任务下步骤编辑接口
+            getPreviewEditTask_url:function () {
+                return '/a/u/admin/book/step/'
+            },
+            //任务下步骤删除接口
+            getPreviewDeleteTask_url:function () {
+                return '/a/u/admin/book/step'
+            }
         }
     });

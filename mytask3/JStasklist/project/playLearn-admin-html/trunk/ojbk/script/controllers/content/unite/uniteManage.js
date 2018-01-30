@@ -8,10 +8,27 @@ angular.module('app').controller('uniteManageCtrl',
         $scope.title.edit = '确定';
         $scope.check=false;
         $scope.file=true;
+        $scope.id=$stateParams.id;
+        console.log($stateParams)
         //返回
         $scope.remove=function () {
             $state.go("backStage.contentManage.unite",{page:1,size:5}, {reload: true});
-        }
+        },
+        //查看，编辑
+        $scope.look=function () {
+            Course_service.get_CompanyId($scope.id)
+                .then(function(res) {
+                    if(res.data.code == 0){
+                        $scope.logo=res.data.data.logo;
+                        $scope.name=res.data.data.name;
+                        console.log($scope.name)
+                        console.log($scope.logo)
+                    }
+                    console.log(res)
+                }, function(res) {
+                    alert('请求失败')
+                })
+        };
         //新增==1
         if($scope.data.from === '1'){
             $scope.title.name = '新增机构';
@@ -20,28 +37,23 @@ angular.module('app').controller('uniteManageCtrl',
                     logo:$scope.logo,
                     name:$scope.name
                 }
-                console.log($scope.params)
-                Course_service.get_CompanyAdd($scope.params)
-                    .then(function(res) {
-                        if(res.data.code == 0){
-                        }
-                        console.log(res)
-                    }, function(res) {
-                        alert('请求失败')
-                    })
+                    Course_service.get_CompanyAdd($scope.params)
+                        .then(function(res) {
+                            if(res.data.code == 0){
+                                $state.go("backStage.contentManage.unite",{page:1,size:5}, {reload: true});
+                            }
+                            console.log(res)
+                        }, function(res) {
+                            alert('请求失败')
+                        })
+                }
             }
-        }
         //查看==2
         if($scope.data.from === '2'){
             //显示图片
-            $scope.id=$stateParams.id;
             $scope.check=true;
             //隐藏上传
             $scope.file=false;
-            //跳转编辑
-            $scope.some=function () {
-                $state.go("backStage.contentManage.uniteManage",{from:3}, {reload: true});
-            }
             //改变title
             $scope.title.name = '查看机构';
             //改变按钮
@@ -49,27 +61,36 @@ angular.module('app').controller('uniteManageCtrl',
             //禁止按钮
             $scope.disabled = true;
             //查看
-            $scope.look=function () {
-                Course_service.get_CompanyId($scope.id)
+            $scope.look();
+            //跳转编辑
+            $scope.some=function () {
+                $state.go("backStage.contentManage.uniteManage",{from:3}, {reload: true});
+            }
+
+        }
+        //编辑机构==3
+        if($scope.data.from === '3'){
+            $scope.title.name = '编辑机构';
+            $scope.look();
+            //编辑
+            $scope.some=function () {
+                $scope.params= {
+                    id:$scope.id,
+                    logo: $scope.logo,
+                    name:$scope.name
+                };
+                console.log($scope.params)
+                Course_service.get_CompanyNewly($scope.params)
                     .then(function(res) {
                         if(res.data.code == 0){
-                            $scope.logo=res.data.data.logo;
-                            $scope.name=res.data.data.name;
-                            console.log($scope.logo)
-
+                            $scope.code=res.data.code;
+                            $state.go("backStage.contentManage.unite",{page:1,size:5}, {reload: true});
                         }
                         console.log(res)
                     }, function(res) {
                         alert('请求失败')
                     })
-            };
-            $scope.look();
-        }
-        //编辑机构==3
-        if($scope.data.from === '3'){
-            $scope.title.name = '编辑机构';
-
-            //编辑
+            }
             //后台/热门推荐管理/编辑/课程名称下拉框
         }
     });

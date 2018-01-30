@@ -1,11 +1,14 @@
 <div>
     <div class="head">
-        <img ng-src="{{vm.test.img}}">
+        <div class="sign">
+            <img ng-click="vm.sign()" src="http://home.funlearn.pangu.ptteng.com/imgs/mine/date.png">
+        </div>
+        <img ng-src="{{vm.user.profilePicture}}">
         <div class="head-content">
             <div>
-                <span>{{vm.test.nike}}</span>
-                <p class="year">年级：{{vm.test.grade}}</p>
-                <p>邮箱：{{vm.test.mail}}</p>
+                <span>{{vm.user.name}}</span>
+                <p class="year">年级：{{vm.user.grade |grade}}</p>
+                <p>邮箱：{{vm.user.email}}</p>
             </div>
             <img src="image/mine/arrow-right.png" ui-sref="app.personal"/></div>
         <confirm></confirm>
@@ -20,4 +23,5 @@
             </div>
         </div>
     </div>
+    <modal></modal>
 </div>

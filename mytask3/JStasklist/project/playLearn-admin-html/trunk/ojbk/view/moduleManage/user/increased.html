@@ -6,51 +6,46 @@
         <div class="panel-body">
             <form class="form-horizontal" style="font-size: 12px">
                 <div class="form-group">
-                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">自增长ID</label>
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">名称</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ng-model="vm.addUserParams.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">英文名称</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"  ng-model="vm.addUserParams.menuID">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">模块对应url地址</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ng-model="vm.addUserParams.url">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">父模块ID</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.addUserParams.parentID">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">模块类型</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" >
+                        <input type="text" class="form-control"  ng-model="vm.addUserParams.type">
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">数据更新时间</label>
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">排序</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">更新人ID</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">数据创建时间</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">创建人ID</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" >
+                        <input type="text" class="form-control" ng-model="vm.addUserParams.level" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 col-sm-offset-3 col-lg-1 control-label"></label>
                     <div class="col-sm-4">
-                        <label type="button" class="btn btn-success mg-top-50" ng-click="">保存</label>
+                        <label type="button" class="btn btn-success mg-top-50" ng-click="vm.send()">确定</label>
                         <label type="button" class="btn btn-success mg-top-50" ng-click="">取消</label>
                     </div>
                 </div>

@@ -41,9 +41,9 @@ angular.module('app').controller('uniteCtrl',
         vm.off =function (id,status) {
             vm.isConfrim=undefined;
             if(status == 0){
-                isConfrim=$rootScope.modalConfrim('冻结后无法显示','是否冻结操作？');
-            }else if(status == 1){
                 isConfrim=$rootScope.modalConfrim('解冻后无法显示','是否解冻操作？');
+            }else if(status == 1){
+                isConfrim=$rootScope.modalConfrim('冻结后无法显示','是否冻结操作？');
             }else{
                 return
             }

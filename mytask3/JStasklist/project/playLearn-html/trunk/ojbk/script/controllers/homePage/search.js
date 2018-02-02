@@ -5,9 +5,11 @@ angular.module('app')
         //个人资料年级
         $scope.grade=Number($stateParams.grade);
         console.log($scope.grade)
+        $scope.void=false;
+        $scope.searchs=true;
         //搜索
         //默认
-        $scope.selecteds=0;
+        $scope.selecteds=null;
         $scope.ngclicks = function(index){
             $scope.selecteds = index;
             console.log($scope.selecteds)
@@ -24,8 +26,6 @@ angular.module('app')
             }
             $scope.params={
                 grade:$scope.data.grade,
-                page:1,
-                size:999
             };
             $scope.list();
         };
@@ -45,7 +45,11 @@ angular.module('app')
                         $scope.demoLists=res.data.data;
                         $scope.total= res.data.total;
                         console.log('教材list',$scope.demoLists)
+                    }else if(res.data.code==2){
+                        $scope.void=true;
+                        $scope.searchs=false;
                     }
+
 
                 }, function(res) {
                     alert('请求失败')

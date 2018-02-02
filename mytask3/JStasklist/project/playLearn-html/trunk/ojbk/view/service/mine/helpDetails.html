@@ -1,51 +1,40 @@
 <style>
-    body{
+    body {
         background: #fff;
     }
-    .helpList{
+
+    .helpList {
         padding-top: 13vw;
         background: #fff;
         padding-left: 7.8%;
     }
-    .helpList .helpList_writ{
+
+    .helpList .helpList_writ {
         width: 94%;
     }
-    .helpList h3{
+
+    .helpList h3 {
         font-size: 4.3vw;
         font-weight: 800;
         padding-top: 6vw;
     }
-    .helpList .helpList_writ p{
+
+    .helpList .helpList_writ p {
         font-size: 3.5vw;
         letter-spacing: 2px;
         padding-top: 5vw;
     }
-    .helpList .helpList_writ span{
+
+    .helpList .helpList_writ span {
         font-size: 3.5vw;
         display: inline-block;
         padding-left: 4.7vw;
     }
 </style>
 <div class="helpList">
-<div class="helpList_writ">
-    <h3>如何购买使用试卷？</h3>
-    <p>1. 如何购买使用试卷如何购买使用试卷如何购
-        <span>买使用试卷
-        如何购买使用试卷如何购买使用试卷如何购买使用试卷
-        如何购买使用试卷如何购买使用试卷如何购买使用试卷
-        如何购买使用试卷</span>
-    </p>
-    <p>2. 如何购买使用试卷如何购买使用试卷如何购
-        <span>买使用试卷
-        如何购买使用试卷如何购买使用试卷如何购买使用试卷
-        如何购买使用试卷如何购买使用试卷如何购买使用试卷
-        如何购买使用试卷</span>
-    </p>
-    <p>3. 如何购买使用试卷如何购买使用试卷如何购
-        <span>买使用试卷
-        如何购买使用试卷如何购买使用试卷如何购买使用试卷
-        如何购买使用试卷如何购买使用试卷如何购买使用试卷
-        如何购买使用试卷</span>
-    </p>
-</div>
+    <div class="helpList_writ">
+        <h3>{{vm.list.title}}</h3>
+        <p><span style="padding: 0">{{$index+1}}</span>
+            <span>{{vm.list.text}}</span></p>
+    </div>
 </div>

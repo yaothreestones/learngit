@@ -9,15 +9,15 @@
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">标题</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"  disabled ng-model="vm.list.title">
+                            <input type="text" class="form-control"  disabled ng-model="vm.title">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">发送人群</label>
                         <div class="col-sm-10">
                             <select class="form-control"
-                                   ng-options="c.value as c.txt for c in vm.type"
-                                    ng-model="vm.list.grade" >
+                                   ng-options="c.value as c.txt for c in vm.sendPeople"
+                                    ng-model="vm.gradeId" disabled>
                             </select>
                         </div>
                     </div>
@@ -25,8 +25,8 @@
                         <label class="col-sm-2 col-lg-1 control-label">消息类型</label>
                         <div class="col-sm-10">
                             <select class="form-control"
-                                    ng-options="c.value as c.txt for c in vm.sendStatus"
-                                    ng-model="vm.list.type" >
+                                    ng-options="c.value as c.txt for c in vm.mold"
+                                    ng-model="vm.type" disabled>
                             </select>
                         </div>
                     </div>
@@ -34,36 +34,34 @@
                         <label class="col-sm-2 col-lg-1 control-label">发送时间</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control"
-                                   placeholder="{{self.sendtime | date:'yyyy-MM-dd HH:mm:ss'}}"
+                                   placeholder="{{vm.sendTime | date:'yyyy-MM-dd HH:mm:ss'}}"
                                    moment-picker="ctrl.second.stringDate"
                                    locale="zh-cn"
                                    format="YYYY-MM-DD HH:mm"
                                    min-view="mouth"
                                    min-date='vm.MinDate'
-                                   readonly="readonly"
-                                   ng-model="vm.list.sendtime"
-                                   ng-disabled="vm.time"
-                                   ng-model-options="{ updateOn:'blur'}">
+                                   ng-model="vm.sendTime" disabled>
 
                         </div>
                         </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label" >正文</label>
                         <div class="col-sm-10">
-                            <div create-editoer-instance ng-model="params.content"></div>
+                            <textarea class="form-control" ng-model="vm.text" rows="3"
+                                      disabled></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label" >第三方通知</label>
                         <div class="col-sm-10">
-                            <input type="checkbox" style="margin-top: 10px">同步
+                            <input type="checkbox" style="margin-top: 10px" ng-model="vm.thirdPart">同步
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label"></label>
                         <div class="col-sm-10">
-                            <label type="button" class="btn btn-success mg-top-50" ng-click="vm.send()">确定</label>
-                            <label type="button" class="btn btn-defult mg-top-50 mg-left-30 border">
+                            <label type="button" class="btn btn-success mg-top-50" ui-sref="backStage.news({page:1,size:10})">确定</label>
+                            <label type="button" class="btn btn-defult mg-top-50 mg-left-30 border" ui-sref="backStage.news({page:1,size:10})">
                                 返回
                             </label>
                         </div>

@@ -435,6 +435,7 @@ a{
 .bit-height b{
     font-size: 4.16vw;
     color: #000000;
+    margin-left: 5vw;
 }
 .curricula{
     margin-top: 3.33vw;
@@ -499,7 +500,7 @@ a{
 }
 .list h5{
     padding-left: 4.58vw;
-    margin-top:14.24vw ;
+    margin-top:10.24vw ;
     color: #ffffff;
     letter-spacing: 0.2vw;
     font-size: 2.77vw;
@@ -860,7 +861,9 @@ a{
     display: inline-block;
     width: 19.86vw;
     height: 28.75vw;
-    margin-right: 5.83vw;
+}
+.publish{
+    margin-left: 5.83vw;
 }
 .single-year{
     display: block;
@@ -911,28 +914,12 @@ a{
 .levy-schedule{
     width: 6.8vw;
     height: 20.83vw;
-    background: #00a5e0;
     border-top-right-radius: 1.5vw;
     border-bottom-right-radius: 1.5vw;
     display: flex;
     align-items: center;
     position: relative;
     right: -1vw;
-}
-.levy-scheduleColor{
-    background: limegreen!important;
-}
-.levy-color{
-    background: #efefef!important;
-
-}
-.levy-color span{
-    color: #a4a4a4!important;
-}
-.clear{
-    width: 4.5vw!important;
-    height: 4.5vw!important;
-    margin-left: 2vw;
 }
 .levy-schedule span{
     text-align: center;
@@ -941,6 +928,21 @@ a{
     margin: auto;
     color: #ffffff;
 }
+.levy-Colors{
+    background: #00a5e0;
+}
+.levy-scheduleColor{
+    background: limegreen;
+}
+.levy-color{
+    background: #efefef;
+}
+.clear{
+    width: 4.5vw!important;
+    height: 4.5vw!important;
+    margin-left: 2vw;
+}
+
 .single-bottom{
     background: #ffffff;
     display: flex;
@@ -948,7 +950,7 @@ a{
     justify-content: space-around;
 }
 .single-check{
-    width: 100%;
+    width: 66.66vw;
     height: 13.88vw;
     line-height: 2.96vw;
     color: #999999;
@@ -1213,10 +1215,15 @@ a{
 .infos{
     display: inline-block;
 }
-.info{
+.iSinfo{
     display: inline-block;
     padding: 0vw 0.5vw;
     background: #2ac845;
     color: #ffffff;
-
+    margin-left: 3vw
+}
+.imgs{
+    width: 5vw!important;
+    height: 5vw!important;
+    margin-left: 5vw;
 }

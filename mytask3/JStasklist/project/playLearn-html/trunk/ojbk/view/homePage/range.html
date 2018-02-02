@@ -1,23 +1,26 @@
+<!--模糊搜索-->
 <div class="top-side" ng-show="iSFuzzy">
-    <div class="through" >
-        <span class="throughName">1</span>
+    <div class="through" ng-repeat="subject in subjects">
+        <span class="throughName">{{subject.courseName}}</span>
         <div class="throughs">
             <span ng-show="iSrecommend">推荐</span>
-            <img ng-model="datas.lockStatus"  class="pull-right" src="image/app/lock.png" />
-            <p class="pull-right">1人已学&#12288&#12288年级</p>
+            <img ng-model="subject.lockCourseStatus" ng-show="iSlock" class="pull-right" src="image/app/lock.png" />
+            <p class="pull-right">{{subject.courseRecommend}}人已学&#12288&#12288{{subject.courseGrade|grade}}</p>
         </div>
     </div>
 </div>
+<!--课程-->
 <div class="top-side" ng-show="course">
     <div class="through" ng-repeat="subject in subjects">
         <span class="throughName">{{subject.courseName}}</span>
         <div class="throughs">
             <span ng-show="iSrecommend">推荐</span>
-            <img ng-model="datas.lockStatus" ng-show="iSlock" class="pull-right" src="image/app/lock.png" />
+            <img ng-model="subject.lockCourseStatus" ng-show="iSlock" class="pull-right" src="image/app/lock.png" />
             <p class="pull-right">{{subject.courseRecommend}}人已学&#12288&#12288{{subject.courseGrade|grade}}</p>
         </div>
     </div>
 </div>
+<!--课时-->
 <div class="top-side" ng-show="hour">
     <div class="hours" ng-repeat="datas in data">
         <span class="hourName">{{$index+1}}.{{datas.lessonPeriodName}}</span>

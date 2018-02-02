@@ -14,12 +14,15 @@
 </div>
 <div class="course_main-content">
     <div infinite-scroll='vm.scroll.nextPage()' infinite-scroll-disabled='vm.scroll.busy' infinite-scroll-distance='0' >
-        <div class="course_content" ng-repeat="courseList in vm.scroll.items" ng-click="vm.course_detail(courseList.id)">
+        <div class="course_content" ng-repeat="courseList in vm.scroll.items" ng-click="vm.course_detail(courseList.courseId)">
             <img src="image/seek/background.png" class="course_main-img">
             <div class="course_main">
-                <h4>{{courseList.name}}</h4>
-                <span>{{courseList.studyCount}}人已学</span>
-                <span>{{courseList.grade|grade}}</span>
+                <div class="course_recommended" ng-show="courseList.courseRecommend === 1">
+                    <img src="image/app/heat.png" class="course_recommended_img">
+                </div>
+                <h4>{{courseList.courseName}}</h4>
+                <span>{{courseList.learnPeople}}人已学</span>
+                <span>{{courseList.courseGrade|grade}}</span>
             </div>
         </div>
         <div ng-show='vm.scroll.busy'>{{vm.scroll.info}}</div>

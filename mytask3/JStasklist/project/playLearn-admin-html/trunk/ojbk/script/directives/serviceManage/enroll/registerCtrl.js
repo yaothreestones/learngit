@@ -9,7 +9,8 @@ angular.module("app")
             // },
             scope: {
                 count:'=count',
-                total:'=total'
+                total:'=total',
+                date:'=date',
             },
             link: function (scope) {
 
@@ -101,7 +102,7 @@ angular.module("app")
                         // 数据列名
                         data: [],  // 数据
 
-                        pointStart: Date.UTC(2018, 0, 7),
+                        pointStart: Date.UTC(1970, 0, 7),
 
                         pointInterval: 24 * 3600 * 1000 ,// one day
 
@@ -121,7 +122,7 @@ angular.module("app")
 
                         yAxis: 1,
 
-                        pointStart: Date.UTC(2018, 0, 7),
+                        pointStart: Date.UTC(1970, 0, 7),
 
                         pointInterval: 24 * 3600 * 1000 ,// one day
 
@@ -165,10 +166,10 @@ angular.module("app")
                 setTimeout(function () {
                     options.series[0].data = scope.total;
                     options.series[1].data = scope.count;
-
                     var chart = Highcharts.chart('container', options);
                     console.log(scope.count)
                     console.log(scope.total);
+
                 }, 500);
 
                 // 图表初始化函数

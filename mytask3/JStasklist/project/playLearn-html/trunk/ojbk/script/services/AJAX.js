@@ -38,25 +38,25 @@ angular.module("app")
             getStatus_url: function () {
                 return "/a/phone/status"
             },
-            //搜页科目下拉
-            getSubjectList_rel:function () {
-                return "/a/u/admin/subject/all"
-            },
             //首页搜索课程
             getCourse_rel: function () {
-                return "/a/u/search/course"
+                return "/a/u/course/search"
             },
             //首页搜索课时
             getlessonPeriod_rel: function () {
-                return "/a/u/search/lessonPeriod"
+                return "/a/u/lessonPeriod/search"
             },
-            //首页学习星 和击败用户
+            //首页学习星
             getStudyInformation_rel: function () {
                 return "/a/u/study/ranking"
             },
+            //击败用户
+            getStudyinfo_rel: function () {
+                return "/a/u/user/study/info"
+            },
             //首页热门推荐（8个）
             getRecommend_rel: function () {
-                return "/a/course/recommend/list"
+                return "/a/u/course/recommend/list"
             },
             //同步预习 教材list
             getBookList_rel: function () {
@@ -68,7 +68,7 @@ angular.module("app")
             },
             //科目列表
             getSubjectList_rel:function () {
-                return "/a/u/admin/subject/all"
+                return "/a/u/subject/all"
             },
             //同步预习接口
             //查看用户绑定教材详情
@@ -87,26 +87,30 @@ angular.module("app")
             getBookLessonPeriod_url:function () {
                 return "/a/u/book/lessonPeriod/list"
             },
-            //同步预习-换帮教材接口put    //同步预习-添加用户绑定教材接口post        一个接口 方法不同
-            getBookBind_url:function () {
-                return "/a/u/book/bind"
+            //同步预习-换帮教材接口
+            getBookBind_url:function (id) {
+                return "/a/u/book/bind?bookId="+id
+            },
+            //同步预习-课时列表的资料统计接口
+            getLessonPeriod_url:function (id) {
+                return "/a/u/book/lessonPeriod/data?bookId="+id
             },
             //萌萌哒
             //前台资讯接口
-            getSeek_url: function () {
-                return "/playlearn/GET/a/information/all"
+            seeklist: function () {
+                return "/a/u/information/list"
             },
             //资讯详情接口
-            getSeekDetails_url: function () {
-                return "/playlearn/GET/a/information/#{id}"
+            seekDetails: function (id) {
+                return "/a/u/information/"+id
             },
             //使用帮助接口
-            getUsingHelp_url: function () {
-                return "/playlearn/GET/a/u/help/all"
+            usingHelp: function () {
+                return "/a/u/help/list"
             },
             //使用帮助详情接口
-            getHelpDetails_url: function () {
-                return "/playlearn/GET/a/u/help/id"
+            HelpDetails: function (id) {
+                return "/a/u/help/"+id
             },
 
             //我的/设置/修改密码接口//
@@ -120,6 +124,9 @@ angular.module("app")
             //我的/设置/课程记录删除多个
             getDeleteAll_url: function () {
                 return "/a/u/user/course/record/list"
+            },
+            idDelet:function (id) {
+                return "/a/u/user/course/record/"+id
             },
             //我的/消息列表接口
             getMessage_url: function () {
@@ -145,6 +152,44 @@ angular.module("app")
             userinfo:function () {
                 return "/a/u/user/info";
             },
+            //我的   消息
+            userMessage:function () {
+                return "/a/u/news";
+            },
+            //我的资料列表
+            myProfile:function () {
+                return "/a/u/data/list"
+            },
+
+            //修改个人资料接口
+            editUserInfo:function () {
+                return "/a/u/user/detail"
+            },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //收藏课程接口
+            getCourseCollect_url:function () {
+                return "/a/u/keep"
+            },
 
             //姚磊
             //获取科目接口
@@ -153,19 +198,87 @@ angular.module("app")
             },
             //获取课程列表接口
             getCourse_url: function () {
-                return "/a/u/admin/course/search/list"
+                return "/a/u/course/search"
             },
             //获取单个课程详情接口
             getCourseDetail_url: function (id) {
-                return '/a/u/admin/course/recommend/' + id
+                return '/a/u/course/detail/' + id
             },
             //获取课程详情的课时列表接口
             getPeriodList_url: function () {
-                return "/playlearn/get//a/u/lessonPeriod/list"
+                return "/a/u/course/detail/lessonPeriod/list"
             },
-            //获取任务详情接口
-            getTaskList_url: function () {
-                return "/playlearn/get/a/u/task/1/step/list"
+            //课程解锁
+            getCourseUnlock_url:function (id) {
+                return "/a/u/course/lock/"+id
+            },
+            //课程价格展示
+            getCoursePrice_url:function (id) {
+                return "/a/u/course/money/"+id
+            },
+            //获取单个课时详情
+            getPeriodDetail_url:function (id) {
+                return "/a/u/lessonPeriod/detail/" + id
+            },
+            //课时解锁
+            getPeriodUnlock_url:function (id) {
+                return "/a/u/lessonPeriod/lock/"+id
+            },
+            //课时下任务列表
+            getMissionList_url:function (id) {
+                return "/a/u/lessonPeriod/detail/task/list/"+id
+            },
+            //任务步骤详情
+            getMissionDetail_url:function (id) {
+                return "/a/u/task/step/list/"+id
+            },
+            //学习星解锁课程
+            getPayCourseByStar_url:function () {
+                return "/a/u/course/star"
+            },
+            //学习星解锁课时
+            getPayPeriodByStar_url:function () {
+                return "/a/u/lessonPeriod/star"
+            },
+            //微信预下单接口
+            getWXPrepay_url:function () {
+                return "/a/u/wx/preOrder"
+            },
+            //课程开始接口
+            getCourseStartStudy_url:function (id) {
+                return "/a/u/course/start/" + id
+            },
+            //课程学习完成接口
+            getCourseEndStudy_url:function (id) {
+                return "/a/u/course/end/" + id
+            },
+            //课时开始接口
+            getPeriodStartStudy_url:function (id) {
+                return "/a/u/lessonPeriod/start/" + id
+            },
+            //课时完成接口
+            getPeriodEndStudy_url:function (id) {
+                return "/a/u/lessonPeriod/end/" + id
+            },
+            //课程完成相关课程接口
+            getCourseAbout_url:function (id) {
+                return "/a/u/course/about/" + id
+            },
+            //下一课时接口
+            getNextPeriod_url:function (id) {
+                return "/a/u/course/lessonPeriod/next/" + id
+            },
+            //任务开始接口
+            getTaskStartStudy_url:function (id) {
+                return "/a/u/task/start/" + id
+            },
+            //任务完成接口
+            getTaskEndStudy_url:function (id) {
+                return "/a/u/task/end/" + id
+            },
+            //购买资料接口
+            getDataBuy_url:function () {
+                return "/a/u/data/money"
             }
         }
     })

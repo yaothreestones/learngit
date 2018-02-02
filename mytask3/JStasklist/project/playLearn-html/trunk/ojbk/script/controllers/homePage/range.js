@@ -21,8 +21,6 @@ angular.module('app')
         $scope.params={
             subject:$scope.subject,
             grade:$scope.grade,
-            page:1,
-            size:999
         }
         //模糊搜索
         if($stateParams.id==1){
@@ -39,6 +37,9 @@ angular.module('app')
                         $scope.iSFuzzy=true;
                         $scope.subjects=res.data.data;
                         console.log($scope.data)
+                    }else{
+                        $scope.void=true;
+                        $scope.iSFuzzy=false;
                     }
                     console.log(res)
                 }, function(res) {
@@ -53,9 +54,21 @@ angular.module('app')
                 params:$scope.params,
             })
                 .then(function(res) {
-                    if(res.data.code == 0){
+                    if(res.data.code ==0){
                         $scope.subjects=res.data.data;
                         console.log($scope.data)
+                        $scope.course=true;
+                        $scope.lockCourseStatus=$scope.subjects[0].lockCourseStatus;
+                        console.log($scope.lockCourseStatus)
+                        $scope.hour=true;
+                        if($scope.lockCourseStatus==1){
+                            $scope.iSlock=true;
+                        }else{
+                            $scope.iSlock=false;
+                        }
+                    }else{
+                        $scope.void=true;
+                        $scope.iSFuzzy=false;
                     }
                     console.log(res)
                 }, function(res) {
@@ -73,12 +86,16 @@ angular.module('app')
                         $scope.data=res.data.data;
                         $scope.lockStatus=$scope.data[0].lockStatus;
                         console.log($scope.lockStatus)
+                        $scope.hour=true;
                         if($scope.lockStatus==1){
                             $scope.iSlock=true;
+                        }else{
+                            $scope.iSlock=false;
                         }
-                    }else{
+                      }else{
                         $scope.void=true;
-                    }
+                        $scope.hour=false;
+                     }
                     console.log(res)
                 }, function(res) {
                     alert('请求失败')

@@ -264,9 +264,10 @@
 .collect-body .collect-img {
     width: 40vw;
 }
-
+.mui-table-view-cell{
+    padding: 0!important;
+}
 .wear .singleChooseBox {
-    padding-left: 2vw;
     margin-right: -3vw;
     display: flex;
     justify-content: flex-end;
@@ -325,16 +326,17 @@
     height: 6.4vw;
     border-radius: 0;
     position: absolute;
-    right: 16vw;
+    right: 10vw;
 }
 
 .wear .overcoat {
     height: 28vw;
     display: -webkit-inline-box;
-    margin-top: 0.7vw;
     position: relative;
 }
-
+.mui-table-view-cell>.mui-slider-handle{
+    background: #F0F4F7;
+}
 .wear .main input {
     position: absolute;
     right: 7vw;
@@ -601,8 +603,7 @@
 }
 
 .affirm button {
-    margin-left: 3%;
-    width: 94%;
+    width: 96%;
     height: 13.7vw;
     margin-top: 6.5vw;
     background: -webkit-linear-gradient(#03a9f4, #03a9f4);

@@ -33,7 +33,7 @@
             <span ng-show="$root.config.headNav.cancelDelete.isShow"
                   ui-sref="app.record({delete:false})">取消</span>
             <span ng-show="$root.config.headNav.finish.isShow"
-                  ui-sref="app.personal">完成</span>
+                  ui-sref="app.personal" ng-click="$root.config.headNav.finish.do()">完成</span>
             <img ng-show="$root.config.headNav.rubbish.isShow"
                  ui-sref="app.record({delete:true})"
                  class="augment" src="image/mine/rubbish.png" height="5vw"

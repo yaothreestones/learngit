@@ -9,26 +9,28 @@
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label">标题</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" disabled >
+                            <input type="text" class="form-control" ng-disabled="true" ng-model="vm.title">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 col-lg-1 control-label" >正文</label>
+                        <label class="col-sm-2 col-lg-1 control-label">正文</label>
                         <div class="col-sm-10">
-                            <div create-editoer-instance ng-model="params.content"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-lg-1 control-label" ></label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" style="margin-top: 10px">同步
+                            <div create-editoer-instance ng-model="vm.text" ng-disabled="true"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 col-lg-1 control-label"></label>
                         <div class="col-sm-10">
-                            <label type="button" class="btn btn-success mg-top-50" ng-click="">确定</label>
-                            <label type="button" class="btn btn-defult mg-top-50 mg-left-30 border">返回</label>
+                            <input type="checkbox" style="margin-top: 10px" ng-model="vm.synchro">同步
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-lg-1 control-label"></label>
+                        <div class="col-sm-10">
+                            <label type="button" class="btn btn-success mg-top-50"
+                                   ui-sref="backStage.serviceManage.edit({id:vm.$stateParams.id})">编辑</label>
+                            <label type="button" class="btn btn-defult mg-top-50 mg-left-30 border"
+                                   ui-sref="backStage.help({page:1,size:10})">返回</label>
                         </div>
                     </div>
                 </form>

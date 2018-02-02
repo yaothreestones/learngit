@@ -2,7 +2,7 @@ angular.module('app')
     .factory('classes',function () {
         return [
             {
-                id:0,
+                id:null,
                 name:'全部'
             },
             {
@@ -34,7 +34,7 @@ angular.module('app')
     .factory('subjects',function () {
         return [
             {
-                id:0,
+                id:null,
                 name:'全部'
             },
             {
@@ -72,6 +72,41 @@ angular.module('app')
             }
         ]
     })
+    .factory('getStar',function () {
+        return function (x) {
+            switch (x){
+                case 1:
+                    return "image/app/study1.png";
+                case 2:
+                    return "image/app/study2.png";
+                case 3:
+                    return "image/app/study3.png";
+                case 4:
+                    return "image/app/study4.png";
+                case 5:
+                    return "image/app/study5.png"
+            }
+        }
+    })
+    .factory('gotStar',function () {
+        return function (x) {
+            switch (x){
+                case 1:
+                    return "image/app/isStudy1.png";
+                case 2:
+                    return "image/app/isStudy2.png";
+                case 3:
+                    return "image/app/isStudy3.png";
+                case 4:
+                    return "image/app/isStudy4.png";
+                case 5:
+                    return "image/app/isStudy5.png"
+            }
+        }
+    })
+
+
+
 
 
 

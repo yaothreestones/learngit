@@ -17,10 +17,9 @@ angular.module('app')
                         vm.email = res.data.data.email;
                         vm.grade = res.data.data.grade;
                         vm.profilePicture = res.data.data.profilePicture
-                        console.log(vm.grade);
                     }
-                    console.log(res)
-                }, function (res) {
+                    console.log('用户管理详情',res)
+                }, function () {
                     alert('请求失败')
                 })
 

@@ -121,6 +121,11 @@ angular.module("app")
             get_StudyInformation: function (params) {
                 return $http.get(pathProject.getStudyInformation_rel(), params)
             },
+            //用户击败
+            get_Studyinfo: function (params) {
+                return $http.get(pathProject. getStudyinfo_rel(), params)
+            },
+
             //首页热门推荐（8个展示）
             get_Recommend: function (params) {
                 return $http.get(pathProject.getRecommend_rel(), params)
@@ -143,7 +148,6 @@ angular.module("app")
                 return $http.get(pathProject.getBookList_url(),params)
             },
             // 查看教材详情
-
             get_Books:function (id) {
                 return  $http.get(pathProject.getBook_url(id))
             },
@@ -158,11 +162,13 @@ angular.module("app")
 
             },
             //同步预习-换帮教材接口put    //同步预习-添加用户绑定教材接口post        一个接口 方法不同
-            get_BookBindPut :function () {
-                return $http.put(pathProject.getBookBind_url(),params)
+            get_BookBind:function (id) {
+                return $http.post(pathProject.getBookBind_url(id))
             },
-            get_BookBindPost :function () {
-                return $http.post(pathProject.getBookBind_url(),params)
+            //同步预习-课时列表的资料统计接口
+
+            get_LessonPeriod:function (id) {
+                return $http.get(pathProject.getLessonPeriod_url(id))
             },
 
 
@@ -218,6 +224,15 @@ angular.module("app")
                         'content-type': 'application/json'
                     },
                     data: params
+                });
+            },
+            //我的/课程记录/删除单个
+            idDelet: function (id) {
+                return $http({
+                    method: "delete",
+                    url: pathProject.idDelet(),
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    params: {id: id}
                 });
             },
             // //我的/消息
@@ -279,13 +294,67 @@ angular.module("app")
             userinfo:function (params) {
                 return $http.get(pathProject.userinfo(), params);
             },
+            //我的 消息列表
+            userMessage:function (params) {
+                return $http.get(pathProject.userMessage(),params);
+            },
+            //我的资料列表
+            myProfile:function (params) {
+                return $http.get(pathProject.myProfile(),params);
+            },
+            //修改用户信息
+            edit_userInfo:function (params) {
+                return $http({
+                    method: "put",
+                    url: pathProject.editUserInfo(),
+                    headers: {'Content-Type': 'application/json'},
+                    data: params
+                })
+            },
+            //资讯列表
+            seeklist:function (params) {
+                return $http.get(pathProject.seeklist(),params);
+            },
+            //使用帮助列表
+            usingHelp:function (params) {
+                return $http.get(pathProject.usingHelp(),params)
+            },
+            //使用帮助详情
+            HelpDetails:function (id) {
+                return $http.get(pathProject.HelpDetails(id))
+            },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //收藏课程接口
+            get_courseCollect:function (data,params) {
+                return $http.post(pathProject.getCourseCollect_url(),data,params)
+            },
 
             //姚磊
-            //获取科目接口
-            get_subject: function (params) {
-                return $http.get(pathProject.getSubject_url(), params)
-            },
             //获取课程列表接口
             get_course_list: function (params) {
                 return $http.get(pathProject.getCourse_url(), params)
@@ -300,13 +369,94 @@ angular.module("app")
                     method: 'post',
                     url: pathProject.getPeriodList_url(),
                     headers: {'content-type': 'application/x-www-form-urlencoded'},
-                    transformRequest: function (data) {return $.param(data);},
+                    transformRequest: function (data) {return $.param(data)},
                     data: data
                 });
             },
+            //解锁课程
+            get_course_unlock:function (params) {
+                return $http.get(pathProject.getCourseUnlock_url(params))
+            },
+            //课程价格展示
+            get_course_price:function (id) {
+                return $http.get(pathProject.getCoursePrice_url(id))
+            },
+            //获取单个课时详情
+            get_period_detail:function (data) {
+                return $http.get(pathProject.getPeriodDetail_url(data))
+            },
+            //课时解锁
+            get_period_unlock:function (id) {
+                return $http.get(pathProject.getPeriodUnlock_url(id))
+            },
+            //课时下任务列表
+            get_mission_list:function (id) {
+                return $http.get(pathProject.getMissionList_url(id))
+            },
             //获取任务详情接口
             get_task_list: function (params) {
-                return $http.get(pathProject.getTaskList_url(params))
+                return $http.get(pathProject.getMissionDetail_url(params))
+            },
+            //学习星解锁课程
+            get_pay_course_by_star:function (data) {
+                return $http({
+                    method:'post',
+                    url:pathProject.getPayCourseByStar_url(),
+                    data:data,
+                    headers: {'content-type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function (data) {return $.param(data)}
+                })
+            },
+            //学习星解锁课时
+            get_pay_period_by_star:function (data) {
+                return $http({
+                    method:'post',
+                    url:pathProject.getPayPeriodByStar_url(),
+                    data:data,
+                    headers: {'content-type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function (data) {return $.param(data)}
+                })
+            },
+            //微信预下单接口
+            get_wx_prepay:function (params) {
+                return $http.post(pathProject.getWXPrepay_url(),params)
+            },
+
+            //课程开始接口
+            get_course_start_study:function (id) {
+                return $http.post(pathProject.getCourseStartStudy_url(id))
+            },
+            //课程完成接口
+            get_course_end_study:function (id) {
+                return $http.put(pathProject.getCourseEndStudy_url(id))
+            },
+            //课时开始接口
+            get_period_start_study:function (id) {
+                return $http.get(pathProject.getPeriodStartStudy_url(id))
+            },
+            //课时完成接口
+            get_period_end_study:function (id) {
+                return $http.get(pathProject.getPeriodEndStudy_url(id))
+            },
+            //相关课程接口
+            get_course_about:function (id) {
+                return $http.get(pathProject.getCourseAbout_url(id))
+            },
+            //下一课时接口
+            get_next_period:function (id) {
+                return $http.get(pathProject.getNextPeriod_url(id))
+            },
+            //任务开始接口
+            get_task_start_study:function (id) {
+                return $http.get(pathProject.getTaskStartStudy_url(id))
+            },
+            //任务完成接口
+            get_task_end_study:function (id) {
+                return $http.get(pathProject.getTaskEndStudy_url(id))
+            },
+            //购买资料接口
+            get_data_buy:function (params) {
+                return $http.get(pathProject.getDataBuy_url(),params)
             }
         }
-    })
+    });

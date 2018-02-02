@@ -394,11 +394,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/serviceManage/serviceManage.css",
                         "style/serviceManage/tab.css",
                         "script/controllers/serviceManage/party/partySee/tab1Ctrl.js"
-
                     ])
-
                 }
-
             })
             //用户管理管理（查看/收藏课时）
             .state("backStage.party.see.tab2", {
@@ -415,11 +412,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/serviceManage/serviceManage.css",
                         "style/serviceManage/tab.css",
                         "script/controllers/serviceManage/party/partySee/tab2Ctrl.js"
-
                     ])
-
                 }
-
             })
             //用户管理管理（查看/我的资料）
             .state("backStage.party.see.tab3", {
@@ -436,11 +430,8 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                         "style/serviceManage/serviceManage.css",
                         "style/serviceManage/tab.css",
                         "script/controllers/serviceManage/party/partySee/tab3Ctrl.js"
-
                     ])
-
                 }
-
             })
             //enroll
             //后台注册统计
@@ -478,6 +469,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/controllers/serviceManage/information/increasedCtrl.js",
                         "script/directives/wangEditor/rich.js"
                     ])
@@ -490,6 +482,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/information/checkCtrl.js",
                         "script/directives/wangEditor/rich.js",
                     ])
@@ -502,6 +495,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/information/stateCtrl.js",
                         "script/directives/wangEditor/rich.js"
                     ])
@@ -509,24 +503,26 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台消息管理
             .state("backStage.news", {
-                url: "/news/{page}/{size}?&id&status&grade&title&text&type&sendTime",
+                url: "/news/{page}/{size}?&id&status&gradeId&title&text&type&sendTime&thirdPart",
                 templateUrl: 'view/serviceManage/news/news.html',
                 controller: 'newsCtrl',
                 controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/news/newsCtrl.js"
                     ])
                 }
             })
             //消息管理（查看）
             .state("backStage.serviceManage.look", {
-                url: "/look",
+                url: "/look/{id}",
                 templateUrl: 'view/serviceManage/news/look.html',
                 controller: 'lookCtrl',
                 controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/news/lookCtrl.js"
                     ])
                 }
@@ -539,6 +535,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/news/newsManageCtrl.js",
                         "script/directives/wangEditor/rich.js",
                     ])
@@ -546,11 +543,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //后台帮助管理
             .state("backStage.help", {
-                url: "/help/{page}/{size}",
+                url: "/help/{page}/{size}?id&title&text&createBy&updateBy&createAt&updateAt",
                 templateUrl: 'view/serviceManage/help/help.html',
                 controller: 'helpCtrl',
+                controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/help/helpCtrl.js"
                     ])
                 }
@@ -559,30 +558,39 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.serviceManage.helpManage", {
                 url: "/helpManage",
                 templateUrl: 'view/serviceManage/help/helpManage.html',
-                // controller: 'helpManageCtrl',
+                controller: 'helpManageCtrl',
+                controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/directives/wangEditor/rich.js",
+                        "script/services/serviceManage/help/helpManageCtrl.js"
                     ])
                 }
             })
             .state("backStage.serviceManage.lookHelp", {
-                url: "/lookHelp",
+                url: "/lookHelp/{id}",
                 templateUrl: 'view/serviceManage/help/lookHelp.html',
-                // controller: 'objectionManageCtrl',
+                controller: 'lookHelpCtrl',
+                controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/directives/wangEditor/rich.js",
+                        "script/services/serviceManage/help/lookHelpCtrl.js"
                     ])
                 }
             })
             .state("backStage.serviceManage.edit", {
-                url: "/edit",
+                url: "/edit/{id}",
                 templateUrl: 'view/serviceManage/help/edit.html',
-                // controller: 'objectionManageCtrl',
+                controller: 'editCtrl',
+                controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/directives/wangEditor/rich.js",
+                        "script/services/serviceManage/help/editCtrl.js"
                     ])
                 }
             })
@@ -594,6 +602,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/objection/objectionCtrl.js"
                     ])
                 }
@@ -605,26 +614,9 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 controller: 'objectionManageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/serviceManage/objection/objectionManageCtrl.js"
                     ])
-                }
-            })
-            //后台版本管理
-            .state("backStage.version", {
-                url: "/version",
-                templateUrl: 'view/serviceManage/version/version.html',
-                // controller: 'versionCtrl',
-                resolve: {
-                    loadMyFile: _lazyLoad([])
-                }
-            })
-            //版本管理（编辑）
-            .state("backStage.serviceManage.versionManage", {
-                url: "/versionManage",
-                templateUrl: 'view/serviceManage/version/versionManage.html',
-                // controller: 'versionManageCtrl',
-                resolve: {
-                    loadMyFile: _lazyLoad([])
                 }
             })
             //后台管理
@@ -639,38 +631,54 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 }
             })
             //模块管理
-            .state("backStage.moduleManage.user", {
-                url: "/module",
+            .state("backStage.user", {
+                url: "/user/{page}/{size}",
                 templateUrl: 'view/moduleManage/user/module.html',
-                // controller: 'moduleManageCtrl',
+                controller: 'moduleCtrl',
+                controllerAs:'vm',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                        "script/services/moduleManage/module/moduleCtrl.js"
+                    ])
                 }
             })
             //模块（新增，编辑）
             .state("backStage.moduleManage.moduleManage", {
                 url: "/moduleManage",
                 templateUrl: 'view/moduleManage/user/moduleManage.html',
-                // controller: 'moduleManageCtrl',
+                controller: 'moduleManageCtrl',
+                controllerAs:'vm',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                        "script/services/moduleManage/module/moduleManageCtrl.js"
+                    ])
                 }
             })
             .state("backStage.moduleManage.increased", {
                 url: "/increased",
                 templateUrl: 'view/moduleManage/user/increased.html',
-                // controller: 'moduleManageCtrl',
+                controller: 'increasedCtrl',
+                controllerAs:'vm',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                        "script/services/moduleManage/module/increasedCtrl.js"
+                    ])
                 }
             })
             //角色管理
-            .state("backStage.moduleManage.role", {
-                url: "/role",
+            .state("backStage.role", {
+                url: "/role/{page}/{size}",
                 templateUrl: 'view/moduleManage/role/role.html',
-                // controller: 'roleCtrl',
+                controller: 'roleCtrl',
+                controllerAs:'vm',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                        "script/services/moduleManage/role/roleCtrl.js"
+                    ])
                 }
             })
             //角色管理（新增，编辑）
@@ -679,25 +687,31 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 templateUrl: 'view/moduleManage/role/roleManage.html',
                 // controller: 'roleManageCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                    ])
                 }
             })
             //密码修改
-            .state("backStage.moduleManage.password", {
+            .state("backStage.password", {
                 url: "/password",
                 templateUrl: 'view/moduleManage/password/password.html',
                 // controller: 'passwordCtrl',
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                    ])
                 }
             })
             //账户管理
-            .state("backStage.moduleManage.account", {
-                url: "/account",
+            .state("backStage.account", {
+                url: "/account/{page}/{size}",
                 templateUrl: 'view/moduleManage/account/account.html',
                 controller: 'accountCtrl',
+                controllerAs: "vm",
                 resolve: {
                     loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
                         "script/services/moduleManage/account/accountCtrl.js",
                     ])
                 }
@@ -706,17 +720,23 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.moduleManage.accountManage", {
                 url: "/accountManage",
                 templateUrl: 'view/moduleManage/account/accountManage.html',
-                // controller: 'accountManageCtrl',
+                controller: 'accountManageCtrl',
+                controllerAs: "vm",
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/services/moduleManage/account/accountManageCtrl.js",
+                    ])
                 }
             })
             .state("backStage.moduleManage.compiler", {
-                url: "/compiler",
+                url: "/compiler/{id}",
                 templateUrl: 'view/moduleManage/account/compiler.html',
-                // controller: 'accountManageCtrl',
+                controller: 'compilerCtrl',
+                controllerAs: "vm",
                 resolve: {
-                    loadMyFile: _lazyLoad([])
+                    loadMyFile: _lazyLoad([
+                        "script/services/moduleManage/account/compilerCtrl.js",
+                    ])
                 }
             });
     }

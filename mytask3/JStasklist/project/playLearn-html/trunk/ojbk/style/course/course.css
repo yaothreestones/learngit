@@ -69,12 +69,17 @@
     margin-top: 5vw;
 }
 .course_content .course_main h4{
-    color: #000;
+    color: #03a9f4;
 }
 .course_content .course_main span{
     font-size: 3.7vw;
     color: #999999;
     display: inline-block;
+}
+.course_recommended_img {
+    width: 6.25vw;
+    height: 6.25vw;
+    vertical-align: top;
 }
 .course_content .course_main .course_recommended {
     position: absolute;
@@ -176,6 +181,11 @@
     font-size: 4.2vw;
     color: #333;
     margin-bottom: 1vw;
+    line-height: 4.2vw;
+}
+.course_details_mission_lockimg {
+    height: 4.2vw;
+    vertical-align: bottom;
 }
 .course_details_mission_img {
     height:3.33vw;
@@ -186,13 +196,23 @@
     color: #999;
 }
 .mission_finish {
-    background-color: #03a9f4;
+    background-color: #8ec351;
 }
 .mission_studying {
-    background-color: #8ec351;
+    background-color: #03a9f4;
 }
 .mission_unbegun {
     background-color: #efefef;
+}
+.period_mission_begin {
+    color: #000 !important;
+}
+.period_mission_study {
+    color: #03a9f4 !important;
+
+}
+.period_mission_finish {
+    color: #8ec351 !important;
 }
 .course_details_status_unbegun {
     color:#999;
@@ -234,23 +254,26 @@
     z-index: 100;
 }
 .course_details_bottom_left {
-    position: absolute;
-    left: 12.5vw;
-    transform: translate(-50%,0);
+    /*position: absolute;*/
+    /*left: 12.5vw;*/
+    /*transform: translate(-50%,0);*/
 }
 .course_details_bottom_middle {
-    position: absolute;
-    left: 37.5vw;
-    transform: translate(-50%,0);
+    /*position: absolute;*/
+    /*left: 37.5vw;*/
+    /*transform: translate(-50%,0);*/
 }
 .course_details_bottom_right {
-    position: absolute;
-    left: 62.5vw;
-    transform: translate(-50%,0);
+    /*position: absolute;*/
+    /*left: 62.5vw;*/
+    /*transform: translate(-50%,0);*/
 }
 .course_period_top-side {
     margin-top: 12.91vw;
     padding-top: 0.1vw;
+}
+.overflow {
+    overflow: hidden;
 }
 .course_period_headline {
     background: #ffffff;
@@ -264,6 +287,36 @@
     margin-right: 2vw;
     vertical-align: -0.5vw;
     border: 0;
+}
+.course_period_lock_modal {
+    position: fixed;
+    top: 12.9vw;
+    left: 0;
+    z-index: 999;
+}
+.course_period_tasklist {
+    height: 6vw;
+    position: relative;
+    top: -5.2vw;
+    background: #fff;
+}
+.course_period_lock_button {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    background-color: #03a9f4;
+    border: 0;
+}
+.course_period_lock {
+    position: fixed;
+    height: 100vh;
+    width:  100vw;
+    background-color: #000;
+    opacity: .5;
+    z-index: 999;
 }
 .course_period_lesson {
     height: 13.47vw;
@@ -359,7 +412,7 @@
     margin: 2.2vw;
     background-color: #f0f4f7;
     overflow: scroll;
-    height: 78vh;
+    height: 70vh;
 }
 .course_mission_step {
     width: 83vw;
@@ -382,6 +435,13 @@
     left: -1.7vw;
     line-height: 2.9vw;
     top: 0;
+}
+.w-e-toolbar {
+    border:none !important;
+}
+.w-e-text-container {
+    height: auto !important;
+    border:none !important;
 }
 .course_mission_stepOut {
     position: relative;
@@ -457,6 +517,7 @@
 }
 .course_mission_button_box {
     text-align: center;
+    padding-bottom: 4vh;
 }
 .course_mission_bottom {
     position: fixed;
@@ -491,15 +552,14 @@
     top: 12.9vw;
 }
 .periodFinish_orange_back {
-    height: 80vh;
+    height: calc(100vh - 12.9vw);
     background-color: #f68b3b;
 }
 .periodFinish_bottom_back {
-    height: 55vh;
+    top: calc(45vh - 12.9vw);
     background: url("../../image/app/cloud.png") no-repeat transparent;
     background-size: cover;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
     width: 100vw;
     padding: 0 4.9vw;
 }
@@ -514,7 +574,7 @@
 }
 .periodFinish_line_top {
     position: relative;
-    margin-top: 30vw;
+    padding-top: 30vw;
 }
 .periodFinish_youcan {
     text-align: center;
@@ -551,7 +611,14 @@
 }
 .periodFinish_choose_div {
     display: flex;
-    margin-top: 10vw;
+    width: 100vw ;
+    background: #FFFEDF;
+    margin: 10vw 0 10vw -4.9vw;
+    justify-content: space-around
+}
+.periodFinish_clear_margin {
+    margin-left: 0 !important;
+    width: 100% !important;
 }
 .periodFinish_choose {
     margin: 0 2.5vw;
@@ -561,6 +628,20 @@
     padding: 1vw 0;
     color: #8c5233;
     font-size: 12px;
+}
+.periodFinish_course_content {
+    position: relative;
+    height: 15vw;
+    margin: 0 auto 3vw auto;
+    border: 1px solid #a8a9ac;
+    border-radius: 6px;
+}
+.periodFinish_course_content img{
+    height: 15vw;
+    width: 15vw;
+}
+.periodFinish_course_content h5 {
+    display: inline-block;
 }
 .payResult-body {
     position: relative;
@@ -620,4 +701,13 @@
 .payResult_loseFocus {
     background-color: #fff;
     color:#03a8f3;
+}
+.datapay_buytips {
+    margin-left: 3vw;
+    color: #999;
+    margin-right: 3vw;
+}
+.datapay_studystar {
+    height: 3.9vw;
+    vertical-align: bottom;
 }

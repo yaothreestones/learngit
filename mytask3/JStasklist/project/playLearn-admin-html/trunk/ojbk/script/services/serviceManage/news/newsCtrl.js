@@ -34,8 +34,40 @@ angular.module('app')
             }
 
             vm.list()
+
+            Course_service.get_TechSearchSubject({
+                params:vm.params
+            }).then(function (res) {
+                if(res.status === 200) {
+                    if (res.data.code === 0) {
+                        vm.totalItems = res.data.total;
+                        vm.lists = res.data.data;
+                        console.log('科目列表',vm.lists);
+                        console.log(res);
+                    }else {
+                        alert(res.message)
+                    }
+                }else {
+                    alert('请求超时')
+                }
+
+            });
+
             vm.search = function () {
+                vm.$stateParams['page'] = 1;
                 $state.reload();
+            }
+
+            vm.clear = function () {
+                vm.$stateParams.id = '',
+                    vm.$stateParams.title = '',
+                    vm.$stateParams.type = '',
+                    vm.$stateParams.status = '',
+                    vm.$stateParams.text = '',
+                    vm.$stateParams.gradeId = '',
+                    vm.$stateParams.sendTime = '',
+                    vm.$stateParams.thirdPart = '',
+                    $state.reload();
             }
 
             vm.publish = function () {
@@ -44,10 +76,25 @@ angular.module('app')
                     console.log(11)
                 })
             }
-            vm.delete = function () {
-                var out = $rootScope.modalConfrim('是否删除该消息模板？');
-                out.then(function () {
-                    console.log(11)
+            vm.delete = function (id) {
+                var isConfrim = $rootScope.modalConfrim('是否确认删除');
+                isConfrim.then(function () {
+                    //确认
+                    Course_service.get_MessageDelete(id)
+                        .then(function (res) {
+                            if (res.data.code == 0) {
+                                $rootScope.modalAlert('删除成功');
+                                $state.go("backStage.news", {}, {reload: true})
+                                vm.list();
+                            } else {
+                                $rootScope.modalAlert('删除失败');
+                            }
+                        }, function (res) {
+                            $rootScope.modalAlert(res.data);
+                        })
+                }, function () {
+                    //取消
+                    $rootScope.modalAlert('已取消');
                 })
             }
         }

@@ -85,7 +85,7 @@
                         <div class="row pd-bottom-2">
                             <div class="col-md-4 pull-right text-right">
                                 <div class="ng-isolate-scope">
-                                    <button type="button" class="btn btn-success" ng-click="vm.clear()">重置</button>
+                                    <button type="button" class="btn btn-danger" ng-click="vm.clear()">清空</button>
                                     <button type="button" class="btn btn-success" ng-click="vm.search()">查询</button>
                                 </div>
                             </div>
@@ -124,20 +124,11 @@
                         <td>{{self.studyStar}}</td>
                         <td>{{self.studyLesson||0}}</td>
                         <td>{{self.email||'空'}}</td>
-                        <td>{{self.status==1?'正常':'冻结'}}{{self.status}}</td>
+                        <td>{{self.status==1?'正常':'冻结'}}</td>
                         <td>
-                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                    class="btn btn-sm  btn-primary "
-                                    ng-clock>
-                                <a ui-sref="backStage.party.see({userId:self.id})">查看</a>
-                            </button>
-                            <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                    class="btn btn-sm  btn-primary "
-                                    ng-clock
-                                    style="cursor:pointer;"
-                                    ng-click="vm.thaw(self.id,self.status)">
-                                {{self.status==1?'冻结':'解冻'}}
-                            </button>
+                            <button class="btn btn-warning btn-xs"  ui-sref="backStage.party.see({userId:self.id})">查看</button>
+                            <button class="btn btn-primary btn-xs " ng-click="vm.thaw(self.id,self.status)">{{self.status==1?'冻结':'解冻'}}</button>
+
                         </td>
                     </tr>
                     </tbody>

@@ -12,6 +12,7 @@ angular.module('app').controller('tab2Ctrl',
                     vm.subject = res.data.data;
                     vm.message = res.data.message;
                 }
+                console.log('用户收藏课时列表',res)
             }, function (res) {
                 alert('请求失败')
             })

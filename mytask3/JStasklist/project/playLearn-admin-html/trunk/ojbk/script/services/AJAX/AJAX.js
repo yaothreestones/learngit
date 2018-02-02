@@ -72,281 +72,197 @@ angular.module("app")
             },
 
 
-
-
-
-
-
-
             //萌萌哒
             //客服
             //用户管理接口
-            getseerch_url:function () {
+            getseerch_url: function () {
                 return "/a/u/admin/user/search/list"
             },
             //客服/用户管理/解冻、冻结接口
-            getUnfreeze_url:function () {
+            getUnfreeze_url: function () {
                 return "/a/u/admin/user/status"
             },
             //用户管理/查看用户接口
-            getUserDetail_url:function (id) {
-                return "/a/u/admin/user/"+id
+            getUserDetail_url: function (id) {
+                return "/a/u/admin/user/" + id
             },
             //用户管理/收藏课程接口
-            getSee_url:function () {
+            getSee_url: function () {
                 return "/a/u/admin/user/keep/course/list"
             },
             //用户管理/收藏课时接口
-            getSubject_url:function () {
+            getSubject_url: function () {
                 return "/a/u/admin/user/keep/lessonPeriod/list"
             },
             //用户管理/我的资料接口
-            getMeans_url:function () {
+            getMeans_url: function () {
                 return "/a/u/admin/user/data/list"
             },
 
             //客服
             //资讯管理接口
-            getInformation_url:function () {
+            getInformation_url: function () {
                 return "/a/u/admin/information/list"
             },
             //资讯管理/增加接口
-            getInformationAdd_url:function () {
+            getInformationAdd_url: function () {
                 return "/a/u/admin/information/add"
             },
             //资讯管理/查看接口
-            getInformationSee_url:function (id) {
-                return "/a/u/admin/information"+id
+            getInformationSee_url: function (id) {
+                return "/a/u/admin/information/" + id
             },
             //资讯管理/编辑接口
-            getInformationEdit_url:function () {
+            getInformationEdit_url: function () {
                 return "/a/u/admin/information"
             },
             //资讯管理/删除接口
-            getInformationDelet_url:function () {
+            getInformationDelet_url: function () {
                 return "/a/u/admin/information";
             },
             //资讯管理/上下架接口
-            getInformationStatus_url:function () {
-                return "playlearn/GET/a/u/admin/information/status"
+            getInformationStatus_url: function () {
+                return "/a/u/admin/information/status"
             },
-
 
 
             //客服
             //注册统计接口
-            getEnroll_url:function () {
-                return "playlearn/GET/a/u/admin/user/enroll"
+            getEnroll_url: function () {
+                return "/a/u/admin/user/enroll"
             },
 
             //客服
             //消息管理接口
-            getMessage_url:function () {
-                return "playlearn/GET/a/u/admin/news/all"
+            getMessage_url: function () {
+                return "/a/u/admin/news/all"
+            },
+            //搜索
+            search: function () {
+                return "/a/u/admin/news/search"
             },
             //消息管理/增加接口
-            getMessageAugment_url:function () {
-                return "playlearn/POST/a/u/admin/news"
+            getMessageAugment_url: function () {
+                return "/a/u/admin/news"
             },
             //消息管理/查看接口
-            getMessageSee_url:function () {
-                return "playlearn/GET/a/u/admin/news/{id}"
+            getMessageSee_url: function (id) {
+                return "/a/u/admin/news/" + id
             },
             //消息管理/删除接口
-            getMessageDelet_url:function () {
-                return "playlearn/DELETE/a/u/admin/news"
+            getMessageDelet_url: function (id) {
+                return "/a/u/admin/news/" + id
             },
 
             //客服
             //帮助管理接口
-            getHelp_url:function () {
-                return "playlearn/GET/a/u/admin/help/all"
+            getHelp_url: function () {
+                return "/a/u/admin/help/search"
             },
             //帮助管理/增加接口
-            getHelpAugment_url:function () {
-                return "playlearn/POST/a/u/admin/help/add"
+            getHelpAugment_url: function () {
+                return "/a/u/admin/help"
             },
             //帮助管理/删除接口
-            getHelpDelet_url:function () {
-                return "playlearn/DELETE/a/u/admin/help"
+            getHelpDelet_url: function (id) {
+                return "/a/u/admin/help/" + id
             },
             //帮助管理/编辑接口
-            getHelpEdit_url:function () {
-                return "playlearn/PUT/a/u/admin/help"
+            getHelpEdit_url: function () {
+                return "/a/u/admin/help"
             },
             //帮助管理/查看接口
-            getHelpSee_url:function () {
-                return "playlearn/GET/a/u/admin/help/{id}"
+            getHelpSee_url: function (id) {
+                return "/a/u/admin/help/" + id
+            },
+            //意见管理
+            getSuggestList: function () {
+                return '/a/u/admin/feedback/list/';
+            },
+            getSuggestDetail: function () {
+                return '/a/u/admin/feedback?feedbackId=';
+            },
+            deleteSuggest: function () {
+                return '/a/u/admin/feedback?feedbackId=';
             },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //后台账户管理
+            userAccount: function () {
+                return '/a/u/admin/manager/list';
+            },
+            //下拉框列表
+            clickSelect:function () {
+                return '/a/u/admin/role/list';
+            },
+            //查询
+            AccountEnquiry: function () {
+                return '/a/u/admin/multi/manager';
+            },
+            //删除
+            AccountDelete: function (id) {
+                return ' /a/u/admin/manager/' + id;
+            },
+            //编辑
+            editUser:function () {
+                return ' /a/u/admin/manager';
+            },
+            //新增
+            addUser: function () {
+                return ' /a/u/admin/manager';
+            },
+            //查找管理员
+            resUser:function (id) {
+                return '/a/u/admin/manager/'+id
+            },
+            //根据角色ID查询
+            roleUser:function (id) {
+                return '/a/u/admin/role/'+id+'/manager'
+            },
+
+            //模块管理
+            //列表
+            moduleUser:function () {
+                return '/a/u/admin/module/list'
+            },
+            //根据ID查找模块
+            IDmoduleUser:function (id) {
+                return '/a/u/admin/module/'+id
+            },
+            //增加模块
+            AddUser:function () {
+                return '/a/u/admin/module'
+            },
+            //编辑模块
+            editModule:function (id) {
+                return '/a/u/admin/module/'+id
+            },
+
+            //批量获取模块详细信息
+            batchUser:function () {
+                return '/a/u/admin/multi/module'
+            },
+            //删除
+            userDelet: function (id) {
+                return "/a/u/admin/module/" + id
+            },
+            //角色模块
+            //角色列表
+            partUser:function () {
+                return '/a/u/admin/role/list'
+            },
+
+            //新增角色
+            partIDUser:function () {
+                return '/a/u/admin/role'
+            },
+            //批量获取
+            batchRole:function () {
+                return '/a/u/admin/multi/role'
+            },
+            //删除角色
+            roleDelet:function (id) {
+                return ' /a/u/admin/role/'+id
+            },
 
 
 

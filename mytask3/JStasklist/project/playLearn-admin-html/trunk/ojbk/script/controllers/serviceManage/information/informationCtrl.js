@@ -18,16 +18,14 @@ angular.module('app')
                 angular.forEach(vm.$stateParams, function (v, i, arr) {
                     v || v != 0 ? this[i] = v : this[i] = '';
                 }, searchObj);
-                console.log(searchObj);
                 Course_service.get_Information(searchObj)
                     .then(function (res) {
                         if (res.data.code == 0) {
                             vm.currentPage = parseInt(vm.$stateParams.page);
                             vm.ajaxData = res.data.data;
                             vm.total = res.data.total;
-                            console.log(vm.ajaxData)
                         }
-                        console.log(res)
+                        console.log('资讯管理列表',res)
                     }, function (res) {
                         alert('请求失败')
                     })
@@ -84,6 +82,7 @@ angular.module('app')
                     $rootScope.modalAlert('已取消');
                 })
             }
+
             vm.delete = function (id) {
                 var isConfrim = $rootScope.modalConfrim('是否确认删除');
                 isConfrim.then(function () {

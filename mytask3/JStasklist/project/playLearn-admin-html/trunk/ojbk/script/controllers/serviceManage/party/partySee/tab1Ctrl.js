@@ -14,7 +14,7 @@ angular.module('app').controller('tab1Ctrl',
                     vm.currentPage = parseInt($stateParams.page);
                     vm.total = res.data.total;
                 }
-                console.log(res)
+                console.log('用户收藏课程列表',res)
             }, function (res) {
                 alert('请求失败')
             })

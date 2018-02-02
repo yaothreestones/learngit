@@ -3,36 +3,38 @@
     <div class="data_content">
         <img src="image/seek/background.png" class="data_main_img">
         <div class="data_main">
-            <h2 class="data_main_learning">和差倍问题</h2>
-            <img src="image/app/heat.png" class="data_recommended">
-            <div><span>{{1056}}人已学</span>
-            <span>{{'A'}}级</span>
+            <h2 class="data_main_learning">{{vm.name}}</h2>
+            <img src="image/app/heat.png" class="data_recommended" ng-show="vm.recommend === 1">
+            <div>
+                <span>{{vm.information}}</span>
+                <span>{{vm.studyCount}}人已学</span>
+                <span>{{vm.grade|grade}}</span>
             </div>
         </div>
     </div>
     <div ng-show="vm.courseShow">
-    <h3>本课时(含有本课时学习资料)</h3>
-    <div class="data_content data_content_fixed">
-        <div class="data_main">
-            <h2 class="data_learning">学习资料</h2>
-            <span>￥9.90</span>
+        <h3>本课时(含有本课时学习资料)</h3>
+        <div class="data_content data_content_fixed">
+            <div class="data_main">
+                <h2 class="data_learning">学习资料</h2>
+                <span>￥{{vm.needMoneyFromCourse}}</span>
+            </div>
+            <label for="surebuy_course" class="data_surebuy"></label>
+            <img src="image/app/surebuy.png" ng-show="vm.selected == 0" class="data_surebuy_img">
+            <input type="radio" id="surebuy_course" style="display: none;" name="sure_buy" ng-model="vm.selected" value="0">
         </div>
-        <label for="surebuy_course" class="data_surebuy"></label>
-        <img src="image/app/surebuy.png" ng-show="vm.selected == 0" class="data_surebuy_img">
-        <input type="radio" id="surebuy_course" style="display: none;" name="sure_buy" ng-model="vm.selected" value="0">
-    </div>
     </div>
     <div>
-    <h3>本课程(含有本课程全部学习资料)</h3>
-    <div class="data_content data_content_fixed">
-        <div class="data_main">
-            <h2 class="data_learning">学习资料</h2>
-            <span>￥9.90</span>
+        <h3>本课程(含有本课程全部学习资料)</h3>
+        <div class="data_content data_content_fixed">
+            <div class="data_main">
+                <h2 class="data_learning">学习资料</h2>
+                <span>￥{{vm.needMoney}}</span>
+            </div>
+            <label for="surebuy" class="data_surebuy"></label>
+            <img src="image/app/surebuy.png" ng-show="vm.selected == 1" class="data_surebuy_img">
+            <input type="radio" id="surebuy" style="display: none;" name="sure_buy" ng-model="vm.selected" value="1">
         </div>
-        <label for="surebuy" class="data_surebuy"></label>
-        <img src="image/app/surebuy.png" ng-show="vm.selected == 1" class="data_surebuy_img">
-        <input type="radio" id="surebuy" style="display: none;" name="sure_buy" ng-model="vm.selected" value="1">
-    </div>
     </div>
     <div class="data_nextstep_content data_content_fixed">
         <button type="button" class="data_nextstep" ng-click="vm.data_next_step()">下一步

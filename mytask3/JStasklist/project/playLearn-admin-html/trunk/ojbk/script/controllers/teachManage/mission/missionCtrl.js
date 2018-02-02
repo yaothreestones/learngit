@@ -10,14 +10,14 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
         console.log('路由参数',vm.data);
         console.log('父级课时',vm.period_selected);
         //父级科目课程课时名称，由父级课时带过来
-        vm.subjectName = vm.period_selected.subjectName||undefined;
-        vm.courseName = vm.period_selected.courseName||undefined;
-        vm.periodName = vm.period_selected.name||undefined;
+        vm.subjectName = vm.period_selected.subjectName||null;
+        vm.courseName = vm.period_selected.courseName||null;
+        vm.periodName = vm.period_selected.name||null;
         //非跳转时
         vm.subject = vm.period_selected.subjectId||vm.Data.subjectId;
         vm.course = vm.period_selected.courseId||vm.Data.courseId;
         vm.period = vm.period_selected.id||vm.Data.periodId;
-        vm.grade = parseInt(vm.Data.grade)||undefined;
+        vm.grade = parseInt(vm.Data.grade)||null;
         vm.mission = vm.Data.missionName;
         if(vm.data.add === '1'){
             vm.isShow = true;

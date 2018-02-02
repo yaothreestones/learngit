@@ -4,9 +4,9 @@
     </div>
     <div>
         <div class="course_dropdown-list course_dropdown-list_fixed " ng-show="vm.mission_isShow">
-            <div style="    overflow-x: hidden;height: 28vw;">
-                <div style="overflow-y: scroll;">
-                    <div class="course_mission_search-list" ng-repeat="task in vm.taskCount" ng-click="vm.mission_select(task)">{{task.title}}</div>
+            <div style="height: 28vw;overflow-y: scroll;overflow-x: hidden;">
+                <div>
+                    <button class="course_mission_search-list" ng-repeat="task in vm.taskCount" ng-click="vm.mission_select(task)" ng-class="{period_mission_begin:task.studyStatus === 0,period_mission_study:task.studyStatus === 1,period_mission_finish:task.studyStatus === 2}" ng-disabled="vm.taskCount[$index-1].studyStatus!==2&&vm.taskCount[$index].studyStatus===0">{{task.name}}</button>
                 </div>
             </div>
             <div class="course_modal-list"></div>
@@ -14,21 +14,22 @@
     </div>
     <div class="course_mission_body">
         <div class="course_mission_mainbody">
-            <div class="course_mission_stepOut" ng-class="{'course_mission_border':vm.isLast(step.id)}" ng-repeat="step in vm.a">
+            <div class="course_mission_stepOut" ng-class="{'course_mission_border':vm.isLast($index+1)}" ng-repeat="step in vm.a">
                 <div class="course_mission_fixed">
-                    <p class="course_mission_stepCount">{{step.id}}</p>
-                    <p class="course_mission_step">第{{step.id|change}}步</p>
+                    <p class="course_mission_stepCount">{{$index+1}}</p>
+                    <p class="course_mission_step">第{{$index+1|time}}步</p>
                     <div class="course_mission_step">
-                        {{step.content}}
+                        <div></div>
+                        <div create-editoer-instance ng-model="step.text" class="rich" ng-show="step.type===4||step.type===5" disabled="disabled"></div>
                     </div>
-                    <div ng-hide="step.audio===undefined" class="course_mission_step">
-                        <button type="button" ng-click="vm.playAudio(step.id)">{{vm.audioPlay[step.id-1]|playMusic}}</button>
+                    <div ng-show="step.type===2||step.type===5" class="course_mission_step">
+                        <button type="button" ng-click="vm.playAudio($index+1)">{{vm.audioPlay[$index]|playMusic}}</button>
                         <input type="button" value="快进10秒" onclick="forward()" />
-                        <audio id="audio{{step.id}}">
-                            <source ng-src="{{step.audio}}" type="audio/mp3">
+                        <audio id="audio{{$index+1}}">
+                            <source ng-src="{{step.url}}" type="audio/mp3">
                         </audio>
                     </div>
-                    <img ng-src="{{step.img}}" class="course_mission_step">
+                    <img ng-src="{{step.url}}" class="course_mission_step">
                 </div>
             </div>
             <div class="course_mission_button_box">

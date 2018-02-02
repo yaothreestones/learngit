@@ -9,11 +9,11 @@ angular.module('app').controller('periodCtrl', ['$scope', '$stateParams', '$root
         vm.Status = subject_status;
         vm.subjectName = vm.course.subjectName||vm.Data.subjectName;
         vm.courseName  = vm.course.name||vm.Data.courseName;
-        vm.courses = parseInt(vm.Data.courses)||undefined;
-        vm.subject = parseInt(vm.Data.subject)||undefined;
+        vm.courses = parseInt(vm.Data.courses)||null;
+        vm.subject = parseInt(vm.Data.subject)||null;
         vm.period = vm.Data.period;
         vm.currentPage = parseInt($stateParams.page);
-        vm.grade = parseInt(vm.Data.grade)||undefined;
+        vm.grade = parseInt(vm.Data.grade)||null;
         if(vm.Data.status !== undefined){
             vm.status = parseInt(vm.Data.status)
         }

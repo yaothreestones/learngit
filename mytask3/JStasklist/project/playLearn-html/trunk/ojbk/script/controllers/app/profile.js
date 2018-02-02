@@ -13,9 +13,9 @@ angular.module('app')
                 Course_service.get_Detail($scope.data)
                     .then(function(res) {
                         if(res.data.code == 0){
-                            $scope.message="填写成功"
+                            $scope.message="填写成功";
                             $scope.modal( function () {
-                                $state.go("app.page",{reload:true});//{grade:$scope.data.grade}
+                                $state.go("app.page",{grade:$scope.data.grade},{reload:true});
                             });
                         }else{
                             $scope.modal();

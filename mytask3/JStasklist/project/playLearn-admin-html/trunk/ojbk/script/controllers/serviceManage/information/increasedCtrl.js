@@ -7,6 +7,7 @@ angular.module('app')
             vm.ajax = pathProject.getFile_url();
 
             vm.params={
+                id:null,
                 title:null,
                 type:undefined,
                 homePicture:null,

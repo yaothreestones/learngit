@@ -53,6 +53,7 @@ angular.module("app")
                 //完成
                 finish: {
                     isShow: false,
+                    do:null
                 },
                 backBtnExp: {
                     isShow: false,

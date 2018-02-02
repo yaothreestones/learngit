@@ -18,10 +18,14 @@
             <p class="course_details_bottom_title">课程简介:</p><p class="course_details_bottom_content">{{vm.courseDetail.intro}}</p>
         </div>
     </div>
-    <div class="course_details_main" ng-click="vm.course_detail(periodList)" ng-repeat="periodList in vm.periodLists track by $index">
+    <div class="course_details_main" ng-click="vm.course_detail($index,periodList)" ng-repeat="periodList in vm.periodLists track by $index">
         <div class="course_details_float" ng-class="periodList.studyStatus|lessonPeriodClass"><p class="course_details_status">{{periodList.studyStatus|lessonPeriodStatus}}</p></div>
         <div>
-            <p class="course_details_mission_title">{{periodList.name}}</p>
+            <div>
+                <p class="course_details_mission_title">第{{$index+1|time}}课&#8195{{periodList.name}}
+                    <img ng-src="{{periodList.lock|lockImg}}" alt="" class="course_details_mission_lockimg">
+                </p>
+            </div>
             <div class="course_details_mission_list">
                 <img src="image/app/mission.png" alt="任务列表" class="course_details_mission_img">任务：{{periodList.taskCount}}
             </div>
@@ -29,12 +33,12 @@
     </div>
     <div class="single-bottom" style="position: fixed; bottom: 0;width:100%;height: 13.88vw">
         <div class="single-check">
-            <span class="course_details_bottom_left"><img class="singl-datum" src="image/app/datum.png" height="32" width="28" ng-click="vm.data(1)"/>{{1|data}}</span>
+            <span class="course_details_bottom_left" ng-if="vm.courseDetail.dataCount !== 0"><img class="singl-datum" src="image/app/datum.png" height="32" width="28" ng-click="vm.data()"/>{{vm.dataBuy|data}}</span>
             <span for="img" class="course_details_bottom_middle"><img class="singl-data" ng-src="{{vm.img}}" height="32" width="34" ng-click="vm.collection()" id="img"/>{{vm.collecting}}</span>
             <span class="course_details_bottom_right"><img class="singl-shares" src="image/app/shares.png" height="32" width="33"/>分享</span>
         </div>
-        <div class="study">
-            开始学习
+        <div class="study" ng-click="vm.nextStudy()">
+            {{vm.status|studyStatus}}
         </div>
     </div>
     <div ng-show="vm.show">

@@ -68,7 +68,7 @@ angular.module('app').controller('groomManageCtrl',
                     if(res.data.code == 0){
                         $scope.code=res.data.code;
                         $scope.name=res.data.data.name;
-                        $scope.homePicture=res.data.data.homePicture;
+                        $scope.listPicture=res.data.data.listPicture;
                         console.log($scope.homePicture)
                     }
                     console.log(res)
@@ -97,7 +97,7 @@ angular.module('app').controller('groomManageCtrl',
             $scope.some=function () {
                 $scope.params= {
                     id: $scope.hourId,
-                    listPicture: $scope.homePicture,
+                    listPicture: $scope.listPicture,
                 };
                 console.log($scope.params)
                 Course_service.get_RecommendNewly($scope.params)

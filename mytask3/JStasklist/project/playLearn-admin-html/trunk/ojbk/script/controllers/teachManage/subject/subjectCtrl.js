@@ -6,7 +6,7 @@ angular.module('app').controller('subjectCtrl', ['$scope', '$stateParams', '$roo
         vm.subject_status = subject_status;
         vm.name = $stateParams.name;
         vm.currentPage = parseInt($stateParams.page)||1;
-        vm.type = parseInt($stateParams.type)||undefined;
+        vm.type = parseInt($stateParams.type)||null;
         if($stateParams.status){
             vm.status = parseInt($stateParams.status)
         }

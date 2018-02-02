@@ -8,8 +8,8 @@ angular.module('app').controller('coursesCtrl', ['$scope', '$stateParams', '$roo
         //factory赋值
         vm.subject_status = subject_status;
         vm.subject_grade = subject_grade;
-        vm.subjectName = vm.Obj.subjectName||undefined;
-        vm.grade = vm.Obj.grade||undefined;
+        vm.subjectName = vm.Obj.subjectName||null;
+        vm.grade = vm.Obj.grade||null;
         vm.courseName = vm.Obj.courseName;
         vm.status = vm.Obj.status;
         //判断新增按钮的显示

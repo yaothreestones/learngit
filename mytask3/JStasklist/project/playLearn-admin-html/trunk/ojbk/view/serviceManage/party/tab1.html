@@ -5,7 +5,7 @@
             <th>序号</th>
             <th>课程名称</th>
             <th>所屬科目</th>
-            <th>等级</th>
+            <th>年级</th>
             <th>累计学习人数</th>
             <th>状态</th>
             <th>操作</th>
@@ -18,13 +18,12 @@
             <td>{{self.subjectName}}</td>
             <td>{{self.grade}}</td>
             <td>{{self.studyCount}}</td>
-            <td>{{self.subject==1?'上架':'下架'}}</td>
+            <td>{{self.subject==1?'下架':'上架'}}</td>
             <td>
                 <button style="border: none;background: none;color: #337Ab7;outline:none; "
                         type="button"
                         class="btn btn-sm  btn-primary "
                         ng-clock  ui-sref="backStage.teachManage.courses">
-                    <!--1草稿，2上线-->
                     查询
                 </button>
             </td>

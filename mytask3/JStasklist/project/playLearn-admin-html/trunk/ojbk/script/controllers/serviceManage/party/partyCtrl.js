@@ -23,7 +23,7 @@ angular.module('app')
                             vm.ajaxData = res.data.data;
                             vm.total = res.data.total;
                         }
-                        console.log(res)
+                        console.log('用户管理', res)
                     }, function (res) {
                         alert('请求失败')
                     })
@@ -46,8 +46,7 @@ angular.module('app')
                 $state.reload();
             }
             vm.thaw = function (userId, status) {
-                var isConfrim = undefined,
-                    ajaxPromise = undefined;
+                var isConfrim = undefined
                 if (status == 0) {
                     isConfrim = $rootScope.modalConfrim('解冻后正常显示', '是否执行解冻操作？');
                 } else if (status == 1) {
@@ -61,10 +60,10 @@ angular.module('app')
                         .then(function (res) {
                             if (res.data.code == 0) {
                                 vm.list();
-                                $rootScope.modalAlert((status ? '解冻' : '冻结') + '成功');
+                                $rootScope.modalAlert((status ? '冻结' : '解冻') + '成功');
                             }
                         }, function (res) {
-                            $rootScope.modalAlert('请求失败');
+                            $rootScope.modalAlert(res);
                         })
                 }, function () {
                     //取消

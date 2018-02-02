@@ -9,7 +9,7 @@ angular.module('app')
         //                 url:"/a/u/email/send?email=785361174@qq.com",
         //                 data:'[1]',
         //                 contentType: 'application/json',
-        //                 success: function (res) {
+        //                 success  : function (res) {
         //                     console.log(res)
         //                 }
         //             })

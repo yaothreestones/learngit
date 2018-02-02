@@ -19,8 +19,11 @@ angular.module('app')
                             if (res.data.code == 0) {
                                 vm.suggestList = res.data.data;
                                 vm.$page.total = res.data.total;
+                                console.log(vm.$page);
                                 //恢复
                                 vm.$stateParams.page = $stateParams.page;
+                            }else{
+                                vm.$page.total = 0;
                             }
                             resolve();
                         }).catch(function (e) {

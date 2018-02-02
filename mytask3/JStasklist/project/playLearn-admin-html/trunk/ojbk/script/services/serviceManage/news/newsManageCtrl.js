@@ -7,10 +7,12 @@ angular.module('app')
             vm.sendStatus = optionsData()['sendStatus'];
             vm.list = {
                 title: null,
-                grade: undefined,
+                gradeId: undefined,
                 type: undefined,
-                sendtime: null,
-                text: null
+                sendTime: null,
+                text: null,
+                thirdPart:undefined,
+                status:undefined,
             };
 
             vm.minDate = moment().subtract(0, 'day')
@@ -19,12 +21,25 @@ angular.module('app')
                 var isConfrim = $rootScope.modalConfrim('是否确认增加消息');
                 isConfrim.then(function () {
                     //确认
+                    vm.params = {
+                        title: vm.list.title,
+                        type: vm.list.type,
+                        sendTime:function(){
+                            var time=new Date(vm.list.sendTime)
+                            return time.getTime()
+                        }(),
+                        gradeId: vm.list.gradeId,
+                        text: vm.list.text,
+                        thirdPart: vm.list.thirdPart,
+                        status:vm.list.status,
+                    }
                     Course_service.get_MessageAugment(vm.params)
                         .then(function (res) {
-                            if (res.data.code === 0) {
+                            if (res.data.code == 0) {
                                 $state.go('backStage.news', {page: 1, size: 10});
                             } else {
                                 $rootScope.modalAlert('增加失败');
+
                             }
                         }, function (res) {
                             $rootScope.modalAlert(res);

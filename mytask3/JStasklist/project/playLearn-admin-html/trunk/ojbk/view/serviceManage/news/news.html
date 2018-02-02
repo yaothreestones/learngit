@@ -17,7 +17,7 @@
                         </label>
                         <div class="col-sm-9 ">
                             <select class="form-control"
-                                    ng-model="vm.$stateParams.grade" ng-options="c.value as c.txt for c in vm.grades">
+                                    ng-model="vm.$stateParams.gradeId" ng-options="c.value as c.txt for c in vm.grades">
                             </select>
                         </div>
                     </div>
@@ -34,6 +34,7 @@
                     <div class="row pd-bottom-2">
                         <div class="col-md-4 pull-right text-right">
                             <div params="vm.searchParams" class="ng-isolate-scope">
+                                <button type="button" class="btn btn-danger" ng-click="vm.clear()">清空</button>
                                 <button type="button" class="btn btn-success" ng-click="vm.search()">查询</button>
                             </div>
                         </div>
@@ -67,21 +68,9 @@
                     <td>{{self.type | service_type}}</td>
                     <td>{{self.sendTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                     <td>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary "
-                                ng-clock ng-click="vm.publish()">
-                            {{self.type==1?'发布':'已发布'}}
-                        </button>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary "
-                                ng-clock>
-                            <a ui-sref="backStage.serviceManage.look">查看</a>
-                        </button>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary"
-                                ng-clock>
-                            <a ng-click="vm.delete()" style="cursor:pointer;">刪除</a>
-                        </button>
+                        <button class="btn btn-warning btn-xs " ng-click="vm.publish()" ng-disabled="self.type=='2'" ng-click="vm.grounding(self.id,self.status)">{{self.type==1?'发布':'已发布'}}</button>
+                        <button class="btn btn-primary btn-xs"  ui-sref="backStage.serviceManage.look({id:self.id})">查看</button>
+                        <button class="btn btn-danger btn-xs"  ng-click="vm.delete(self.id)">删除</button>
                     </td>
                 </tr>
                 </tbody>

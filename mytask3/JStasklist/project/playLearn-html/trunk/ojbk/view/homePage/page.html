@@ -10,30 +10,30 @@
     <!--</div>-->
     <div class="bit top-edge bit-height">
         <div class="bit-left bit-border">
-        <span class="text-right" ui-sref="app.course">
+        <span class="mui-text-center" ui-sref="app.course">
             <p><img src="image/app/star.png">
             获得星星<br></p>
-            <b>{{vm.study_star}}</b>
+            <b>{{vm.learn.studyStar}}个</b>
         </span>
         </div>
         <div class="bit-left">
-        <span class="text-right" ui-sref="app.ranking">
+        <span class="mui-text-center" ui-sref="app.ranking">
             <p><img src="image/app/use.png">
             击败用户<br></p>
-            <b>{{vm.rank}}</b>
+            <b>{{vm.learn.defeatUser}}%</b>
         </span>
         </div>
     </div>
     <div class="curricula">
         <span>我的课程</span>
         <img ng-show="vm.ensconce" class="logos" src="image/app/catalog.png"/>
-        <div ng-show="vm.ensconce" class="catalog list"  ui-sref="app.courseDetails">
+        <div ng-show="vm.ensconce" class="catalog list"  ui-sref="app.courseDetails({courseId:vm.list.courseId})">
             <div class="heat" >
                 <img ng-show="vm.groom" src="image/app/heat.png" height="41" width="39"/>
             </div>
 
             <h3>{{vm.list.courseName}}</h3>
-            <h4>第{{vm.list.countLessonPeriodIdByCourse}}/{{vm.list.userStudyLessonPeriod}}节</h4>
+            <h4>第{{vm.list.userStudyLessonPeriod}}/{{vm.list.countLessonPeriodIdByCourse}}节</h4>
             <h5>{{vm.list.learnPeople}}人已学<c>{{vm.list.courseGrade|grade}}</c>
                 <a ng-show="vm.grooms" class="pull-right singl-width"><img ng-src="{{vm.img}}" height="32" width="34" ng-click="vm.collection()" />{{vm.collecting}}</a>
             </h5>
@@ -49,9 +49,9 @@
         <span>查看更多我的课程</span>
         <a><img  src="image/app/rigit.png"/></a>
     </div>
-    <div class="curricula">
+    <div class="curricula" ng-show="vm.prepare">
         <span>同步预习</span>
-        <img  class="logos" ng-src="{{vm.information.picture}}"/>
+        <img  class="logos"   ng-src="{{vm.information.picture}}"/>
         <div class="catalog list"  ng-click="vm.info()">
             <div class="shade">
                 {{vm.information.bookName}}({{vm.information.version}}）
@@ -62,11 +62,12 @@
 <div class="curricula major-bottom">
     <span>热门推荐</span>
     <div class="major">
-        <div class="major-left" ng-repeat="data in vm.data"  ng-class="{even: $even==true, odd: $odd==false}" ui-sref="app.courseDetails">
+        <div class="major-left" ng-repeat="data in vm.data"  ng-class="{even: $even==false, odd: $odd==false}" ui-sref="app.courseDetails({courseId:data.id})">
        <div class="discussion">
-           <img src="image/app/catalog.png" ng-src="{{data.homePicture}}"  />
+           <img class="mui-pull-left" src="image/app/catalog.png" ng-src="{{data.homePicture}}"  />
+           <div class="clear"></div>
        </div>
-        <div class="groom">
+        <div class="groom" class="mui-pull-left">
             <p>{{data.name}}</p>
             <img src="image/app/people.png"><i>{{data.studyLessonPeriod}}</i>
             <img src="image/app/year.png" class="year-right"><i>{{data.grade}}</i>
@@ -78,3 +79,4 @@
 
 <div class="base-bottom">
 </div>
+

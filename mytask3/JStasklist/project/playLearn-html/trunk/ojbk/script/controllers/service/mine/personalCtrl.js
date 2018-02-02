@@ -10,11 +10,11 @@ angular.module("app")
             email: null,
         };
 
+
         Course_service.userinfo()
             .then(function (res) {
                 if (res.data.code == 0) {
                     vm.user = res.data.data;
-                    vm.$picker.value=res.data.data.grade;
                 } else {
                     alert('请求失败')
                 }
@@ -23,10 +23,20 @@ angular.module("app")
             })
 
         vm.$picker = {
-            value: 2,
+            value: 1,
             key: '',
             callback: function () {
-                console.log('ajax,成功之后,模态框提示更改成功');
+                Course_service.edit_userInfo(vm.user)
+                    .then(function (res) {
+                        if (res.data.code == 0) {
+                            vm.user = res.data.data;
+                            vm.$picker.value = res.data.data.grade;
+                        } else {
+                            alert('请求失败')
+                        }
+                    }, function (res) {
+                        alert('请求失败')
+                    })
             },
             constData: ['请选择', '一年级', '二年级', '三年级', '四年级', '五年级', '六年级']
         };

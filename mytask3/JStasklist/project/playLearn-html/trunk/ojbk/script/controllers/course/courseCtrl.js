@@ -8,7 +8,7 @@ angular.module('app')
             vm.params = {};
             vm.scroll = {};
             vm.scroll.items = [];
-            Course_service.get_subject({
+            Course_service.get_SubjectList({
                 params:{
                     size:999,
                     page:1,
@@ -16,51 +16,54 @@ angular.module('app')
                 }
 
             }).then(function (res) {
-                vm.subjects = res.data.data;
-                console.log('科目列表',vm.subjects);
-                vm.subject_selected = $stateParams.subjectName||vm.subjects[0].name;
-                vm.params = {
-                    subjectId:vm.subjects[0].id,
-                    grade:'',
-                    page:1,
-                    size:10
-                };
-
-                vm.scroll.nextPage = function () {
-                    vm.scroll.subject = vm.params.subjectId;
-                    vm.scroll.busy = false;
-                    vm.scroll.after = '';
-                    vm.scroll.page = Math.ceil(vm.scroll.items.length/10) + 1;
-                    if(vm.scroll.busy){
-                        return;
-                    }
-                    vm.scroll.busy = true;
-                    $http({
-                        method:'post',
-                        url:"/a/u/admin/course/search/list",
-                        data: {
-                            subjectId: $stateParams.subject||vm.scroll.subject,
-                            grade: $stateParams.grade||vm.params.grade,
-                            page: vm.scroll.page,
-                            size: 10
-                        },
-                        transformRequest: function (data) {return $.param(data);},
-                        headers: {'content-type': 'application/x-www-form-urlencoded'}
-                    }).then(function (res) {
-                        if(res.data.code === 0){
-                            var items = res.data.data;
-                            vm.scroll.items.push.apply(vm.scroll.items,items);
-                            console.log(vm.scroll.items);
-                            vm.scroll.busy = false;
-                            vm.scroll.info = '加载中...'
-                        }else{
-                            vm.scroll.busy = true;
-                            vm.scroll.info = '已无更多...'
+                if(res.data.code === 0){
+                    vm.subjectStorage = res.data.data;
+                    vm.subjects = [];
+                    console.log('科目列表',vm.subjectStorage);
+                    angular.forEach(vm.subjectStorage,function (data) {
+                        if(data.status === 1){
+                            vm.subjects.push(data);
                         }
-                    })
-                };
-                console.log(vm.scroll);
-                vm.scroll.nextPage();
+                    });
+                    vm.subject_selected = $stateParams.subjectName||vm.subjects[0].name;
+                    vm.params = {
+                        subjectId:parseInt($stateParams.subject)||vm.subjects[0].id,
+                        grade:'',
+                        page:1,
+                        size:10
+                    };
+
+                    vm.scroll.nextPage = function () {
+                        vm.scroll.subject = vm.params.subjectId;
+                        vm.scroll.after = '';
+                        vm.scroll.page = Math.ceil(vm.scroll.items.length/10) + 1;
+                        if(vm.scroll.busy){
+                            return;
+                        }
+                        vm.scroll.busy = true;
+                        Course_service.get_course_list({
+                            params:{
+                                subject: $stateParams.subject||vm.scroll.subject,
+                                grade: $stateParams.grade||vm.params.grade,
+                                page: vm.scroll.page,
+                                size: 10
+                            }
+                        }).then(function (res) {
+                            if(res.data.code === 0){
+                                var items = res.data.data;
+                                vm.scroll.items.push.apply(vm.scroll.items,items);
+                                console.log(vm.scroll.items);
+                                vm.scroll.busy = false;
+                                vm.scroll.info = '加载中...'
+                            }else{
+                                vm.scroll.busy = true;
+                                vm.scroll.info = '已无更多...'
+                            }
+                        });
+                    };
+                    console.log(vm.scroll);
+                    vm.scroll.nextPage();
+                }
             });
             vm.subject_search = function () {
                 vm.subject_isShow = !vm.subject_isShow;

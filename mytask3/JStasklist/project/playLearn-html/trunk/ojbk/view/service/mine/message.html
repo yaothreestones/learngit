@@ -1,7 +1,7 @@
 <div class="enwrap">
     <div class="package packFirst" ng-repeat="item in vm.requestLessonList track by $index">
-        <h3>111</h3>
-        <p>17-12-24</p>
+        <h3>{{item.title}}</h3>
+        <p>{{item.sendTime}}</p>
         <div class="packMain" ui-sref="app.particulars">
             <a><img src="image/mine/right.png" alt="" class="pull-right">立即查看</a>
         </div>

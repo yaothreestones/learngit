@@ -73,7 +73,7 @@ angular.module('app')
                 }
             }
             vm.deleteAll = function () {
-                Course_service.get_DeleteAll(vm.deleteItems)
+                Course_service.get_DeleteAll(vm.ids)
                     .then(function (res) {
                         $state.go('app.record', {}, {reload: true})
                     })

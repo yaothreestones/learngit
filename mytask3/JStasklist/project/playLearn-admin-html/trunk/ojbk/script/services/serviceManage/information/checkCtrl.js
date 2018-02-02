@@ -17,9 +17,8 @@ angular.module('app')
                         vm.params.homePicture = res.data.data.homePicture;
                         vm.params.intro = res.data.data.intro;
                         vm.params.text = res.data.data.text;
-                        console.log(vm.type);
                     }
-                }, function (res) {
+                }, function () {
                     alert('请求失败');
                 });
             vm.submit = function () {
@@ -31,7 +30,7 @@ angular.module('app')
                             vm.homePicture = res.data.homePicture;
                             vm.intro = res.data.intro;
                             vm.text = res.data.text;
-                            // $state.go('backStage.information', {page: 1, size: 10});
+                            $state.go('backStage.information', {page: 1, size: 10});
                         }
                         console.log(res)
                     }, function (res) {

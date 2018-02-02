@@ -87,16 +87,8 @@
                     <td>{{self.userEmail}}</td>
                     <td>{{self.createAt|date:'yyyy-MM-dd HH:mm:ss'}}</td>
                     <td>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary "
-                                ng-clock>
-                            <!--1草稿，2上线-->
-                            <a ui-sref="backStage.serviceManage.objectionManage({id:self.id})">查看</a>
-                        </button>
-                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
-                                class="btn btn-sm  btn-primary" ng-clock>
-                            <a ng-click="vm.delete(self.id)" style="cursor:pointer;">刪除</a>
-                        </button>
+                        <button class="btn btn-warning btn-xs"  ui-sref="backStage.serviceManage.objectionManage({id:self.id})">查看</button>
+                        <button class="btn btn-danger btn-xs" ng-click="vm.delete(self.id)">删除</button>
                     </td>
                 </tr>
                 </tbody>

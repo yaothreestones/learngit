@@ -1,112 +1,12 @@
 <div class="list-ol" style="margin-top: 13vw">
-    <div class="pd-left-20 pd-md" ui-sref="app.meansMail">
+    <div class="pd-left-20 pd-md" ui-sref="app.meansMail" ng-repeat="x in vm.data">
         <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
+            <span>{{x.lessonPeriodName}}</span>
             <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
+            <i>{{x.payTime | date:'yyyy-MM-dd'}}</i>
         </div>
         <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md" ui-sref="app.meansMail">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md" ui-sref="app.meansMail">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md" ui-sref="app.meansMail">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
-        </p>
-    </div>
-    <div class="pd-left-20 pd-md">
-        <div class="info">
-            <span>第六节</span>
-            <span>和倍问题</span>
-            <img src="image/mine/time.png" height="20" width="20"/>
-            <i>2017-5-8</i>
-        </div>
-        <p>
-            ￥9.90
+            <span style="font-size: 3vw;margin-right: -1vw">￥</span>{{x.money}}
         </p>
     </div>
 </div>

@@ -11,6 +11,7 @@ angular.module('app')
             link: function ($s, $e) {
                 var cancel = $s.$watch('value', function (newV) {
                     if (newV) {
+                        cancel();
                         var $eMark = 'one-col-pop-picker' + $s.$id;
                         $e.addClass($eMark);
                         var pickerInstance = new MobileSelect({

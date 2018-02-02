@@ -1,8 +1,8 @@
 
-<div class="top-side" style="position: relative">
+<div class="top-side" style="position: relative" ng-show="searchs">
     <div class="material">
-        <div class="textbook" ng-repeat="demoList in demoLists">
-            <div>
+        <div class="textbook" >
+            <div ng-repeat="demoList in demoLists">
             <span>
             <img ui-sref="app.teaching({bookId:demoList.bookId})" ng-src="{{demoList.picture}}" height="245" width="170"/>
              <b>{{demoList.bookName}}</b>
@@ -26,7 +26,11 @@
         <button class="search-right" ng-click="search()">搜索</button>
     </div>
 </div>
-
+<div class="top" ng-show="void">
+    <div class="empty">
+    </div>
+    <p class="emptys">这个星球没有您要搜索的内容</p>
+</div>
 
 
 

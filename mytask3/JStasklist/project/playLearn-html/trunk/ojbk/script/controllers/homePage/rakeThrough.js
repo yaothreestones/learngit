@@ -1,11 +1,10 @@
 angular.module('app')
     .controller('rakeThroughCtrl',function ($scope,classes,subjects,range,$rootScope,$stateParams,$state,Course_service) {
-        $scope.subjects=subjects;
         $scope.classes=classes;
         $scope.range=range;
         $scope.subjectClass=false;
-        $scope.selected = 0;
-        $scope.selecteds = 0;
+        $scope.selected = null;
+        $scope.selecteds = null;
         $scope.selectedClass = 1;
         //模糊搜索
         $scope.indistinct;
@@ -25,15 +24,12 @@ angular.module('app')
             console.log($scope.selectedClass)
         }
         //科目
-        $scope.params={
-            page:999,
-            size:10
-        }
         Course_service.get_SubjectList({
             params:$scope.params,
         })
             .then(function(res) {
                 if(res.data.code == 0){
+                    $scope.subjects=res.data.data;
                 }
                 console.log(res)
             }, function(res) {

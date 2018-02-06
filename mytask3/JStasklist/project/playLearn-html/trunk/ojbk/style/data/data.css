@@ -37,7 +37,7 @@
 }
 .data_main_img{
     width: 20.8vw;
-    height: 20.8vw;
+    height: 100%;
     float: left;
     margin: 0 3.2vw;
 }
@@ -63,12 +63,12 @@
     color: #f36c5c;
 }
 .data_main span{
-    font-size: 3.7vw;
+    font-size: 3vw;
     color: #999999;
     display: inline-block;
 }
 .data_main_learning {
-    margin: 5vw 0 2vw 0;
+    /*margin: 5vw 0 2vw 0;*/
 }
 .data_learning {
     margin: 5vw;
@@ -102,6 +102,10 @@
     border-radius: 6px;
     border: 0;
     width: 100%;
+}
+.data_period {
+    float: none !important;
+    margin-left: 5vw;
 }
 .data_nextstep_content {
     position: fixed;

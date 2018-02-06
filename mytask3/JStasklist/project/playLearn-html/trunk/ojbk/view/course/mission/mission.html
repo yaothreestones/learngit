@@ -16,7 +16,7 @@
         <div class="course_mission_mainbody">
             <div class="course_mission_stepOut" ng-class="{'course_mission_border':vm.isLast($index+1)}" ng-repeat="step in vm.a">
                 <div class="course_mission_fixed">
-                    <p class="course_mission_stepCount">{{$index+1}}</p>
+                    <p class="course_mission_stepCount" ng-style="{background:(($index%5)|stepBackColor)}">{{$index+1}}</p>
                     <p class="course_mission_step">第{{$index+1|time}}步</p>
                     <div class="course_mission_step">
                         <div></div>
@@ -36,6 +36,19 @@
                 <button class="course_mission_lastStep" ng-click="vm.reduce()" ng-disabled="vm.a.length===1" ng-class="{'course_mission_lastStep_fixed':vm.a.length===1}"></button>
                 <button class="course_mission_nextStep" ng-click="vm.add()" ng-disabled="vm.a.length === vm.steps.length" ng-class="{'course_mission_nextStep_fixed':vm.a.length === vm.steps.length}"></button>
             </div>
+        </div>
+    </div>
+    <div class="course_period_lock_modal" ng-if="vm.tip">
+        <div ng-if="vm.tip">
+            <div class="course_details_modal_tip">
+                <div style="position:relative;">
+                    <div class="course_period_closetip" ng-click="vm.close()"><img src="image/app/close.png" alt="" class="course_period_closetip"></div>
+                    <div class="course_period_littleTip">小贴士</div>
+                </div>
+                <div style="text-align: center;width: 25vw;">{{vm.promptInformation}}</div>
+                <button class="course_period_lock_button_tip" ng-click="vm.goPay()" ng-if="vm.type===2">购买</button>
+            </div>
+            <div  class="course_period_lock"></div>
         </div>
     </div>
     <div class="course_mission_bottom">

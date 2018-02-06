@@ -65,7 +65,7 @@
             <td>{{period.status|subject_status}}</td>
             <td>
                 <a ng-click="vm.missionJump(period)">任务</a>
-                <a ui-sref="backStage.dataManage.data({add:3,page:1,size:10,type:1,courseName:period.courseName,lessonPeriodId:period.id,bookId:period.courseId,lessonPeriodName:period.name,bookName:period.bookName,subjectId:period.subjectId,subjectName:period.subjectName})">资料</a>
+                <a ui-sref="backStage.dataManage.data({add:3,page:1,size:10,type:1,courseName:period.courseName,courseId:period.courseId,lessonPeriodId:period.id,bookId:period.courseId,lessonPeriodName:period.name,bookName:period.bookName,subjectId:period.subjectId,subjectName:period.subjectName,grade:period.grade})">资料</a>
                 <a ng-click="vm.edit(period)">编辑</a>
                 <a ng-click="vm.view(period)">查看</a>
                 <a ng-click="vm.changeStatus(period)">{{period.status|subject_status_operation}}</a>

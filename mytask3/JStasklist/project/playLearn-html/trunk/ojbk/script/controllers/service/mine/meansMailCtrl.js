@@ -19,4 +19,18 @@ angular.module("app")
                 }, function (res) {
                     alert('请求失败')
                 })
+
+            vm.params={
+                bookId:vm.$stateParams.bookId
+            }
+            Course_service.get_BookLink(vm.params)
+                .then(function (res) {
+                    if (res.data.code == 0) {
+                        vm.params = res.data.data;
+                    } else {
+                        alert('请求失败')
+                    }
+                }, function (res) {
+                    alert('请求失败')
+                })
         }])

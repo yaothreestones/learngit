@@ -3,6 +3,8 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
         var vm = $scope.vm = {};
         vm.steps = steps;
         vm.i = 0;
+        vm.tipsType = '1';
+        vm.promptTime = '1';
         vm.period = angular.fromJson($stateParams.period)||{};
         vm.task = angular.fromJson($stateParams.task)||{};
         console.log('路由参数',$stateParams);
@@ -13,6 +15,7 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
         vm.periodName = vm.period.name||vm.task.periodName;
         vm.ajax = pathProject.getFile_url();
         $scope.title={};
+        vm.Mission = {};
         $scope.show = false;
         $scope.lock =true;
         vm.send_data = [];
@@ -83,173 +86,37 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
 
         $scope.sure = function () {
             //任务
+            if(!vm.promptInformation && vm.tips){
+                $rootScope.modalConfrim('提示内容不能为空')
+                    .then(function (res) {
+                    });
+                return
+            }
+            vm.params = {
+                id: vm.task.taskId,
+                subjectId: vm.Mission.subjectId||vm.period.subjectId,
+                courseId: vm.Mission.courseId||vm.period.courseId,
+                lessonPeriodId: vm.Mission.lessonPeriodId||vm.period.id,
+                name: vm.missionName,
+                prompt: vm.tips||0,
+                type: vm.tipsType||1,
+                promptTime: vm.promptTime||1,
+                promptInformation: vm.promptInformation
+            };
             if ($stateParams.from === '1') {
-                Course_service.get_TechAddMission({
-                    subjectId: vm.period.subjectId,
-                    courseId: vm.period.courseId,
-                    lessonPeriodId: vm.period.id,
-                    name: vm.missionName,
-                    prompt: vm.tips || 0,
-                    type: vm.tipsType || 0,
-                    promptTime: vm.promptTime || 0,
-                    promptInformation: vm.promptInformation
-                }).then(function (res) {
-                    if (res.data.code === 0) {
-                        //步骤
-                        console.log(vm.img, vm.editorContent, vm.type, vm.follow_task);
-                        vm.send_data.length = vm.mission_steps.length || 1;
-                        vm.send_data.fill({});
-                        angular.forEach(vm.send_data, function (data, index, array) {
-                            array[index] = {
-                                taskId: res.data.data.id,
-                                subjectId: vm.period.subjectId,
-                                courseId: vm.period.courseId,
-                                lessonPeriodId: vm.period.id,
-                                type: vm.select[index] || 1,
-                                text: vm.editorContent[index] || undefined,
-                                url: vm.img[index] || vm.videoUrl[index] || undefined,
-                                followTask: vm.follow_task[index] || 0,
-                                sequence: index
-                            }
-                        });
-                        console.log(vm.send_data);
-                        Course_service.get_TechAddTask(
-                            vm.send_data
-                        ).then(function (res) {
-                            if (res.data.code === 0) {
-                                $state.go('backStage.teachManage.mission', {
-                                    add: 1,
-                                    period: $stateParams.period,
-                                    obj: $stateParams.obj
-                                })
-                            }
-                        })
-                    }
-                });
-            } else if ($stateParams.from === '3') {
-                Course_service.get_TechEditMission({
-                    id: vm.task.taskId,
-                    subjectId: vm.Mission.subjectId,
-                    courseId: vm.Mission.courseId,
-                    lessonPeriodId: vm.Mission.lessonPeriodId,
-                    name: vm.missionName,
-                    prompt: vm.tips||0,
-                    type: parseInt(vm.tipsType)||0,
-                    promptTime: vm.promptTime||0,
-                    promptInformation: vm.promptInformation
-                }).then(function (res) {
-                    if (res.data.code === 0) {
-                        //步骤
-                        //1 调用删除接口提交被删除的步骤id
-                        if (vm.delete_id.length > 0) {
-                            Course_service.get_TechDeleteTask(
-                                vm.delete_id
-                            ).then(function (res) {
-                                if (res.data.code === 0) {
-                                    vm.send_data.length = vm.mission_steps.length || 1;
-                                    vm.send_data.fill({});
-                                    angular.forEach(vm.send_data, function (data, index, array) {
-                                        array[index] = {
-                                            id: vm.collectId[index],
-                                            taskId: vm.Mission.id,
-                                            subjectId: vm.Mission.subjectId,
-                                            courseId: vm.Mission.courseId,
-                                            lessonPeriodId: vm.Mission.lessonPeriodId,
-                                            type: vm.select[index] || 1,
-                                            text: vm.editorContent[index] || undefined,
-                                            url: vm.img[index] || vm.videoUrl[index] || undefined,
-                                            followTask: vm.follow_task[index] || 0,
-                                            sequence: index
-                                        }
-                                    });
-                                    console.log(vm.send_data);
-                                    vm.newAdd = [];
-                                    angular.forEach(vm.send_data, function (data) {
-                                        if (data.id === null) {
-                                            vm.newAdd.push(data)
-                                        }
-                                    });
-                                    if (vm.newAdd.length > 0) {
-                                        Course_service.get_TechAddTask(vm.newAdd)
-                                            .then(function (res) {
-                                                if (res.data.code === 0) {
-                                                    vm.receivedId = [];
-                                                    angular.forEach(res.data.data, function (data, index, array) {
-                                                        vm.receivedId[index] = array[index].id
-                                                    });
-                                                    console.log(vm.receivedId);
-                                                    angular.forEach(vm.collectId, function (data, index, array) {
-                                                        if (array[index] === null) {
-                                                            vm.collectId.splice(index, 1)
-                                                        }
-                                                    });
-                                                    angular.forEach(vm.receivedId, function (data) {
-                                                        vm.collectId.push(data)
-                                                    });
-                                                    angular.forEach(vm.send_data, function (data, index, array) {
-                                                        array[index] = {
-                                                            id: vm.collectId[index],
-                                                            taskId: vm.Mission.id,
-                                                            subjectId: vm.Mission.subjectId,
-                                                            courseId: vm.Mission.courseId,
-                                                            lessonPeriodId: vm.Mission.lessonPeriodId,
-                                                            type: vm.select[index] || 1,
-                                                            text: vm.editorContent[index] || undefined,
-                                                            url: vm.img[index] || vm.videoUrl[index] || undefined,
-                                                            followTask: vm.follow_task[index] || 0,
-                                                            sequence: index
-                                                        }
-                                                    });
-                                                    console.log(vm.send_data);
-                                                    Course_service.get_TechEditTask(
-                                                        vm.send_data
-                                                    ).then(function (res) {
-                                                        if (res.data.code === 0) {
-                                                            $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
-                                                                    add: 1,
-                                                                    period: $stateParams.period,
-                                                                    obj: $stateParams.obj
-                                                                }) :
-                                                                $state.go('backStage.teachManage.mission', {
-                                                                    period: $stateParams.period,
-                                                                    obj: $stateParams.obj
-                                                                })
-                                                        }
-                                                    })
-                                                }
-
-                                            })
-                                    } else {
-                                        Course_service.get_TechEditTask(
-                                            vm.send_data
-                                        ).then(function (res) {
-                                            if (res.data.code === 0) {
-                                                $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
-                                                        add: 1,
-                                                        period: $stateParams.period,
-                                                        obj: $stateParams.obj
-                                                    }) :
-                                                    $state.go('backStage.teachManage.mission', {
-                                                        period: $stateParams.period,
-                                                        obj: $stateParams.obj
-                                                    })
-                                            }
-
-                                        })
-                                    }
-                                }
-                            })
-
-                        } else {
+                Course_service.get_TechAddMission(vm.params)
+                    .then(function (res) {
+                        if (res.data.code === 0) {
+                            //步骤
+                            console.log(vm.img, vm.editorContent, vm.type, vm.follow_task);
                             vm.send_data.length = vm.mission_steps.length || 1;
                             vm.send_data.fill({});
                             angular.forEach(vm.send_data, function (data, index, array) {
                                 array[index] = {
-                                    id: vm.collectId[index],
-                                    taskId: vm.Mission.id,
-                                    subjectId: vm.Mission.subjectId,
-                                    courseId: vm.Mission.courseId,
-                                    lessonPeriodId: vm.Mission.lessonPeriodId,
+                                    taskId: res.data.data.id,
+                                    subjectId: vm.period.subjectId,
+                                    courseId: vm.period.courseId,
+                                    lessonPeriodId: vm.period.id,
                                     type: vm.select[index] || 1,
                                     text: vm.editorContent[index] || undefined,
                                     url: vm.img[index] || vm.videoUrl[index] || undefined,
@@ -258,92 +125,256 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
                                 }
                             });
                             console.log(vm.send_data);
-                            vm.newAdd = [];
-                            angular.forEach(vm.send_data, function (data) {
-                                if (data.id === null) {
-                                    vm.newAdd.push(data)
+                            Course_service.get_TechAddTask(
+                                vm.send_data
+                            ).then(function (res) {
+                                if (res.data.code === 0) {
+                                    history.back()
+                                    // $state.go('backStage.teachManage.mission', {
+                                    //     add: 1,
+                                    //     period: $stateParams.period,
+                                    //     obj: $stateParams.obj
+                                    // })
+                                }else {
+                                    $rootScope.modalConfrim(res.data.message)
+                                        .then(function () {
+
+                                        })
                                 }
-                            });
-                            if (vm.newAdd.length > 0) {
-                                Course_service.get_TechAddTask(vm.newAdd)
-                                    .then(function (res) {
-                                        if (res.data.code === 0) {
-                                            vm.receivedId = [];
-                                            angular.forEach(res.data.data, function (data, index, array) {
-                                                vm.receivedId[index] = array[index].id
-                                            });
-                                            console.log(vm.receivedId);
-                                            angular.forEach(vm.collectId, function (data, index, array) {
-                                                if (array[index] === null) {
-                                                    vm.collectId.splice(index, 1)
-                                                }
-                                            });
-                                            angular.forEach(vm.receivedId, function (data) {
-                                                vm.collectId.push(data)
-                                            });
-                                            angular.forEach(vm.send_data, function (data, index, array) {
-                                                array[index] = {
-                                                    id: vm.collectId[index],
-                                                    taskId: vm.Mission.id,
-                                                    subjectId: vm.Mission.subjectId,
-                                                    courseId: vm.Mission.courseId,
-                                                    lessonPeriodId: vm.Mission.lessonPeriodId,
-                                                    type: vm.select[index] || 1,
-                                                    text: vm.editorContent[index] || undefined,
-                                                    url: vm.img[index] || vm.videoUrl[index] || undefined,
-                                                    followTask: vm.follow_task[index] || 0,
-                                                    sequence: index
-                                                }
-                                            });
-                                            console.log(vm.send_data);
+                            })
+                        }
+                    });
+            } else if ($stateParams.from === '3') {
+                Course_service.get_TechEditMission(vm.params)
+                    .then(function (res) {
+                        if (res.data.code === 0) {
+                            //步骤
+                            //1 调用删除接口提交被删除的步骤id
+                            if (vm.delete_id.length > 0) {
+                                Course_service.get_TechDeleteTask(
+                                    vm.delete_id
+                                ).then(function (res) {
+                                    if (res.data.code === 0) {
+                                        vm.send_data.length = vm.mission_steps.length || 1;
+                                        vm.send_data.fill({});
+                                        angular.forEach(vm.send_data, function (data, index, array) {
+                                            array[index] = {
+                                                id: vm.collectId[index],
+                                                taskId: vm.Mission.id,
+                                                subjectId: vm.Mission.subjectId,
+                                                courseId: vm.Mission.courseId,
+                                                lessonPeriodId: vm.Mission.lessonPeriodId,
+                                                type: vm.select[index] || 1,
+                                                text: vm.editorContent[index] || undefined,
+                                                url: vm.img[index] || vm.videoUrl[index] || undefined,
+                                                followTask: vm.follow_task[index] || 0,
+                                                sequence: index
+                                            }
+                                        });
+                                        console.log(vm.send_data);
+                                        vm.newAdd = [];
+                                        angular.forEach(vm.send_data, function (data) {
+                                            if (data.id === null) {
+                                                vm.newAdd.push(data)
+                                            }
+                                        });
+                                        if (vm.newAdd.length > 0) {
+                                            Course_service.get_TechAddTask(vm.newAdd)
+                                                .then(function (res) {
+                                                    if (res.data.code === 0) {
+                                                        vm.receivedId = [];
+                                                        angular.forEach(res.data.data, function (data, index, array) {
+                                                            vm.receivedId[index] = array[index].id
+                                                        });
+                                                        console.log(vm.receivedId);
+                                                        angular.forEach(vm.collectId, function (data, index, array) {
+                                                            if (array[index] === null) {
+                                                                vm.collectId.splice(index, 1)
+                                                            }
+                                                        });
+                                                        angular.forEach(vm.receivedId, function (data) {
+                                                            vm.collectId.push(data)
+                                                        });
+                                                        angular.forEach(vm.send_data, function (data, index, array) {
+                                                            array[index] = {
+                                                                id: vm.collectId[index],
+                                                                taskId: vm.Mission.id,
+                                                                subjectId: vm.Mission.subjectId,
+                                                                courseId: vm.Mission.courseId,
+                                                                lessonPeriodId: vm.Mission.lessonPeriodId,
+                                                                type: vm.select[index] || 1,
+                                                                text: vm.editorContent[index] || undefined,
+                                                                url: vm.img[index] || vm.videoUrl[index] || undefined,
+                                                                followTask: vm.follow_task[index] || 0,
+                                                                sequence: index
+                                                            }
+                                                        });
+                                                        console.log(vm.send_data);
+                                                        Course_service.get_TechEditTask(
+                                                            vm.send_data
+                                                        ).then(function (res) {
+                                                            if (res.data.code === 0) {
+                                                                history.back()
+                                                                // $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
+                                                                //         add: 1,
+                                                                //         period: $stateParams.period,
+                                                                //         obj: $stateParams.obj
+                                                                //     }) :
+                                                                    // $state.go('backStage.teachManage.mission', {
+                                                                    //     period: $stateParams.period,
+                                                                    //     obj: $stateParams.obj
+                                                                    // })
+                                                            }else {
+                                                                $rootScope.modalConfrim(res.data.message)
+                                                                    .then(function () {
+
+                                                                    })
+                                                            }
+                                                        })
+                                                    }
+
+                                                })
+                                        } else {
                                             Course_service.get_TechEditTask(
                                                 vm.send_data
                                             ).then(function (res) {
                                                 if (res.data.code === 0) {
-                                                    $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
-                                                            add: 1,
-                                                            period: $stateParams.period,
-                                                            obj: $stateParams.obj
-                                                        }) :
-                                                        $state.go('backStage.teachManage.mission', {
-                                                            period: $stateParams.period,
-                                                            obj: $stateParams.obj
-                                                        })
+                                                    history.back()
+                                                    // $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
+                                                    //         add: 1,
+                                                    //         period: $stateParams.period,
+                                                    //         obj: $stateParams.obj
+                                                    //     }) :
+                                                    //     $state.go('backStage.teachManage.mission', {
+                                                    //         period: $stateParams.period,
+                                                    //         obj: $stateParams.obj
+                                                    //     })
                                                 }
-                                            })
 
+                                            })
                                         }
-                                    })
-                            } else {
-                                Course_service.get_TechEditTask(
-                                    vm.send_data
-                                ).then(function (res) {
-                                    if (res.data.code === 0) {
-                                        $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
-                                                add: 1,
-                                                period: $stateParams.period,
-                                                obj: $stateParams.obj
-                                            }) :
-                                            $state.go('backStage.teachManage.mission', {
-                                                period: $stateParams.period,
-                                                obj: $stateParams.obj
+                                    }else{
+                                        $rootScope.modalConfrim(res.data.message)
+                                            .then(function () {
                                             })
                                     }
                                 })
+
+                            } else {
+                                vm.send_data.length = vm.mission_steps.length || 1;
+                                vm.send_data.fill({});
+                                angular.forEach(vm.send_data, function (data, index, array) {
+                                    array[index] = {
+                                        id: vm.collectId[index],
+                                        taskId: vm.Mission.id,
+                                        subjectId: vm.Mission.subjectId,
+                                        courseId: vm.Mission.courseId,
+                                        lessonPeriodId: vm.Mission.lessonPeriodId,
+                                        type: vm.select[index] || 1,
+                                        text: vm.editorContent[index] || undefined,
+                                        url: vm.img[index] || vm.videoUrl[index] || undefined,
+                                        followTask: vm.follow_task[index] || 0,
+                                        sequence: index
+                                    }
+                                });
+                                console.log(vm.send_data);
+                                vm.newAdd = [];
+                                angular.forEach(vm.send_data, function (data) {
+                                    if (data.id === null) {
+                                        vm.newAdd.push(data)
+                                    }
+                                });
+                                if (vm.newAdd.length > 0) {
+                                    Course_service.get_TechAddTask(vm.newAdd)
+                                        .then(function (res) {
+                                            if (res.data.code === 0) {
+                                                vm.receivedId = [];
+                                                angular.forEach(res.data.data, function (data, index, array) {
+                                                    vm.receivedId[index] = array[index].id
+                                                });
+                                                console.log(vm.receivedId);
+                                                angular.forEach(vm.collectId, function (data, index, array) {
+                                                    if (array[index] === null) {
+                                                        vm.collectId.splice(index, 1)
+                                                    }
+                                                });
+                                                angular.forEach(vm.receivedId, function (data) {
+                                                    vm.collectId.push(data)
+                                                });
+                                                angular.forEach(vm.send_data, function (data, index, array) {
+                                                    array[index] = {
+                                                        id: vm.collectId[index],
+                                                        taskId: vm.Mission.id,
+                                                        subjectId: vm.Mission.subjectId,
+                                                        courseId: vm.Mission.courseId,
+                                                        lessonPeriodId: vm.Mission.lessonPeriodId,
+                                                        type: vm.select[index] || 1,
+                                                        text: vm.editorContent[index] || undefined,
+                                                        url: vm.img[index] || vm.videoUrl[index] || undefined,
+                                                        followTask: vm.follow_task[index] || 0,
+                                                        sequence: index
+                                                    }
+                                                });
+                                                console.log(vm.send_data);
+                                                Course_service.get_TechEditTask(
+                                                    vm.send_data
+                                                ).then(function (res) {
+                                                    if (res.data.code === 0) {
+                                                        history.back()
+                                                        // $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
+                                                        //         add: 1,
+                                                        //         period: $stateParams.period,
+                                                        //         obj: $stateParams.obj
+                                                        //     }) :
+                                                        //     $state.go('backStage.teachManage.mission', {
+                                                        //         period: $stateParams.period,
+                                                        //         obj: $stateParams.obj
+                                                        //     })
+                                                    }else{
+                                                        $rootScope.modalConfrim(res.data.message)
+                                                            .then(function () {
+                                                            })
+                                                    }
+                                                })
+
+                                            }
+                                        })
+                                } else {
+                                    Course_service.get_TechEditTask(
+                                        vm.send_data
+                                    ).then(function (res) {
+                                        if (res.data.code === 0) {
+                                            history.back()
+                                            // $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
+                                            //         add: 1,
+                                            //         period: $stateParams.period,
+                                            //         obj: $stateParams.obj
+                                            //     }) :
+                                            //     $state.go('backStage.teachManage.mission', {
+                                            //         period: $stateParams.period,
+                                            //         obj: $stateParams.obj
+                                            //     })
+                                        }else{
+                                            $rootScope.modalConfrim(res.data.message)
+                                                .then(function () {
+                                                })
+                                        }
+                                    })
+                                }
                             }
                         }
-                    }
-                })
-            } else {
-                $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
-                        add: 1,
-                        period: $stateParams.period,
-                        obj: $stateParams.obj
-                    }) :
-                    $state.go('backStage.teachManage.mission', {
-                        period: $stateParams.period,
-                        obj: $stateParams.obj
                     })
+            } else {
+                history.back()
+                // $stateParams.add === '1' ? $state.go('backStage.teachManage.mission', {
+                //         add: 1,
+                //         period: $stateParams.period,
+                //         obj: $stateParams.obj
+                //     }) :
+                //     $state.go('backStage.teachManage.mission', {
+                //         period: $stateParams.period,
+                //         obj: $stateParams.obj
+                //     })
             }
         };
 
@@ -391,7 +422,8 @@ angular.module('app').controller('missionManageCtrl', ['$scope', '$stateParams',
         }
         //取消
         $scope.cancel = function () {
-            $stateParams.add==='1'?$state.go('backStage.teachManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
-                $state.go('backStage.teachManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
+            history.back()
+            //$stateParams.add==='1'?$state.go('backStage.teachManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
+                //$state.go('backStage.teachManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
         }
     }]);

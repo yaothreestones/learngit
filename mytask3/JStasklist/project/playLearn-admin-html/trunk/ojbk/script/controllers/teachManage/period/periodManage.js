@@ -7,6 +7,7 @@ angular.module('app').controller('periodManageCtrl', ['$scope', '$stateParams', 
         console.log('父级课程',vm.course);
         vm.show = false;
         vm.lock =0;
+        vm.lessonPeriod = {};
         vm.subjectName = vm.course.subjectName;
         vm.courseName = vm.course.name;
         if(vm.data.from === '1'){
@@ -43,40 +44,61 @@ angular.module('app').controller('periodManageCtrl', ['$scope', '$stateParams', 
                 vm.needMoney = 0;
                 vm.needStar = 0;
             }
+            if(vm.lock !==0){
+                if(vm.needMoney === 0 || !vm.needMoney||vm.needStar === 0 || !vm.needStar){
+                   $rootScope.modalConfrim('资料不完整')
+                       .then(function () {
+
+                       });
+                   return
+                }else if(parseInt(vm.needStar) !== vm.needStar||vm.awardStar < 0){
+                    $rootScope.modalConfrim('学习星必须为正整数')
+                        .then(function () {
+
+                        });
+                    return
+                }
+            }
+            vm.params = {
+                id:vm.lessonPeriod.id,
+                subjectId:vm.lessonPeriod.subjectId||vm.course.subjectId,
+                courseId:vm.lessonPeriod.courseId||vm.course.id,
+                name:vm.periodName,
+                awardStar:vm.awardStar,
+                needPay:vm.lock,
+                information:vm.periodIntro,
+                needMoney:vm.needMoney,
+                needStar:vm.needStar
+            };
+            if(!vm.periodName || !vm.periodIntro){
+                $rootScope.modalConfrim('资料不完整')
+                    .then(function () {
+
+                    });
+                return
+            }else if(parseInt(vm.awardStar) !== vm.awardStar||!vm.awardStar||vm.awardStar <= 0){
+                $rootScope.modalConfrim('奖励学习星为正整数')
+                    .then(function () {
+
+                    });
+                return
+            }
             if(vm.data.from === '1'){
                 console.log('新增接口');
                 console.log('新增参数',vm.params);
-                Course_service.get_TechAddPeriod({
-                    name:vm.periodName,
-                    information:vm.periodIntro,
-                    awardStar:vm.awardStar,
-                    needPay:vm.lock,
-                    needMoney:vm.needMoney,
-                    needStar:vm.needStar,
-                    subjectId:vm.course.subjectId,
-                    courseId:vm.course.id
-                }).then(function (res) {
+                Course_service.get_TechAddPeriod(vm.params)
+                    .then(function (res) {
                     if(res.data.code===0){
                         console.log('新增成功');
                         console.log(res);
                         if(res.data.code===0){
-                            $state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj})
+                            history.back()
+                            //$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj})
                         }
                     }
                 })
             }
             else if(vm.data.from === '3'){
-                vm.params = {
-                    id:vm.lessonPeriod.id,
-                    subjectId:vm.lessonPeriod.subjectId,
-                    courseId:vm.lessonPeriod.courseId,
-                    name:vm.periodName,
-                    awardStar:vm.awardStar,
-                    needPay:vm.lock,
-                    information:vm.periodIntro,
-                    needMoney:vm.needMoney,
-                    needStar:vm.needStar
-                };
                 console.log('编辑接口');
                 console.log('编辑参数',vm.params);
                 Course_service.get_TechEditPeriod(vm.params)
@@ -84,18 +106,21 @@ angular.module('app').controller('periodManageCtrl', ['$scope', '$stateParams', 
                         if(res.data.code===0){
                             console.log('编辑成功');
                             console.log(res);
-                            $stateParams.add==='1'?$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj}):
-                                $state.go('backStage.teachManage.period',{obj:$stateParams.obj,course:$stateParams.course})
-                        }
+                            history.back();
+                        //     $stateParams.add==='1'?$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj}):
+                        //         $state.go('backStage.teachManage.period',{obj:$stateParams.obj,course:$stateParams.course})
+                         }
                     })
             }else {
-                $stateParams.add==='1'?$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj}):
-                    $state.go('backStage.teachManage.period',{course:$stateParams.course,obj:$stateParams.obj})
+                history.back()
+                //$stateParams.add==='1'?$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj}):
+                    //$state.go('backStage.teachManage.period',{course:$stateParams.course,obj:$stateParams.obj})
             }
         };
         //取消
         vm.cancel = function () {
-            $stateParams.add==='1'?$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj}):
-                $state.go('backStage.teachManage.period',{course:$stateParams.course,obj:$stateParams.obj})
+            history.back()
+            //$stateParams.add==='1'?$state.go('backStage.teachManage.period',{add:1,course:$stateParams.course,obj:$stateParams.obj}):
+                //$state.go('backStage.teachManage.period',{course:$stateParams.course,obj:$stateParams.obj})
         }
     }]);

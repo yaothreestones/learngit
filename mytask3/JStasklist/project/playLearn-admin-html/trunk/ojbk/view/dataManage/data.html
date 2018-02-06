@@ -10,7 +10,10 @@
                 </div>
                 <label class="col-sm-1 control-label" >所属科目</label>
                 <div class="col-sm-3">
-                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.subjectId"  ng-options="subjects.id as subjects.name for subjects in vm.Books">
+                    <select class="form-control"  ng-show="vm.iSubject"  ng-disabled="vm.disabled" ng-model="vm.period.subjectId"  ng-options="subject.subjectId as subject.subjectName for subject in vm.Book">
+                        <option value="">全部</option>
+                    </select>
+                    <select class="form-control"  ng-show="vm.iSubjects" ng-disabled="vm.disabled">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -22,15 +25,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-1 control-label step" >所属课程</label>
+                <label class="col-sm-1 control-label step" >所属课程/教材</label>
                 <div class="col-sm-3">
-                    <select class="form-control" ng-disabled="vm.disabled" ng-model="(vm.period.bookId)"  ng-options="(courses.id||courses.courseId) as courses.name for courses in vm.Book">
+                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.courseId"  ng-options="(courses.courseId||courses.bookId) as (courses.courseName||courses.bookName) for courses in vm.Book">
                         <option value="">全部</option>
                     </select>
                 </div>
                 <label class="col-sm-1 control-label" >所属课时</label>
                 <div class="col-sm-3">
-                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.lessonPeriodId"  ng-options="(period.lessonPeriodId||period.id) as (period.lessonPeriodName||period.name) for period in vm.Periods">
+                    <select class="form-control" ng-disabled="vm.disabled" ng-model="vm.period.lessonPeriodId"  ng-options="(lessonPeriod.id||lessonPeriod.lessonPeriodId) as (lessonPeriod.name||lessonPeriod.lessonPeriodName) for lessonPeriod in vm.Book">
                         <option value="">全部</option>
                     </select>
                 </div>
@@ -51,12 +54,14 @@
            ui-sref="backStage.dataManage.dataManage({
            add:vm.period.add,
            from:3,type:vm.period.type,
-           bookId:vm.period.bookId,
+           bookId:vm.period.courseId,
            lessonPeriodId:vm.period.lessonPeriodId,
+           courseId:vm.period.courseId,
            courseName:vm.period.courseName,
            subjectName:vm.period.subjectName,
            subjectId:vm.period.subjectId,
-           lessonPeriodName:vm.period.lessonPeriodName,bookName:vm.period.bookName})" class="pull-right">新增</a></h5>
+           grade:vm.period.grade,
+           lessonPeriodName:vm.period.lessonPeriodName,bookName:vm.period.bookName})" class="pull-right">新增</a></h5><!--grade:vm.period.grade,-->
     <table class="table table-striped gridiron edging">
     <thead>
     <tr>

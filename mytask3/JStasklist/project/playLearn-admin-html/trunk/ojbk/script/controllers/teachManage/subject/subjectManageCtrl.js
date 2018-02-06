@@ -21,36 +21,59 @@ angular.module('app').controller('subjectManageCtrl', ['$scope', '$stateParams',
         }
         //确定按钮提交
         $scope.subject_operation = function () {
-            if($scope.subject_name === undefined){
-                alert('资料不完整')
+            if(!$scope.subject_name){
+                $rootScope.modalConfrim('资料不完整')
+                    .then(function (res) {
+
+                    },function (res) {
+
+                    })
             }else if($stateParams.from === '1'){
                 $scope.data = {
                     name:$scope.subject_name,
-                    type:Number($scope.subject_type)||0
+                    type:Number($scope.subject_type)||1
                 };
                 Course_service.get_TechAddSubject($scope.data).then(function (res) {
                     console.log($scope.data);
                     if(res.data.code === 0){
-                        $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
+                        history.back()
+                        //$state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
+                    }else if(res.data.code === -3363){
+                        $rootScope.modalConfrim('科目名重复')
+                            .then(function (res) {
+                                
+                            },function (res) {
+
+                            })
                     }
                 })
             }else if($stateParams.from ==='3'){
                 $scope.data = {
                     name:$scope.subject_name,
-                    type:Number($scope.subject_type)||0,
+                    type:Number($scope.subject_type)||1,
                     id:$scope.subject.id
                 };
                 Course_service.get_TechEditSubject($scope.data).then(function (res) {
                     console.log($scope.data);
                     if(res.data.code === 0){
-                        $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
+                        history.back();
+                        //$state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
+                    }else if(res.data.code === -3363) {
+                        $rootScope.modalConfrim('科目名重复')
+                            .then(function (res) {
+
+                            }, function (res) {
+
+                            })
                     }
                 })
             }else {
-                $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
+                history.back()
+                //$state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
             }
         };
         $scope.subject_cancel = function () {
-            $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
+            history.back()
+            // $state.go("backStage.teachManage.subject",{page:$stateParams.page,type:$stateParams.type,status:$stateParams.status,name:$stateParams.name})
         }
     }]);

@@ -78,6 +78,7 @@ angular.module('app')
                         $state.go('app.record', {}, {reload: true})
                     })
             }
+
             mui.init();
             (function ($) {
                 var btnArray = ['确认', '取消'];
@@ -86,11 +87,15 @@ angular.module('app')
                     var li = elem.parentNode.parentNode;
                     mui.confirm('确认删除该条记录？', '您好用户', btnArray, function (e) {
                         if (e.index == 0) {
-                            li.parentNode.removeChild(li);
+                            Course_service.idDelet(jQuery('#OA_task_1 .main').eq(e.index).scope().item.id)
+                                .then(function () {
+                                    //请求成功之后。。
+                                    $state.reload();
+                                }).catch(function (e) {
+                                //请求错误之后。。
+                            });
                         } else {
-                            setTimeout(function () {
-                                $.swipeoutClose(li);
-                            }, 0);
+                            //取消之后做某事
                         }
                     });
                 });

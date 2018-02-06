@@ -31,35 +31,11 @@
             <div id="slider" class="mui-slider">
                 <div class="mui-slider-group mui-slider-loop">
                     <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-                    <div class="mui-slider-item mui-slider-item-duplicate">
+                    <div class="mui-slider-item {{$index==0&&'mui-slider-item-duplicate'}}
+{{($index==vm.ajax.length-1)&&'mui-slider-item-duplicate'}}" ng-repeat="self in vm.ajax track by $index">
                         <a>
-                            <img src="image/seek/background.png">
-                            <p>别人放暑假，正是你追赶的好时机！</p>
-                        </a>
-                    </div>
-                    <div class="mui-slider-item">
-                        <a>
-                            <img src="image/seek/background.png">
-                            <p>别人放暑假，正是你追赶的好时机！</p>
-                        </a>
-                    </div>
-                    <div class="mui-slider-item">
-                        <a>
-                            <img src="image/seek/background.png">
-                            <p>别人放暑假，正是你追赶的好时机！</p>
-                        </a>
-                    </div>
-                    <div class="mui-slider-item">
-                        <a>
-                            <img src="image/seek/background.png">
-                            <p>别人放暑假，正是你追赶的好时机！</p>
-                        </a>
-                    </div>
-                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-                    <div class="mui-slider-item mui-slider-item-duplicate">
-                        <a>
-                            <img src="image/seek/background.png">
-                            <p>别人放暑假，正是你追赶的好时机！</p>
+                            <img src="{{self.homePicture}}"/>
+                            <p>{{self.title}}</p>
                         </a>
                     </div>
                 </div>
@@ -71,40 +47,12 @@
             </div>
         </div>
     </div>
-    <div class="information" ui-sref="app.seekDetails">
-        <img src="image/seek/background.png">
+    <div class="information" ui-sref="app.seekDetails({id:self.id})" ng-repeat="self in vm.cardList">
+        <img src="{{self.homePicture}}"/>
         <div class="main">
-            <h4>怎么学好英语？</h4>
-            <h5>如何购买试卷如何购买试卷如何<br>
-                购买试卷如何购买试卷</h5>
-            <h6>12月25日</h6>
-        </div>
-    </div>
-    <div class="information" ui-sref="app.seekDetails">
-        <img src="image/seek/background.png">
-        <div class="main">
-            <h4>怎么学好英语？</h4>
-            <h5>如何购买试卷如何购买试卷如何<br>
-                购买试卷如何购买试卷</h5>
-            <h6>12月25日</h6>
-        </div>
-    </div>
-    <div class="information" ui-sref="app.seekDetails">
-        <img src="image/seek/background.png">
-        <div class="main">
-            <h4>怎么学好英语？</h4>
-            <h5>如何购买试卷如何购买试卷如何<br>
-                购买试卷如何购买试卷</h5>
-            <h6>12月25日</h6>
-        </div>
-    </div>
-    <div class="information" ui-sref="app.seekDetails">
-        <img src="image/seek/background.png">
-        <div class="main">
-            <h4>怎么学好英语？</h4>
-            <h5>如何购买试卷如何购买试卷如何<br>
-                购买试卷如何购买试卷</h5>
-            <h6>12月25日</h6>
+            <h4>{{self.title}}</h4>
+            <h5>{{self.intro}}</h5>
+            <h6>{{self.createAt | date:'yyyy-MM-dd'}}</h6>
         </div>
     </div>
 </div>

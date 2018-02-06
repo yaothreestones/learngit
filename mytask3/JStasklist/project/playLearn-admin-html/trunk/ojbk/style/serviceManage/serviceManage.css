@@ -44,10 +44,6 @@ a:hover {
     padding: 30px;
 }
 
-.panel-body{
-    overflow: scroll;
-}
-
 * {
     box-sizing: border-box;
 }

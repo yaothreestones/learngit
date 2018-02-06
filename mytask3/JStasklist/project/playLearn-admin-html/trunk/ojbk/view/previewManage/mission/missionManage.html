@@ -19,7 +19,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 edging mission-fixed">
         <div>
             <form class="form-horizontal mission-fixed" role="form">
-                <fieldset class="form-bottom">
+                <fieldset class="form-bottom form-bottom-fixed">
                     <form class="form-group mission_fieldset col-lg-12 col-md-12 col-sm-12 control-label" name="mission">
                         <label class="col-sm-1 control-label teach_manage_top-form " for="ds_name">任务名称</label>
                         <input id="ds_name" type="text" class="col-sm-10 teach_manage_top-form top-form-nomargin input_style" ng-disabled="show" ng-model="vm.missionName">
@@ -83,7 +83,7 @@
                     <div class="row">
                         <label class="col-sm-1 control-label">贴士类型</label>
                         <label>
-                            <input type="radio" name="tips" value="1" ng-checked="true" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined||show">鼓励
+                            <input type="radio" name="tips" value="1" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined||show">鼓励
                         </label>
                         <label>
                             <input type="radio" name="tips" value="2" ng-model="vm.tipsType" ng-disabled="vm.tips===0||vm.tips===undefined||show">购买
@@ -92,7 +92,7 @@
                     <div class="row">
                         <label class="col-sm-1 control-label">弹出时间</label>
                         <label>
-                            <input type="radio" name="time" value="1" ng-checked="true" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined||show">当前任务前
+                            <input type="radio" name="time" value="1" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined||show">当前任务前
                         </label>
                         <label>
                             <input type="radio" name="time" value="2" ng-model="vm.promptTime" ng-disabled="vm.tips===0||vm.tips===undefined||show">当前任务后

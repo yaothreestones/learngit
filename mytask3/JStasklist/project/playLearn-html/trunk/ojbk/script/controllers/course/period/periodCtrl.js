@@ -7,8 +7,13 @@ angular.module('app')
             vm.show = false;
             vm.index = Number($stateParams.index);
             vm.unlocked = true;
-            vm.courseName = $stateParams.courseName;
-            vm.Period = parseInt($stateParams.lessonPeriodId)||parseInt($stateParams.periodId);
+            vm.isCourse = false;
+            if($stateParams.lessonPeriodId){
+                vm.isCourse = true;
+            }
+            vm.courseName = $stateParams.courseName||sessionStorage.getItem('courseName');
+            vm.bookName = sessionStorage.getItem('bookName');
+            vm.Period = parseInt($stateParams.lessonPeriodId)||parseInt($stateParams.periodId)||parseInt(sessionStorage.getItem('dataFromPeriod'));
             //收藏
             vm.collection = function() {
                 if (vm.img === 'image/app/collection.png') {
@@ -48,11 +53,12 @@ angular.module('app')
             };
             vm.data = function(){
                 if(vm.dataBuy === 0){
-                    sessionStorage.setItem('dataFromPeriod',vm.period.id);
-                    sessionStorage.setItem('dataFromCourse','');
-                    sessionStorage.setItem('dataFromBook','');
-                    sessionStorage.setItem('dataFromBookPeriod','');
-                    $state.go('app.data',{choose:0,dataFromPeriod:$stateParams.lessonPeriodId})
+                    // sessionStorage.setItem('dataFromPeriod',vm.period.id);
+                    // sessionStorage.setItem('dataFromCourse','');
+                    // sessionStorage.setItem('dataFromBook','');
+                    // sessionStorage.setItem('dataFromBookPeriod','');
+                    sessionStorage.setItem('bookId',$stateParams.textbookId||'');
+                    $state.go('app.data',{choose:0,dataFromPeriod:$stateParams.lessonPeriodId||$stateParams.periodId})
                 }
             };
 
@@ -111,9 +117,11 @@ angular.module('app')
 
                         }
                     })
+                }else if(res.data.code === -1) {
+                    $state.go("app.period", {}, {reload: true})
                 }
             });
-            //开始学习
+            //开始2学习
             vm.begin_study = function () {
                 vm.taskId = vm.taskIdForStudy||vm.taskIdBox[0]||vm.taskLists[0].id;
                 console.log(vm.taskId);
@@ -155,7 +163,7 @@ angular.module('app')
 
             vm.goPay = function () {
                 angular.element('body').removeClass('overflow');
-                $state.go("app.dataPay",{periodOfCourse:$stateParams.lessonPeriodId})
+                $state.go("app.dataPay",{periodOfCourse:$stateParams.lessonPeriodId||$stateParams.periodId},{reload:true})
             }
 
         }]);

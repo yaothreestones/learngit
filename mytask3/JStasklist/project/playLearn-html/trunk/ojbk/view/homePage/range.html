@@ -1,32 +1,33 @@
 <!--模糊搜索-->
-<div class="top-side" ng-show="iSFuzzy">
-    <div class="through" ng-repeat="subject in subjects">
+<div class="top-side pad" >
+<div ng-show="iSFuzzy">
+    <div class="through" ui-sref="app.courseDetails({courseId:subject.courseId})" ng-repeat="subject in subjects">
         <span class="throughName">{{subject.courseName}}</span>
         <div class="throughs">
-            <span ng-show="iSrecommend">推荐</span>
-            <img ng-model="subject.lockCourseStatus" ng-show="iSlock" class="pull-right" src="image/app/lock.png" />
+            <span ng-if="subject.courseRecommend==1">推荐</span>
+            <img ng-if="subject.lockstitchStatus==1" class="pull-right" src="image/app/lock.png" />
             <p class="pull-right">{{subject.courseRecommend}}人已学&#12288&#12288{{subject.courseGrade|grade}}</p>
         </div>
     </div>
 </div>
 <!--课程-->
-<div class="top-side" ng-show="course">
-    <div class="through" ng-repeat="subject in subjects">
+<div ng-show="course">
+    <div class="through" ui-sref="app.courseDetails({courseId:subject.courseId})" ng-repeat="subject in subjects">
         <span class="throughName">{{subject.courseName}}</span>
         <div class="throughs">
-            <span ng-show="iSrecommend">推荐</span>
-            <img ng-model="subject.lockCourseStatus" ng-show="iSlock" class="pull-right" src="image/app/lock.png" />
+            <span ng-if="subject.courseRecommend==1">推荐</span>
+            <img ng-if="subject.lockstitchStatus==1"  class="pull-right" src="image/app/lock.png" />
             <p class="pull-right">{{subject.courseRecommend}}人已学&#12288&#12288{{subject.courseGrade|grade}}</p>
         </div>
     </div>
 </div>
 <!--课时-->
-<div class="top-side" ng-show="hour">
-    <div class="hours" ng-repeat="datas in data">
+<div  ng-show="hour">
+    <div class="hours" ui-sref="app.period({lessonPeriodId:datas.lessonPeriodId})" ng-repeat="datas in data">
         <span class="hourName">{{$index+1}}.{{datas.lessonPeriodName}}</span>
-        <img ng-model="datas.lockStatus" ng-show="iSlock" class="pull-right" src="image/app/lock.png" />
+        <img  ng-if="datas.lockStatus==1" class="pull-right" src="image/app/lock.png" />
         <div class="lessons">
-            <span>任务：{{datas.taskCountids}}个</span>
+            <span>任务：{{datas.countTaskIds}}个</span>
         </div>
     </div>
 </div>
@@ -34,4 +35,5 @@
     <div class="empty">
     </div>
     <p class="emptys">这个星球没有您要搜索的内容</p>
+</div>
 </div>

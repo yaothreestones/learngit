@@ -33,10 +33,10 @@
     <h3>请确认您的收件邮箱地址</h3>
     <p>（试卷会以邮件的形式发送到您的邮箱）</p>
     <div class="data_main" style="position: relative">
-        <input type="email" class="dataEmail ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-email" >
+        <input type="email" class="dataEmail ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-email" ng-model="vm.$stateParams.email">
         <img src="image/app/changeEmail.png" alt="" class="dataChangeEmail" ng-click="vm.dataPay_changeEmail()">
     </div>
     <div class="affirm_btn" style="position: absolute;bottom: 5vw;width: 100%" ui-sref="app.Mail">
-        <button  ng-click="vm.send()" type="button" class="btn btn-default" style="outline: none;color: #fff;">发送</button>
+        <button  ng-click="vm.send()" type="button" class="btn btn-default" style="outline: none;color: #fff;margin-left: 2vw">发送</button>
     </div>
 </div>

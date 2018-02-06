@@ -52,7 +52,7 @@ angular.module('app').controller('uniteCtrl',
                 .then(function (res) {
                     if(res.data.code==0){
                         vm.list();
-                        $rootScope.modalConfrim((status? '解冻' : '冻结')+'成功');
+                        $rootScope.modalConfrim((status? '冻结' : '解冻')+'成功');
                         $state.go($state.current,{},{reload:true});
                     }
                 },function (res){

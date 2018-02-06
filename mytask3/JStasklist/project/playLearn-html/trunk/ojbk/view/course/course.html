@@ -1,14 +1,18 @@
 <div class="course_clear-fix">
-    <span class="course_drop-down" ng-click="vm.subject_search()">{{vm.subject_selected}}</span>
-    <span class="course_drop-down" ng-click="vm.class_search()">{{vm.class_selected}}</span>
+    <span class="course_drop-down" ng-click="vm.subject_search()" ng-class="{course_select_focus:vm.subject_isShow}">{{vm.subject_selected}}
+    <span class="triangle" ng-class="{a:vm.subject_isShow,b:!vm.subject_isShow}"></span>
+    </span>
+    <span class="course_drop-down" ng-click="vm.class_search()" ng-class="{course_select_focus:vm.class_isShow}">{{vm.grade|grade}}
+    <span class="triangle" ng-class="{a:vm.class_isShow,b:!vm.class_isShow}"></span>
+        </span>
 </div>
 <div>
     <ul class="course_dropdown-list" ng-show="vm.subject_isShow">
-        <li class="course_search-list" ng-repeat="subject in vm.subjects" ng-click="vm.subject_select(subject)">{{subject.name}}</li>
+        <li class="course_search-list" ng-repeat="subject in vm.subjects" ng-click="vm.subject_select(subject,$index)" ng-class="{course_select_dropDown:vm.box[$index]}">{{subject.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
     <ul class="course_dropdown-list" ng-show="vm.class_isShow">
-        <li class="course_search-list" ng-repeat="grade in vm.classes" ng-click="vm.class_select(grade)">{{grade.name}}</li>
+        <li class="course_search-list" ng-repeat="grade in vm.classes" ng-click="vm.class_select(grade,$index)" ng-class="{course_select_dropDown:vm.classBox[$index]}">{{grade.name}}</li>
         <li class="course_modal-list"></li>
     </ul>
 </div>

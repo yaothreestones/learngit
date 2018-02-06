@@ -71,84 +71,133 @@ angular.module('app')
                         vm.task = vm.payDetail.taskNumber;
                     }
                 })
-            } else {
+            } else if($stateParams.textbookId){
+                vm.bookId = $stateParams.textbookId;
+                Course_service.get_Books(
+                    parseInt(vm.bookId)
+                ).then(function (res) {
+                    if (res.data.code === 0) {
+                        vm.payDetail = res.data.data;
+                        console.log('教材', vm.payDetail);
+                        vm.name = vm.payDetail.bookName;
+                        vm.task = vm.payDetail.taskNumber;
+                        vm.picture = vm.payDetail.picture;
+                        vm.version = vm.payDetail.version;
+                        Course_service.get_book_unlock(
+                            parseInt(vm.bookId)
+                        ).then(function (res) {
+                            vm.price = res.data.data.needMoney;
+                            vm.star = res.data.data.needStar;
+                        })
+                    }
+                })
+            }else {
                 vm.confirmEmail = true;
             }
             //立即支付按钮
             vm.click = function () {
-                if(!vm.confirmEmail){
+                if(!vm.confirmEmail) {
                     console.log(vm.selected);
-                    if(vm.selected === '0'){
-                        if(vm.periodOfCourse){
+                    if (vm.selected === '0') {
+                        if (vm.periodOfCourse) {
                             Course_service.get_pay_period_by_star({
-                                lessonPeriodId:parseInt($stateParams.periodOfCourse)
+                                lessonPeriodId: parseInt($stateParams.periodOfCourse)
                             }).then(function (res) {
-                                if(res.data.code === 0){
+                                if (res.data.code === 0) {
                                     vm.show = true;
                                     vm.collect = '解锁成功';
-                                    $timeout(function(){
+                                    $timeout(function () {
                                         vm.show = false;
-                                        $state.go("app.period",{lessonPeriodId:$stateParams.periodOfCourse},{reload:true})
-                                    },2500)
-                                }else {
+                                        history.back();
+                                        //$state.go("app.period", {lessonPeriodId: $stateParams.periodOfCourse}, {reload: true})
+                                    }, 2500)
+                                } else {
                                     vm.show = true;
                                     vm.collect = '学习星不足，解锁失败';
-                                    $timeout(function(){
+                                    $timeout(function () {
                                         vm.show = false;
-                                    },2500)
+                                    }, 2500)
                                 }
-                            },function (res) {
+                            }, function (res) {
 
                             })
-                        }else if(vm.courseId){
+                        } else if (vm.courseId) {
                             Course_service.get_pay_course_by_star({
-                                courseId:$stateParams.courseId
+                                courseId: $stateParams.courseId
                             }).then(function (res) {
-                                if(res.data.code === 0){
+                                if (res.data.code === 0) {
                                     vm.show = true;
                                     vm.collect = '解锁成功';
-                                    $timeout(function(){
+                                    $timeout(function () {
                                         vm.show = false;
-                                        $state.go("app.courseDetails",{courseId:$stateParams.courseId},{reload:true})
-                                    },2500)
-                                }else {
+                                        history.back();
+                                        //$state.go("app.courseDetails", {courseId: $stateParams.courseId}, {reload: true})
+                                    }, 2500)
+                                } else {
                                     vm.show = true;
                                     vm.collect = '学习星不足，解锁失败';
-                                    $timeout(function(){
+                                    $timeout(function () {
                                         vm.show = false;
-                                    },2500)
+                                    }, 2500)
                                 }
-                            },function (res) {
+                            }, function (res) {
 
                             })
-                        }else if(vm.bookPeriodId){
+                        } else if (vm.bookPeriodId) {
                             Course_service.get_pay_period_by_star({
-                                lessonPeriodId:parseInt(vm.bookPeriodId)
+                                lessonPeriodId: parseInt(vm.bookPeriodId)
                             }).then(function (res) {
-                                if(res.data.code === 0){
+                                if (res.data.code === 0) {
                                     vm.show = true;
                                     vm.collect = '解锁成功';
-                                    $timeout(function(){
+                                    $timeout(function () {
                                         vm.show = false;
-                                        $state.go('app.teaching',{bookId:$stateParams.bookId},{reload:true})
-                                    },2500)
-                                }else {
+                                        history.back();
+                                        //$state.go('app.period', {bookId: $stateParams.bookId}, {reload: true})
+                                    }, 2500)
+                                } else {
                                     vm.show = true;
                                     vm.collect = '学习星不足，解锁失败';
-                                    $timeout(function(){
+                                    $timeout(function () {
                                         vm.show = false;
-                                    },2500)
+                                    }, 2500)
                                 }
-                            },function (res) {
+                            }, function (res) {
 
                             })
+                        } else if (vm.bookId) {
+                            Course_service.get_pay_book_by_star({
+                                bookId: parseInt(vm.bookId)
+                            }).then(function (res) {
+                                if (res.data.code === 0) {
+                                    vm.show = true;
+                                    vm.collect = '解锁成功';
+                                    $timeout(function () {
+                                        vm.show = false;
+                                        $state.go('app.teaching', {
+                                            bookId: $stateParams.textbookId,
+                                            grade : sessionStorage.getItem('grade')
+                                        }, {reload: true})
+                                    }, 2500)
+                                } else {
+                                    vm.show = true;
+                                    vm.collect = '学习星不足，解锁失败';
+                                    $timeout(function () {
+                                        vm.show = false;
+                                    }, 2500)
+                                }
+                            }, function (res) {
+
+                            })
+                        }else {
+                            vm.goPay = false;
                         }
                     }
                 }else {
-                    vm.goPay = !vm.goPay;
+                    vm.goPay = false;
                 }
-
             };
+
             //取消支付
             vm.cancel = function () {
                 vm.goPay = true;
@@ -186,20 +235,18 @@ angular.module('app')
                                 },
                                 function (res) {
                                     console.log(res.err_code + "  " + res.err_desc + "  " + res.err_msg);
-                                    if (res.err_msg === "get_brand_wcpay_request:ok") {
-                                        alert("充值成功");
-                                    } else if (res.err_msg === "get_brand_wcpay_request:cancel") {
+                                    if (res.err_msg === "get_brand_wcpay_request:ok") {//成功
+                                        $state.go('app.result',{result:1})
+                                    } else if (res.err_msg === "get_brand_wcpay_request:cancel") {//取消
                                         alert("用户取消支付");
 
-                                    } else if (res.err_msg === "get_brand_wcpay_request:fail") {
-                                        alert("支付失败");
+                                    } else if (res.err_msg === "get_brand_wcpay_request:fail") {//失败
+                                        $state.go('app.result',{result:2})
                                     }
                                 }
                             );
                         }
                     }
                 });
-                //此处调用后端接口获得数据后调用微信支付接口
-                $state.go('app.result')
             }
         }]);

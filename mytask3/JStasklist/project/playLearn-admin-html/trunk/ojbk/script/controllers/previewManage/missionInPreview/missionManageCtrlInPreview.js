@@ -3,6 +3,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
         var vm = $scope.vm = {};
         vm.steps = steps;
         vm.i = 0;
+        vm.tipsType = "1";
+        vm.promptTime = "1"
         vm.period = angular.fromJson($stateParams.period)||{};
         console.log('路由参数',$stateParams);
         console.log('父级课时',vm.period);
@@ -81,12 +83,12 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
             //任务
             if($stateParams.from === '1'){
                 Course_service.get_PreviewAddMission({
-                    bookId:vm.period.bookId,
-                    lessonPeriodId:vm.period.lessonPeriodId,
+                    bookId:vm.period.bookId||vm.Mission.bookId,
+                    lessonPeriodId:vm.period.lessonPeriodId||vm.Mission.lessonPeriodId,
                     name:vm.missionName,
                     prompt:vm.tips||0,
-                    type:vm.tipsType||0,
-                    promptTime:vm.promptTime||0,
+                    type:Number(vm.tipsType),
+                    promptTime:Number(vm.promptTime),
                     promptInformation:vm.promptInformation
                 }).then(function (res) {
                     if(res.data.code === 0){
@@ -96,8 +98,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                         angular.forEach(vm.send_data,function (data,index,array) {
                             array[index] = {
                                 taskId:res.data.data.id,
-                                bookId:vm.period.bookId,
-                                lessonPeriodId:vm.period.lessonPeriodId,
+                                bookId:vm.period.bookId||vm.Mission.bookId,
+                                lessonPeriodId:vm.period.lessonPeriodId||vm.Mission.lessonPeriodId,
                                 type: vm.select[index]||1,
                                 text: vm.editorContent[index]||undefined,
                                 url : vm.img[index]||vm.videoUrl[index]||undefined,
@@ -110,7 +112,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                             vm.send_data
                         ).then(function (res) {
                             if(res.data.code === 0){
-                                $state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj})
+                                history.back()
+                                //$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj})
                             }
                         })
                     }
@@ -123,8 +126,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                     lessonPeriodId:vm.Mission.lessonPeriodId,
                     name:vm.missionName,
                     prompt:vm.tips||0,
-                    type:vm.tipsType||0,
-                    promptTime:vm.promptTime||0,
+                    type:Number(vm.tipsType),
+                    promptTime:Number(vm.promptTime),
                     promptInformation:vm.promptInformation
                 }).then(function (res) {
                     if(res.data.code===0){
@@ -141,8 +144,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                         array[index] = {
                                             id:vm.collectId[index],
                                             taskId:parseInt($stateParams.task),
-                                            bookId:vm.period.bookId,
-                                            lessonPeriodId:vm.period.lessonPeriodId,
+                                            bookId:vm.period.bookId||vm.Mission.bookId,
+                                            lessonPeriodId:vm.period.lessonPeriodId||vm.Mission.lessonPeriodId,
                                             type: vm.select[index]||1,
                                             text: vm.editorContent[index]||undefined,
                                             url : vm.img[index]||vm.videoUrl[index]||undefined,
@@ -178,8 +181,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                                         array[index] = {
                                                             id:vm.collectId[index],
                                                             taskId:parseInt($stateParams.task),
-                                                            bookId:vm.period.bookId,
-                                                            lessonPeriodId:vm.period.lessonPeriodId,
+                                                            bookId:vm.period.bookId||vm.Mission.bookId,
+                                                            lessonPeriodId:vm.period.lessonPeriodId||vm.Mission.lessonPeriodId,
                                                             type: vm.select[index]||1,
                                                             text: vm.editorContent[index]||undefined,
                                                             url : vm.img[index]||vm.videoUrl[index]||undefined,
@@ -192,8 +195,9 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                                         vm.send_data
                                                     ).then(function (res) {
                                                         if(res.data.code===0){
-                                                            $stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
-                                                                $state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
+                                                            history.back()
+                                                            //$stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
+                                                                //$state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
                                                         }
                                                     })
                                                 }
@@ -203,8 +207,9 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                             vm.send_data
                                         ).then(function (res) {
                                             if(res.data.code===0){
-                                                $stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
-                                                    $state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
+                                                history.back()
+                                                //$stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
+                                                    //$state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
                                             }
                                         })
                                     }
@@ -217,8 +222,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                 array[index] = {
                                     id:vm.collectId[index],
                                     taskId:parseInt($stateParams.task),
-                                    bookId:vm.period.bookId,
-                                    lessonPeriodId:vm.period.lessonPeriodId,
+                                    bookId:vm.period.bookId||vm.Mission.bookId,
+                                    lessonPeriodId:vm.period.lessonPeriodId||vm.Mission.lessonPeriodId,
                                     type: vm.select[index]||1,
                                     text: vm.editorContent[index]||undefined,
                                     url : vm.img[index]||vm.videoUrl[index]||undefined,
@@ -268,15 +273,16 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                                 vm.send_data
                                             ).then(function (res) {
                                                 if (res.data.code === 0) {
-                                                    $stateParams.add === '1' ? $state.go('backStage.previewManage.mission', {
-                                                            add: 1,
-                                                            period: $stateParams.period,
-                                                            obj: $stateParams.obj
-                                                        }) :
-                                                        $state.go('backStage.previewManage.mission', {
-                                                            period: $stateParams.period,
-                                                            obj: $stateParams.obj
-                                                        })
+                                                    history.back()
+                                                    // $stateParams.add === '1' ? $state.go('backStage.previewManage.mission', {
+                                                    //         add: 1,
+                                                    //         period: $stateParams.period,
+                                                    //         obj: $stateParams.obj
+                                                    //     }) :
+                                                    //     $state.go('backStage.previewManage.mission', {
+                                                    //         period: $stateParams.period,
+                                                    //         obj: $stateParams.obj
+                                                    //     })
                                                 }
                                             })
                                         }
@@ -286,23 +292,25 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
                                     vm.send_data
                                 ).then(function (res) {
                                     if (res.data.code === 0) {
-                                        $stateParams.add === '1' ? $state.go('backStage.previewManage.mission', {
-                                                add: 1,
-                                                period: $stateParams.period,
-                                                obj: $stateParams.obj
-                                            }) :
-                                            $state.go('backStage.previewManage.mission', {
-                                                period: $stateParams.period,
-                                                obj: $stateParams.obj
-                                            })
+                                        history.back()
+                                        // $stateParams.add === '1' ? $state.go('backStage.previewManage.mission', {
+                                        //         add: 1,
+                                        //         period: $stateParams.period,
+                                        //         obj: $stateParams.obj
+                                        //     }) :
+                                        //     $state.go('backStage.previewManage.mission', {
+                                        //         period: $stateParams.period,
+                                        //         obj: $stateParams.obj
+                                        //     })
                                     }
                                 })}
                         }
                     }
                 })
             }else {
-                $stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
-                    $state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
+                history.back()
+                //$stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
+                    //$state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
             }
         };
         //查看、编辑
@@ -355,7 +363,8 @@ angular.module('app').controller('missionManageCtrlInPreview', ['$scope', '$stat
         }
         //取消
         $scope.cancel = function () {
-            $stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
-                $state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
+            history.back()
+            //$stateParams.add==='1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:$stateParams.obj}):
+                //$state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:$stateParams.obj})
         }
     }]);

@@ -2,7 +2,7 @@ angular.module('app')
     .factory('classes',function () {
         return [
             {
-                id:null,
+                id:0,
                 name:'全部'
             },
             {

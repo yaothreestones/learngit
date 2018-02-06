@@ -17,11 +17,19 @@
     border-bottom: 1px solid #e8e8e8;
     border-right: 1px solid #e8e8e8;
 }
+.course_select_focus {
+    color:#03a9f4;
+}
+.course_select_dropDown {
+    background-color: #03a9f4;
+    color:#fff;
+    border: none !important;
+}
 .course_dropdown-list {
     position: fixed;
     top: 25.2vw;
     background-color: #fff;
-    z-index: 49;
+    z-index: 101;
     padding: 3.33vw 0 3.33vw 0;
     width: 100vw;
 }
@@ -53,15 +61,15 @@
 .course_content{
     position: relative;
     width: 96vw;
-    height: 29.2vw;
+    height: 25vw;
     margin: 0 auto 3vw auto;
     border: 1px solid #a8a9ac;
     border-radius: 6px;
     box-shadow: 2px 2px #a8a9ac ;
 }
 .course_content .course_main-img{
-    width: 29.2vw;
-    height: 29.2vw;
+    width: 25vw;
+    height: 100%;
     float: left;
     margin: 0 3.2vw;
 }
@@ -227,7 +235,7 @@
     width: 44.5vw;
     height: 37.5vw;
     border: 1px solid #e8e7e8;
-    z-index: 100;
+    z-index: 1000;
     border-radius: 2vw;
     background-color: #fff;
 }
@@ -336,7 +344,7 @@
 .course_period_attribute {
     padding-left: 3.33vw;
 }
-.course_period_dissect span {
+.course_period_showName {
     color: #999999;
     margin-left: 8.19vw;
     display: inline-block;
@@ -427,14 +435,13 @@
     height: 3.3vw;
     font-size: 2.5vw;
     text-align: center;
-    color: #000000;
     border-radius: 50%;
-    border: 0.1vw solid #aaaaaa;
     background: #ffffff;
     position: absolute;
     left: -1.7vw;
-    line-height: 2.9vw;
     top: 0;
+    line-height: 3.3vw;
+    color: #fff;
 }
 .w-e-toolbar {
     border:none !important;
@@ -543,6 +550,7 @@
 }
 .course_mission_drop-down {
     width: 100vw !important;
+    font-size:14px;
 }
 .course_dropdown-list_fixed {
     padding-top: 0 !important;
@@ -710,4 +718,65 @@
 .datapay_studystar {
     height: 3.9vw;
     vertical-align: bottom;
+}
+
+.course_details_modal_tip {
+    position: fixed;
+    right: 50%;
+    transform: translate(50%,50%);
+    width: 86.7vw;
+    height: 52.6vw;
+    border: 1px solid #e8e7e8;
+    z-index: 1000;
+    border-radius: 2vw;
+    background-color: #fff;
+}
+.course_period_lock_button_tip {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0;
+    color: #fff;
+    background-color: #03a9f4;
+    border: 0;
+    width: 100%;
+}
+.course_period_littleTip {
+    height: 12.3vw;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    line-height: 12.3vw;
+    font-size: 4.3vw;
+}
+.course_period_closetip {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translate(0,-50%);
+    height: 4.3vw;
+    width: 4.3vw;
+}
+.triangle {
+    width:0;
+    height:0;
+    display: inline-block;
+    border-bottom: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+
+}
+.a {
+    animation:abc .5s forwards;
+}
+.b {
+    animation:cba .5s forwards;
+}
+@keyframes abc
+{
+    from {transform:rotate(0deg)}
+    to {transform:rotate(180deg)}
+}
+@keyframes cba
+{
+    from {transform:rotate(180deg)}
+    to {transform:rotate(0deg)}
 }

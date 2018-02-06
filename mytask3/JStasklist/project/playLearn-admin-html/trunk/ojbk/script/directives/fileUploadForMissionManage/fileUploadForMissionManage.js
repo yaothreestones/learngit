@@ -76,9 +76,10 @@ angular.module('fileUploadDirective', [])
                     scope.fileName=scope.file.name;
                     readFile.readAsDataURL(scope.file);
                     readFile.onload = function () {
-                        scope.src = readFile.result;
                         //这里不触发 脏检查,我想让他和文件信息一起出来
-                        scope.$apply();
+                        scope.$apply(function () {
+                            scope.src = readFile.result;
+                        });
 
                     }
                 });

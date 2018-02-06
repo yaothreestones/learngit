@@ -235,6 +235,27 @@ angular.module('app').controller('coursesManageCtrl', ['$scope', '$stateParams',
                 courseTwoId:vm.course2,
                 courseThreeId:vm.course3
             };
+            vm.test = {
+                name:vm.course_name,
+                intro:vm.intro,
+                homePicture:vm.exportSrc.home,
+                listPicture:vm.exportSrc.list,
+                courseOneId:vm.course1,
+                courseTwoId:vm.course2,
+                courseThreeId:vm.course3
+            };
+            vm.return = true;
+            angular.forEach(vm.test,function (data) {
+                if(vm.return){
+                    if(!data){
+                        $rootScope.modalConfrim('资料不完整');
+                        vm.return = false;
+                    }
+                }
+            });
+            if(!vm.return){
+                return
+            }
             console.log(vm.data);
             if(vm.data.from === '1'){
                 console.log('新增提交...');
@@ -244,7 +265,8 @@ angular.module('app').controller('coursesManageCtrl', ['$scope', '$stateParams',
                     console.log(res);
                     if(res.data.code === 0){
                         console.log('新增完成');
-                        $state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject})
+                        history.back()
+                        //$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject})
                     }
                 })
             }else if(vm.data.from === '3'){
@@ -252,19 +274,22 @@ angular.module('app').controller('coursesManageCtrl', ['$scope', '$stateParams',
                 Course_service.get_TechEditCourse(
                     vm.params
                 ).then(function (res) {
-                    // if(res.data.code === 0){
+                     if(res.data.code === 0){
                     console.log('编辑完成');
-                    $stateParams.add==='1'?$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject}):
-                        $state.go('backStage.teachManage.courses',{obj:$stateParams.obj,subject:$stateParams.subject})
-                    // }
+                         history.back()
+                    // $stateParams.add==='1'?$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject}):
+                    //     $state.go('backStage.teachManage.courses',{obj:$stateParams.obj,subject:$stateParams.subject})
+                      }
                 })
             }else {
-                $stateParams.add==='1'?$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject}):
-                    $state.go('backStage.teachManage.courses',{obj:$stateParams.obj,subject:$stateParams.subject})
-            }
+                history.back()
+            //     $stateParams.add==='1'?$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject}):
+            //         $state.go('backStage.teachManage.courses',{obj:$stateParams.obj,subject:$stateParams.subject})
+             }
         };
         vm.course_cancel = function () {
-            $stateParams.add==='1'?$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject}):
-                $state.go('backStage.teachManage.courses',{obj:$stateParams.obj,subject:$stateParams.subject})
-        }
+            history.back()
+        //     $stateParams.add==='1'?$state.go('backStage.teachManage.courses',{add:1,obj:$stateParams.obj,subject:$stateParams.subject}):
+        //         $state.go('backStage.teachManage.courses',{obj:$stateParams.obj,subject:$stateParams.subject})
+         }
     }]);

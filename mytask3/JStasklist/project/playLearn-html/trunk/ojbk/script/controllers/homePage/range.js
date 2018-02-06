@@ -10,7 +10,6 @@ angular.module('app')
         //隐藏模糊搜索
         $scope.iSFuzzy=false;
         //是否购买
-        $scope.iSlock=false;
         //是否推荐
         $scope.iSrecommend=true;
         $scope.range=$stateParams.range;
@@ -25,6 +24,7 @@ angular.module('app')
         //模糊搜索
         if($stateParams.id==1){
             $scope.data={
+                status:1,
                 name:$stateParams.indistinct,
                 page:1,
                 size:999
@@ -58,14 +58,7 @@ angular.module('app')
                         $scope.subjects=res.data.data;
                         console.log($scope.data)
                         $scope.course=true;
-                        $scope.lockCourseStatus=$scope.subjects[0].lockCourseStatus;
-                        console.log($scope.lockCourseStatus)
                         $scope.hour=true;
-                        if($scope.lockCourseStatus==1){
-                            $scope.iSlock=true;
-                        }else{
-                            $scope.iSlock=false;
-                        }
                     }else{
                         $scope.void=true;
                         $scope.iSFuzzy=false;
@@ -84,14 +77,7 @@ angular.module('app')
                 .then(function(res) {
                     if(res.data.code == 0){
                         $scope.data=res.data.data;
-                        $scope.lockStatus=$scope.data[0].lockStatus;
-                        console.log($scope.lockStatus)
                         $scope.hour=true;
-                        if($scope.lockStatus==1){
-                            $scope.iSlock=true;
-                        }else{
-                            $scope.iSlock=false;
-                        }
                       }else{
                         $scope.void=true;
                         $scope.hour=false;
@@ -101,4 +87,6 @@ angular.module('app')
                     alert('请求失败')
                 })
         }
+
+
     });

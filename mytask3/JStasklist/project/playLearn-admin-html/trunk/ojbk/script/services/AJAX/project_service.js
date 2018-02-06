@@ -11,6 +11,9 @@ angular.module("app")
                 return $http({
                     method: 'post',
                     url: pathProject.getMaterials_url(),
+                    headers: {
+                        'content-type': 'application/json'
+                    },
                     params: params,
                 })
             },
@@ -249,7 +252,6 @@ angular.module("app")
             },
             //资讯管理/上下架接口
             get_InformationStatus: function (data) {
-                console.log(pathProject.getInformationStatus_url(data.informationId));
                 return $http({
                     method: "put",
                     url: pathProject.getInformationStatus_url(),
@@ -445,7 +447,7 @@ angular.module("app")
             //编辑模块
             editModule:function (params) {
                 return $http({
-                    method: "put",
+                    method: "get",
                     url: pathProject.editUser(),
                     headers: {'Content-Type': 'application/json'},
                     data: params
@@ -544,9 +546,9 @@ angular.module("app")
 
             //课程管理
             //获取教学管理课程管理课程列表接口
-            get_TechCourse: function (params) {
-                return $http.get(pathProject.getTechCourse_url(), params)
-            },
+            // get_TechCourse: function (params) {
+            //     return $http.get(pathProject.getTechCourse_url(), params)
+            // },
             //获取教学管理课程管理新增课程接口
             get_TechAddCourse: function (data) {
                 return $http({

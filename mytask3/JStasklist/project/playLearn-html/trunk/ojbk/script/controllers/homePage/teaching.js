@@ -1,12 +1,8 @@
 angular.module('app')
     .controller('teachingCtrl', function ($scope, $timeout, $state, $stateParams, pathProject, Course_service) {
-        // $scope.data = function(x){
-        //     if(x===1){
-        //         $state.go('app.data',{choose:1,preview:1})
-        //     }
-        // };
         $scope.info = $stateParams;
         console.log($scope.info);
+        sessionStorage.setItem('grade',$stateParams.grade);
         $scope.bindName = "绑定";
         $scope.dataName = '资料';
         $scope.studyName = '开始学习';
@@ -42,11 +38,13 @@ angular.module('app')
                     $scope.bound = function () {
                         Course_service.get_BookBind($scope.info.bookId)
                             .then(function (res) {
-                                $scope.book = res.data.data;
-                                console.log('绑定教材', $scope.book);
-                                if (res.data.code == 0) {
-                                    $scope.iSchange = true;
-                                    $scope.pinless = false;
+                                if(res.data.code==0){
+                                    $scope.book = res.data.data;
+                                    console.log('绑定教材', $scope.book);
+                                    if (res.data.code == 0) {
+                                        $scope.iSchange = true;
+                                        $scope.pinless = false;
+                                    }
                                 }
                             }, function (res) {
                                 alert('请求失败')
@@ -64,7 +62,6 @@ angular.module('app')
         };
         Course_service.get_BookLessonPeriod($scope.params)
             .then(function (res) {
-
                 if (res.data.code == 0) {
                     $scope.hour = res.data.data;
                     console.log('课时list', $scope.hour);
@@ -114,22 +111,23 @@ angular.module('app')
                         $scope.studyName = '完成学习';
                         $scope.learning = function () {
                             //('完成学习');
-                            alert('已完成当前教材的课时,')
-                            // console.log($scope.hour [$scope.hour.length-1].lessonPeriodId)
-                            // $state.go('app.period', {textbookId: $stateParams.bookId, periodId: $scope.hour.lessonPeriodId});
+                            alert('请选择已完成的课时进行学习');
                         }
                     }
-                    // $state.go('app.period', {textbookId: $stateParams.bookId, periodId: hours.lessonPeriodId});  课时
-                    // $state.go('app.dataPay', {textbookId: $stateParams.bookId}); 解锁  全部只穿id    单个教材加id
                     //单个课时
                     $scope.learn = function (index, hours) {
                         //判断第一个
-
+                        $scope.material = res.data.data;sessionStorage.setItem('bookName',$scope.info.bookName);
                         $scope.judge=function () {
-                            if($scope.hour[index-1].status===2){
+                            if (hours.lock == 1&&index==0) {
+                                //('单个解锁')
+                                $state.go('app.period', {textbookId: $stateParams.bookId,periodId:hours.lessonPeriodId});
+                                return;
+                            }
+                            if(hours[index-1]||hours.status!==2){
                                 if (hours.lock == 1) {
                                     //('单个解锁')
-                                    $state.go('app.dataPay', {textbookId: $stateParams.bookId,periodId:hours.lessonPeriodId});
+                                    $state.go('app.period', {textbookId: $stateParams.bookId,periodId:hours.lessonPeriodId});
                                     return;
                                 }
                                 if (hours.lock !== 1) {
@@ -177,31 +175,31 @@ angular.module('app')
             }, function (res) {
                 alert('请求失败')
             });
-
-
         //同步预习-课时列表的资料统计接口
         Course_service.get_LessonPeriod($scope.info.bookId)
             .then(function (res) {
-                $scope.books = res.data.data;
-                console.log('资料统计接口', $scope.books);
-                console.log($scope.books.lockDataNumber);
-                if ($scope.books.dataNumbers) {
-                    //有资料判断是否已购
-                    if ($scope.books.lockDataNumber === $scope.books.dataNumbers) {
-                        $scope.dataName = '已购';
-                        $scope.datum = function () {
-                            $state.go("app.means", {reload: true});
+                if(res.data.code==0){
+                    $scope.books = res.data.data;
+                    console.log('资料统计接口', $scope.books);
+                    console.log($scope.books.lockDataNumber);
+                    if ($scope.books.dataNumbers) {
+                        //有资料判断是否已购
+                        if ($scope.books.lockDataNumber === $scope.books.dataNumbers) {
+                            $scope.dataName = '已购';
+                            $scope.datum = function () {
+                                $state.go("app.means",{reload: true});
+                            }
+                        } else if ($scope.books.lockDataNumber != $scope.books.dataNumbers) {
+                            $scope.dataName = '资料';
+                            $scope.datum = function () {
+                                $state.go("app.data",{dataFromBook:$stateParams.bookId},{reload: true});
+                            }
                         }
-                    } else if ($scope.books.lockDataNumber != $scope.books.dataNumbers) {
-                        $scope.dataName = '资料';
-                        $scope.datum = function () {
-                            $state.go("app.data", {reload: true});
-                        }
+                        $scope.means = true;
+                    } else if ($scope.books.dataNumbers == 0) {
+                        //没有资料
+                        $scope.means = false;
                     }
-                    $scope.means = true;
-                } else if ($scope.books.dataNumbers == 0) {
-                    //没有资料
-                    $scope.means = false;
                 }
             }, function (res) {
                 alert('请求失败')

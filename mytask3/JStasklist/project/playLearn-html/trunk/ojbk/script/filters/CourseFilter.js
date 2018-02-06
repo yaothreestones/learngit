@@ -27,6 +27,8 @@ angular.module('app')
     .filter('grade', function () {
         return function (params) {
             switch (params) {
+                case 0:
+                    return '全部';
                 case 1:
                     return '一年级';
                 case 2:
@@ -161,3 +163,19 @@ angular.module('app')
 
         }
     })
+.filter('stepBackColor',function () {
+    return function (x) {
+        switch (x){
+            case 0:
+                return '#ffc107';
+            case 1:
+                return '#03a9f3';
+            case 2:
+                return '#f36c5e';
+            case 3:
+                return '#8ec351';
+            case 4:
+                return '#ffce58'
+        }
+    }
+})

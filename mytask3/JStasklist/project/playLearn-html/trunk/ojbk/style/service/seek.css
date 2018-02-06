@@ -371,7 +371,7 @@
 }
 
 .wear .main h4 {
-    padding-top: 1.9vw;
+    padding-top: 1vw;
     padding-left: 30.8vw;
     font-size: 4.5vw;
 }
@@ -384,8 +384,7 @@
 
 .wear .main .statement {
     display: inline;
-    padding-left: 6vw;
-    font-size: 3.1vw;
+    font-size: 4vw;
     color: #999999;
 }
 
@@ -481,14 +480,15 @@
     height: 12.5vw;
     width: 100%;
     background: #fff;
-    margin-top: 13.2vw;
+    margin-top: 13vw;
+    font-size: 0;
+    word-spacing:-2px
 }
 
 .courseClear span {
-    height: 12.5vw;
     line-height: 12.5vw;
-    display: inline-block;
-    width: 48.6%;
+    float: left;
+    width: 50vw;
     font-size: 3.7vw;
     text-align: center;
 }
@@ -502,7 +502,7 @@
     background: #f0f4f7;
 }
 
-.enwrap .packFirst {
+.enwrap {
     margin-top: 17vw !important;
 }
 
@@ -540,11 +540,11 @@
     height: 4vw;
     padding-right: 2vw;
     margin-right: 2vw;
-    margin-top: 0.5vw;
+    margin-top: 1vw;
 }
 
 .enwrap .package .packMain {
-    margin-top: -1vw;
+    margin-top: -2vw;
 }
 
 /*信息详情*/
@@ -664,7 +664,7 @@
 .footAnenst {
     position: absolute;
     bottom: 0vw;
-    left: 38%;
+    left: 33%;
     font-size: 3vw;
     color: #999;
 }

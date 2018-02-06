@@ -263,7 +263,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //资料管理（新增.查看.编辑）
             .state("backStage.dataManage.dataManage", {
-                url: "/dataManage/{from}/{type}?add&datumId&&subjectName&subjectId&courseName&lessonPeriodName&bookName&courseId&bookId&lessonPeriodId",
+                url: "/dataManage/{type}/{from}/?add&datumId&&subjectName&subjectId&courseName&lessonPeriodName&bookName&courseId&bookId&lessonPeriodId&grade",
                 templateUrl: 'view/dataManage/dataManage.html',
                 controller: 'dataManageCtrl as vm',
                 resolve: {
@@ -645,7 +645,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //模块（新增，编辑）
             .state("backStage.moduleManage.moduleManage", {
-                url: "/moduleManage",
+                url: "/moduleManage/{id}",
                 templateUrl: 'view/moduleManage/user/moduleManage.html',
                 controller: 'moduleManageCtrl',
                 controllerAs:'vm',

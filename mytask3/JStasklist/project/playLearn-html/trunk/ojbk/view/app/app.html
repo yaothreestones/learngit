@@ -11,6 +11,8 @@
                ng-click="cancel()"><img class="return" src="image/app/return.png" height="30" width="30"/></a>
             <a ng-show="$root.config.headNav.revert.isShow" style="white-space:pre;margin-left: 2.63vw;"
                ng-click="revert()"><img class="return" src="image/app/return.png" height="30" width="30"/></a>
+            <a ng-show="$root.config.headNav.page.isShow" style="white-space:pre;margin-left: 2.63vw;"
+               ng-click="page()"><img class="return" src="image/app/return.png" height="30" width="30"/></a>
             <img ng-show="$root.config.headNav.backBtnExp.isShow" class="return" src="image/app/return.png" height="30"
                  width="30" ui-sref="app.data"/>
             <span>{{$root.config.headNav.title}}</span>

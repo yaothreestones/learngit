@@ -1,23 +1,30 @@
 <div class="data_clear-fix">
     <h3>资料所属</h3>
     <div class="data_content">
-        <img src="image/seek/background.png" class="data_main_img">
-        <div class="data_main">
-            <h2 class="data_main_learning">{{vm.name}}</h2>
+        <div class="data_main" style="width: 65vw;float: right;" ng-class="{data_period:vm.courseShow}">
+            <div ng-if="vm.courseShow">
+                <p class="course_details_mission_title" style="padding-left: 0;">{{vm.name}}
+                    <img ng-src="{{vm.lock|lockImg}}" alt="" class="course_details_mission_lockimg">
+                </p>
+            </div>
+            <h2 class="data_main_learning" ng-if="!vm.courseShow">{{vm.name}}</h2>
             <img src="image/app/heat.png" class="data_recommended" ng-show="vm.recommend === 1">
             <div>
-                <span>{{vm.information}}</span>
-                <span>{{vm.studyCount}}人已学</span>
-                <span>{{vm.grade|grade}}</span>
+                <span>简介:{{vm.information}}</span>
+                <span ng-if="vm.studyCount">{{vm.studyCount}}人已学</span>
+                <span ng-if="vm.grade">{{vm.grade|grade}}</span>
+                <span ng-if="vm.version">版本:{{vm.version}}</span>
             </div>
         </div>
+         <img ng-if='!vm.periodDetail' ng-src="{{vm.picture}}" class="data_main_img">
     </div>
     <div ng-show="vm.courseShow">
         <h3>本课时(含有本课时学习资料)</h3>
         <div class="data_content data_content_fixed">
             <div class="data_main">
                 <h2 class="data_learning">学习资料</h2>
-                <span>￥{{vm.needMoneyFromCourse}}</span>
+                <span ng-if="vm.needMoneyFromCourse">￥{{vm.needMoneyFromCourse}}</span>
+                <span ng-if="vm.needMoneyFromBook">￥{{vm.needMoneyFromBook}}</span>
             </div>
             <label for="surebuy_course" class="data_surebuy"></label>
             <img src="image/app/surebuy.png" ng-show="vm.selected == 0" class="data_surebuy_img">

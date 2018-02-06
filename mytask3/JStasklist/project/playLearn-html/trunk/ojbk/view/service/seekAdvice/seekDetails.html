@@ -1,16 +1,10 @@
 <div class="seek">
-    <h4>怎么学好，英语你知道吗？</h4>
+    <h4>{{vm.ajax.title}}</h4>
     <p>
-        <span class="time">2017-12&nbsp;15:23</span>
+        <span class="time">{{vm.ajax.createAt | date:'yyyy-MM-dd'}}</span>
         <i class="glyphicon glyphicon-eye-open"></i>
-        <span class="bind"> 阅读 1234</span>
+        <span class="bind"> 阅读{{vm.ajax.readQuantity}}</span>
     </p>
-    <img src="image/seek/background.png"/>
-    <p class="characters">  修真院并不仅仅是一个初学者的在线学习，
-        更多的是希望帮助你们提前扩展好自己的人脉，工作中遇到问题后，
-        都可以找自己的师兄交流请教，前提是你跟他们关系足够好。
-        修真院并不仅仅是一个初学者的在线学习，
-        更多的是希望帮助你们提前扩展好自己的人脉，
-        工作中遇到问题后，都可以找自己的师兄交流请教，
-        前提是你跟他们关系足够好。修真院并不仅仅是一个初学者的在线学习</p>
+    <img src="{{vm.ajax.homePicture}}"/>
+    <p class="characters">{{vm.ajax.text}}</p>
 </div>

@@ -10,14 +10,15 @@
         </div>
     </div>
     <div ng-if="!vm.confirmEmail">
-        <div class="course_content" ng-if="vm.courseId">
-            <img src="image/seek/background.png" class="course_main-img">
+        <div class="course_content" ng-if="vm.courseId||vm.bookId">
+            <img ng-src="{{vm.picture}}" class="course_main-img">
             <div class="course_main">
                 <div class="course_recommended" ng-show="vm.payDetail.recommend === 1">
                     <img src="image/app/heat.png" class="course_recommended_img">
                 </div>
                 <h4>{{vm.payDetail.courseName}}</h4>
-                <span>{{vm.payDetail.studyNumber}}人已学</span>
+                <span ng-if="vm.courseId">{{vm.payDetail.studyNumber}}人已学</span>
+                <span>版本:{{vm.version}}</span>
                 <span>{{vm.payDetail.grade|grade}}</span>
             </div>
         </div>
@@ -26,7 +27,7 @@
             <div>
                 <div>
                     <p class="course_details_mission_title">第{{$index+1|time}}课&#8195{{periodList.name}}{{vm.name}}
-                        <img src="image/app/lock.png" alt="" class="course_details_mission_lockimg">
+                        <img  ng-src="{{vm.picture}}" alt="" class="course_details_mission_lockimg">
                     </p>
                 </div>
                 <div class="course_details_mission_list">

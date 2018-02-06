@@ -1,27 +1,19 @@
 angular.module('app')
-    .controller("mail", ["$state", "$stateParams", "$http", function ($state, $stateParams, $http) {
+    .controller("mail", ["$state", "$http","Course_service", function ($state, $http,Course_service) {
         var vm = this;
-        var data = [];
+        vm.$stateParams = $state.params;
+        vm.user=[201];
         vm.send = function () {
-        // 相同的代码省略
-        //             $.ajax({
-        //                 method:"POST",
-        //                 url:"/a/u/email/send?email=785361174@qq.com",
-        //                 data:'[1]',
-        //                 contentType: 'application/json',
-        //                 success  : function (res) {
-        //                     console.log(res)
-        //                 }
-        //             })
-            $http({
-                url: '/a/u/email/send?email=785361174@qq.com',
-                method: 'post',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                data: "[1,2]"
-            })
-                alert('发送成功')
+            Course_service.changeMail(vm.$stateParams.email,"["+vm.user.join(",")+"]")
+                .then(function (res) {
+                    if (res.data.code == 0) {
+                        vm.data = res.data.data;
+                    } else {
+                        alert('请求失败')
+                    }
+                }, function (res) {
+                    alert('请求失败')
+                })
         }
 
     }])

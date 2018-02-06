@@ -1,32 +1,32 @@
-angular.module('app','')
-    .controller('enrollCtrl',function ($scope,$state,$rootScope,$stateParams,$timeout,Course_service,$http) {
-        //注册
+angular.module('app')
+    .controller('newAccountCtrl',function ($scope,$state,$stateParams,$location,Course_service) {
+        console.log("关联新账号");
+        $scope.openid=sessionStorage.getItem("openid");
         $scope.data = {
+            openId:$scope.openid,
             phone: $scope.phone,
             code:$scope.code,
             password: $scope.password
         };
-        $scope.enroll=function () {
+        $scope.newaccount=function () {
+            console.log($scope.data)
             if(!$scope.data.phone==''&&!$scope.data.code==''&&!$scope.data.password==''){
                 Course_service.get_Enroll($scope.data)
                     .then(function(res) {
-                        $scope.code=res.data.code;
-                        console.log($scope.code)
-                        $scope.message=res.data.message;
                         console.log(res);
                         if(res.data.code == 100) {
+                            $scope.code=res.data.code;
+                            console.log($scope.code)
+                            $scope.message='绑定成功';
                             $scope.modal(function () {
-                                $state.go("app.login");
+                                $state.go("app.profile");
                             });
-
-                        }else{
-                            $scope.modal();
                         }
                     }, function(res) {
                         alert('请求失败')
                     })
             }
-        };
+        }
         ////手机是否注册过
         $scope.register=function () {
             Course_service.get_Status($scope.phones)
@@ -81,7 +81,7 @@ angular.module('app','')
             $scope.phones={
                 phone: $scope.data.phone,
             },
-            $scope.register();
+                $scope.register();
             $scope.success=function () {
                 $scope.params = {
                     phone: $scope.data.phone,
@@ -106,24 +106,5 @@ angular.module('app','')
             }
 
         };
-        //微信登录
-        $scope.login=function () {
-            (function () {
-                var wei = 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
-                    'appid=wx0b31bcd6cbe880a4' +
-                    '&redirect_uri=http://playlearn.home.ojbk.ptteng.com' +
-                    '&response_type=code' +
-                    '&scope=snsapi_userinfo' +
-                    '&state=STATE' +
-                    '#wechat_redirect';
-                window.location.href = wei;
-            })();
-
-        };
-
-
-
-
 
     });
-

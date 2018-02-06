@@ -110,33 +110,40 @@ angular.module('app').controller('coursesCtrl', ['$scope', '$stateParams', '$roo
         //上下架
         vm.changeStatus = function (course) {
             if(course.status === 0){
+                vm.firstConfirm = '是否上架该课程？';
                 vm.confirm = '确认上架？';
                 vm.result = '上架成功';
             }else {
+                vm.firstConfirm = '是否下架该课程及相关内容';
                 vm.confirm = '确认下架？';
                 vm.result = '下架成功';
             }
-            $rootScope.modalConfrim(vm.confirm)
+            $rootScope.modalConfrim(vm.firstConfirm)
                 .then(function () {
-                    Course_service.get_TechStatusCourse({
-                        courseId:course.id,
-                        status:course.status
-                    })
-                        .then(function (res) {
-                            if(res.data.code===0){
-                                $rootScope.modalConfrim(vm.result)
-                                    .then(function () {
-                                        $state.go("backStage.teachManage.courses",{},{reload:true})
-                                    },function () {
+                    $rootScope.modalConfrim(vm.confirm)
+                        .then(function () {
+                            Course_service.get_TechStatusCourse({
+                                courseId:course.id,
+                                status:course.status
+                            })
+                                .then(function (res) {
+                                    if(res.data.code===0){
+                                        $rootScope.modalConfrim(vm.result)
+                                            .then(function () {
+                                                $state.go("backStage.teachManage.courses",{},{reload:true})
+                                            },function () {
 
-                                    })
-                            }else {
-                                $rootScope.modalConfrim(res.data.message)
-                            }
+                                            })
+                                    }else {
+                                        $rootScope.modalConfrim(res.data.message)
+                                    }
+                                });
+                        },function () {
+
                         });
                 },function () {
-
-                });
+                    
+                })
         };
         //删除按钮
         vm.course_delete = function (course) {

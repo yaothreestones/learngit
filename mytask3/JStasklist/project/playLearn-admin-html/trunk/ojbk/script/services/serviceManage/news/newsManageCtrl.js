@@ -3,16 +3,16 @@ angular.module('app')
         function ($scope, $stateParams, $rootScope, $state, $http, Course_service, optionsData) {
             var vm = this;
             vm.Course_service = Course_service;
-            vm.year = optionsData()['year'];
+            vm.sendpeople = optionsData()['sendpeople'];
             vm.sendStatus = optionsData()['sendStatus'];
             vm.list = {
+                id:undefined,
                 title: null,
                 gradeId: undefined,
                 type: undefined,
                 sendTime: null,
                 text: null,
                 thirdPart:undefined,
-                status:undefined,
             };
 
             vm.minDate = moment().subtract(0, 'day')
@@ -31,7 +31,6 @@ angular.module('app')
                         gradeId: vm.list.gradeId,
                         text: vm.list.text,
                         thirdPart: vm.list.thirdPart,
-                        status:vm.list.status,
                     }
                     Course_service.get_MessageAugment(vm.params)
                         .then(function (res) {
@@ -39,7 +38,6 @@ angular.module('app')
                                 $state.go('backStage.news', {page: 1, size: 10});
                             } else {
                                 $rootScope.modalAlert('增加失败');
-
                             }
                         }, function (res) {
                             $rootScope.modalAlert(res);

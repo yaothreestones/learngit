@@ -45,6 +45,21 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                 vm.needMoney = 0;
                 vm.needStar = 0;
             }
+            if(vm.lock !==0){
+                if(vm.needMoney === 0 || !vm.needMoney||vm.needStar === 0 || !vm.needStar){
+                    $rootScope.modalConfrim('资料不完整')
+                        .then(function () {
+
+                        });
+                    return
+                }else if(parseInt(vm.needStar) !== vm.needStar||vm.awardStar < 0){
+                    $rootScope.modalConfrim('学习星必须为正整数')
+                        .then(function () {
+
+                        });
+                    return
+                }
+            }
             vm.params = {
                 id:vm.period.lessonPeriodId,
                 name:vm.periodName,
@@ -54,6 +69,19 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                 needMoney:vm.needMoney,
                 needStar:vm.needStar
             };
+            if(!vm.periodName || !vm.information){
+                $rootScope.modalConfrim('资料不完整')
+                    .then(function () {
+
+                    });
+                return
+            }else if(parseInt(vm.awardStar) !== vm.awardStar||!vm.awardStar||vm.awardStar <= 0){
+                $rootScope.modalConfrim('奖励学习星为正整数')
+                    .then(function () {
+
+                    });
+                return
+            }
             if($stateParams.from==='1'){
                 console.log('新增接口');
                 console.log('新增参数',vm.params);
@@ -69,7 +97,8 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                     if(res.data.code===0){
                         console.log('新增成功');
                         console.log(res);
-                        $state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book})
+                        history.back()
+                        //$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book})
                     }
                 })
             }else if($stateParams.from === '3'){
@@ -80,21 +109,25 @@ angular.module('app').controller('periodManageCtrlInPreview', ['$scope', '$state
                     if(res.data.code===0){
                         console.log('编辑成功');
                         console.log(res);
-                        $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
-                            $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book})
+                        history.back()
+                        //$stateParams.add==='1'?
+                            //$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
+                            //$state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book})
                     }
                 })
             }else {
-                $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
-                    $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book})
+                history.back()
+            //     $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
+            //         $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book})
             }
 
-        }
+        };
 
         //取消
         vm.cancel = function () {
-            $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
-                $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book,page:1})
+            history.back()
+        //     $stateParams.add==='1'?$state.go('backStage.previewManage.period',{add:1,obj:$stateParams.obj,book:$stateParams.book}):
+        //         $state.go('backStage.previewManage.period',{obj:$stateParams.obj,book:$stateParams.book,page:1})
         }
 
 

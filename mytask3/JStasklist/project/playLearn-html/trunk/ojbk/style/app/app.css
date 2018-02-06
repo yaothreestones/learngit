@@ -1135,9 +1135,9 @@ a{
 }
 .through{
     position: relative;
-    margin-top: 3.33vw;
+    margin-top: 1vw;
     width: 95.55vw;
-    height: 30vw;
+    height:25vw;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5vw;
@@ -1151,7 +1151,7 @@ a{
 }
 .throughs{
     width: 100%;
-    margin-top: 11vw;
+    margin-top: 6vw;
 }
 .throughs span{
     display: inline-block;
@@ -1226,4 +1226,7 @@ a{
     width: 5vw!important;
     height: 5vw!important;
     margin-left: 5vw;
+}
+.pad{
+    padding-top: 2vw;
 }

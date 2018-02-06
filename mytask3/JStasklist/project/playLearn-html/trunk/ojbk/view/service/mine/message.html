@@ -1,8 +1,8 @@
 <div class="enwrap">
-    <div class="package packFirst" ng-repeat="item in vm.requestLessonList track by $index">
+    <div class="package packFirst" ng-repeat="item in vm.message"  ui-sref="app.particulars({id:item.id})">
         <h3>{{item.title}}</h3>
-        <p>{{item.sendTime}}</p>
-        <div class="packMain" ui-sref="app.particulars">
+        <p>{{item.sendTime | date:'yyyy-MM-dd'}}</p>
+        <div class="packMain">
             <a><img src="image/mine/right.png" alt="" class="pull-right">立即查看</a>
         </div>
     </div>

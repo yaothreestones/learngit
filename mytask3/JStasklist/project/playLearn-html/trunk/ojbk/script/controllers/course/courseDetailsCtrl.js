@@ -70,6 +70,7 @@ angular.module('app')
                 //课时需要按照顺序学习
                 if(index === 0){
                     console.log(index,data);
+                    sessionStorage.setItem('courseName',vm.courseDetail.name);
                     if(data.studyStatus === 0){
                         $state.go("app.period",{lessonPeriodId:data.id,courseName:vm.courseDetail.name,index:index});
                     }else {
@@ -123,8 +124,11 @@ angular.module('app')
             //根据资料或者已购来判断跳转方向，0为资料，跳到资料购买界面；1为已购，跳到购买记录
             vm.data = function(){
                 if(vm.dataBuy === 0){
-                    sessionStorage.setItem('dataFromCourse',vm.courseDetail.id);
-                    $state.go('app.data',{choose:1,dataFromCourse:$stateParams.courseId})
+                    // sessionStorage.setItem('dataFromCourse',vm.courseDetail.id);
+                    // sessionStorage.setItem('dataFromBook','');
+                    // sessionStorage.setItem('dataFromBookPeriod','');
+                    // sessionStorage.setItem('dataFromPeriod','');
+                    $state.go('app.data',{dataFromCourse:$stateParams.courseId})
                 }else {
                     $state.go("app.means")
                 }

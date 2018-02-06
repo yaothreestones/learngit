@@ -1,10 +1,4 @@
 <div class="wear">
-    <!--<div class="collect-body" ng-if="vm.list.length==0">-->
-    <!--<div>-->
-    <!--<img class="collect-img" src="image/mine/void.png"/>-->
-    <!--<p>空空如也，快出去找一些回来吧</p>-->
-    <!--</div>-->
-    <!--</div>-->
     <style>
         ul:before, ul:after {
             display: none;
@@ -32,7 +26,13 @@
         }
     </style>
 
-    <ul id="OA_task_1" class="mui-table-view ">
+    <ul id="OA_task_1" class="mui-table-view "  ng-if="vm.requestLessonList.length!=0">
+        <div class="collect-body" ng-if="vm.requestLessonList.length==0">
+            <div>
+                <img class="collect-img" src="image/mine/void.png"/>
+                <p>空空如也，快出去找一些回来吧</p>
+            </div>
+        </div>
         <li ng-repeat="item in vm.requestLessonList track by $index" class=" mui-table-view-cell">
             <div class="mui-slider-right mui-disabled">
                 <a class="mui-btn mui-btn-red" style="margin-left: 3.5vw">删除</a>

@@ -22,6 +22,10 @@ angular.module("app")
                 revert: {
                     isShow: false,
                 },
+                //返回 登录页
+                page: {
+                    isShow: false,
+                },
                 //跳转
                 Skip: {
                     isShow: false,
@@ -85,6 +89,7 @@ angular.module("app")
             $rootScope.config.footNav.isShow = true;
             $rootScope.config.headNav.backBtn.isShow = false;
             $rootScope.config.headNav.revert.isShow = false;
+            $rootScope.config.headNav.page.isShow = false;
             $rootScope.config.headNav.Skip.isShow = false;
             $rootScope.config.headNav.search.isShow = false;
             $rootScope.config.headNav.screen.isShow = false;

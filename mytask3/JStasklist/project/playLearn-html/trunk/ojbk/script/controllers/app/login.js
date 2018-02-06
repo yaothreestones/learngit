@@ -1,11 +1,10 @@
 angular.module('app')
-    .controller('loginCtrl',function ($scope,$state,$http,$rootScope,$stateParams,$timeout,Course_service,$location) {
-
+    .controller('loginCtrl',function ($scope,$state,$http,$rootScope,$stateParams,$timeout,Course_service) {
         //登录
         $scope.data = {
             phone: $scope.phone,
             password: $scope.password
-        }
+        };
         $scope.entry=function () {
             if(!$scope.data.phone==''&&!$scope.data.password==''){
                 Course_service.get_phone($scope.data)
@@ -48,19 +47,15 @@ angular.module('app')
         };
         //微信
         $scope.login=function () {
-            (function () {
-                var wei = 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
-                    'appid=wx0b31bcd6cbe880a4' +
-                    '&redirect_uri=http://playlearn.home.ojbk.ptteng.com' +
-                    '&response_type=code' +
-                    '&scope=snsapi_userinfo' +
-                    '&state=STATE' +
-                    '#wechat_redirect';
-                window.location.href = wei;
-            })();
-
+                (function () {
+                    var wei = 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
+                        'appid=wx0b31bcd6cbe880a4' +
+                        '&redirect_uri=http://playlearn.home.ojbk.ptteng.com' +
+                        '&response_type=code' +
+                        '&scope=snsapi_userinfo' +
+                        '&state=STATE' +
+                        '#wechat_redirect';
+                    window.location.href = wei;
+                })();
         };
-
-
-
     });

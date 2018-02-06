@@ -185,6 +185,9 @@
     color: #000000;
     font-weight: 500;
 }
+.form-bottom-fixed {
+    padding-bottom:0 !important;
+}
 
 
 

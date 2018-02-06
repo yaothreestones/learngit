@@ -18,9 +18,12 @@ angular.module('app')
             vm.send=function () {
                 Course_service.editModule({
                     id: vm.params.id,
-                    name: vm.params.name,
-                    pwd: vm.params.pwd,
-                    status:vm.params.status
+                    url: vm.params.url,
+                    type: vm.params.type,
+                    updateAt:vm.params.updateAt,
+                    createAt:vm.params.createAt,
+                    updateBy:vm.params.updateBy,
+                    createBy:vm.params.createBy
                 })
                     .then(function (res) {
                         if (res.data.code == 0) {

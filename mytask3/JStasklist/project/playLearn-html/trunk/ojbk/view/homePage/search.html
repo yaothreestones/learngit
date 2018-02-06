@@ -4,7 +4,7 @@
         <div class="textbook" >
             <div ng-repeat="demoList in demoLists">
             <span>
-            <img ui-sref="app.teaching({bookId:demoList.bookId})" ng-src="{{demoList.picture}}" height="245" width="170"/>
+            <img ui-sref="app.teaching({bookId:demoList.bookId,grade:demoList.grade})" ng-src="{{demoList.picture}}" height="245" width="170"/>
              <b>{{demoList.bookName}}</b>
             {{demoList.version}}
             </span>

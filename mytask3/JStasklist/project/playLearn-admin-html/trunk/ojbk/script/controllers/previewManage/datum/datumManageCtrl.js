@@ -49,26 +49,44 @@ angular.module('app').controller('datumManageCtrl', ['$scope', '$stateParams', '
                 id:parseInt(vm.data.datumId)||''
             };
             console.log(vm.params);
+            vm.return = true;
+            if(!vm.datumName || !vm.exportSrc){
+                $rootScope.modalConfrim('资料不完整')
+                    .then(function () {
+                        
+                    },function () {
+                        
+                    });
+                return
+            }
             if(vm.data.from === '1'){
                 console.log('新增提交');
                 Course_service.get_PreviewAddDatum(vm.params).then(function (res) {
                     console.log(res);
-                    res.data.code===0?$state.go('backStage.previewManage.datum',{add:1,obj:$stateParams.obj}):alert(res.message)
+                    res.data.code===0?
+                        history.back():
+                        //$state.go('backStage.previewManage.datum',{add:1,obj:$stateParams.obj}):
+                        alert(res.message)
                 })
             }else if(vm.data.from === '3'){
                 console.log('编辑提交');
                 Course_service.get_PreviewEditDatum(vm.params)
                     .then(function (res) {
                     console.log(res);
-                    res.data.code===0?$state.go('backStage.previewManage.datum',{obj:$stateParams.obj}):alert(res.message)
+                    res.data.code===0?
+                        history.back()
+                        //$state.go('backStage.previewManage.datum',{obj:$stateParams.obj})
+                        :alert(res.message)
                 })
             }else{
-                $state.go('backStage.previewManage.datum',{obj:$stateParams.obj})
+                history.back()
+                //$state.go('backStage.previewManage.datum',{obj:$stateParams.obj})
             }
         };
         //取消
         vm.cancel = function () {
-            $stateParams.add==='1'?$state.go('backStage.previewManage.datum',{add:1,obj:$stateParams.obj}):
-                $state.go('backStage.previewManage.datum',{obj:$stateParams.obj})
+            history.back()
+            //$stateParams.add==='1'?$state.go('backStage.previewManage.datum',{add:1,obj:$stateParams.obj}):
+                //$state.go('backStage.previewManage.datum',{obj:$stateParams.obj})
         }
     }]);

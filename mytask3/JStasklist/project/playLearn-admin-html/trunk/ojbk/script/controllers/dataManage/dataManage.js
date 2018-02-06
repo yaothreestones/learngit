@@ -29,6 +29,7 @@ angular.module('app')
                         console.log('查看，编辑', $scope.data,res)
                         $scope.needMoney=$scope.data.needMoney;
                         $scope.name=$scope.data.name;
+                        $scope.url=$scope.data.url;
                     }
                 }, function (res) {
                     alert('请求失败')
@@ -42,9 +43,9 @@ angular.module('app')
                 page:1,size:10,
                 type:$scope.parameter.type,
                 grade:$scope.parameter.grade,
-                bookId:$scope.parameter.bookId,
+                courseId:$scope.parameter.bookId,
                 lessonPeriodId:$scope.parameter.lessonPeriodId,
-                bookName:$scope.parameter.bookName,
+                courseName:$scope.parameter.bookName,
                 lessonPeriodName:$scope.parameter.lessonPeriodName
             }, {reload: true});
         };
@@ -63,13 +64,12 @@ angular.module('app')
                 page:1,size:10,
                 type:$scope.parameter.type,
                 grade:$scope.parameter.grade,
-                bookId:$scope.parameter.bookId||$scope.parameter.courseId,
+                courseId:$scope.parameter.bookId||$scope.parameter.courseId,
                 lessonPeriodId:$scope.parameter.lessonPeriodId,
-                bookName:$scope.parameter.bookName,
+                courseName:$scope.parameter.bookName||$scope.parameter.courseName,
                 lessonPeriodName:$scope.parameter.lessonPeriodName,
                 subjectId:$scope.parameter.subjectId,
                 subjectName:$scope.parameter.subjectName,
-                courseName:$scope.parameter.courseName,
             }, {reload: true});
         }
         if($scope.parameter.add==1){
@@ -115,7 +115,7 @@ angular.module('app')
                     id: $scope.parameter.datumId,
                     needMoney: $scope.needMoney,
                     url: $scope.url,
-                    name: $scope.fileNanes||$scope.fileNanesName,
+                    name: $scope.name,
                 }
                 console.log($scope.params)
                 Course_service.get_MaterialsPut($scope.params)
@@ -145,25 +145,24 @@ angular.module('app')
             $scope.iSupload=true;
             //新增按钮
             $scope.some = function () {
-                if($scope.parameter.add==1){
+                if($scope.parameter.type==2){
                     $scope.data = {
-                        bookId: $scope.parameter.bookId,
+                        bookId: $scope.parameter.courseId,
                         lessonPeriodId:$scope.parameter.lessonPeriodId,
                         name: $scope.fileNanes,
                         needMoney: $scope.needMoney,
                         url: $scope.url,
                     }
-                }else if($scope.parameter.add==3){
+                }else if($scope.parameter.type==1){
                     $scope.data = {
                         subjectId: $scope.parameter.subjectId,
                         lessonPeriodId:$scope.parameter.lessonPeriodId,
-                        courseId:$scope.parameter.bookId,
+                        courseId:$scope.parameter.courseId,
                         name: $scope.fileNanes,
                         needMoney: $scope.needMoney,
                         url: $scope.url,
                     }
                 }
-
                 console.log($scope.data)
                 Course_service.get_MaterialsNew($scope.data)
                     .then(function (res) {

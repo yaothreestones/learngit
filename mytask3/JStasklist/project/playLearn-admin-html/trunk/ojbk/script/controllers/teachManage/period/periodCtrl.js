@@ -247,30 +247,37 @@ angular.module('app').controller('periodCtrl', ['$scope', '$stateParams', '$root
         //上下架
         vm.changeStatus = function (period) {
             if(period.status === 0){
+                vm.firstConfirm = '是否上架该课时？';
                 vm.confirm = '确认上架？';
                 vm.result = '上架成功'
             }else {
+                vm.firstConfirm = '是否下架该课时及相关内容';
                 vm.confirm = '确认下架？';
                 vm.result = '下架成功'
             }
-            $rootScope.modalConfrim(vm.confirm)
+            $rootScope.modalConfrim(vm.firstConfirm)
                 .then(function () {
-                    Course_service.get_TechStatusPeriod({id:period.id,status:period.status})
-                        .then(function (res) {
-                            if(res.data.code===0){
-                                $rootScope.modalConfrim(vm.result)
-                                    .then(function () {
-                                        $state.go("backStage.teachManage.period",{},{reload:true})
-                                    },function () {
+                    $rootScope.modalConfrim(vm.confirm)
+                        .then(function () {
+                            Course_service.get_TechStatusPeriod({id: period.id, status: period.status})
+                                .then(function (res) {
+                                    if (res.data.code === 0) {
+                                        $rootScope.modalConfrim(vm.result)
+                                            .then(function () {
+                                                $state.go("backStage.teachManage.period", {}, {reload: true})
+                                            }, function () {
 
-                                    })
-                            }else {
-                                $rootScope.modalConfrim(res.data.message)
-                            }
+                                            })
+                                    } else {
+                                        $rootScope.modalConfrim(res.data.message)
+                                    }
+                                });
+                        }, function () {
+
                         });
                 },function () {
-
-                });
+                    
+                })
         };
 
         //查询按钮

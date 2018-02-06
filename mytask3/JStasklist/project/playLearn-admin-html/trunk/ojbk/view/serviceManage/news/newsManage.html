@@ -17,7 +17,7 @@
                         <label class="col-sm-2 col-lg-1 control-label">发送人群</label>
                         <div class="col-sm-10">
                             <select class="form-control"
-                                    ng-options="c.value as c.txt for c in vm.year"
+                                    ng-options="c.value as c.txt for c in vm.sendpeople"
                                     ng-model="vm.list.gradeId">
                             </select>
                         </div>
@@ -65,7 +65,7 @@
                         <label class="col-sm-2 col-lg-1 control-label"></label>
                         <div class="col-sm-10">
                             <button type="button" class="btn btn-success mg-top-50"
-                                    ng-disabled="!vm.list.title||!vm.list.gradeId||!vm.list.type||
+                                    ng-disabled="!vm.list.title||!vm.list.type||
                                     (!vm.list.sendTime&&vm.list.type=='1')||!vm.list.text"
                                     ng-click="vm.send()">确定
                             </button>

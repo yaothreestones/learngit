@@ -27,12 +27,6 @@ angular.module("app")
                     site:"image/mine/right.png"
                 },
                 {
-                    title: "版本更新",
-                    url: "image/mine/version.png",
-                    state:"app.install",
-                    site:"image/mine/right.png"
-                },
-                {
                     title: "账号绑定",
                     url: "image/app/weixinpay.png",
                     state:"app.weixin",

@@ -48,22 +48,22 @@
         <h2 style="margin-top: 7vw;margin-bottom: 2vw">资料所属</h2>
         <div class="overcoat">
             <div class="main" style="width: 95.5vw;margin: 0!important;border: 1px solid #dbdee1">
-                <img src="image/seek/background.png">
+                <img src="{{vm.params.picture}}">
                 <img src="image/mine/craze.png" class="image"/>
-                <h4 style="line-height: 13vw">和倍差问题？</h4>
+                <h4 style="line-height: 13vw">{{vm.params.bookName}}</h4>
                 <h5>
-                <span style="font-size: 4vw;margin-top: -3vw">
-                    第<span class="number">10</span>/20节
-                </span>
-                    <span class="statement">
-                   1056人已学|A级
-                </span>
+                <p style="font-size: 4vw;margin-top: -3vw">
+                    出版社：{{vm.params.version}}
+                </p>
+                    <p class="statement">
+                   资料详情：{{vm.params.version}}
+                </p>
                 </h5>
                 <!--<div class="btnDelet" >删除</div>-->
             </div>
         </div>
         <div class="affirm" style="position: absolute;bottom: -43vw;width: 100%;" ui-sref="app.Mail">
-            <button type="button" class="btn btn-default" ng-click="" style="outline: none;color: #fff;">重新发送</button>
+            <button type="button" class="btn btn-default" ng-click="" style="outline: none;color: #fff;margin-bottom: 3vw">重新发送</button>
         </div>
     </div>
 </div>

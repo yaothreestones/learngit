@@ -101,13 +101,15 @@ angular.module('app')
             //热门管理（8个）
             Course_service.get_Recommend()
                 .then(function (res) {
-                    vm.code = res.data.code;
-                    vm.data = res.data.data;
-                    console.log('热门', vm.data)
-                    console.log(vm.code)
+                    if(res.data.code==0){
+                        vm.code = res.data.code;
+                        vm.data = res.data.data;
+                        console.log('热门', vm.data)
+                        console.log(vm.code)
+                    }
                 }, function (res) {
                     alert('请求失败')
                 });
 
 
-        })
+        });

@@ -3,7 +3,7 @@ angular.module('app')
         function ($scope, $stateParams, $rootScope, $state, $http, Course_service, optionsData) {
             var vm = this;
             vm.Course_service = Course_service;
-            vm.sendPeople = optionsData()['sendPeople'];
+            vm.sendpeople = optionsData()['sendpeople'];
             vm.mold = optionsData()['mold'];
             vm.$stateParams = $state.params;
 

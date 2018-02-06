@@ -26,12 +26,12 @@ angular.module('app').controller('datumCtrl', ['$scope', '$stateParams', '$rootS
         console.log('渲染中...');
         Course_service.get_PreviewDatum({
             params:{
-            grade:vm.class||'',
-            status:vm.status,
-            bookName:vm.bookName||'',
-            version:vm.press||'',
-            page:parseInt($stateParams.page)||1,
-            size:10
+                grade:vm.class||'',
+                status:vm.status,
+                bookName:vm.bookName||'',
+                version:vm.press||'',
+                page:parseInt($stateParams.page)||1,
+                size:10
             }
         }).then(function (res) {
             console.log('渲染完毕');
@@ -76,42 +76,48 @@ angular.module('app').controller('datumCtrl', ['$scope', '$stateParams', '$rootS
             if(book.status === 0){
                 vm.confirm = '确认上架？';
                 vm.result = '上架成功';
-            $rootScope.modalConfrim(vm.confirm)
-                .then(function () {
-                    Course_service.get_PreviewUpperDatum({bookId:book.id})
-                        .then(function (res) {
-                            if(res.data.code===0){
-                                $rootScope.modalConfrim(vm.result)
-                                    .then(function () {
-                                        $state.go("backStage.previewManage.datum",{},{reload:true})
-                                    },function () {
+                        $rootScope.modalConfrim(vm.confirm)
+                            .then(function () {
+                                Course_service.get_PreviewUpperDatum({bookId: book.id})
+                                    .then(function (res) {
+                                        if (res.data.code === 0) {
+                                            $rootScope.modalConfrim(vm.result)
+                                                .then(function () {
+                                                    $state.go("backStage.previewManage.datum", {}, {reload: true})
+                                                }, function () {
 
-                                    })
-                            }else {
-                                $rootScope.modalConfrim(res.data.message)
-                            }
-                        });
-                },function () {
+                                                })
+                                        } else {
+                                            $rootScope.modalConfrim(res.data.message)
+                                        }
+                                    });
+                            }, function () {
 
-                });
+                            });
             }else {
+                vm.firstConfirm = '是否下架该教材及相关内容';
                 vm.confirm = '确认下架？';
                 vm.result = '下架成功';
-                $rootScope.modalConfrim(vm.confirm)
+                $rootScope.modalConfrim(vm.firstConfirm)
                     .then(function () {
-                        Course_service.get_PreviewUnderDatum({bookId:book.id})
-                            .then(function (res) {
-                                if(res.data.code===0){
-                                    $rootScope.modalConfrim(vm.result)
-                                        .then(function () {
-                                            $state.go("backStage.previewManage.datum",{},{reload:true})
-                                        },function () {
+                        $rootScope.modalConfrim(vm.confirm)
+                            .then(function () {
+                                Course_service.get_PreviewUnderDatum({bookId:book.id})
+                                    .then(function (res) {
+                                        if(res.data.code===0){
+                                            $rootScope.modalConfrim(vm.result)
+                                                .then(function () {
+                                                    $state.go("backStage.previewManage.datum",{},{reload:true})
+                                                },function () {
 
-                                        })
-                                }else {
-                                    $rootScope.modalConfrim(res.data.message)
-                                }
-                            });
+                                                })
+                                        }else {
+                                            $rootScope.modalConfrim(res.data.message)
+                                        }
+                                    });
+                            },function () {
+
+                            })
                     },function () {
 
                     });
@@ -138,7 +144,7 @@ angular.module('app').controller('datumCtrl', ['$scope', '$stateParams', '$rootS
                 },function () {
 
                 });
-            };
+        };
         //分页按钮
         vm.pageGo = function (x) {
             $state.go('backStage.previewManage.datum',{page:x});

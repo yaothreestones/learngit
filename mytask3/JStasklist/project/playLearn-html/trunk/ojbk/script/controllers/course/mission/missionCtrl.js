@@ -2,6 +2,7 @@ angular.module('app')
     .controller('missionCtrl',['$state','$stateParams','Course_service',
         function ($state,$stateParams,Course_service) {
             var vm = this;
+            vm.tip = false;
             vm.Period = parseInt($stateParams.lessonPeriodId)||parseInt($stateParams.periodId);
             Course_service.get_mission_list(
                 vm.Period
@@ -15,6 +16,17 @@ angular.module('app')
                                 parseInt($stateParams.taskId)
                             )
                         }
+                        if(data.id === parseInt($stateParams.taskId)){
+                            vm.prompt = data.prompt;
+                            vm.promptTime = data.promptTime;
+                            vm.type = data.type;
+                            vm.promptInformation = data.promptInformation;
+                            if(vm.prompt === 1){
+                                if(vm.promptTime === 1){
+                                    vm.tip = true;
+                                }
+                            }
+                        }
                     });
                     //接收参数
                     Course_service.get_task_list(
@@ -25,11 +37,14 @@ angular.module('app')
                         if(vm.steps[0].bookId){
                             sessionStorage.setItem('bookId',vm.steps[0].bookId);
                         }
+                        if(vm.steps.length === 1 && vm.promptTime === 2){
+                            vm.tip = true;
+                        }
                         vm.taskCount = vm.taskLists;
                         vm.mission_isShow = false;
                         vm.mission_isLast = '下个任务';
                         //顶部任务列表选择
-                        angular.forEach(vm.taskCount,function (data,index,array) {
+                        angular.forEach(vm.taskCount,function (data) {
                             if(data.id === parseInt($stateParams.taskId)){
                                 vm.mission_selected = data.name
                             }
@@ -74,7 +89,12 @@ angular.module('app')
                             vm.step1 = vm.steps[vm.i];
                             vm.a.push(vm.step1);
                             vm.i ++;
-                            console.log(vm.a.length,vm.steps.length)
+                            console.log(vm.a.length,vm.steps.length);
+                            if(vm.promptTime === 2){
+                                if(vm.a.length === vm.steps.length){
+                                    vm.tip = true;
+                                }
+                            }
                         };
                         //播放器控制
                         vm.playAudio = function (x) {
@@ -112,6 +132,10 @@ angular.module('app')
                                                     $state.go('app.periodFinish',{lessonPeriodId:$stateParams.lessonPeriodId,periodId:$stateParams.periodId,getStar:res.data.data.awardStar})
                                                 }
                                             });
+                                        }else {
+                                            if(res.data.code === -3006){
+                                                $state.go('app.periodFinish',{lessonPeriodId:$stateParams.lessonPeriodId,periodId:$stateParams.periodId,getStar:res.data.data.awardStar})
+                                            }
                                         }
                                     })
                                 }
@@ -153,6 +177,20 @@ angular.module('app')
                     });
                 }
             });
+            vm.close = function () {
+                vm.tip = false;
+            };
+            vm.goPay = function(){
+                vm.period = $stateParams.lessonPeriodId||$stateParams.periodId;
+                //if(vm.dataBuy === 0){
+                    angular.element('body').removeClass('overflow');
+                    sessionStorage.setItem('dataFromPeriod',vm.period);
+                    sessionStorage.setItem('dataFromCourse','');
+                    sessionStorage.setItem('dataFromBook','');
+                    sessionStorage.setItem('dataFromBookPeriod','');
+                    $state.go('app.data',{choose:0,dataFromPeriod:vm.period})
+                //}
+            };
         }])
 
 

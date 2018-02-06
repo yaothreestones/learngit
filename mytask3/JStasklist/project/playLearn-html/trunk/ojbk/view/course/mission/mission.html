@@ -22,12 +22,15 @@
                         <div></div>
                         <div create-editoer-instance ng-model="step.text" class="rich" ng-show="step.type===4||step.type===5" disabled="disabled"></div>
                     </div>
-                    <div ng-show="step.type===2||step.type===5" class="course_mission_step">
-                        <button type="button" ng-click="vm.playAudio($index+1)">{{vm.audioPlay[$index]|playMusic}}</button>
-                        <input type="button" value="快进10秒" onclick="forward()" />
-                        <audio id="audio{{$index+1}}">
-                            <source ng-src="{{step.url}}" type="audio/mp3">
-                        </audio>
+                    <div ng-show="step.type===2||step.type===5||step.type===3" class="course_mission_step">
+                        <div ng-if="step.type===2||step.type===5">
+                            <button type="button" ng-click="vm.playAudio($index+1)">{{vm.audioPlay[$index]|playMusic}}</button>
+                            <audio id="audio{{$index+1}}">
+                                <source ng-src="{{step.url}}" type="audio/mp3">
+                            </audio>
+                        </div>
+                        <video id="{{$index+1}}" controls="controls" ng-src="{{step.url}}" ng-if="step.type===3" style="width: 83vw;">
+                        </video>
                     </div>
                     <img ng-src="{{step.url}}" class="course_mission_step">
                 </div>

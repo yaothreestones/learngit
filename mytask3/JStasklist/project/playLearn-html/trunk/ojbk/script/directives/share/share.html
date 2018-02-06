@@ -1,4 +1,4 @@
-<div  ng-click="share()" >
+<div>
     <div class="projectStyle styleByRxy share">
         <div class="banner">
             <div class="detail">
@@ -15,51 +15,15 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenea<br>
             </div>
             <div class="voice mt20">
-                <audio src="imgs/test/7姨 - 不抽烟不喝酒.mp3"></audio>
-                <img src="{{vm.voiceConfig.icon}}" ng-click="vm.voiceConfig.do()" alt=""> <br>
             </div>
             <div class="enterApp">
                 <div class="hr"></div>
                 <div class="suggest">点击下方进入玩转学习</div>
-                <button class="longBtn success enterBtn">练习发音</button>
+                <button class="longBtn success enterBtn" ng-clikc="share">练习发音</button>
             </div>
         </div>
         <div class="suggest">扫我关注“玩转学习” <br>了解更多教育和学习技</div>
         <!--二维码-->
-        <img style="width: 35.2vw" class="center-block" src="imgs/lesson/share/app.png" alt="">
         <div class="suggest">微信二维码</div>
     </div>
-</div>
-
-
-
-
-
-
-
-<div class="projectStyle styleByRxy share">
-    <style>
-        .projectStyle.share .banner.callAsApp {
-            background: url(../../../imgs/lesson/share/shareBg2.png) no-repeat center;
-            background-size: 78% auto;
-        }
-    </style>
-    <div class="banner callAsApp">
-        <div class="detail">
-        </div>
-    </div>
-    <div class="introduct">
-        <div class="title">
-            温馨提示
-        </div>
-        <div class="content">
-            与孩子同学习,共进退，提升成绩，促进交流， 现在加入，邀请好友还可获得额外的学习星！ 活动长期有效。（学习星可用于兑换额外辅导资料)
-        </div>
-        <div class="enterApp">
-            <div class="hr"></div>
-            <div class="suggest">点击下方进入家庭教育新模式</div>
-            <button ui-sref2="app.login" class="longBtn success enterBtn">开始学习</button>
-        </div>
-    </div>
-    <div class="suggest">活动最终解释权归“玩转学习”所有</div>
 </div>

@@ -29,10 +29,10 @@
                                 <source ng-src="{{step.url}}" type="audio/mp3">
                             </audio>
                         </div>
-                        <video id="{{$index+1}}" controls="controls" ng-src="{{step.url}}" ng-if="step.type===3" style="width: 83vw;">
+                        <video id="{{$index+1}}" controls="controls" ng-src="{{step.url}}" ng-if="step.type===3" style="width: 83vw;object-fit: fill" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" width="100%" height="100%" preload="auto" poster="">
                         </video>
                     </div>
-                    <img ng-src="{{step.url}}" class="course_mission_step">
+                    <img ng-src="{{step.url}}" class="course_mission_step" ng-if="step.type===1">
                 </div>
             </div>
             <div class="course_mission_button_box">

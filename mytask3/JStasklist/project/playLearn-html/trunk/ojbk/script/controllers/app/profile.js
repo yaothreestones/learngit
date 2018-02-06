@@ -36,10 +36,15 @@ angular.module('app')
                                         alert(res.serverId);
                                         $scope.serverId=res.serverId;
                                         //上传到服务器
-                                        Course_service.getFile(res.serverId).then(function (res) {
-                                            console.log('已经获取用户信息');
-                                            $scope.data.default = false;
-                                            $scope.data.file = res.data.url ? res.data.url : 'http://www.jnshu.com/images/mh.png';
+                                        Course_service.getFile({mediaId:$scope.serverId}).then(function (res) {
+                                            console.log(res)
+                                            if(res.data.code==0){
+                                                console.log('已经获取用户信息');
+                                                $scope.data.default = true;
+                                                $scope.data.file = res.data.url ? res.data.url : 'http://www.jnshu.com/images/mh.png';
+                                            }
+
+
                                         })
                                     }
                                 });

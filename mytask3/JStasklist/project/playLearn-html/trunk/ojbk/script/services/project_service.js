@@ -3,7 +3,17 @@ angular.module("app")
         return {
             //上传图片
             getFile: function (params) {
-                return $http.post(pathProject.getFile(), params)
+                return $http({
+                    method: 'post',
+                    url: pathProject.getFile(),
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded'
+                    },
+                    transformRequest: function (params) {
+                        return $.param(params);
+                    },
+                    data: params
+                })
             },
             //贝贝
             //前台手机登录接口

@@ -20,11 +20,11 @@
                     <td>{{$index+1}}</td>
                     <td>{{self.name}}</td>
                     <td>{{self.createBy}}</td>
-                    <td>{{self.createAt}}</td>
+                    <td>{{self.createAt| date:'yyyy-MM-dd HH:mm:ss'}}</td>
                     <td>{{self.updateBy}}</td>
-                    <td>{{self.updateAt}}</td>
+                    <td>{{self.updateAt| date:'yyyy-MM-dd HH:mm:ss'}}</td>
                     <td>
-                        <button class="btn btn-warning btn-xs" ui-sref="backStage.moduleManage.compiler({id:self.id})">编辑</button>
+                        <button class="btn btn-warning btn-xs" ui-sref="backStage.moduleManage.roleIncreased({id:self.id})">编辑</button>
                         <button class="btn btn-danger btn-xs" ng-click="vm.delete(self.id)">删除</button>
                     </td>
                 </tr>

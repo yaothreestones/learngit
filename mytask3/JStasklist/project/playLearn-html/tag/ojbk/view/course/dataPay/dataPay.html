@@ -1,0 +1,96 @@
+<div class="data_clear-fix">
+    <div ng-if="vm.confirmEmail">
+        <h3>请确认您的收件邮箱地址</h3>
+        <h4>(试卷会以邮件的形式发送到您的邮箱)</h4>
+        <div class="data_content data_content_fixed">
+            <div class="data_main">
+                <input type="email" class="dataPay_email" disabled ng-model="vm.email">
+                <img src="image/app/changeEmail.png" alt="" class='dataPay_changeEmail' ng-click="vm.dataPay_changeEmail()">
+            </div>
+        </div>
+    </div>
+    <div ng-if="!vm.confirmEmail">
+        <div class="course_content" ng-if="vm.courseId||vm.bookId">
+            <img ng-src="{{vm.picture}}" class="course_main-img">
+            <div class="course_main">
+                <div class="course_recommended" ng-show="vm.payDetail.recommend === 1">
+                    <img src="image/app/heat.png" class="course_recommended_img">
+                </div>
+                <h4>{{vm.payDetail.courseName}}</h4>
+                <span ng-if="vm.courseId">{{vm.payDetail.studyNumber}}人已学</span>
+                <span>版本:{{vm.version}}</span>
+                <span>{{vm.payDetail.grade|grade}}</span>
+            </div>
+        </div>
+        <div class="course_details_main" ng-if="vm.periodOfCourse||vm.bookPeriodId">
+            <div class="course_details_float" ng-class="0|lessonPeriodClass"><p class="course_details_status">{{0|lessonPeriodStatus}}</p></div>
+            <div>
+                <div>
+                    <p class="course_details_mission_title">第{{$index+1|time}}课&#8195{{periodList.name}}{{vm.name}}
+                        <img  ng-src="{{vm.picture}}" alt="" class="course_details_mission_lockimg">
+                    </p>
+                </div>
+                <div class="course_details_mission_list">
+                    <img src="image/app/mission.png" alt="任务列表" class="course_details_mission_img">任务：{{vm.payDetail.dataCount}}
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>请选择解锁方式</h3>
+            <div class="data_content data_content_fixed">
+                <div class="data_main">
+                    <h2 class="data_learning">学习星解锁</h2>
+                    <span style="line-height: 3.9vw"><img src="image/app/studystar.png" class="datapay_studystar">{{vm.star}}</span>
+                </div>
+                <label for="surebuy_course" class="data_surebuy"></label>
+                <img src="image/app/surebuy.png" ng-show="vm.selected == 0" class="data_surebuy_img">
+                <input type="radio" id="surebuy_course" style="display: none;" name="sure_buy" ng-model="vm.selected" value="0">
+            </div>
+            <div class="datapay_buytips">学习星解锁:使用学习星解锁，学习星可以通过学习和签到获得。</div>
+        </div>
+        <div>
+            <div class="data_content data_content_fixed">
+                <div class="data_main">
+                    <h2 class="data_learning">购买解锁</h2>
+                    <span>￥{{vm.price}}</span>
+                </div>
+                <label for="surebuy" class="data_surebuy"></label>
+                <img src="image/app/surebuy.png" ng-show="vm.selected == 1" class="data_surebuy_img">
+                <input type="radio" id="surebuy" style="display: none;" name="sure_buy" ng-model="vm.selected" value="1">
+            </div>
+            <div class="datapay_buytips">购买解锁:通过网上支付，直接购买进行解锁。</div>
+        </div>
+    </div>
+    <div class="data_nextstep_content data_content_fixed">
+        <button type="button" class="data_nextstep" ng-click="vm.click()">
+            立即支付
+        </button>
+    </div>
+    <div class="dataPay_weixin" ng-hide="vm.goPay">
+        <div class="dataPay_title">
+            <span class="dataPay_cancel" ng-click="vm.cancel()">取消</span>
+            <span class="dataPay_type">支付方式</span>
+            <span class="dataPay_sure" ng-click="vm.sure()">确定</span>
+        </div>
+        <div class="dataPay_body">
+            <img src="image/app/weixinpay.png" alt="微信支付" class="dataPay_weixin_img">
+            <span class="dataPay_weixin_main">
+                <div class="dataPay_weixinpay">微信支付</div>
+                <div class="dataPay_version">推荐安装微信5.0以上版本后使用</div>
+                    <label for="surebuy" class="dataPay_surebuy"></label>
+                    <img src="image/app/surebuy.png" ng-hide="vm.goPay" class="dataPay_surebuy_img">
+                    <input type="radio" id="surebuy" style="display: none;">
+            </span>
+        </div>
+    </div>
+    <div class="iron_curtain_modal" ng-hide="vm.goPay"></div>
+    <div ng-show="vm.show">
+        <div class="course_details_modal">
+            <div class="course_details_modal_collection">
+                <img src="image/app/success.png" alt="成功">
+                <div style="text-align: center;width: 25vw;">{{vm.collect}}</div>
+            </div>
+        </div>
+        <div class="shady"></div>
+    </div>
+</div>

@@ -7,17 +7,21 @@ angular.module('app')
             vm.ajax = [];
             vm.pageGo = function (x) {
                 $state.go($state.current, {page: x}, {reload: true});
+                console.log(x);
             };
             vm.list = function () {
                 Course_service.moduleUser({
-                    size: 999
+                    page:vm.$stateParams.page
                 }).then(function (res) {
                     if (res.data.code == 0) {
+                        vm.currentPage = parseInt(vm.$stateParams.page);
+                        vm.total = res.data.data.total;
+                        console.log(vm.currentPage);
+                        console.log(vm.total);
                         Course_service.batchUser(res.data.data.ids)
                             .then(function (res) {
                                 if (res.data.code == 0) {
                                     vm.ajax = res.data.data.moduleList;
-                                    vm.total = res.data.total;
                                 }
                                 console.log('模块列表',res)
                             }, function (res) {

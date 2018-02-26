@@ -290,6 +290,45 @@
 .min-width {
     min-width: 100%;
 }
+.pull-right {
+    cursor: pointer;
+}
+.form-control-fixed {
+    width: 83.333%!important;
+}
+.course_manage_fixed {
+    height: 34px;
+    line-height: 34px;
+}
+.no-padding-right {
+    padding-right: 0!important;
+}
+.no-padding-both {
+    padding: 0;
+}
+.modal {
+    position: fixed;
+    top: 40%!important;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000000;
+    opacity: 0.2 !important;
+}
+
 
 
 

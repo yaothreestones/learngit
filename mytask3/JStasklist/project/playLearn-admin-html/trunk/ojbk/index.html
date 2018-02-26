@@ -3,12 +3,14 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon"/>
     <title>回家学习后台</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--侧栏-->
     <link rel="stylesheet" href="script/sidebar/sidebar.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="plugins/moment/angular-moment-picker.css">
+
 
 </head>
 <body ng-app="app">
@@ -25,6 +27,7 @@
 <script src="https://cdn.bootcss.com/oclazyload/1.1.0/ocLazyLoad.js"></script>
 <script src="https://cdn.bootcss.com/angular-file-upload/2.4.0/angular-file-upload.js"></script>
 <script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="script/directives/fileUploadForMissionManage/fileUploadForMissionManage.js"></script>
 <script src="script/directives/imgUpload/imgUpload.js"></script>
 <script src="plugins/moment/moment-with-locales.min.js"></script>
@@ -35,6 +38,7 @@
 <script src="script/app.js"></script>
 <script src="script/route.js"></script>
 <script src="script/run.js"></script>
+<script src="script/services/HttpInterceptor.js"></script><!--拦截器-->
 <script src="script/directives/sideBar/side-bar.js"></script>
 <script src="script/services/AJAX/AJAX.js"></script>
 <script src="script/services/AJAX/project_service.js"></script>

@@ -1,0 +1,27 @@
+<div>
+    <div class="head">
+        <div class="sign" ng-click="vm.sign()">
+            <img src="image/mine/register.png">
+        </div>
+        <img ng-src="{{vm.user.profilePicture}}">
+        <div class="head-content">
+            <div>
+                <span>{{vm.user.name}}</span>
+                <p class="year">年级：{{vm.user.grade |grade}}</p>
+                <p>邮箱：{{vm.user.email}}</p>
+            </div>
+            <img src="image/mine/arrow-right.png" ui-sref="app.personal"/></div>
+        <confirm></confirm>
+    </div>
+    <div class="cotent has-header ionic-pseudo">
+        <div class="list-xd">
+            <div class="pd-left-20" ng-repeat="x in vm.data" ui-sref="{{x.state}}">
+                <a class="item item-icon-left item-icon-right ">
+                    <img class="logo" ng-src="{{x.url}}" alt="">
+                    {{x.title}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <modal></modal>
+</div>

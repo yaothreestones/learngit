@@ -10,9 +10,9 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
         $stateProvider
         //后台登陆页
             .state("login", {
-                url: "/login",
+                url: "/login?name&pwd",
                 templateUrl: 'view/login/login.html',
-                controller: 'loginCtrl',
+                controller: 'loginCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "view/login/login.html",
@@ -25,7 +25,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage", {
                 url: "/backStage",
                 templateUrl: 'view/backstage/backStage.html',
-                controller: 'backStageCtrl',
+                controller: 'backStageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "view/backstage/backStage.html",
@@ -48,7 +48,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
                 //整个模块公共文件
                 resolve: {
                     loadMyFile: _lazyLoad([
-                        'script/services/backStage/backStage.js'
+                        'script/services/backStage/backStage.js',
                     ])
                 }
             })
@@ -366,7 +366,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //用户管理管理（查看）
             .state("backStage.party.see", {
-                url: "/see/{userId}",
+                url: "/see/{id}",
                 templateUrl: 'view/serviceManage/party/see.html',
                 controller: 'seeCtrl',
                 controllerAs: "vm",
@@ -381,7 +381,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //用户管理管理（查看/收藏课程）
             .state("backStage.party.see.tab1", {
-                url: "/tab1/{userId}/{page}/{size}",
+                url: "/tab1/{userId}",
                 views: {
                     'favDetail': {
                         controller: 'tab1Ctrl',
@@ -632,7 +632,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //模块管理
             .state("backStage.user", {
-                url: "/user/{page}/{size}",
+                url: "/user/{page}/{size}&menuID&type&updateAt&updateBy&createAt&createBy",
                 templateUrl: 'view/moduleManage/user/module.html',
                 controller: 'moduleCtrl',
                 controllerAs:'vm',
@@ -670,7 +670,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             })
             //角色管理
             .state("backStage.role", {
-                url: "/role/{page}/{size}",
+                url: "/role/{page}/{size}?id&name&permissionsSet&updateAt&updateBy&createAt&createBy",
                 templateUrl: 'view/moduleManage/role/role.html',
                 controller: 'roleCtrl',
                 controllerAs:'vm',
@@ -685,10 +685,21 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.moduleManage.roleManage", {
                 url: "/roleManage",
                 templateUrl: 'view/moduleManage/role/roleManage.html',
-                // controller: 'roleManageCtrl',
+                controller: 'roleManageCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/serviceManage/serviceManage.css",
+                    ])
+                }
+            })
+            .state("backStage.moduleManage.roleIncreased", {
+                url: "/roleIncreased/{id}",
+                templateUrl: 'view/moduleManage/role/roleIncreased.html',
+                controller: 'roleIncreasedCtrl as vm',
+                resolve: {
+                    loadMyFile: _lazyLoad([
+                        "style/serviceManage/serviceManage.css",
+                        "script/services/moduleManage/role/roleIncreasedCtrl.js"
                     ])
                 }
             })
@@ -696,10 +707,12 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
             .state("backStage.password", {
                 url: "/password",
                 templateUrl: 'view/moduleManage/password/password.html',
-                // controller: 'passwordCtrl',
+                controller: 'passwordCtrl as vm',
                 resolve: {
                     loadMyFile: _lazyLoad([
                         "style/serviceManage/serviceManage.css",
+                        "script/services/moduleManage/passwordCtrl.js",
+
                     ])
                 }
             })

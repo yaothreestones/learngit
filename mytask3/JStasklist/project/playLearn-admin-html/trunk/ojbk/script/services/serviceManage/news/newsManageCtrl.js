@@ -12,16 +12,18 @@ angular.module('app')
                 type: undefined,
                 sendTime: null,
                 text: null,
-                thirdPart:undefined,
+                thirdPart:0,
             };
 
-            vm.minDate = moment().subtract(0, 'day')
+            vm.minDate = moment();
             vm.send = function () {
                 //确认
                 var isConfrim = $rootScope.modalConfrim('是否确认增加消息');
+                console.log(vm.list);
                 isConfrim.then(function () {
                     //确认
                     vm.params = {
+                        id:vm.list.id,
                         title: vm.list.title,
                         type: vm.list.type,
                         sendTime:function(){

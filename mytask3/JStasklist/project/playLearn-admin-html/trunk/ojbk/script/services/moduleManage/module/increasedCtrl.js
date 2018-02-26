@@ -25,7 +25,7 @@ angular.module('app')
                     .then(function (res) {
                         $rootScope.modalAlert2(res.data.code == 0 ? "新增成功" : "新增失败")
                             .then(function () {
-                                $state.go('backStage.account', {page: 1, size: 10});
+                                $state.go('backStage.user', {page: 1, size: 10});
                             });
                     })
             }

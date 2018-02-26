@@ -100,6 +100,15 @@ angular.module("app")
             },
 
             //客服
+            //登陆接口
+            login:function () {
+                return "/a/admin/login"
+            },
+            //注销接口
+            loginOut:function () {
+                return "/a/admin/logout"
+            },
+
             //资讯管理接口
             getInformation_url: function () {
                 return "/a/u/admin/information/list"
@@ -129,7 +138,7 @@ angular.module("app")
             //客服
             //注册统计接口
             getEnroll_url: function () {
-                return "/a/u/admin/user/enroll"
+                return "/Counting.json"
             },
 
             //客服
@@ -203,8 +212,8 @@ angular.module("app")
                 return ' /a/u/admin/manager/' + id;
             },
             //编辑
-            editUser:function () {
-                return ' /a/u/admin/manager';
+            editUser:function (id) {
+                return ' /a/u/admin/manager/'+id;
             },
             //新增
             addUser: function () {
@@ -250,6 +259,14 @@ angular.module("app")
             partUser:function () {
                 return '/a/u/admin/role/list'
             },
+            //返回单个角色及权限
+            roleAdmin:function (id) {
+                return '/a/u/admin/role/'+id+'/module'
+            },
+            //编辑角色
+            editRole:function () {
+                return "/a/u/admin/role"
+            },
 
             //新增角色
             partIDUser:function () {
@@ -262,6 +279,10 @@ angular.module("app")
             //删除角色
             roleDelet:function (id) {
                 return ' /a/u/admin/role/'+id
+            },
+            //修改密码
+            changePwd:function () {
+                return "/a/u/admin/pwd"
             },
 
 

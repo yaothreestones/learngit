@@ -1,0 +1,25 @@
+<!--绑定回家学习账号-->
+<div class="top-side">
+    <form name="myForm" novalidate style="position: absolute; width: 100%">
+        <div class="login-center top-edge">
+            <div class="top-handset">
+                <img src="image/app/cellphone.png" height="37" width="24"/>
+                <input type="text" class="push-button" name="phone" required  ng-value="value" ng-model="data.phone" placeholder="请输入手机号码" ng-pattern="phonePattern">
+            </div>
+            <div class="bottom-password">
+                <img src="image/app/password.png" height="35" width="26"/>
+                <input id="ds_name" type="password" class="push-button" name="pwd"
+                       ng-pattern="pwdPattern"
+                       ng-model="data.password"  required
+                       placeholder="请输入登录密码"/>
+            </div>
+        </div>
+        <div class="press-button">
+            <button type="button" class="butColor btn"
+                    ng-class="{'butColor':!data.phone||!data.password}"
+                    ng-click="bind()">立即绑定</button>
+        </div>
+        <div class="clear"></div>
+        <modal></modal>
+    </form>
+</div>

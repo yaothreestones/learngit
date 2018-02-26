@@ -3,6 +3,14 @@ angular.module('app').controller('tab2Ctrl',
         var vm = this;
         vm.subject = [];
         vm.$stateParams = $state.params;
+        vm.ManageSearch= function (data) {
+            console.log(data);
+            $state.go('backStage.teachManage.periodManage',{
+                from:2,
+                obj:{"courses":null,"grade":null,"subject":null},
+                period:JSON.stringify(data)
+            });
+        };
         Course_service.get_Subject({
             userId: vm.$stateParams.userId
 

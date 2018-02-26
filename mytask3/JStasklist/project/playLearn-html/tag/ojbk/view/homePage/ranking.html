@@ -1,0 +1,41 @@
+
+    <div class="prize charts">
+        <div class="cover">
+        </div>
+        <div class="desk-restrain">
+            <div class="desk-left desk-public">
+                <span>{{vm.learn.studyLesson}} </span>
+                <span class="public-size">已学课时（节）</span>
+            </div>
+            <div class="desk-right desk-public">
+                <span>{{vm.learn.studyDay}}</span>
+                <span class="public-size">已学天数（天）</span>
+            </div>
+        </div>
+    </div>
+    <div class="sheet">
+        <table class="table">
+            <thead>
+            <tr class="sheet-tr">
+                <th>名次</th>
+                <th>用户名</th>
+                <th>已学课时</th>
+                <th>学习天数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in vm.data">
+                <td>
+                    <img ng-if="$index===0" src="image/app/first.png" height="44" width="27"/>
+                    <img ng-if="$index===2"  src="image/app/third.png" height="43" width="27"/>
+                    <img ng-if="$index===1" src="image/app/second.png" height="44" width="27"/>
+                    <span ng-if="$index>2">{{$index+1}}</span>
+                </td>
+                <td>{{data.userName}}</td>
+                <td>{{data.userLessonPeriodStudy}}</td>
+                <td>{{data.userDay}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+

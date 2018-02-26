@@ -14,7 +14,7 @@
                      alt="login-user">
                 <input type="text" class="form-control" style="padding-left: 45px;" id="loginName" name="name"
                        placeholder="请输入用户名"
-                       required ng-model="name" ng-minlength=5 ng-maxlength=10 required/>
+                       required ng-model="vm.name" ng-minlength=5 ng-maxlength=10 required/>
             </div>
         </div>
         <div class="form-group">
@@ -23,7 +23,7 @@
                      alt="login-user">
                 <input type="password" class="form-control" style="padding-left: 45px;" id="loginPwd"
                        placeholder="请输入密码"
-                       required ng-model="pwd" ng-minlength=6 ng-maxlength=12 required name="pwd"/>
+                       required ng-model="vm.pwd" ng-minlength=6 ng-maxlength=12 required name="pwd"/>
             </div>
         </div>
         <div class="error form-group">
@@ -41,7 +41,7 @@
         </div>
         <div class="form-group">
             <div class="col-xs-8 col-xs-offset-2 ">
-                <input type="submit" ng-click="login()" value="登录" class="form-control btn btn-default"
+                <input type="submit" ng-click="vm.login()" value="登录" class="form-control btn btn-default"
                        style="background-image:linear-gradient(to right,#fd9f2a,rgba(253, 159, 42, 0.74),#fd9f2a);color: #fff">
             </div>
         </div>

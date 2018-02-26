@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="user_management">编辑角色</span>
+    </div>
+    <div class="panel-body">
+        <div class="panel-body">
+            <form class="form-horizontal" style="font-size: 12px">
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">ID</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.params.id">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">角色名</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.params.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">创建人</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.params.createBy">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">创建时间</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.params.createAt | date:'yyyy-MM-dd HH:mm:ss'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">更新人ID</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.params.updateBy">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 control-label">更新时间</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="vm.params.updateAt | date:'yyyy-MM-dd HH:mm:ss'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-sm-offset-3 col-lg-1 control-label"></label>
+                    <div class="col-sm-4">
+                        <label type="button" class="btn btn-success mg-top-50" ng-click="vm.send()">保存</label>
+                        <label type="button" class="btn btn-success mg-top-50" ng-click="">取消</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

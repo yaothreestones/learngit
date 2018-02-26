@@ -379,14 +379,12 @@ angular.module('app').controller('missionCtrlInPreview', ['$scope', '$stateParam
                 lessonPeriodId:vm.lessonPeriod,
                 press:vm.press,
                 mission:vm.mission,
-                page:1,
-                size:10,
                 lessonPeriodName:vm.lessonPeriodName
             };
             vm.obj = angular.toJson(vm.stateParams);
             //console.log(vm.stateParams);
-            $stateParams.add === '1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:vm.obj}):
-                $state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:vm.obj})
+            $stateParams.add === '1'?$state.go('backStage.previewManage.mission',{add:1,period:$stateParams.period,obj:vm.obj,page:1}):
+                $state.go('backStage.previewManage.mission',{period:$stateParams.period,obj:vm.obj,page:1})
         };
         //分页按钮
         vm.pageGo = function (x) {

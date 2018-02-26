@@ -75,7 +75,7 @@ angular.module('app').controller('periodCtrlInPreview', ['$scope', '$stateParams
             // //课时列表
             vm.params1 = {
                 grade:vm.grade||vm.periodStatus.grade,
-                bookId:vm.datum||vm.periodStatus.bookid,
+                bookId:vm.datum||vm.periodStatus.bookid||vm.book.id,
                 status:vm.status||vm.periodStatus.status,
                 version:vm.press||vm.periodStatus.press,
                 lessonPeriodName:vm.lessonPeriodName||vm.periodStatus.lessonPeriodName,

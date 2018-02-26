@@ -36,7 +36,7 @@ angular.module('app').controller('coursesCtrl', ['$scope', '$stateParams', '$roo
                         console.log('科目列表',vm.lists);
                         console.log(res);
                     }else {
-                        alert(res.message)
+
                     }
                 }else {
                     alert('请求超时')

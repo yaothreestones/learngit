@@ -36,7 +36,7 @@ angular.module('app').controller('periodCtrl', ['$scope', '$stateParams', '$root
                     console.log('科目列表',vm.Subjects);
                     console.log(res);
                 }else {
-                    alert(res.message)
+
                 }
 
             });
@@ -112,7 +112,7 @@ angular.module('app').controller('periodCtrl', ['$scope', '$stateParams', '$root
             status:vm.status,
             courseId:vm.courses||vm.course.id,
             subjectId:vm.course.subjectId||vm.subject,
-            lessonPeriodName:vm.period,
+            name:vm.period,
             page:parseInt($stateParams.page)||1,
             size:parseInt($stateParams.size)||10
         }).then(function(res) {
@@ -223,6 +223,8 @@ angular.module('app').controller('periodCtrl', ['$scope', '$stateParams', '$root
                 vm.Courses = vm.courseStorage;
                 vm.Subjects = vm.SubjectStorage
             }else {
+                vm.Courses = vm.courseStorage;
+                vm.Subjects = vm.SubjectStorage
                 angular.forEach(vm.courseStorage,function (data) {
                     if(course === data.id){
                         vm.subject = data.subjectId;
@@ -335,6 +337,7 @@ angular.module('app').controller('periodCtrl', ['$scope', '$stateParams', '$root
                 courseName:vm.courseName
             };
             vm.obj = angular.toJson(vm.stateParams);
+            console.log(JSON.stringify({from:2,course:$stateParams.course,obj:vm.obj,period:angular.toJson(period)}));
             $stateParams.add==='1'?$state.go('backStage.teachManage.periodManage',{add:1,from:2,course:$stateParams.course,obj:vm.obj,period:angular.toJson(period)}):
                 $state.go('backStage.teachManage.periodManage',{from:2,course:$stateParams.course,obj:vm.obj,period:angular.toJson(period)})
         };

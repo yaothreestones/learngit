@@ -151,7 +151,7 @@ angular.module('app')
                         lessonPeriodId:$scope.parameter.lessonPeriodId,
                         name: $scope.fileNanes,
                         needMoney: $scope.needMoney,
-                        url: $scope.url,
+                        url: $scope.url
                     }
                 }else if($scope.parameter.type==1){
                     $scope.data = {
@@ -160,7 +160,7 @@ angular.module('app')
                         courseId:$scope.parameter.courseId,
                         name: $scope.fileNanes,
                         needMoney: $scope.needMoney,
-                        url: $scope.url,
+                        url: $scope.url
                     }
                 }
                 console.log($scope.data)

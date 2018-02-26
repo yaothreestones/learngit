@@ -1,0 +1,16 @@
+.base{
+    line-height: 2.96vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #ffffff;
+}
+.base img{
+    display: block;
+    height: 5.13vw;
+    margin: 0 auto 1.8vw auto;
+}
+.base .tab{
+    color: #2eb9f8;
+    font-size: 2.96vw;
+}

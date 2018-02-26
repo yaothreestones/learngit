@@ -211,6 +211,28 @@ angular.module("app")
             },
 
             //客服
+            //登陆接口
+            login:function (data) {
+                return $http({
+                    method: "post",
+                    url: pathProject.login(),
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function (data) {
+                        return $.param(data);
+                    },
+                    data: data
+                })
+            },
+            //注销接口
+            loginOut:function (params) {
+                return $http({
+                    method: "post",
+                    url: pathProject.loginOut(),
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data: params
+                })
+            },
+
             //资讯管理
             get_Information: function (params) {
                 return $http.get(pathProject.getInformation_url() + '?' + $.param(params))
@@ -276,7 +298,7 @@ angular.module("app")
             },
             //搜索
             search: function (params) {
-                return $http.get(pathProject.search(), params)
+                return $http.get(pathProject.search() + '?' + $.param(params))
             },
             //消息管理/增加
             get_MessageAugment: function (params) {
@@ -331,9 +353,8 @@ angular.module("app")
             get_HelpDelet: function (id) {
                 return $http({
                     method: "delete",
-                    url: pathProject.getHelpDelet_url(),
+                    url: pathProject.getHelpDelet_url(id),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    params: {id: id}
                 });
             },
             //帮助管理/编辑接口
@@ -390,11 +411,11 @@ angular.module("app")
                 });
             },
             //编辑
-            editUser: function (params) {
+            editUser: function (id,params) {
                 console.log(params);
                 return $http({
                     method: "put",
-                    url: pathProject.editUser(),
+                    url: pathProject.editUser(id),
                     headers: {'Content-Type': 'application/json'},
                     data: params
                 })
@@ -429,7 +450,7 @@ angular.module("app")
             //模块管理
             //列表
             moduleUser:function (params) {
-                return $http.get(pathProject.moduleUser(), params)
+                return $http.get(pathProject.moduleUser() + '?' + $.param(params))
             },
             //根据ID查找模块
             IDmoduleUser:function (id) {
@@ -445,10 +466,10 @@ angular.module("app")
                 });
             },
             //编辑模块
-            editModule:function (params) {
+            editModule:function (id,params) {
                 return $http({
-                    method: "get",
-                    url: pathProject.editUser(),
+                    method: "put",
+                    url: pathProject.editModule(id),
                     headers: {'Content-Type': 'application/json'},
                     data: params
                 })
@@ -472,9 +493,22 @@ angular.module("app")
                     params: {id: id}
                 });
             },
+            //返回单个角色及权限
+            roleAdmin: function (id) {
+                return $http.get(pathProject.roleAdmin(id))
+            },
             //角色管理
             partUser:function () {
                 return $http.get(pathProject.partUser())
+            },
+            //编辑角色
+            editRole:function (id,params) {
+                return $http({
+                    method: "put",
+                    url: pathProject.editRole(id),
+                    headers: {'Content-Type': 'application/json'},
+                    data: params
+                })
             },
             //新增角色
             partIDUser:function (data) {
@@ -504,6 +538,17 @@ angular.module("app")
                 });
             },
             //修改密码
+            changePwd:function (data) {
+                return $http({
+                    method: "put",
+                    url: pathProject.changePwd(),
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: function (data) {
+                        return $.param(data);
+                    },
+                    data: data
+                })
+            },
 
 
 

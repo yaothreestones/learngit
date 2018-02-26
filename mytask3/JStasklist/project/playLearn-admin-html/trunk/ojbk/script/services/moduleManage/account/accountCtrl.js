@@ -30,15 +30,22 @@ angular.module('app')
                 });
             }
             vm.list();
-
-            vm.roleID=[]
-            vm.clickSelect=function () {
-                Course_service.clickSelect({
-                    params:vm.params
-                })
+            vm.roleID=[];
+            vm.clickselect=function () {
+                Course_service.clickSelect(vm.roleID)
                     .then(function (res) {
                         if (res.data.code == 0) {
                             vm.roleID=res.data.data.ids
+                            Course_service.AccountEnquiry(res.data.data.ids)
+                                .then(function (res) {
+                                    if (res.data.code == 0) {
+                                        vm.ajax = res.data.data.managerList;
+                                        console.log(vm.ajax);
+                                    }
+                                    console.log(res)
+                                }, function (res) {
+                                    alert('请求失败')
+                                })
                         } else {
                             $rootScope.modalAlert('获取失败');
                         }

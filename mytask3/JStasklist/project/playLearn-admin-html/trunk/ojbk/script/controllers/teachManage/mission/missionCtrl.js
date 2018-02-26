@@ -74,7 +74,7 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
                             alert('请求失败')
                         });
                 } else {
-                    alert(res.message)
+
                 }
             });
         }
@@ -87,7 +87,7 @@ angular.module('app').controller('missionCtrl', ['$scope', '$stateParams', '$roo
             courseId:vm.course,
             lessonPeriodId:vm.period,
             name:vm.mission,
-            page:1,
+            page:parseInt($stateParams.page)||1,
             size:10
         }).then(function (res) {
             console.log('列表获取完毕',res.data.data);

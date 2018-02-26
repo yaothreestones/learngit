@@ -18,12 +18,12 @@
             <td>{{x.subjectName}}</td>
             <td>{{x.subjectId}}</td>
             <td>{{x.courseId}}</td>
-            <td>{{self.subject==1?'上架':'下架'}}</td>
+            <td>{{x.subject==1?'上架':'下架'}}</td>
             <td>
                 <button style="border: none;background: none;color: #337Ab7;outline:none; "
                         type="button"
                         class="btn btn-sm  btn-primary "
-                        ng-clock ui-sref="backStage.teachManage.period">
+                        ng-click="vm.ManageSearch(x)">
                     查詢
                 </button>
             </td>

@@ -1,32 +1,26 @@
 angular.module('app')
-    .controller('loginCtrl', ['$scope', '$state', '$http', function ($scope, $state, $http) {
-        $scope.login = function () {
-            // var data = {
-            //     name: $scope.name,
-            //     pwd: $scope.pwd
-            // }
-            // var promise = $http({
-            //     method: 'post',
-            //     url: '/playlearn/post/a/login',
-            //     headers: {'content-type': 'application/x-www-form-urlencoded'},
-            //     transformRequest: function (data) {
-            //         return $.param(data);
-            //     },
-            //     data: data
-            // })
-            // promise.then(function (res) {
-            //     if (res.data.code == 0) {
-            //         $state.go('backStage');
-            //     }else{
-            //         alert(11);
-            //     }
-            //     $scope.code = res.data.code;
-            //     console.log(res.data.code);
-            //     console.log(res.data.message);
-            //     console.log(res);
-            // }
-            // )
-            $state.go('backStage')
+    .controller('loginCtrl', ['$scope', '$state', '$http', 'Course_service', function ($scope, $state, $http, Course_service) {
+        var vm = this;
+        var params={
+            name: vm.name='admin',
+            pwd: vm.pwd='123456'
+        };
+        vm.login = function () {
+            var params={
+                name: vm.name,
+                pwd: vm.pwd
+            };
+            Course_service.login(params)
+                .then(function (res) {
+                    if (res.data.code == 0) {
+                        vm.user = res.data.data;
+                        $scope.errorInfo = '登录成功';
+                        $state.go('backStage')
+                        console.log('登陆成功',res.data.message);
+                    }else {
+                        $scope.errorInfo = res.data.message;
+                    }
+                });
         }
     }])
 

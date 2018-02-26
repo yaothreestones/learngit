@@ -102,7 +102,7 @@ angular.module("app")
                         // 数据列名
                         data: [],  // 数据
 
-                        pointStart: Date.UTC(1970, 0, 7),
+                        pointStart: Date.UTC(2018, 1, 5),
 
                         pointInterval: 24 * 3600 * 1000 ,// one day
 
@@ -122,7 +122,7 @@ angular.module("app")
 
                         yAxis: 1,
 
-                        pointStart: Date.UTC(1970, 0, 7),
+                        pointStart: Date.UTC(2018, 0, 7),
 
                         pointInterval: 24 * 3600 * 1000 ,// one day
 

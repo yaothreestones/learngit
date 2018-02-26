@@ -14,11 +14,7 @@ angular.module('app')
             };
 
             vm.list = function () {
-                var searchObj = Object.create(null);
-                angular.forEach(vm.$stateParams, function (v, i, arr) {
-                    v || v != 0 ? this[i] = v : this[i] = '';
-                }, searchObj);
-                Course_service.get_Information(searchObj)
+                Course_service.get_Information($rootScope.clearEmpty(vm.$stateParams))
                     .then(function (res) {
                         if (res.data.code == 0) {
                             vm.currentPage = parseInt(vm.$stateParams.page);

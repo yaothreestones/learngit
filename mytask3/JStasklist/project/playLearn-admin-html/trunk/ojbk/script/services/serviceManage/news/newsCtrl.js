@@ -3,8 +3,7 @@ angular.module('app')
         function ($scope, $stateParams, $rootScope, $state, $http, Course_service, optionsData) {
             var vm = this;
             vm.$stateParams = $state.params;
-            vm.Course_service = Course_service;
-            vm.grades = optionsData()['grade'];
+            vm.type = optionsData()['type'];
             vm.sendStatus = optionsData()['sendStatus'];
             vm.ajaxData = [];
             vm.size = vm.$stateParams.size;
@@ -14,45 +13,17 @@ angular.module('app')
             };
 
             vm.list = function () {
-                var searchObj = Object.create(null);
-                angular.forEach(vm.$stateParams, function (v, i, arr) {
-                    v && v != 0 ? this[i] = v : this[i] = '';
-                }, searchObj);
-                console.log(searchObj);
-                Course_service.get_Message(searchObj)
+                Course_service.search($rootScope.clearEmpty(vm.$stateParams))
                     .then(function (res) {
                         if (res.data.code == 0) {
                             vm.currentPage = parseInt(vm.$stateParams.page);
                             vm.ajaxData = res.data.data;
                             vm.total = res.data.total;
-                            console.log(vm.ajaxData)
                         }
                         console.log(res)
-                    }, function (res) {
-                        alert('请求失败')
                     })
             }
-
-            vm.list()
-
-            Course_service.get_TechSearchSubject({
-                params:vm.params
-            }).then(function (res) {
-                if(res.status === 200) {
-                    if (res.data.code === 0) {
-                        vm.totalItems = res.data.total;
-                        vm.lists = res.data.data;
-                        console.log('科目列表',vm.lists);
-                        console.log(res);
-                    }else {
-                        alert(res.message)
-                    }
-                }else {
-                    alert('请求超时')
-                }
-
-            });
-
+            vm.list();
             vm.search = function () {
                 vm.$stateParams['page'] = 1;
                 $state.reload();

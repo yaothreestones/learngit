@@ -62,5 +62,20 @@
             //这是promise
             return instance.result;
         };
+        $rootScope.clearEmpty = function (target) {
+            var belong=Object.prototype.toString.call(target),res;
+            switch (belong){
+                case '[object Object]':
+                    res={};
+                    angular.forEach(target, function (value, key) {
+                        value&&(res[key]=value);
+                    });
+                    break;
+                case '[object Array]':
+                    res=Array.form(new Set(target));
+                    break;
+            }
+            return res;
+        };
     })
 })(angular.module('app'));

@@ -7,7 +7,7 @@
 <div class="contentBottom">
     <div class="panel-heading" style="background: #F9F9F9">
         <strong>
-            I xxxxxx用户详情
+            I 用户详情
         </strong>
     </div>
     <div class="panel-body tabulation table-responsive table-responsive">
@@ -35,7 +35,7 @@
                     </label>
                     <div class="col-sm-9">
                         <select class="form-control"
-                                ng-model="vm.grade"  ng-options="c.value as c.txt for c in vm.year" ng-disabled="true">
+                                ng-model="vm.grade"  ng-options="c.value*1 as c.txt for c in vm.year" ng-disabled="true">
                         </select>
                     </div>
                 </div>

@@ -1,0 +1,16 @@
+<style>
+    body{
+        background: #ffffff;
+    }
+</style>
+<div class="intercalate">
+    <div class="list-fit">
+        <div class="pd-left-20 pd-30" ng-repeat="x in vm.data" ui-sref="{{x.state}}">
+            <a class="setItem setItem-icon-left setItem-icon-right ">
+                <img class="backImg" ng-src={{x.url}} alt="">
+                {{x.title}}
+                <img class="Img pull-right" ng-src={{x.site}} alt="">
+            </a>
+        </div>
+    </div>
+</div>

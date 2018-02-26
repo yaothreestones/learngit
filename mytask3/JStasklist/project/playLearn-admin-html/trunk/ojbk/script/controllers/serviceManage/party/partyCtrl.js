@@ -11,12 +11,7 @@ angular.module('app')
                 $state.go($state.current, {page: x}, {reload: true});
             };
             vm.list = function () {
-                var searchObj = Object.create(null);
-                angular.forEach(vm.$stateParams, function (v, i, arr) {
-                    v || v != 0 ? this[i] = v : this[i] = '';
-                }, searchObj);
-                delete searchObj['#'];
-                Course_service.get_seerch(searchObj)
+                Course_service.get_seerch($rootScope.clearEmpty(vm.$stateParams))
                     .then(function (res) {
                         if (res.data.code == 0) {
                             vm.currentPage = parseInt(vm.$stateParams.page);

@@ -21,11 +21,11 @@
             <form class="form-horizontal mission-fixed" role="form">
                 <fieldset class="form-bottom form-bottom-fixed">
                     <form class="form-group mission_fieldset col-lg-12 col-md-12 col-sm-12 control-label" name="mission">
-                        <label class="col-sm-1 control-label teach_manage_top-form " for="ds_name">任务名称</label>
-                        <input id="ds_name" type="text" class="col-sm-10 teach_manage_top-form top-form-nomargin input_style" ng-disabled="show" ng-model="vm.missionName">
+                        <label class="col-sm-1 control-label teach_manage_top-form " for="ds_name" style="margin: 15px 0;line-height: 34px;padding: 0;">任务名称</label>
+                        <input id="ds_name" type="text" class="col-sm-10 teach_manage_top-form top-form-nomargin input_style form-control form-control-fixed" ng-disabled="show" ng-model="vm.missionName" style="margin-top: 15px;margin-bottom: 15px">
                     </form>
                     <div class="col-lg-12 col-md-12 col-sm-12 edging while mission-fixed">
-                        <h5 style="margin: 0"><strong> | </strong>步骤内容保存排序</h5>
+                        <h5 style="margin: 0"><strong> | </strong>步骤</h5>
                         <div class="mission-task-step" ng-repeat="step in vm.mission_steps" ng-if="vm.index[$index]">
                             <div class="row mission_standard">
                                 <div class="col-sm-1 mission_step_num">{{$index+1}}</div>
@@ -54,7 +54,7 @@
                             <!--富文本框-->
                             <div class="row mission_standard">
                                 <div class="col-sm-1"></div>
-                                <div ng-if="(show&&vm.select[$index]===4)||(show&&vm.select[$index]===5)">{{vm.editorContent[$index]}}</div>
+                                <div class="col-sm-10" ng-if="(show&&vm.select[$index]===4)||(show&&vm.select[$index]===5)">{{vm.editorContent[$index]}}</div>
                                 <div class="col-sm-10" ng-if="(!show&&vm.select[$index]===4)||(!show&&vm.select[$index]===5)">
                                     <div create-editoer-instance ng-model="vm.editorContent[$index]" class="rich"  ng-disabled="show"></div>
                                 </div>
@@ -62,7 +62,7 @@
                             <!--预览视频-->
                             <div class="row mission_standard">
                                 <div class="col-sm-10 col-sm-offset-1"  ng-show="vm.select[$index]===3">
-                                    <input type="url" ng-model="vm.videoUrl[$index]" style="width: 100%" ng-disabled="show">
+                                    <input type="url" ng-model="vm.videoUrl[$index]" style="width: 100%" ng-disabled="show" class="form-control">
                                     预览视频:<a ng-href="{{vm.videoUrl[$index]}}">{{vm.videoUrl[$index]}}</a>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="row">
                         <label class="col-sm-1 control-label">提示内容</label>
-                        <textarea class="col-sm-11" style="max-width: 91.66%;" ng-model="vm.promptInformation" ng-disabled="vm.tips===0||vm.tips===undefined||show"></textarea>
+                        <textarea class="col-sm-10 form-control-fixed form-control" style="max-width: 91.66%;" ng-model="vm.promptInformation" ng-disabled="vm.tips===0||vm.tips===undefined||show"></textarea>
                     </div>
                 </div>
                 <div class="row mission_standard">

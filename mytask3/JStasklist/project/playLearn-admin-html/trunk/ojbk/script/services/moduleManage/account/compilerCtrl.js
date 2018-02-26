@@ -5,6 +5,8 @@ angular.module('app')
             vm.$stateParams = $state.params;
             vm.params = {
                 id: vm.$stateParams.id,
+                name: vm.$stateParams.name,
+                pwd: vm.$stateParams.pwd,
             };
             Course_service.resUser(vm.$stateParams.id)
                 .then(function (res) {
@@ -15,12 +17,7 @@ angular.module('app')
                     alert('请求失败');
                 });
             vm.send=function () {
-                Course_service.editUser({
-                    id: vm.params.id,
-                    name: vm.params.name,
-                    pwd: vm.params.pwd,
-                    status:vm.params.status
-                })
+                Course_service.editUser(vm.$stateParams.id,vm.params)
                     .then(function (res) {
                         if (res.data.code == 0) {
                             $state.go('backStage.account', {page: 1, size: 10});

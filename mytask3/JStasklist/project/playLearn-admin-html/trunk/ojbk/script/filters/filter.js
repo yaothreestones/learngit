@@ -34,6 +34,8 @@ angular.module('app')
     .filter('grade', function () {
         return function (params) {
             switch (params) {
+                    case null:
+                return '全部';
                 case 1:
                     return '一年级';
                 case 2:
@@ -63,9 +65,9 @@ angular.module('app')
         return function (params) {
             switch (params) {
                 case 1:
-                    return 'banner资讯';
+                    return '定时发送';
                 case 2:
-                    return 'card资讯';
+                    return '即使发送';
             }
         }
     })

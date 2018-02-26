@@ -3,48 +3,50 @@
         <span class="user_management">I 模块管理</span>
         <span class="pull-right pointer" ui-sref="backStage.moduleManage.increased">新增+</span>
     </div>
-            <div class="panel-body">
-                <form class="form-horizontal">
-                    <table class="table table-bordered">
-                        <thead>
-                        <th>自增长ID</th>
-                        <th>名称</th>
-                        <th>模块对应url地址</th>
-                        <th>父模块ID</th>
-                        <th>模块类型</th>
-                        <th>数据更新时间</th>
-                        <th>更新人ID</th>
-                        <th>数据创建时间</th>
-                        <th>创建人ID</th>
-                        <th>操作</th>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="self in vm.ajax">
-                            <td>{{self.id}}</td>
-                            <td>{{self.name}}</td>
-                            <td>{{self.url}}</td>
-                            <td>{{self.parentID}}</td>
-                            <td>{{self.type}}</td>
-                            <td>{{self.updateAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                            <td>{{self.updateBy}}</td>
-                            <td>{{self.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                            <td>{{self.createBy}}</td>
-                            <td>
-                                <button class="btn btn-warning btn-xs" ui-sref="backStage.moduleManage.moduleManage({id:self.id})">编辑</button>
-                                <button class="btn btn-danger btn-xs" ng-click="vm.delete(self.id)">删除</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </form>
-                <div class="row">
-                    <div class="its col-xs-11 pull-right">
-                        <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="5"
-                                        items-per-page="vm.size"
-                                        first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
-                                        boundary-links="true" boundary-link-numbers="true"
-                                        ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
-                    </div>
-                </div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <table class="table table-bordered">
+                <thead>
+                <th>自增长ID</th>
+                <th>名称</th>
+                <th>模块对应url地址</th>
+                <th>父模块ID</th>
+                <th>模块类型</th>
+                <th>数据更新时间</th>
+                <th>更新人ID</th>
+                <th>数据创建时间</th>
+                <th>创建人ID</th>
+                <th>操作</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="self in vm.ajax">
+                    <td>{{self.id}}</td>
+                    <td>{{self.name}}</td>
+                    <td>{{self.menuID}}</td>
+                    <td>{{self.parentID}}</td>
+                    <td>{{self.type}}</td>
+                    <td>{{self.updateAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td>{{self.updateBy}}</td>
+                    <td>{{self.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td>{{self.createBy}}</td>
+                    <td>
+                        <button class="btn btn-warning btn-xs"
+                                ui-sref="backStage.moduleManage.moduleManage({id:self.id})">编辑
+                        </button>
+                        <button class="btn btn-danger btn-xs" ng-click="vm.delete(self.id)">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="row">
+            <div class="its col-xs-11 pull-right">
+                <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="5"
+                                items-per-page="vm.size"
+                                first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页"
+                                boundary-links="true" boundary-link-numbers="true"
+                                ng-click="vm.pageGo(vm.currentPage)"></uib-pagination>
+            </div>
+        </div>
     </div>
 </div>

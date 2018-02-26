@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label class="col-sm-1 control-label teach_manage_top-form " for="ds_name">课程名称</label>
-                        <input id="ds_name" type="text" class="col-sm-11 teach_manage_top-form top-form-nomargin" ng-disabled="vm.show" ng-model="vm.course_name">
+                        <input id="ds_name" type="text" class="col-sm-10 teach_manage_top-form top-form-nomargin form-control form-control-fixed" ng-disabled="vm.show" ng-model="vm.course_name">
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 control-label teach_manage_top-form">年级划分</label>
@@ -69,24 +69,22 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">课程简介</label>
-                        <div class="col-sm-11 teach_manage_top-form top-form-nomargin">
-                            <div class="col-sm-10" ng-show="vm.show">{{vm.intro}}</div>
-                            <textarea class="col-sm-10" style="min-width:100%" ng-disabled="vm.show" ng-model="vm.intro" ng-hide="vm.show"></textarea>
-                        </div>
+                            <div class="col-sm-10 teach_manage_top-form top-form-nomargin form-control form-control-fixed" ng-show="vm.show">{{vm.intro}}</div>
+                            <textarea class="col-sm-10 teach_manage_top-form top-form-nomargin  form-control form-control-fixed" style="min-width:83.333%;max-width: 83.333%" ng-disabled="vm.show" ng-model="vm.intro" ng-hide="vm.show"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">相关课程</label>
-                        <div class="col-sm-11 teach_manage_top-form top-form-nomargin">
-                            <div class="col-sm-2">1号栏位(上)</div>
-                            <div class="col-sm-10">
-                                <div class="col-sm-4">
+                        <div class="col-sm-10 teach_manage_top-form top-form-nomargin no-padding-both">
+                            <div class="col-sm-2 course_manage_fixed ">1号栏位(上)</div>
+                            <div class="col-sm-10 no-padding-both">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="subject.id as subject.name for subject in vm.lists" ng-model="vm.subject1" ng-change="vm.course_No1()"></select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="grade.id as grade.name for grade in vm.Grade" ng-model="vm.grade1" ng-change="vm.course_No1()">
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="course.id as course.name for course in vm.course_lists1" ng-model="vm.course1">
                                     </select>
                                 </div>
@@ -94,18 +92,18 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-11 col-sm-offset-1 teach_manage_top-form top-form-nomargin">
-                            <div class="col-sm-2">2号栏位(中)</div>
-                            <div class="col-sm-10">
-                                <div class="col-sm-4">
+                        <div class="col-sm-10 col-sm-offset-1 teach_manage_top-form top-form-nomargin no-padding-both">
+                            <div class="col-sm-2 course_manage_fixed">2号栏位(中)</div>
+                            <div class="col-sm-10 no-padding-both">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show"  ng-options="subject.id as subject.name for subject in vm.lists" ng-model="vm.subject2" ng-change="vm.course_No2()">
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="grade.id as grade.name for grade in vm.Grade" ng-model="vm.grade2" ng-change="vm.course_No2()">
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="course.id as course.name for course in vm.course_lists2" ng-model="vm.course2">
                                     </select>
                                 </div>
@@ -113,18 +111,18 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-11 col-sm-offset-1 teach_manage_top-form top-form-nomargin">
-                            <div class="col-sm-2">3号栏位(下)</div>
-                            <div class="col-sm-10">
-                                <div class="col-sm-4">
+                        <div class="col-sm-10 col-sm-offset-1 teach_manage_top-form top-form-nomargin no-padding-both">
+                            <div class="col-sm-2 course_manage_fixed">3号栏位(下)</div>
+                            <div class="col-sm-10 no-padding-both">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="subject.id as subject.name for subject in vm.lists" ng-model="vm.subject3" ng-change="vm.course_No3()">
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show" ng-options="grade.id as grade.name for grade in vm.Grade" ng-model="vm.grade3" ng-change="vm.course_No3()">
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4 no-padding-right">
                                     <select class="form-control" ng-disabled="vm.show"  ng-options="course.id as course.name for course in vm.course_lists3" ng-model="vm.course3">
                                     </select>
                                 </div>
@@ -133,7 +131,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 control-label teach_manage_top-form" for="ds_name">合作机构</label>
-                        <select class=" col-sm-11 top-form-nomargin teach_manage_top-form" ng-disabled="vm.show" ng-options="company.id as company.name for company in vm.companies" ng-model="vm.company">
+                        <select class="form-control col-sm-10 top-form-nomargin teach_manage_top-form form-control-fixed" ng-disabled="vm.show" ng-options="company.id as company.name for company in vm.companies" ng-model="vm.company">
                             <option value="" selected>无</option>
                         </select>
                     </div>

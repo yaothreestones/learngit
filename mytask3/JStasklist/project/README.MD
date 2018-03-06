@@ -5,5 +5,6 @@
 <p>相对应的，后台教学管理和同步预习管理模块为本人所写,接口为后端小伙伴所写，restful风格</p>
 <p>不保证本项目接口一直可用，近期可能关闭</P>
 <img src='项目流程图.png'>
+  <img src='qiantaidongtu.gif'>
 <img src='后台首页.png'>
   <img src='dongtu.gif'>

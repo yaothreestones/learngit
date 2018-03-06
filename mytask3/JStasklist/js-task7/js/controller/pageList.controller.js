@@ -15,14 +15,14 @@ angular.module('myApp').controller('formList',function ($scope,$http,$state) {
     //删除
     $scope.delete = function (x) {
 
-        $state.go('houtai.js6-2',{},{reload:true});
+
         $http({
             method:'delete',
-            url:'/carrots-admin-ajax/a/u/article/'+x.id
+            url:'/carrots-admin-ajax/a/u/article/'+x.id,
         }).then(function successCallback(data) {
             console.log(data);
             if(data.data.code===0){
-                alert('删除成功')
+                $state.go('houtai.js6-2',{},{reload:true});
             }
         })
     };
@@ -44,7 +44,6 @@ angular.module('myApp').controller('formList',function ($scope,$http,$state) {
         }).then(function successCallback(data) {
             console.log(data);
             if(data.data.code===0){
-                alert('操作成功')
             }
         })
     }

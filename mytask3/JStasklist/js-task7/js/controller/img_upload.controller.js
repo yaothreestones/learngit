@@ -1,37 +1,43 @@
 //最后一个页面
-angular.module('myApp').controller('AppController', function($scope, FileUploader,$http,$state,$stateParams,lists3,lists4) {
+angular.module('myApp').controller('AppController', function($scope,$http,$state,$stateParams,lists3,lists4) {
     //上传图片
     $scope.newArticle = '新增Article';
-    FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
-        return true;
-    };
-    var uploader = $scope.uploader = new FileUploader({
-        url: '/carrots-admin-ajax/a/u/img/task'
-    });
-    uploader.filters.push({
-        name: 'syncFilter',
-        fn: function(item, options) {
-            console.log('syncFilter');
-            return this.queue.length < 10;
-        }
-    });
-    uploader.filters.push({
-        name: 'asyncFilter',
-        fn: function(item, options, deferred) {
-            console.log('asyncFilter');
-            setTimeout(deferred.resolve, 1e3);
-        }
-    });
+    $scope.ajaxAds = '/carrots-admin-ajax/a/u/img/task';
+    // FileUploader.FileSelect.prototype.isEmptyAfterSelection = function () {
+    //     return true;
+    // };
+    // $scope.uploader = new FileUploader({
+    //     url: '/carrots-admin-ajax/a/u/img/task'
+    // });
+    // $scope.uploader2 = new FileUploader({
+    //     url: '/carrots-admin-ajax/a/u/img/task'
+    // });
 
-    uploader.onCompleteItem = function(fileItem, response) {
-        $scope.m = response.data.url;
-    };
-    uploader.onCompleteAll = function() {
-    };
-
-    $scope.img_del = function () {
-        $scope.m = null
-    };
+    // $scope.uploader2.filters.push({
+    //     name: 'syncFilter',
+    //     fn: function(item, options) {
+    //         console.log('syncFilter');
+    //         return this.queue.length < 10;
+    //     }
+    // });
+    // $scope.uploader2.filters.push({
+    //     name: 'asyncFilter',
+    //     fn: function(item, options, deferred) {
+    //         console.log('asyncFilter');
+    //         setTimeout(deferred.resolve, 1e3);
+    //     }
+    // });
+    //
+    // $scope.uploader2.onCompleteItem = function(fileItem, response) {
+    //     $scope.m = response.data.url;
+    //     console.log($scope.m)
+    // };
+    // $scope.uploader2.onCompleteAll = function() {
+    // };
+    //
+    // $scope.img_del = function () {
+    //     $scope.m = null
+    // };
     //2个下拉菜单
     $scope.sites = lists3;
     //设定默认值
@@ -47,7 +53,8 @@ angular.module('myApp').controller('AppController', function($scope, FileUploade
 
     $scope.submit = function (x) {
         //获取编辑器内容,官方给定的API
-        $scope.http = $scope.editor.$txt.html();
+        $scope.http = $scope.editor.$txt.text();
+        console.log($scope.http);
         //递交新增的article
         $http({
             method:'post',
@@ -89,7 +96,7 @@ angular.module('myApp').controller('AppController', function($scope, FileUploade
         console.log(n);
         $scope.title = n.title;
         $scope.select = $scope.sites[n.type + 1];
-        $scope.editor.$txt.append(n.content);
+        $scope.editor.$txt.html(n.content);
         $scope.m = n.img;
         $scope.link = n.url;
         $scope.reg = /^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+/;
@@ -101,7 +108,8 @@ angular.module('myApp').controller('AppController', function($scope, FileUploade
         }
         $scope.selected = $scope.sites2[n.industry + 1];
         $scope.submit = function (x) {
-            $scope.http = $scope.editor.$txt.html();
+            $scope.http = $scope.editor.$txt.text();
+            console.log($scope.html);
             if($scope.select.id !==3){
                 $scope.selected = {};
             }

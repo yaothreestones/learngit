@@ -1,5 +1,5 @@
-angular.module('myApp')
-    .config(function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
+angular.module("myApp")
+    .config(function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider,$locationProvider) {
         var _lazyLoad = function (loaded) {
             return function ($ocLazyLoad) {
                 return $ocLazyLoad.load(loaded)
@@ -10,7 +10,7 @@ angular.module('myApp')
             events:true
         });
     $urlRouterProvider.otherwise("/login");
-
+    $locationProvider.hashPrefix("");
     $stateProvider
         .state("login",{
             url:"/login",
@@ -43,7 +43,7 @@ angular.module('myApp')
             resolve: {
                 loadMyFile: _lazyLoad([
                     'js/controller/pageList.controller.js',
-                    'js/directive/pagelist.js',
+                    'js/directive/pagelist.js'
 
                 ])
             }
@@ -59,6 +59,7 @@ angular.module('myApp')
                     'wangEditor-2/dist/js/wangEditor.min.js',
                     'js/controller/img_upload.controller.js',
                     'wangEditor-2/dist/css/wangEditor.min.css',
+                    'js/directive/fileUploadForMissionManage.html'
 
         ])
             }

@@ -22,7 +22,7 @@ const list = [{
         "title": "用less重构 pc企业响应式官网",
         "name": "try/danmu",
         "completed": true,
-        "isLink": false,
+        "isLink": true,
         "github": "http://118.31.21.185/CSStasklist/task15/task15-1.html"
     },{
         "title": "Bootstrap 表单页",

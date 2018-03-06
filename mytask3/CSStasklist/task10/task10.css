@@ -82,14 +82,15 @@ header {
 .circle {
     width: 20px;
     height: 20px;
-    border-radius: 50%;
+    border-radius: 100px;
     background: #cccccc;
     position: absolute;
     right: 40%;
-    top: -6px;
     display: flex;
     justify-content: center;
     color: #FFFFFF;
+    transform: translate(0,-50%);
+    top: 50%;
 }
 .orthogon:hover {
     background: #ff7f02;
@@ -117,7 +118,7 @@ header {
     background: #fbfcff;
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 30px;
 }
 .bg-col3 {
@@ -174,7 +175,8 @@ form {
     margin: 0 auto;
     clear: both;
     padding: 13px 0;
-    border:1px solid #e7e7e7;
+    border-top:1px solid #e7e7e7;
+    border-bottom:1px solid #e7e7e7;
 }
 .link-list2 {
     width: 62.5%;
@@ -182,8 +184,6 @@ form {
     clear: both;
     padding: 15px 0;
     position: relative;
-    border-left: 1px solid #e7e7e7;
-    border-right: 1px solid #e7e7e7;
 }
 .link-list3 {
     width: 62.5%;
@@ -209,7 +209,6 @@ form {
 .select-list1 {
     position: absolute;
     right: 10px;
-    margin-top: -5px;
     font-size:14px !important;
 }
 .select-size {
@@ -262,48 +261,54 @@ a:hover {
 }
 .radiobox {
     position: relative;
+    display: inline-block;
 }
 .radiobox:before {
     content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border: 1px solid #1277dc;
-    border-radius: 50%;
+    border-radius: 100px;
     background: transparent;
     position: absolute;
-    top: 5px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
 }
 input[type=radio]:checked:before {
     content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #ffffff;
     position: absolute;
-    left: 1px;
-    border:4px solid #1277dc !important;
-    top: 6px;
+    left: 50%;
+    border: 6px solid #1277dc !important;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 input[type=radio] {
     height:0;
+    width: 20.8px;
+    margin: 3px 3px;
 }
 div.select-list div {
     background: url("下拉菜单.png") no-repeat;
     width: 24px;
-    height: 28px;
+    height: 30px;
     position: absolute;
     right: 2px;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 div.select-list1 div {
     background: url("下拉菜单.png") no-repeat;
     width: 24px;
-    height: 28px;
+    height: 30px;
     position: absolute;
     right: 2px;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .footer-right span {
     height: 1rem;
@@ -318,7 +323,7 @@ div.select-list1 div {
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     .top-blue {
         width:100%;
     }
@@ -384,25 +389,22 @@ div.select-list1 div {
     .radiobox:before {
         content: "";
         display: inline-block;
-        width: 8px;
-        height: 8px;
         border: 1px solid #1277dc;
         border-radius: 50%;
         background: transparent;
         position: absolute;
-        top: 5px;
     }
     input[type=radio]:checked:before {
         content: "";
-        display: inline-block;
-        width: 4px;
-        height: 4px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         background: #ffffff;
         position: absolute;
-        left: 1px;
-        border: 2px solid #1277dc !important;
-        top: 6px;
+        left: 50%;
+        border: 6px solid #1277dc !important;
+        top: 50%;
+        transform: translate(-50%,-50%);
     }
     div.select-list1 div {
         background: url("下拉菜单.png") no-repeat;
@@ -437,7 +439,10 @@ div.select-list1 div {
         padding: 0;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1799px){
+@media screen and (min-width: 1024px){
+    .type {
+        display: flex;
+    }
     .top-blue {
         width:80%;
     }
@@ -470,10 +475,5 @@ div.select-list1 div {
     }
     .text {
         width: 35px;
-    }
-}
-@media screen and (min-width: 1800px) {
-    .type {
-        display: flex;
     }
 }

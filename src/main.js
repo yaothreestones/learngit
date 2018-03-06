@@ -11,91 +11,58 @@ const list = [{
         "name": "try/mobile",
         "completed": true,
         "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/css4/index.html  "
+        "github": "http://118.31.21.185/CSStasklist/task4/task4.html"
     }, {
         "title": "mobile桌游精灵练习页面",
         "name": "baiduIfe/BootstrapTable",
         "completed": true,
         "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/ghost-demo/index.html"
+        "github": "http://118.31.21.185/CSStasklist/task7/task7.html"
     },{
-        "title": "用SASS重构 pc企业响应式官网",
+        "title": "用less重构 pc企业响应式官网",
         "name": "try/danmu",
         "completed": true,
         "isLink": false,
-        "github": "https://wmn1525.github.io/web-project-learn/css14-15/15-1.html "
+        "github": "http://118.31.21.185/CSStasklist/task15/task15-1.html"
     },{
         "title": "Bootstrap 表单页",
         "name": "try/slideValidation",
         "completed": true,
         "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/css10/index.html"
-    },{
-        "title": "js小游戏狼人杀原生js加jq",
-        "name": "try/cale",
-        "completed": true,
-        "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/js234/peibi.html"
+        "github": "http://118.31.21.185/CSStasklist/task10/task10.html"
     }]
 }, {
     "title": "文章",
     "tasks": [{
-        "title": "z-index和叠加上下文是如何形成",
+        "title": "如何理解ANGULAR的脏检查？",
         "name": "article",
         "completed": true,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/d50d1cccbf70"
+        "github": "https://www.jianshu.com/p/2c42b7786835"
     }, {
-        "title": "在浏览器地址栏输入URL，按下回车后究竟发生了什么？",
+        "title": "POST提交的数据有哪几种编码格式?",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/f63892ed3830"
+        "github": "https://www.jianshu.com/p/9172ada504fe"
     },{
-        "title": "精心收集的 48 个 JavaScript 代码片段，仅需 30 秒就可理解",
+        "title": "ANGULAR的核心思想是什么？怎么体现在代码里？",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/10b7b57e1338"
+        "github": "https://www.jianshu.com/p/ab7c827ceef6"
     },{
-        "title": "如何使用NPM？CNPM又是什么？",
+        "title": "如何理解ANGULAR自定义指令DIRECTIVE的SCOPE属性？",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/f18ac085c69f"
+        "github": "https://www.jianshu.com/p/7b9c774fc944"
     },{
-        "title": "流浏览器内核有哪几种？",
+        "title": "JS中的this指向？",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/7ddd1d2f6022"
-    },{
-        "title": "跨域解决方案之NGINX",
-        "name": "article",
-        "completed": false,
-        "isLink": true,
-        "github": "https://www.jianshu.com/p/eabf9e82a771"
-    },{
-        "title": "流浏览器内核有哪几种？",
-        "name": "article",
-        "completed": false,
-        "isLink": true,
-        "github": "https://www.jianshu.com/p/7ddd1d2f6022"
-    }]
-}, {
-    "title": "前端项目GitHub地址",
-    "tasks": [{
-        "title": "萝卜多社群招聘网站",
-        "name": "baiduIfe/musicPlay",
-        "completed": true,
-        "isLink": true,
-        "github": "https://github.com/wmn1525/lbd-admin"
-    }, {
-        "title": "学渣乐园后台管理系统",
-        "name": "baiduIfe/Carousel",
-        "completed": true,
-        "isLink": true,
-        "github": "https://github.com/wmn1525/qxdzz-admin"
+        "github": "https://www.jianshu.com/p/ba3681e3dc68"
     }]
 }]
 

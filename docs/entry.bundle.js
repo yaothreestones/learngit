@@ -259,91 +259,58 @@ const list = [{
         "name": "try/mobile",
         "completed": true,
         "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/css4/index.html  "
+        "github": "http://118.31.21.185/CSStasklist/task4/task4.html"
     }, {
         "title": "mobile桌游精灵练习页面",
         "name": "baiduIfe/BootstrapTable",
         "completed": true,
         "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/ghost-demo/index.html"
+        "github": "http://118.31.21.185/CSStasklist/task7/task7.html"
     }, {
-        "title": "用SASS重构 pc企业响应式官网",
+        "title": "用less重构 pc企业响应式官网",
         "name": "try/danmu",
         "completed": true,
         "isLink": false,
-        "github": "https://wmn1525.github.io/web-project-learn/css14-15/15-1.html "
+        "github": "http://118.31.21.185/CSStasklist/task15/task15-1.html"
     }, {
         "title": "Bootstrap 表单页",
         "name": "try/slideValidation",
         "completed": true,
         "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/css10/index.html"
-    }, {
-        "title": "js小游戏狼人杀原生js加jq",
-        "name": "try/cale",
-        "completed": true,
-        "isLink": true,
-        "github": "https://wmn1525.github.io/web-project-learn/js234/peibi.html"
+        "github": "http://118.31.21.185/CSStasklist/task10/task10.html"
     }]
 }, {
     "title": "文章",
     "tasks": [{
-        "title": "z-index和叠加上下文是如何形成",
+        "title": "如何理解ANGULAR的脏检查？",
         "name": "article",
         "completed": true,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/d50d1cccbf70"
+        "github": "https://www.jianshu.com/p/2c42b7786835"
     }, {
-        "title": "在浏览器地址栏输入URL，按下回车后究竟发生了什么？",
+        "title": "POST提交的数据有哪几种编码格式?",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/f63892ed3830"
+        "github": "https://www.jianshu.com/p/9172ada504fe"
     }, {
-        "title": "精心收集的 48 个 JavaScript 代码片段，仅需 30 秒就可理解",
+        "title": "ANGULAR的核心思想是什么？怎么体现在代码里？",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/10b7b57e1338"
+        "github": "https://www.jianshu.com/p/ab7c827ceef6"
     }, {
-        "title": "如何使用NPM？CNPM又是什么？",
+        "title": "如何理解ANGULAR自定义指令DIRECTIVE的SCOPE属性？",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/f18ac085c69f"
+        "github": "https://www.jianshu.com/p/7b9c774fc944"
     }, {
-        "title": "流浏览器内核有哪几种？",
+        "title": "JS中的this指向？",
         "name": "article",
         "completed": false,
         "isLink": true,
-        "github": "https://www.jianshu.com/p/7ddd1d2f6022"
-    }, {
-        "title": "跨域解决方案之NGINX",
-        "name": "article",
-        "completed": false,
-        "isLink": true,
-        "github": "https://www.jianshu.com/p/eabf9e82a771"
-    }, {
-        "title": "流浏览器内核有哪几种？",
-        "name": "article",
-        "completed": false,
-        "isLink": true,
-        "github": "https://www.jianshu.com/p/7ddd1d2f6022"
-    }]
-}, {
-    "title": "前端项目GitHub地址",
-    "tasks": [{
-        "title": "萝卜多社群招聘网站",
-        "name": "baiduIfe/musicPlay",
-        "completed": true,
-        "isLink": true,
-        "github": "https://github.com/wmn1525/lbd-admin"
-    }, {
-        "title": "学渣乐园后台管理系统",
-        "name": "baiduIfe/Carousel",
-        "completed": true,
-        "isLink": true,
-        "github": "https://github.com/wmn1525/qxdzz-admin"
+        "github": "https://www.jianshu.com/p/ba3681e3dc68"
     }]
 }];
 
@@ -626,7 +593,7 @@ module.exports = function (css) {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<section class=\"index-container\">\n    <!--<p class=\"index-title\">留白</p>\n    <p class=\"index-detail\">还没想好放什么</p>\n    <p class=\"index-detail\" >左边是我的简历、github、还有做的一点实践</p>-->\n    <p class=\"welcome-text\">Welcome</p>\n    <p class=\"look-around\">若有工作邀请可以给我发邮件、打电话，谢谢</p>\n    <div class=\"welcome-meta\"><span>左边是我的简历、github、还有做的一点实践</span></div>\n    <h1 class=\"inline-title\">DEMO</h1>\n    <div class=\"block-wrap\">\n        <a href=\"#/resume\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(9) + "\">\n            <p>简历</p>\n        </a>\n        <a href=\"https://kelrvins.github.io/kelrvin/#/try/mobile\" class=\"block-item\" target=\"_blank\">\n            <img src=\"" + __webpack_require__(10) + "\">\n            <p>移动端图片展示</p>\n        </a>\n        <a href=\"#/baiduIfe/musicPlay\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(11) + "\">\n            <p>音乐播放器</p>\n        </a>\n        <a href=\"#/try/danmu\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(12) + "\">\n            <p>弹幕</p>\n        </a>\n        <a href=\"#/try/slideValidation\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(13) + "\">\n            <p>滑动验证</p>\n        </a>\n        <a href=\"https://kelrvins.github.io/otherDemo/tables.html\" class=\"block-item\" target=\"_blank\">\n            <img src=\"" + __webpack_require__(14) + "\">\n            <p>基于BS table的图表</p>\n        </a>\n        <a href=\"#/baiduIfe/moveBlock\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(15) + "\">\n            <p>可移动的小方块</p>\n        </a>\n        <a href=\"#/baiduIfe/searchInsert\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(16) + "\">\n            <p>搜索-插入-多叉树</p>\n        </a>\n        <a href=\"#/baiduIfe/searchInsert\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(17) + "\">\n            <p>排序-插入-多叉树</p>\n        </a>\n        <a href=\"#/baiduIfe/hoverEffect\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(18) + "\">\n            <p>鼠标悬浮</p>\n        </a>\n        <a href=\"#/baiduIfe/rightContent\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(19) + "\">\n            <p>右击菜单</p>\n        </a>\n        <a href=\"#/baiduIfe/Carousel\" class=\"block-item\">\n            <img src=\"" + __webpack_require__(20) + "\">\n            <p>轮播</p>\n        </a>\n    </div>\n</section>";
+module.exports = "<section class=\"index-container\">\r\n    <!--<p class=\"index-title\">留白</p>\r\n    <p class=\"index-detail\">还没想好放什么</p>\r\n    <p class=\"index-detail\" >左边是我的简历、github、还有做的一点实践</p>-->\r\n    <p class=\"welcome-text\">Welcome</p>\r\n    <p class=\"look-around\">若有工作邀请可以给我发邮件、打电话，谢谢</p>\r\n    <div class=\"welcome-meta\"><span>左边是我的简历、github、还有做的一点实践</span></div>\r\n    <h1 class=\"inline-title\">DEMO</h1>\r\n    <div class=\"block-wrap\">\r\n        <a href=\"#/resume\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(9) + "\">\r\n            <p>简历</p>\r\n        </a>\r\n        <a href=\"https://kelrvins.github.io/kelrvin/#/try/mobile\" class=\"block-item\" target=\"_blank\">\r\n            <img src=\"" + __webpack_require__(10) + "\">\r\n            <p>移动端图片展示</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/musicPlay\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(11) + "\">\r\n            <p>音乐播放器</p>\r\n        </a>\r\n        <a href=\"#/try/danmu\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(12) + "\">\r\n            <p>弹幕</p>\r\n        </a>\r\n        <a href=\"#/try/slideValidation\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(13) + "\">\r\n            <p>滑动验证</p>\r\n        </a>\r\n        <a href=\"https://kelrvins.github.io/otherDemo/tables.html\" class=\"block-item\" target=\"_blank\">\r\n            <img src=\"" + __webpack_require__(14) + "\">\r\n            <p>基于BS table的图表</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/moveBlock\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(15) + "\">\r\n            <p>可移动的小方块</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/searchInsert\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(16) + "\">\r\n            <p>搜索-插入-多叉树</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/searchInsert\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(17) + "\">\r\n            <p>排序-插入-多叉树</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/hoverEffect\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(18) + "\">\r\n            <p>鼠标悬浮</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/rightContent\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(19) + "\">\r\n            <p>右击菜单</p>\r\n        </a>\r\n        <a href=\"#/baiduIfe/Carousel\" class=\"block-item\">\r\n            <img src=\"" + __webpack_require__(20) + "\">\r\n            <p>轮播</p>\r\n        </a>\r\n    </div>\r\n</section>";
 
 /***/ }),
 /* 9 */

@@ -774,7 +774,7 @@ td {
         width: 100%;
     }
 }
-@media screen and (min-width: 1024px) and (max-width: 1399px) {
+@media screen and (min-width: 768px) and (max-width: 1399px) {
     .newbutton {
         display: flex;
         justify-content: flex-end;
@@ -851,7 +851,7 @@ td {
         width: 100%;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (max-width: 768px) {
     .col-sm-1,
     .col-sm-2,
     .col-sm-3,

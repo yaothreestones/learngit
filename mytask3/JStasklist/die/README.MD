@@ -1,2 +1,2 @@
-����ĿΪ�򻯰���Ϸ����ҪΪ����Ϥǰ�˼�������������Ϸ�ԣ��ϵ�ģʽ��
-��ڣ�
+此项目为简化版游戏，主要为了熟悉前端技术，不在于游戏性，上帝模式。
+入口：https://yaothreestones.github.io/mytask3/JStasklist/die/js2.html

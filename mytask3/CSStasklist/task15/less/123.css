@@ -775,31 +775,79 @@ td {
     }
 }
 @media screen and (min-width: 1024px) and (max-width: 1399px) {
-    .col-md-1,
-    .col-md-2,
-    .col-md-3,
-    .col-md-4,
-    .col-md-6 {
+    .newbutton {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .newbutton button {
+        font-size: 16px;
+    }
+    .newbutton .friendly-link {
+        background: #fff;
+        margin-top: 8rem;
+        padding-bottom: 1rem;
+    }
+    .newbutton .friendly-link .row12 {
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 2rem;
+        padding-top: 1rem;
+    }
+    .newbutton .row12 {
+        font-size: 18px;
+        padding-bottom: 2rem;
+        padding-top: 1rem;
+    }
+    .newbutton .link-list {
+        padding-left: 15px;
+        font-size: 14px;
+        line-height: 26px;
+        width: 62.5% !important;
+        margin: 0 auto;
+    }
+    .newbutton .footer {
+        width: 62.5%;
+        margin: auto;
+        padding-left: 15px;
+    }
+    .newbutton .footer .row-16 {
+        padding-top: 1rem;
+    }
+    .newbutton .footer .weixin-text {
+        text-align: center;
+    }
+    .newbutton .footer .weixin-img {
+        text-align: center;
+    }
+    .newbutton .footer .JNS {
+        font-size: 16px;
+        color: #fafafa !important;
+        padding: 2em 0 2rem 0;
+    }
+    .newbutton .col-lg-2,
+    .newbutton .col-lg-3,
+    .newbutton .col-lg-4,
+    .newbutton .col-lg-9 {
         float: left;
         position: relative;
         padding-bottom: 1px;
     }
-    .col-md-1 {
-        width: 8.333%;
+    .newbutton .col-lg-offset-2 {
+        padding-left: 18.75%;
     }
-    .col-md-2 {
-        width: 16.667%;
+    .newbutton .col-lg-2 {
+        width: 20%;
     }
-    .col-md-3 {
+    .newbutton .col-lg-3 {
         width: 25%;
     }
-    .col-md-4 {
-        width: 33.333%;
+    .newbutton .col-lg-4 {
+        width: 33.33%;
     }
-    .col-md-6 {
-        width: 50%;
+    .newbutton .col-lg-9 {
+        width: 75%;
     }
-    .col-md-12 {
+    .newbutton .col-lg-12 {
         width: 100%;
     }
 }

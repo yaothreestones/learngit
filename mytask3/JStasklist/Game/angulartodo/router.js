@@ -9,7 +9,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', '$location
         }
         $locationProvider.hashPrefix('');
         $urlRouterProvider.otherwise("/home");
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(false);
 
         $stateProvider
             .state('home', {

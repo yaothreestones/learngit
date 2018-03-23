@@ -1,0 +1,32 @@
+<div>
+    <h1>todos</h1>
+    <div class='box'>
+        <div>
+            <div ng-click="vm.sloge()">
+                <div style="display:inline-block" ng-class={translate:vm.translate,translated:!vm.translate}>^</div>
+                <div class="nav" ng-class={dosome:vm.translate}>应该做点什么呢?</div>
+            </div>
+            <div>
+                <div ng-repeat="item in vm.items" ng-if="vm.if[$index]&&vm.else[$index]" ng-class={hide:vm.hide,show:!vm.hide} style="display: flex;
+                align-items: center;">
+                    <input type="checkbox" ng-model="vm.checkbox[$index]" ng-change="vm.changeStatus(vm.checkbox[$index])" ng-class={hide:vm.hide,show:!vm.hide}>
+                    <span ng-if='vm.checkbox[$index] == false' ng-class={hide:vm.hide,show:!vm.hide}>{{item.name}}</span>
+                    <span ng-if='vm.checkbox[$index] == true' ng-class={hide:vm.hide,show:!vm.hide}>
+                        <strike>{{item.name}}</strike>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class='bottom'>
+                <div>{{vm.num}}个没做</div>
+                <button ng-click='vm.all()' style="margin-left:1rem">所有</button>
+                <button ng-click='vm.unfinish()'>未完成</button>
+                <button ng-click='vm.finished()'>已完成</button>
+            </div>
+            <input type="text" ng-keypress="vm.keypress($event)" ng-model=vm.model placeholder="输入你要做的事情" style="width: 80%;
+            display: block;
+            margin: 0 auto;">
+        </div>
+    </div>
+</div>

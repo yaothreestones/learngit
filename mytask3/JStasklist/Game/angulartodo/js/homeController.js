@@ -18,12 +18,12 @@ angular.module('app').controller('homeController', function () {
         vm.if.push(true);
         vm.else.push(true);
         vm.num++
-            console.log(vm.checkbox)
+            
         count++;
         vm.model = ''
     };
     vm.changeStatus = function (x) {
-        console.log(x)
+      
         if (x === true) {
             vm.num--
         } else {
@@ -34,7 +34,7 @@ angular.module('app').controller('homeController', function () {
         angular.forEach(vm.if, function (data, index, array) {
             array[index] = vm.else[index] = true
         })
-        console.log(vm.if)
+       
     }
     vm.unfinish = function () {
         angular.forEach(vm.checkbox, function (data, index, array) {
@@ -44,7 +44,7 @@ angular.module('app').controller('homeController', function () {
                 vm.else[index] = vm.if[index] = true
             }
         })
-        console.log(vm.if)
+        
     }
     vm.finished = function () {
         angular.forEach(vm.checkbox, function (data, index, array) {
@@ -54,7 +54,7 @@ angular.module('app').controller('homeController', function () {
                 vm.else[index] = vm.if[index] = false
             }
         })
-        console.log(vm.else)
+        
     }
     vm.sloge = function () {
         vm.translate = !vm.translate
